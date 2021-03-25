@@ -1,0 +1,100 @@
+%% For normal draft builds (figs undisplayed hence fast compile)
+%\documentclass[hyperpdf,nobind,draft,oneside]{hepthesis}
+%\documentclass[hyperpdf,nobind,draft,twoside]{hepthesis}
+
+%% For short draft builds (breaks citations by necessity)
+%\documentclass[hyperpdf,nobind,draft,hidefrontback]{hepthesis}
+
+%% For Cambridge soft-bound version
+\documentclass[hyperpdf,bindnopdf,alphafoot]{hepthesis}
+%% For Cambridge hard-bound version (must be one-sided)
+%\documentclass[hyperpdf,oneside]{hepthesis}
+
+%% Load special font packages here if you wish
+%\usepackage{lmodern}
+%\usepackage{euler}
+
+%% Put package includes etc. into preamble.tex for convenience
+\input{preamble}
+
+\setlength{\textfloatsep}{5pt}
+
+%% You can set the line spacing this way
+%\setallspacing{double}
+% single, onehalf, double
+%\setfrontmatterspacing{double}
+%\setbackmatterspacing{double}
+%\setmainmatterspacing{double}
+%\setappendixspacing{double}
+
+%% Margins
+%\setextramargins
+%%\setfrontmatterextramargins
+%%\setmainmatterextramargins
+%%\setappendixextramargins
+%%\setbackmatterextramargins
+%%\setabstractextramargins
+%%\setdeclarationextramargins
+%%\setacknowledgementsextramargins
+%%\setprefaceextramargins
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{10pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-40pt}{20pt}
+
+%% Define the thesis title and author
+\title{Simulatenous measurement of neutrino mixing parameters in beam and atmospheric oscillations}
+\author{Daniel Robert Clement Barrow}
+
+%% Doc-specific PDF metadata
+\makeatletter
+\hypersetup{
+  pdftitle = {Simulatenous measurement of neutrino mixing parameters in beam and atmospheric oscillations},
+  pdfsubject = {Daniel Barrow, Ph.D. thesis},
+  pdfkeywords = {T2K, SK, atmospheric, beam, neutrino physics, neutrino oscillations},
+  pdfauthor = {\textcopyright\ Daniel Barrow},
+  colorlinks = false,
+  % For printing we might want the border black
+  linkbordercolor = {black},
+  % And the links to 
+  hidelinks
+}
+\makeatother
+
+%% Start the document
+\begin{document}
+
+%% Define the un-numbered front matter (cover pages, rubrik and table of contents)
+\begin{frontmatter}
+  \input{frontmatter}
+\end{frontmatter}
+
+%% Start the content body of the thesis
+\begin{mainmatter}
+  \input{Chap_Introduction}
+  \input{Chap_Theory}
+  \input{Chap_SK}
+  \input{Chap_T2K}
+  \input{Chap_MCMC}
+  \input{Chap_Simulation}
+  %\input{EventSelection}
+  %\input{JointFit}
+  %\input{Validation}
+  %\input{DataFit}
+  %\input{Conclusions}
+\end{mainmatter}
+
+%% Produce the appendices
+\begin{appendices}
+  \input{App_AppendixA}
+\end{appendices}
+
+%% Produce the un-numbered back matter (e.g. colophon,
+%% bibliography, tables of figures etc., index...)
+\begin{backmatter}
+  \input{backmatter}
+\end{backmatter}
+
+%% Close
+\end{document}

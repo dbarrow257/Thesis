@@ -1,0 +1,72 @@
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{morefloats,afterpage}
+\usepackage{mathrsfs} % script font
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{gensymb}
+
+\usepackage{braket}
+
+\usepackage[colorlinks=false,bookmarks=true,plainpages=false]{hyperref}
+
+%% Using Babel allows other languages to be used and mixed-in easily
+%\usepackage[ngerman,english]{babel}
+\usepackage[english]{babel}
+\selectlanguage{english}
+
+\usepackage{epigraph}
+
+%% Citation system tweaks
+\usepackage{cite}
+% \let\@OldCite\cite
+% \renewcommand{\cite}[1]{\mbox{\!\!\!\@OldCite{#1}}}
+
+%% Maths
+\usepackage{abmath}
+\DeclareRobustCommand{\mymath}[1]{\ensuremath{\maybebmsf{#1}}}
+
+\DeclareRobustCommand{\nova}{NOvA\xspace}
+\DeclareRobustCommand{\t2k}{T2K\xspace}
+\DeclareRobustCommand{\sno}{SNO\xspace}
+\DeclareRobustCommand{\sk}{Super-Kamiokande\xspace}
+\DeclareRobustCommand{\nd}{ND280\xspace}
+\newcommand\TODO[1]{{\Huge{\textbf{\red{TODO:\xspace#1}}}}}
+
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+% T2K specific
+\newcommand{\nue}{$\nu_{e}$\xspace}
+\newcommand{\nueb}{$\bar{\nu}_{e}$\xspace}
+\newcommand{\numu}{$\nu_{\mu}$\xspace}
+\newcommand{\numub}{$\bar{\nu}_{\mu}$\xspace}
+\newcommand{\nutau}{$\nu_{\tau}$\xspace}
+\newcommand{\nuebar}{$\bar{\nu}_{e}$\xspace}
+\newcommand{\numubar}{$\bar{\nu}_{\mu}$\xspace}
+
+
+\newcommand\red[1]{{\textit{\Large{\textbf{\color{red}#1}}}}}
+\newcommand\blue[1]{{\textit{\Large{\textbf{\color{blue}#1}}}}}
+
+\newcommand{\FGDCCNoPi}[2]{FGD{#1} CC$0\pi$ {#2}\xspace}
+\newcommand{\FGDCCOnePi}[2]{FGD{#1} CC$1\pi$ {#2}\xspace}
+\newcommand{\FGDCCOther}[2]{FGD{#1} CCOther {#2}\xspace}
+\newcommand{\FGDCCOneTrk}[2]{FGD{#1} CC1Track {#2}\xspace}
+\newcommand{\FGDCCNTrk}[2]{FGD{#1} CCNTrack {#2}\xspace}
+\newcommand{\FGDCCnuOneTrk}[2]{FGD{#1} CC1Trk {#2}\xspace}
+\newcommand{\FGDCCnuNTrk}[2]{FGD{#1} CCNTrk {#2}\xspace}
+\newcommand{\pmu}{$p_\mu$\xspace}
+\newcommand{\cosmu}{$\cos\theta_\mu$\xspace}
+
+%% High-energy physics stuff
+%\usepackage{abhep}
+%\usepackage{hepnames}
+%\usepackage{hepunits}
+\DeclareRobustCommand{\arXivCode}[1]{arXiv:#1}
+
+\let\cleardoublepage=\clearpage
