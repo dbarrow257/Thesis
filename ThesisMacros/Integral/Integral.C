@@ -1,0 +1,54 @@
+void Integral(int nThrows) {
+
+  gStyle->SetOptStat(false);
+  
+  //Curve y=mx+c
+  //      x = (y-c)/m
+  double Gradient = 0.4;
+  double Constant = 1;
+
+  double Perimeter = 10;
+
+  TH2D* RegionUnfilled = new TH2D("RegionUnfilled",";x;y",200,0,Perimeter,200,0,Perimeter);
+  TH2D* RegionFilled = new TH2D("RegionFilled",";x;y",200,0,Perimeter,200,0,Perimeter);
+
+  RegionUnfilled->SetMarkerStyle(8);
+  RegionFilled->SetMarkerStyle(8);
+
+  RegionUnfilled->SetMarkerSize(0.5);
+  RegionFilled->SetMarkerSize(0.5);
+  
+  TRandom3* Rand = new TRandom3(0);
+
+  for (int iThrow=0;iThrow<nThrows;iThrow++) {
+    double x_Throw = Rand->Uniform(Perimeter);
+    double y_Throw = Rand->Uniform(Perimeter);
+
+    double y_CurveAtX = Gradient*x_Throw + Constant;
+    if (y_Throw < y_CurveAtX) {
+      RegionFilled->Fill(x_Throw,y_Throw);
+    } else {
+      RegionUnfilled->Fill(x_Throw,y_Throw);
+    }
+
+  }
+
+  TLine* Line = new TLine(0,Constant,Perimeter,Gradient*Perimeter+Constant);
+  Line->SetLineColor(kBlue);
+  Line->SetLineWidth(2);
+  
+  TCanvas* Canv = new TCanvas("Canv","");
+  RegionUnfilled->Draw();
+
+  RegionFilled->SetMarkerColor(kRed);
+  RegionFilled->Draw("SAME");
+
+  Line->Draw("SAME");
+  
+  Canv->Print("MC.pdf");
+  
+  std::cout << "Area under curve (Ratio): " <<  RegionFilled->GetEntries() << " / " << nThrows << " = " << RegionFilled->GetEntries()/nThrows << std::endl;
+
+  delete RegionUnfilled;
+  delete RegionFilled;
+}
