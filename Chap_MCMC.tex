@@ -20,7 +20,7 @@ It is parameter estimation that is important for this analysis and as such, we a
 
 \begin{equation}
   \label{eq:MarkovChainMonteCarlo_PosteriorDistribution}
-  P(\vec{\theta}|D) = \frac{ P(D|\vec{\theta}) P(\vec{\theta}) }{ P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}.
+  P(\vec{\theta}|D) = \frac{ P(D|\vec{\theta}) P(\vec{\theta}) }{\int P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}.
 \end{equation}
 
 The demoninator in \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} is the integral of the joint probability distribution over all values of all parameters used within the fit. For brevity, we say that the posterior distribution is
@@ -102,7 +102,7 @@ The effect of changing the width of the proposal function is highlighted in \aut
 
 As discussed, step size tuning directly correlates to the number of steps the chain needs to have sufficient coverage of the full parameter space. It also directly ties into the average step acceptance rate. If the step size is too small, many steps will be accepted but the chain moves slowly. If the opposite is true, many steps will be rejected as the chain proposes steps in the tails of the distribution. Discussion in the literature \finish{Some juicy MCMC links} suggest that the `ideal' acceptance rate of a high dimension MCMC chain should be approximately \quickmath{\sim 25\%}. Many efforts have been taken to hand select a set of parameter-by-parameter step sizes to approximately reach the ideal acceptance rate.
 
-\autoref{fig:MCMC_MCTechniqueStepSizeStudy} highlights the likelihood as calculated by the fit in \finish{Link to AsimovA official inputs section, also include in caption of \autoref{fig:MCMC_MCTechniqueStepSizeStudy}} as a function of the number of steps in each chain. In pratice, many independent MCMC chains are run simultaneously to parallelise the task of performing the fit. This figure overlays the distribution found from each chain. As seen, the likleihood decreases from it's initial value and converges towards a stationary distribution after \quickmath{1 \times 10^{5}} steps. As each fit (whether it be different asimov fits or data fit) will have a different set perfered parameter values which results in a different stationary distribution. For each fit in presented in this thesis, a burn-in period of \quickmath{1 \times 10^{5}} steps was found to be sufficient.
+\autoref{fig:MCMC_MCTechniqueStepSizeStudy} highlights the likelihood as calculated by the fit in \finish{Link to AsimovA official inputs section} as a function of the number of steps in each chain. In pratice, many independent MCMC chains are run simultaneously to parallelise the task of performing the fit. This figure overlays the distribution found from each chain. As seen, the likleihood decreases from it's initial value and converges towards a stationary distribution after \quickmath{1 \times 10^{5}} steps. As each fit (whether it be different asimov fits or data fit) will have a different set perfered parameter values which results in a different stationary distribution. For each fit in presented in this thesis, a burn-in period of \quickmath{1 \times 10^{5}} steps was found to be sufficient.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
@@ -112,8 +112,53 @@ As discussed, step size tuning directly correlates to the number of steps the ch
   \label{fig:MCMC_MCTechniqueLLHVsStep}
 \end{figure}
 
-\section{Parameter Estimation}
-\label{sec:MarkovChainMonteCarlo_ParameterEstimation}
+\section{Understanding the MCMC Results}
+\label{sec:MarkovChainMonteCarlo_UnderstandingMCMCResults}
+
+Whilst \autoref{sec:MarkovChainMonteCarlo_BayesianStatistics} and \autoref{sec:MarkovChainMonteCarlo_MonteCarloSimulation} describe how to interpret Bayesian statistics and explains the MCMC techniques used within this analysis, there is no mention of how to intrepret the output of chain. The posterior distribution output from the chain is a high dimension object, with as many dimensions as there are parameters included in the fit. However, we typically aren't too interested in this multi-dimension object as it is difficult to conceptualise and instead opt for one or two dimensional projections of this probability distribution, most commonally the oscillation parameters. To do this, we invoke the marginalisation technique highlighted in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}.
 
 \subsection{Maginalisation}
 \label{sec:MarkovChainMonteCarlo_Marginalisation}
+
+The output of the MCMC chain is a highly dimensional probability distribution which is very difficult to interpret. From the standpoint of an oscillation analysis experiment, the one or two dimensional `projections' of the oscillation parameters of interest are more relevant to analysis conclusions. Despite this, the best fit values and uncertainties on the oscillation parameters of interest should correctly encapsulate the correlations to the other systematic uncertainties (colloquially called `nuisance' parameters). For this joint beam and atmospheric analysis, the oscillation parameters of interest are \sinsqatm, \sinsqreac, \delmsqatm and \dcp. All other parameters (Including the oscillation parameter this fit is insensitive to) are deemed nuisance parameters. To generate these projections, we rely upon integrating the posterior distribution over all nuiance parameters. A simple example of this technique is to imagine the scenario where two coins are flipped. To determine the probability that the first coin returned a `head', the exact result of the second coin flip is disregared and simply integrated over. For the parameters of interest, \quickmath{\vec{\theta}_{i}}, we can calculate the marginalised posterior by integrating over the nuisance parameters, \quickmath{\vec{\theta}_{n}}. In this case, \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} becomes
+
+\begin{equation}
+P(\vec{\theta}_{i}|D) = \frac{\int P(D|\vec{\theta}_{i},\vec{\theta}_{n}) P(\vec{\theta}_{i},\vec{\theta}_{n}) d\vec{\theta}_{n}}{\int P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}
+\end{equation}
+
+Where \quickmath{P(\vec{\theta}_{i},\vec{\theta}_{n})} encodes the prior knowledge about the uncertainty and correlations between the parameters of interest and the nuisance parameters. In practice, this is simply taking the one or two dimesional projection of the multi-dimensional probability distribution.
+
+Whilst in principle an easy solution to a complex problem, correlations between the interesting and nuisance parameters can bias the marginalised results. A similar effect is found when the parameters being marginalised over have non-Gaussian probability distributions. For example, \autoref{fig:MCMC_MCTechniqueMarginalisationProblems} highlights the marginalisation bias in the probability distribution found for a parameter when requiring a correlated parameter to have a positive parameter value. Due to the complex nature of this oscillation parameter fit presented in this thesis, there are certainly correlations occuring between the oscillation parameters of interest and the other nuisance parameters included in the fit.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/MCMC/MCTechnique_Marginalisation2D_Double_Correlations.pdf}
+  \end{subfigure} %
+    \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/MCMC/MCTechnique_Marginalisation1D_Double_Correlations.pdf}
+  \end{subfigure}
+
+  \caption{Left: The two dimensional probability distribution for two correlated parameters \quickmath{x} and \quickmath{y}. The red distribution shows the two dimensional probability distribution when \quickmath{0 \leq x \leq 5}. Right: The marginalised probability distribution for the \quickmath{y} parameter found when requiring the \quickmath{x} to be bound between \quickmath{-5 \leq x \leq 5} and \quickmath{0 \leq x \leq 5} for the black and red distribution, respectively.}
+  \label{fig:MCMC_MCTechniqueMarginalisationProblems}
+\end{figure}
+
+\subsection{Parameter Estimation and Credible Intervals}
+\label{sec:MarkovChainMonteCarlo_ParameterEstimation}
+
+The purpose of this analysis is to determine the best fit values for the oscillation parameters that the beam and atmospheric samples are sensitive to; \sinsqatm, \sinsqreac, \delmsqatm and \dcp. Typically, the results presented take the form of one or two dimension marginalised probability distributions for the appearance (\sinsqreac and \dcp) and disappearance (\sinsqatm and \delmsqatm) parameters. The posterior probability density taken from the output MCMC chain is binned in the parameters of interest and the parameter best fit point is taken to be the position of highest posterior probability. This is performed in both the one dimension and two dimensions.
+
+However, the single best fit point in a given parameter is not much use on its own. We would also like to determine the uncertainty, or credible interval, on that best fit point. The definition of the \quickmath{1\sigma} credible interval is that we have \quickmath{68\%} belief that the parameter is within those bounds. For a more generalised definition, the credible interval is the region of the posterior distribution which contains a specific fraction of the total probability, such that
+
+\begin{equation}
+\int P(\theta|D)d\theta = \alpha
+\end{equation}
+
+Where \quickmath{\theta} is the parameter on which we calculate the credible interval. This technique then calculates the \quickmath{\alpha \times 100\%} credible interval.
+
+In practice, this analysis uses the highest posterior density (HPD) credible intervals which is calculate through the following method. First, the probability distribution is area-normalised such that it has an integrated area equal to unity. The bins of probability are then summed from the highest to lowest until the sum exceeds the \quickmath{1\sigma} level (\quickmath{0.68} in this example). This process is repeated for a range of credible intervals, notably the \quickmath{1\sigma}, \quickmath{2\sigma} and \quickmath{3\sigma} along with other levels where the critical values for each level can be found in \finish{Table 40.1 of \href{https://pdg.lbl.gov/2020/reviews/rpp2020-rev-statistics.pdf}{Link}}. This process can be repeated for the two dimensional probability distributions by creating two dimensional contours of credible intervals rather than a one dimensional result. 
+
+\subsection{Application of Bayes' Theorem}
+\label{sec:MarkovChainMonteCarlo_BayesTheorem}
+
+\subsection{Prior and Posterior Predictive Spectra}
+\label{sec:MarkovChainMonteCarlo_Predictives}

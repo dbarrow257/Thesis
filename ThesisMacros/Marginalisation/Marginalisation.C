@@ -7,20 +7,25 @@ void Marginalisation() {
   double ParNom[nPars] = {0,0};
   double ParThrows[nPars] = {0,0};
   double Cov[nPars * nPars] = {1.0,-0.5,-0.5,1.0};
+  //double Cov[nPars * nPars] = {1.0,0.,0.,1.0};
 
   TH2D* Hist_All = new TH2D("Hist",";x;y",40,-5.,5.,40,-5.,5.);
   TH2D* Hist_Marg = new TH2D("Hist_Marg",";x;y",40,-5.,5.,40,-5.,5.);
 
+  /*
   TH2D* Hist_Marg_1 = new TH2D("Hist_Marg_1",";x;y",40,-5.,5.,40,-5.,5.);
   TH2D* Hist_Marg_2 = new TH2D("Hist_Marg_2",";x;y",40,-5.,5.,40,-5.,5.);
   TH2D* Hist_Marg_3 = new TH2D("Hist_Marg_3",";x;y",40,-5.,5.,40,-5.,5.);
-
+  */
+  
   TH1D* y_All = new TH1D("Hist_y",";y",40,-5.,5.);
   TH1D* y_Marg = new TH1D("Hist_yMarg",";y",40,-5.,5.);
 
+  /*
   TH1D* y_Marg_1 = new TH1D("Hist_yMarg_1",";y",40,-5.,5.);
   TH1D* y_Marg_2 = new TH1D("Hist_yMarg_2",";y",40,-5.,5.);
   TH1D* y_Marg_3 = new TH1D("Hist_yMarg_3",";y",40,-5.,5.);
+  */
   
   int nThrows = 100000;
 
@@ -49,6 +54,7 @@ void Marginalisation() {
       y_Marg->Fill(ParThrows[1]);
     }
 
+    /*
     if (ParThrows[0]>1.) {
       y_Marg_1->Fill(ParThrows[1]);
       Hist_Marg_1->Fill(ParThrows[0],ParThrows[1]);
@@ -59,14 +65,17 @@ void Marginalisation() {
       y_Marg_3->Fill(ParThrows[1]);
       Hist_Marg_3->Fill(ParThrows[0],ParThrows[1]);
     }
+    */
   }
 
-  y_All->Scale(1.0/y_All->Integral());
+  y_All->Scale(1.0/(0.8*y_All->Integral()));
   y_Marg->Scale(1.0/y_Marg->Integral());
+  /*
   y_Marg_1->Scale(1.0/y_Marg_1->Integral());
   y_Marg_2->Scale(1.0/y_Marg_2->Integral());
   y_Marg_3->Scale(1.0/y_Marg_3->Integral());
-
+  */
+  
   TCanvas* Canv = new TCanvas("2D","");
   Hist_All->Draw();
 
@@ -76,6 +85,7 @@ void Marginalisation() {
   Hist_Marg->Draw("SAME");
   Canv->Print("Marginalisation2D_Double.pdf");
 
+  /*
   TCanvas* Canv4 = new TCanvas("2D_2","");
   Hist_Marg_1->SetMarkerColor(kBlack);
   Hist_Marg_2->SetMarkerColor(kBlue);
@@ -86,6 +96,7 @@ void Marginalisation() {
   Hist_Marg_3->Draw("SAME");
 
   Canv4->Print("Marginalisation2D_1.pdf");
+  */
   
   TCanvas* Canv2 = new TCanvas("1D","");
 
@@ -99,6 +110,7 @@ void Marginalisation() {
   y_Marg->Draw("HIST SAME");
   Canv2->Print("Marginalisation1D_Double.pdf");
 
+  /*
   TCanvas* Canv3 = new TCanvas("1D_2","");
   //y_All->Draw("HIST");
   y_Marg_1->SetLineColor(kBlack);
@@ -109,4 +121,5 @@ void Marginalisation() {
   y_Marg_3->Draw("HIST SAME");
 
   Canv3->Print("Marginalisation1D_1.pdf");
+  */
 }
