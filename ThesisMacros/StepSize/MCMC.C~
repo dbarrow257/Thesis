@@ -1,0 +1,117 @@
+double CalcGaussian(double Mean, double Sigma, double ValueToCalc) {
+  double Return = (1.0/(Sigma*sqrt(2.0*TMath::Pi())))*exp(-0.5*pow(((ValueToCalc-Mean)/Sigma),2));
+  return Return;
+}
+
+TGraph* PlotForStepSize(double StepSize, int nThrows, double Mean, double Sigma) {
+
+  /*
+  int nCalcs = 20;
+  double lRange = -10.;
+  double hRange = 10.;
+
+  for(int iCalc=0;iCalc<=nCalcs;iCalc++) {
+    double X = lRange + ((double)iCalc/(double)nCalcs)*(hRange-lRange);
+    std::cout << CalcGaussian(Mean,Sigma,X) << std::endl;
+  }
+  */
+
+  std::vector<double> AccPos(nThrows+1);
+  std::vector<double> Index(nThrows+1);
+  
+  TRandom3* Rand = new TRandom3();
+
+  double currPosition = 10.;
+  AccPos[0] = currPosition;
+  Index[0] = 0;
+  
+  double currLLH = CalcGaussian(Mean,Sigma,currPosition);
+
+  for (int iThrow=0;iThrow<nThrows;iThrow++) {
+    double newPosition = currPosition + Rand->Gaus(0,StepSize);
+    double newLLH = CalcGaussian(Mean,Sigma,newPosition);
+
+    double accProb = min(1.,newLLH/currLLH);
+    if (Rand->Uniform(1.) < accProb) {
+      currPosition = newPosition;
+      currLLH = newLLH;
+    }
+    AccPos[1+iThrow] = currPosition;
+    Index[1+iThrow] = 1+iThrow;
+  }
+
+  TGraph* Graph = new TGraph(nThrows,Index.data(),AccPos.data());
+  Graph->Draw();
+
+  return Graph;
+}
+
+void MCMC() {
+  int nThrows = 1000;
+  double Mean = 0.;
+  double Sigma = 1.;
+
+  TLine* LErrorLine = new TLine(0,Mean-Sigma,nThrows,Mean-Sigma);
+  LErrorLine->SetLineStyle(kDashed);
+  TLine* HErrorLine = new TLine(0,Mean+Sigma,nThrows,Mean+Sigma);
+  HErrorLine->SetLineStyle(kDashed);
+  
+  double StepSize;
+
+  StepSize = 0.1;
+  TGraph* StepSize1 = PlotForStepSize(StepSize,nThrows,Mean,Sigma);
+  StepSize1->GetYaxis()->SetRangeUser(-4.,10.);
+  StepSize1->GetXaxis()->SetRangeUser(0,nThrows);
+  StepSize1->GetXaxis()->SetTitle("Step");
+  StepSize1->GetYaxis()->SetTitle("Parameter Value");
+  StepSize1->GetXaxis()->SetTitleSize(0.05);
+  StepSize1->GetYaxis()->SetTitleSize(0.05);
+  StepSize1->GetYaxis()->SetTitleOffset(0.7);
+  StepSize1->GetXaxis()->SetLabelSize(0.05);
+  StepSize1->GetYaxis()->SetLabelSize(0.05);
+  StepSize1->SetTitle(Form("Proposal Gaussian Width, #sigma = %2.1f",StepSize));
+
+  StepSize = 0.5;
+  TGraph* StepSize2 = PlotForStepSize(StepSize,nThrows,Mean,Sigma);
+  StepSize2->GetYaxis()->SetRangeUser(-4.,10.);
+  StepSize2->GetXaxis()->SetRangeUser(0,nThrows);
+  StepSize2->GetXaxis()->SetTitle("Step");
+  StepSize2->GetYaxis()->SetTitle("Parameter Value");
+  StepSize2->GetXaxis()->SetTitleSize(0.05);
+  StepSize2->GetYaxis()->SetTitleSize(0.05);
+  StepSize2->GetYaxis()->SetTitleOffset(0.7);
+  StepSize2->GetXaxis()->SetLabelSize(0.05);
+  StepSize2->GetYaxis()->SetLabelSize(0.05);
+  StepSize2->SetTitle(Form("Proposal Gaussian Width, #sigma = %2.1f",StepSize));
+
+  StepSize = 5.0;
+  TGraph* StepSize3 = PlotForStepSize(StepSize,nThrows,Mean,Sigma);
+  StepSize3->GetYaxis()->SetRangeUser(-10.,10.);
+  StepSize3->GetXaxis()->SetRangeUser(0,nThrows);
+  StepSize3->GetXaxis()->SetTitle("Step");
+  StepSize3->GetYaxis()->SetTitle("Parameter Value");
+  StepSize3->GetXaxis()->SetTitleSize(0.05);
+  StepSize3->GetYaxis()->SetTitleSize(0.05);
+  StepSize3->GetYaxis()->SetTitleOffset(0.7);
+  StepSize3->GetXaxis()->SetLabelSize(0.05);
+  StepSize3->GetYaxis()->SetLabelSize(0.05);
+  StepSize3->SetTitle(Form("Proposal Gaussian Width, #sigma = %2.1f",StepSize));
+  
+  TCanvas* Canv = new TCanvas("Canv","",1400,1400);
+  Canv->Divide(1,3);
+  
+  Canv->cd(1);
+  StepSize1->Draw();
+  LErrorLine->Draw("SAME");
+  HErrorLine->Draw("SAME");
+  Canv->cd(2);
+  StepSize2->Draw();
+  LErrorLine->Draw("SAME");
+  HErrorLine->Draw("SAME");
+  Canv->cd(3);
+  StepSize3->Draw();
+  LErrorLine->Draw("SAME");
+  HErrorLine->Draw("SAME");
+
+  Canv->Print("MCMCTechnique_StepSizes.pdf");
+}
