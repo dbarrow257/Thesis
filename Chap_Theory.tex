@@ -19,6 +19,7 @@ After the discovery of the \quickmath{\nu_{e}}, the natural question of how many
 As direct evidence of beyond Standard Model physics, a neutrino generated with lepton flavour \quickmath{\alpha} can mutate into a different lepton flavour \quickmath{\beta} after propagating some distance. This phenomena is called neutrino oscillation and requires that neutrinos must have a non-zero mass. This behaviour has been characterised by the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) \cite{p1,p2,km} mixing matrix which describes how the flavour and mass eigenstates are associated. This is analogous to the Cabbibo-Kobayashi-Maskawa (CKM) \cite{cabbibo} matrix found in quark physics.
 
 \subsection{Three Flavour Oscillations}
+\label{sec:NeutrinoOscillationPhysics_3FlavourOsc}
 
 The PMNS parameterisation defines three flavour eigenstates, \quickmath{\nu_{e}}, \quickmath{\nu_{\mu}} and \quickmath{\nu_{\tau}} (denoted \quickmath{\nu_{\alpha}}), which are assigned based upon the weak interaction flavour states, and three mass eigenstates, \quickmath{\nu_{1}}, \quickmath{\nu_{2}} and \quickmath{\nu_{3}} (denoted \quickmath{\nu_{i}}). Each mass eigenstate is the superposition of all three flavour states,
 
@@ -105,37 +106,75 @@ which culminates in the oscillation proabability,
   P(\nu_{\alpha} \rightarrow \nu_{\beta}) = \delta_{\alpha \beta} - \left( + \right) \sin^{2} \left( 2\theta \right) \sin^2 \left( \frac{\Delta m^{2} L}{4E} \right).
 \end{equation}
 
-The oscillation probability is a sinusodial function depending upon the distance over which the neutrino propagates. The frequency and amplitude of oscillation is dependent upon the ratio of the \quickmath{\Delta m^{2} / 4E} and \quickmath{\sin^2{2\theta}}, respectively. For more human-readable units, the maximum oscillation probability for a fixed value of \quickmath{\theta} is given at \quickmath{L[km]/E[GeV] \sim 1.27 / \Delta m^{2}}.
+The oscillation probability is a sinusodial function depending upon the distance over which the neutrino propagates. The frequency and amplitude of oscillation is dependent upon the ratio of the \quickmath{\Delta m^{2} / 4E} and \quickmath{\sin^2{2\theta}}, respectively. For more human-readable units, the maximum oscillation probability for a fixed value of \quickmath{\theta} is given at \quickmath{L[km]/E[GeV] \sim 1.27 / \Delta m^{2}}. It is this calculation that determines the best \quickmath{L/E} value for a given experiment to be designed around for measurements of a specific value of \quickmath{\Delta m^{2}}.
 
 \subsection{The MSW Effect}
+\label{sec:NeutrinoOscillationPhysics_MSW}
+
+\autoref{sec:NeutrinoOscillationPhysics_3FlavourOsc} describes the theory of neutrino oscillation in a vacuum but beam neutrinos and atmospheric neutrinos originating from below the horizon propagate through matter in the Earth. The coherent scattering of neutrinos from a material target modifies the energy of the mass eigenstates resulting in a change to the oscillation probability. Notably, charged current scattering (\quickmath{\nu_{e} + e^{-} \rightarrow \nu_{e} + e^{-}}, propagated by a \quickmath{W} boson) only effects electron neutrinos compared to the neutral current scattering (\quickmath{\nu_{l} + l^{-} \rightarrow \nu_{l} + l^{-}}, propagated by a \quickmath{Z^{0}} boson) which does not favour any neutrino flavour. In the two-flavour limit, the effective mixing parameter becomes
+
+\begin{equation}
+  \label{eq:NeutrinoOscillationPhysics_2Flavour_MSW}
+  \sin^{2}(2\theta) \rightarrow \sin^{2}(2\theta_{m}) = \frac{\sin^{2}(2\theta)}{(A/\Delta m^{2} - \cos(2\theta))^{2} + \sin^{2}(2\theta)},
+\end{equation}
+
+where \quickmath{A = 2\sqrt{2}G_{F}N_{e}E} with \quickmath{N_{e}} is the electron density of the medium and \quickmath{G_{F}} is Fermi's constant. It is clear to see that there exists a value of \quickmath{A = \Delta m^{2} \cos(2\theta)} for \quickmath{\Delta m^{2} > 0} which results in a divergent mixing parameter. This is known as the Mikheyev-Smirnov-Wolfenstein (MSW) effect (or more clloquially, the matter resonance) which regenerates the electron neutrino component of the neutrino flux \cite{Smirnov2003-yb, msw, wolfenstein}. The density at which the resonance occurs is given by
+
+\begin{equation}
+  \label{eq:NeutrinoOscillationPhysics_ResonanceDensity}
+  N_{e} = \frac{\Delta m^{2} \cos(2\theta)}{2\sqrt{2} G_{F} E}
+\end{equation}
+
+At densities lower than this critical value, the oscillation probability will be be much closer to that from vacuum oscillation. As seen, the resonance occuring from the MSW effect depends on the sign of \quickmath{\Delta m^{2}}. Therefore, any neutrino oscillation experiment which obsreves neutrinos which have propagated through matter can have some sensitivity to the ordering of the neutrino mass eigenstates.
+
+For an experiment observing atmospheric neutrinos propagating through the Earth such as the studies presented in this thesis, a model of the Earth's density and layering is required. The model used within this analysis is the Preliminary Reference Earth Model (PREM) \cite{Dziewonski1981-sp}. This model approximates the Earth as four layers of constant density as described in \autoref{tab:NeutrinoOscillationPhysics_PREMModel}. The density measurements provided in this model are provided in terms of masss density, whereas neutrino oscillations are sensitive to the electron number density. Consequently, the chemical compositon of each layer multiplied by the mass density gives the relevent value for oscillation probabilities.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|c|c|c}
+      \hline
+      Layer & Outer Radius [\quickmath{\text{km}}] & Density [\quickmath{\text{g/cm}^{3}}] & Chemical composition (Z/A) \\
+      \hline
+      Inner Core & \quickmath{1220} & \quickmath{13} & \quickmath{0.468 \pm 0.029} \\
+      Outer Core & \quickmath{3480} & \quickmath{11.3} & \quickmath{0.468 \pm 0.029} \\
+      Lower Mantle & \quickmath{5701} & \quickmath{5.0} & \quickmath{0.497} \\
+      Transition Zone & \quickmath{6371} & \quickmath{3.3} & \quickmath{0.497} \\
+      \hline
+    \end{tabular}
+    \caption{Description of the four layers of the Earth invoked within the PREM model \cite{Dziewonski1981-sp}.}
+    \label{tab:NeutrinoOscillationPhysics_PREMModel}
+\end{table}
+
+The beam oscillation probability in this thesis uses a baseline of \quickmath{295 \text{km}} and density \quickmath{2.6 \text{g/cm}^{3}}.
 
 \section{Neutrino Oscillation Measurements}
 \label{sec:NeutrinoOscillationPhysics_OscillationMeasurements}
 
+As evidence of beyond standard model physics, the 2015 Nobel Prize in Physics was awarded to the Super-Kamiokande (SK) and Sudbury Neutrino Observatory (SNO) collaborations for the first definitive observation of solar and atmospheric neutrino oscillation. Since then, the field has seen a wide array of oscillation measurements from a variety of neutrino sources. As seen in \autoref{sec:NeutrinoOscillationPhysics_3FlavourOsc}, the neutrino oscillation probability is dependent on the ratio of the propagation baseline, \quickmath{L}, to the neutrino energy, \quickmath{E}, which determines the flavour of neutrino oscillation a particular experiment is sensitive to.
+
 \subsection{Solar Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_SolarNeutrinos}
-Solar Neutrinos SubSection
+
+Solar neutrinos are emitted from interaction chains contained within the fusion reaction at the center of the Sun. The solar neutrino flux given as a function of neutrino energy for different fusion and decay chains is illustrated in \autoref{fig:NeutrinoOscillationPhysics_SolarNeutrinoFlux} (From \cite{Bellerive2004-ur}). Whilst proton-proton fusion generates the largest flux of neutrinos, the neutrinos are of low energy and are difficult to reconstruct. Consequently most experiments focus on the neutrinos from the decay of \quickmath{^{8}B} (via \quickmath{^{8}B \rightarrow ^{8}Be^{*} + e^{+} + \nu_{e}}), which are higher energy.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.80\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/SolarNeutrinoFlux.pdf}
+  \end{subfigure}
+  \caption{The solar neutrino flux as a function of neutrino energy for various fusion reaction and decay chains as predicted by the Standard Solar Model. Taken from \cite{Bellerive2004-ur}.}
+  \label{fig:NeutrinoOscillationPhysics_SolarNeutrinoFlux}
+\end{figure}
+
+The first measurements of solar neutrinos observed a significant reduction in the event rate compared to predictions from the Standard Solar Model \cite{PhysRevLett.20.1205, Vinyoles2017-vv}. The proposed solution to this ``solar neutrino problem'' was \quickmath{\nu_{e} \leftrightarrow \nu_{\mu}} oscillations in a precursory version of the PMNS model \cite{Gribov1969-xi}. The Kamiokande \cite{PhysRevLett.63.16}, Gallex \cite{Hampel1999-of} and Sage \cite{PhysRevC.60.055801} experiments confirmed the \quickmath{\sim 0.5} deficit of solar neutrinos.
 
 \subsection{Atmospheric Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_AtmosphericNeutrinos}
-Atmospheric Neutrinos SubSection
 
 \subsection{Accelerator Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_AcceleratorNeutrinos}
-Accelerator SubSection
 
 \subsection{Reactor Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_ReactorNeutrinos}
-Reactor Neutrinos SubSection
-
-\section{Theory of Neutrino Oscillation}
-\label{sec:NeutrinoOscillationPhysics_TheoryOfNeutrinoOscillation}
-Theory of Neutrino Oscillation Section
-
-\section{Measurement of Neutrino Oscillation Parameters}
-\label{sec:NeutrinoOscillationPhysics_MeasurementOfNeutrinoOscillationParameters}
-Measurement of Neutrino Oscillation Parameters Section
 
 \section{Open Questions}
 \label{sec:NeutrinoOscillationPhysics_OpenQuestions}
-Open Questions Section
