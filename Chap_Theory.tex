@@ -152,6 +152,16 @@ The beam oscillation probability in this thesis uses a baseline of \quickmath{29
 
 As evidence of beyond standard model physics, the 2015 Nobel Prize in Physics was awarded to the Super-Kamiokande (SK) and Sudbury Neutrino Observatory (SNO) collaborations for the first definitive observation of solar and atmospheric neutrino oscillation. Since then, the field has seen a wide array of oscillation measurements from a variety of neutrino sources. As seen in \autoref{sec:NeutrinoOscillationPhysics_3FlavourOsc}, the neutrino oscillation probability is dependent on the ratio of the propagation baseline, \quickmath{L}, to the neutrino energy, \quickmath{E}, which determines the flavour of neutrino oscillation a particular experiment is sensitive to.
 
+As illustrated in \autoref{fig:NeutrinoOscillationPhysics_EnergySpectrum}, neutrino energies span a wide range of energies. The least energetic neutrinos are from diffuse supernovae and terrestrial neutrinos at \quickmath{O(1)\text{eV}} whereas the most energetic neutrinos originate from atmospheric and galactic neutrinos of \quickmath{>O(1)\text{TeV}}. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.95\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/EnergySpectrum.pdf}
+  \end{subfigure}
+  \caption{The energy spectrum of neutrinos from various natural and man-made sources. Taken from \cite{Formaggio:2012cpf}}
+  \label{fig:NeutrinoOscillationPhysics_EnergySpectrum}
+\end{figure}
+
 \subsection{Solar Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_SolarNeutrinos}
 
@@ -167,8 +177,73 @@ Solar neutrinos are emitted from interaction chains contained within the fusion 
 
 The first measurements of solar neutrinos observed a significant reduction in the event rate compared to predictions from the Standard Solar Model \cite{PhysRevLett.20.1205, Vinyoles2017-vv}. The proposed solution to this ``solar neutrino problem'' was \quickmath{\nu_{e} \leftrightarrow \nu_{\mu}} oscillations in a precursory version of the PMNS model \cite{Gribov1969-xi}. The Kamiokande \cite{PhysRevLett.63.16}, Gallex \cite{Hampel1999-of} and Sage \cite{PhysRevC.60.055801} experiments confirmed the \quickmath{\sim 0.5} deficit of solar neutrinos.
 
+The conclusive solution to the ``solar neutrino problem'' was determined by the SNO collaboration \cite{Ahmad2002-zv}. Using a deutrium water target to observe \quickmath{^{8}B} neutrinos, the event rate of charged current (CC), neutral current (NC) and elastic scattering (ES) interactions (Given in \autoref{eq:NeutrinoOscillationPhysics_SNOInteractions}) measured. CC events can only occur for electron neutrinos, whereas the other interaction channels are agnostic to neutrino flavour (Although the ES reaction is more sensitive to electron neutrino interactions). This meant that there was a direct measurement of the \quickmath{\nu_{e}} and total neutrino flux. It was concluded that the CC and ES reaction rates were consistent with the deficit previouly observed but notably that the NC reaction rate was only consistent with the other interaction rates under the hypothesis of flavour transformation.
+
+\begin{equation}
+  \label{eq:NeutrinoOscillationPhysics_SNOInteractions}
+  \begin{split}
+    \nu_{e} + d &\rightarrow p + p + e^{-} \hspace{2cm} (CC) \\
+    \nu_{x} + d &\rightarrow p + n + \nu_{x} \hspace{2.02cm} (NC) \\
+    \nu_{x} + e^{-} &\rightarrow \nu_{x} + e^{-} \hspace{2.55cm} (ES)
+  \end{split}
+\end{equation}
+
+Since then, many experiments have precisely measured the neutrino flux of different interaction chains within the sun \cite{Borexino_Collaboration2018-of, Aharmim2006-yb, Agostini2020-so}. The most recent measurement was that of CNO neutrinos which were recently observed with \quickmath{5\sigma} certainty by the Borexino collaboration. Future neutrino experiments aim to further the spectroscopic measurements of different fusion chains within the Sun \cite{Andringa2016-zd, Beacom2017-ff, An2016-gm}. Whilst not of direct focus, dark mattter experiments like DARWIN \cite{aalbers2020solar} will also be sensitive to the solar neutrinos emitted by the Sun.
+
 \subsection{Atmospheric Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_AtmosphericNeutrinos}
+
+The interactions of primary cosmic ray protons (and heavier nuclei) in Earth's upper atmospheric generate showers of energetic hadrons, mostly pions and kaons, which when they decay produce a natural source of neutrinos spanning energies of MeV to TeV \cite{Gaisser2002-gl}. This decay is via
+
+\begin{equation}
+  \label{eq:NeutrinoOscillationPhysics_PionDecay}
+  \begin{split}
+    \pi^{\pm} &\rightarrow \mu^{\pm} + \overset{(-)}{\nu_{\mu}} \\
+    \mu^{\pm} &\rightarrow e^{\pm} + \overset{(-)}{\nu_{\mu}} + \overset{(-)}{\nu_{e}}
+  \end{split}
+\end{equation}
+
+such that for a single pion decay, three neutrinos are produced. The atmopsheric neutrino flux energy spectra as predicted by the Bartol \cite{Barr_2004}, Honda \cite{Honda_2007, PhysRevD.70.043008} and FLUKA \cite{etde_20239111} models is illustrated in \autoref{fig:NeutrinoOscillationPhysics_AtmosphericNeutrinoFlux}. The flux distribution peaks at an energy of around \quickmath{10 \text{GeV}}. The uncertainties associated with these models are dominated by the interaction modelling of kaon and pions as well as the primary cosmic flux. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.80\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/AtmosphericNuFlux.pdf}
+  \end{subfigure}
+  \caption{Left panel: The atmospheric neutrino flux for different neutrino flavours as a function of neutrino energy which compares the 2007 Honda model (``This work'') \cite{Honda_2007}, the 2004 Honda model (``HKKM04'')\cite{PhysRevD.70.043008}, the Bartol model \cite{Barr_2004} and the FLUKA model. Right panel: indicates the ratio of the flux models between each model. Taken from \cite{Honda_2007}.}
+  \label{fig:NeutrinoOscillationPhysics_AtmosphericNeutrinoFlux}
+\end{figure}
+
+The oscillations present in atmospheric neutrinos still follow the same \quickmath{L/E} probability presented in \autoref{sec:NeutrinoOscillationPhysics_3FlavourOsc}, but unlike a fixed beam experiment, the baseline for each neutrino is dependent upon the zenith angle with respect to Z-axis of the detector as illustrated by \autoref{fig:NeutrinoOscillationPhysics_ZenithAngle}. Neutrinos coming from interactions taking place in the atmospheric above the detector (\quickmath{\cos(\theta)=1.0}) only travel the height of the atmosphere before being observed within the detector; a distance of \quickmath{O(20)\text{km}}. However, neutrinos which are observed as coming from directly below the detector (\quickmath{\cos(\theta)=-1.0}) have travelled \quickmath{O(6 \times 10^{3})\text{km}} from interactions in the atmosphere on the opposite side of the Earth. As discussed in \autoref{sec:NeutrinoOscillationPhysics_MSW}, any neutrino passing through the Earth is subject to matter effects. These effects are most notable for any neutrino which passes through the Earth's core (\quickmath{\cos(\theta)<-0.45}).
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.50\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/ZenithAngle.pdf}
+  \end{subfigure}
+  \caption{A diagram illustrating the definition of zenith angle as used in the Super Kamiokande experiment \cite{Ashie_2005}.}
+  \label{fig:NeutrinoOscillationPhysics_ZenithAngle}
+\end{figure}
+
+\autoref{fig:NeutrinoOscillationPhysics_NuFluxZenithAngleDep} highlights the neutrino flux as a function of zenith angle for different slices of neutrino energy. For medium to high energy neutrinos (and to a lesser degree for low energy neutrinos), the flux is approximately symmetric around \quickmath{\cos(\theta)=0}. To the accuracy of this approximation, the systematic uncertainties associated with atmospheric flux for comparing upward-going and down-going neutrino cancels. This allows the down-going events, which are mostly insensitive to oscillation probabilities due to the small \quickmath{L/E}, to act as a unoscillated prediction (similar to a near detector in an accelerator neutrino experiment).
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.90\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/NuFluxZenithAngleDep.pdf}
+  \end{subfigure}
+  \caption{Predictions of the summed neutrino and antineutrino flux for electron and muon neutrinos from the Bartol \cite{Barr_2004}, Honda \cite{Honda_2007} and FLUKA \cite{etde_20239111} models as a function of zenith angle with respect to the detector. Left panel: \quickmath{0.3 < E_{\nu} < 0.5}. Middle panel: \quickmath{0.9 < E_{\nu} < 1.5}. Right panel: \quickmath{3.0 < E_{\nu} < 5.0}. Taken from \cite{Ashie_2005}.}
+  \label{fig:NeutrinoOscillationPhysics_NuFluxZenithAngleDep}
+\end{figure}
+
+Precursory hints of atmospheric neutrinos were observed in the mid-1960s searching for \quickmath{\overset{(-)}{\nu_\mu} + X \rightarrow X^{*} + \mu^{\pm}} \cite{Reines1965-cf}. These experiments were located in deep underground laboratories to reduce the cosmic muon background. These were replaced with the IMB-3 \cite{PhysRevLett.66.2561} and Kamiokande \cite{Hirata1992-qz} experiments which measured a deficit of muon neutrinos compared to electron neutrinos \quickmath{R(\nu_{\mu}/\nu_{e})}. Both experiments were found to have a consistent measurement, with \quickmath{R(\nu_{\mu}/\nu_{e}) = 0.67 \pm 0.17} and \quickmath{R(\nu_{\mu}/\nu_{e}) = 0.60 \substack{+ 0.07 \\ -0.06} \pm 0.05}. Soudan-2 \cite{Allison1997-qz} determined similar measurements. Super-Kamiokande (SK) \cite{Ashie_2005} extended this analysis by fitting oscillation parameters in \quickmath{\nu_\mu \rightarrow \nu_\tau} which found best fit parameters \quickmath{\sin^{2}(2\theta) > 0.92} and \quickmath{1.5 \times 10^{-3} < \Delta m^{2} < 3.4 \times 10^{-3} \text{eV}^{2}}.
+
+Since then, atmopsheric neutrino exeperiments have begun making precision measurements of the \sinsqatm and \quickmath{|\Delta m^{2}_{32}|} oscillation parameters, and to a lesser extent the sign of \delmsqatm through the matter resonance present for any neutrinos passing through the Earth. Atmospheric neutrino oscillation is dominated by \quickmath{P(\nu_{\mu} \rightarrow \nu_{\tau})}, where SK observed a \quickmath{4.6\sigma} discovery of \quickmath{\nu_{\tau}} appearance \cite{Li_2018}. \autoref{fig:NeutrinoOscillationPhysics_AtmosphericParamContour} illustrates the current estimates on the atmospheric mixing parameters from a wide range of atmospheric and accelerator neutrino observatories.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.90\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Theory/AtmosphericParams.pdf}
+  \end{subfigure}
+  \caption{Constraints on the atmospheric oscillation parameters, \sinsqatm and \delmsqatm, from atmospheric and long baseline experiments SK \cite{Kamiokande_Collaboration2017-nf}, T2K \cite{T2K_Collaboration2018-sm}, \quickmath{\text{NO}\nu\text{A}} \cite{Acero2019-rw}, IceCube \cite{Aartsen2018-cz} and MINOS \cite{Adamson2014-tt}. Figure taken from \cite{Athar_2022}.}
+  \label{fig:NeutrinoOscillationPhysics_AtmosphericParamContour}
+\end{figure}
 
 \subsection{Accelerator Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_AcceleratorNeutrinos}
