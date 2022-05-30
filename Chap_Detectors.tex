@@ -46,11 +46,15 @@ The two regions of the detector (ID and OD) are optically separated with opaque 
 
 In the SK-IV data taking period, the photocathode coverage of the detector, or the fraction of the ID wall instrumented with PMTs, is \quickmath{\sim 40\%}. The PMTs have a quantum efficiency (the ratio of detected electrons to incident photons) of \quickmath{\sim 21\%}. The proportion of photoelectrons which produce a signal in the dynode of a PMT, termed the collection efficiency, is \quickmath{>70 \%}. One disadvantage of using PMTs as the detection media is that the Earth's geomagnetic field can modify their response. Therefore, a set of compensation coils is built around the inner surface of the detector to mitigate this effect.
 
+\finish{PMT Specifics from Takenaka-san's thesis}
+
 As mentioned, the SK detector is filled with ultrapure water, which in a perfect world would contain no impurities. However bacteria and organic compounds can significantly degrade the water quality, thus decreasing the attenuation length thus reducing the total number of photons which could be detected by the PMTs. To combat this, a sophisticated water treatment system has been developed for SK. UV lights, mechanical filters and membrane degasifiers are used to reduce the bacteria, suspended particulates and radioactive materials from the water. The flow of water within the tank is also critical as it can remove stagnant bacterial growth or build up of dust on the surfaces within the tank. Gravity drifts impurities in the water towards the bottom of the tank which if left uncontrolled, can create asymetric water conditions between the top and bottom of the tank.
 %The flow of water in the tank can be controlled via mechanically driven circulation or temperature driven convection.
 Typically, the water entering the tank is cooled below the ambient temperature of the tank to control convection and inhibit bacteria growth. Furthermore, the dark noise hits within PMTs is sensitive to the PMT temperature so controlling the temperature gradients within the tank is beneficial for stable measurements.
 
 SK-VI is the first phase of the SK experiment to use gadonlium dopants within the ultrapure water. As such, the SK water system had to be replaced to avoid removing the gadolium concentrate from the ultrapure water. For an inverse \quickmath{\beta}-decay (IBD) interaction in a water target, the emitted neutron is thermally captured on hydrogen. This process releases \quickmath{2.2 \text{MeV}} \quickmath{\gamma} rays which are difficult to detect due to Compton scattered elecrtons from a \quickmath{\gamma} ray of this energy is very close to the Cherenkov threshold, limiting the number of photons produced. Thermal capture of neutrons on gadolinium generates \quickmath{\gamma} rays with higher energy meaning they are more easily detected. SK-VI has \quickmath{0.01 \%} Gd loading (\quickmath{0.02\%} gadolinium sulphate by mass) which causes \quickmath{\approx 50\%} of neutrons emitted by IBD to be captured on gadolinium. Whilst predominantly useful for low energy analyses, Gd loading allows \quickmath{\nu/\bar{\nu}} separation for atmopsheric neutrino event selections \cite{Marti2019-gu}. Efforts are currently in place to increase the gadolinium concentrate to \quickmath{0.03 \%} for \quickmath{\approx 75\%} neutron capture efficiency on gadonlium. The final stage of loading targets \quickmath{0.1 \%} concentrate.
+
+\finish{More details of water purification and air purification details}
 
 \subsection{Calibration}
 \label{subsec:T2KSKExp_SKCalibration}
@@ -91,8 +95,46 @@ Due to differering cable lengths and readout electronics, the timing response be
 
 The top/bottom water quality asymmetry is measured using the NiCf calibration data and cross-referencing these results to the ``standard PMTs''. The water attenuation length is continously measured by the rate of vertically-downgoing cosmic-ray muons which enter via the top of the tank.
 
-\subsection{Triggering}
+\finish{Light absorption and scattering details}
+
+\subsection{Data Acquisition and Triggering}
 \label{subsec:T2KSKExp_SKTriggering}
+
+%Due to the size of the inner detector, Cerenkov photons can travel upto \quickmath{220\text{ns}} before hitting a PMT. 
+
+Dark noise is the phenomenon where a PMT registers a pulse that is consistent with a single photoelectron emitted from photon detection despite being the PMT being in complete darkness. This is predominately caused by two processes. Firstly there is intrinsic dark noise which is where photoelectrons gain enough thermal energy to be emitted from the photocathode, and secondly, the radioative decay of contaminants inside the structure of the PMT which mimics the same effect. Typical dark noise rate for PMTs used within SK are \quickmath{O(3)\text{kHz}} \cite{Fukuda2003-ly} which equates to about \quickmath{12} dark noise hits per \quickmath{220\text{ns}} \cite{Carminati2015-zx}. \finish{Link to Frank-Tamm equation. Which wavelength photons are PMTs adapted for}
+
+The maximum distance that a photon can travel within the SK detector is \quickmath{\sim 200\text{ns}} \cite{PhysRevD.73.112001}. The earlier data acquisition and triggering are documented in \cite{34489,PhysRevD.73.112001}. The analysis presented in this thesis uses the SK-IV period of the SK experiment so only the relevant points of the data acquisition and triggering systems will be discussed.
+
+Before the SK-IV period started, the existing front-end electronics were replaced with ``QTC-Based Electrons with Ethernet, QBEE'' systems \cite{Nishino2009-wh}. When the QBEE observes a signal above a \quickmath{1/4} photoelectron threshold, the charge-to-time (QTC) converter generates a rectangular pulse. The start of the rectangular pulse indicates the time at which the analogue photoelectron signal was recieved and the width of the pulse indicates the total charge intergrated throughout the signal. This is then digitized by time-to-digital converters and sent to the ``front-end'' PCs. The digitized signal from every QBEE is then chronologically order and sent to the ``merger'' PCs. It is the merger PCs which apply the software trigger and send any `interesting' events the ``organizer'' PC. This sorts the data stream of multiple merger PCs into chrolonolgically ordered events in time which is then saved to disk. The schematic of data flow from PMTs to disk is illustrated in \autoref{fig:T2KSKExp_SK_DataFlow}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.80\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/SKDataFlow.pdf}
+  \end{subfigure}
+  \caption{Taken from \cite{5446533}.}
+  \label{fig:T2KSKExp_SK_DataFlow}
+\end{figure}
+
+The software trigger applied in SK-IV replaces the hardware trigger applied in SK-I to SK-III. This operates by determining the number of PMT hits within a \quickmath{200\text{ns}} sliding window, \quickmath{N_{200}}, which coincides with the maximum time that a Cherenkov photon would take to traverse the length of the SK tank. For lower energy events which generate fewer photons, this technique is usful for eliminating background processes like dark noise and radioactive decay which would be expected to separated in time. When the value of \quickmath{N_{200}} exceeds some threshold, a software trigger is issued. There are several trigger thresholds used within the SK-IV period which are detailed in \autoref{tab:T2KSKExp_TriggerThreshold}. If one of these thresholds is met, the PMT hits within an extended time window is also readout and saved to disk. The length of the time window is also included in the tabulated threshold conditions. In the special case of an event which exceeds the SHE trigger but does not exceed the OD trigger, the AFT trigger looks for delayed coincidences of \quickmath{2.2 \text{MeV}} gamma rays emitted from neutron capture in a \quickmath{535 \mu\text{s}} window after the SHE trigger. A similar but more complex ``Wideband Intelligent Trigger (WIT)'' has been deployed and is described in \cite{Carminati2015-zx}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c|c|c}
+      \hline
+      Trigger & Acronym & Condition & Extended time window (\quickmath{\mu \text{s}}) \\
+      \hline
+      Super Low Energy & SLE & >34/31 hits & 1.3 \\
+      Low Energy & LE & >47 hits & 40 \\
+      High Energy & HE & >50 hits & 40 \\
+      Super High Energy & SHE & >70/58 hits & 40 \\
+      Outer Detector & OD & >22 hits in OD & N/A \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The trigger thresholds and extended time windows saved around an event which were utilised throughout the SK-IV period. The exact thresholds can change and the values listed here represent the thresholds at the start and end of the SK-IV period. }
+    \label{tab:T2KSKExp_TriggerThreshold}
+\end{table}
 
 \subsection{Cherenkov Radiation}
 \label{subsec:T2KSKExp_Cherenkov}
@@ -129,6 +171,8 @@ For water, where \quickmath{n = 1.33}, the Cherenkov threshold momentum and ener
     \label{tab:T2KSKExp_CherenkovThreshold}
 \end{table}
 
+\finish{Typical 43 cone}
+\finish{Frank-Tamm equation - Number of photons: (2*pi/137)*(1-(1+(105/444)**2)/1.33**2)*(1e7/300-1e7/700) approx equal to 352 photons per cm for a muon of momentum 444MeV}
 \finish{Plot of muon momentum showing difference between Cherenkov threshold and detected threshold}
 
 \section{The Tokai to Kamiokande Experiment}
