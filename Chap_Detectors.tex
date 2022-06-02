@@ -197,9 +197,71 @@ The purpose of the near detectors is to constrain the beam flux and cross sectio
 \subsection{The Neutrino Beam}
 \label{subsec:T2KSKExp_T2K_NeutrinoBeam}
 
+The neutrino beam used within the T2K experiment is described in \cite{t2k_det, Abe_2013} and summarised below. The accelerating facility at J-PARC is composed of two sections; the primary and secondary beamlines. \autoref{fig:T2KSKExp_T2K_Beamline} illustrates a schematic of the beamline, focusing mostly on the components of the secondary beamline. The primary beamline has three accelerators which progressively accelerated protons; a linear accelerator, a rapid-cycling synchrotron and the main-ring (MR) synchrotron. Once fully accelerated by the MR, the proton's have a kinetic energy of \quickmath{30\text{GeV}}. Eigth bunches of these protons, separated by \quickmath{500\text{ns}}, are extracted per ``spill'' from the MR and directed towards a graphite target (A rod of length \quickmath{91.4\text{cm}} and diameter \quickmath{2.6\text{cm}}. A total of \quickmath{\sim 3\times 10^{14}} protons are contained in each spill. The rate of extracted spills is \quickmath{\sim 0.5\text{Hz}} although the width of the spill is \quickmath{\sim 5 \mu\text{s}}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KBeamline.pdf}
+    \subcaption{Primary and secondary beamline}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.95\textwidth}
+    \vspace{0.5cm}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KSecondaryBeamline.jpg}
+    \subcaption{Secondary beamline}
+  \end{subfigure}
+  \caption{Top figure: Bird's eye view of the most relevant part of primary and secondary beamline used within the T2K experiment. The primary beamline is the main-ring proton synchrotron, kicker magnet and graphite target. The secondary beamline consists of the the focusing horns, decay volume and beam dump. Figure taken from \cite{t2k_det}. Bottom figure: The side-view of the secondary beamline including the focusing horns, beam dump and neutrino detectors. Figure taken from \cite{MuMon}.}
+  \label{fig:T2KSKExp_T2K_Beamline}
+\end{figure}
+
+The secondary beamline consists of three main components; the target station, the decay volume and the beam dump. The target station contains the target, beam monitors and three magnetic focusing horns. After the proton beam interacts with the graphite target, a host of particles emanates from the interaction vertex. This secondary beam is mostly composed of the pions and kaons, where the electrically charged component of the secondary beam is directed towards the far detector by the three magnetic focusing horns. These horns direct charged particles of a particular polarity towards SK whilst defocusing the oppositely charged particles. This allows a mostly neutrino or mostly antineutrino beam to be used within the experiment, denoted as ``forward horn current (FHC)'' or ``reverse horn current (RHC)'' respectively.
+
+The focused beam of charged particles travels through a \quickmath{96\text{m}} long decay volume, generating a neutrino beam through the following decays \cite{Abe_2013},
+
+\begin{equation}
+  \begin{split}
+    \pi^+ &\rightarrow \mu^+ + \nu_\mu \\
+    K^+ &\rightarrow \mu^+ + \nu_\mu \\
+    &\rightarrow \pi^0 + e^+ + \nu_e \\
+    &\rightarrow \pi^0 + \mu^+ + \nu_\mu \\
+    K^0_L &\rightarrow \pi^- + e^+ + \nu_e \\
+    &\rightarrow \pi^- + \mu^+ + \nu_\mu \\
+    \mu^+ &\rightarrow e^+ + \bar{\nu}_\mu + \nu_e
+  \end{split}
+\end{equation}
+
+For low(high) neutrino energies, \quickmath{E_\nu < 3\text{GeV}}(\quickmath{E_\nu > 3\text{GeV}}), the \quickmath{\nu_\mu} component of the beam is dominanted by the pion(kaon) decay. The intrinsic \quickmath{\nu_e} contributions are dominated by muon decay for \quickmath{E_\nu < 2\text{GeV}} and by kaon decays above that energy. The ``wrong-sign'' component of the neutrino beam (the \quickmath{\bar{\nu}_\mu} component of the beam when operating in neutrino (FHC) mode or vice versa) is particularly prominent in th RHC mode beam. This is because the antineutrinos are produced from a proton beam (rather than anti-proton beam) which results in a larger contribution of positively charged pions compared to the contribution of negatively charged pions in the secondary beamline when operating in FHC mode. Therefore the wrong-sign background is larger in the RHC mode compared to contribution in the FHC mode. This can be seen in \autoref{fig:T2KSKExp_T2K_NuFluxPerMode} which illustrates the different contributions of neutrino flavours present in the beam when operating in FHC and RHC modes.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFluxInNuMode.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFluxInANuMode.pdf}
+  \end{subfigure}
+  \caption{The energy spectrum for each flavour of neutrino (\quickmath{\nu/\bar{\nu}} and \quickmath{\nu_e/\nu_\mu}) in the neutrino dominated beam FHC mode (Left) and antirneutrino dominated beam RHC mode (Right) estimated by Monte Carlo. Taken from \cite{Abe2021-tr}.}
+  \label{fig:T2KSKExp_T2K_NuFluxPerMode}
+\end{figure}
+
+The beam dump, situated at the end of the decay volume, stops all charged particles other than highly energetic muons (\quickmath{p_\mu > 5\text{GeV}}). There are several monitors which measure these penentrating muons to determine the beam direction and intensity which is used to constrain some of the beam flux systematics within the analysis \cite{MuMon, Vladisavljevic2020-gv}. 
+
+The T2K experiment uses the an off-axis beam to narrow the neutrino energy distribution. This was the first implementation of this technique in a long baseline neutrino oscillation experiment after its original proposal \cite{Beavis1995-qf}. Pion decay, \quickmath{\pi \rightarrow \mu + \nu_\mu}, is a two body decay. Consequently, the neutrino energy \quickmath{E_\nu} can be determined based on the pion energy, \quickmath{E_\pi} and the angle at which the neutrino is emitted, \quickmath{\theta},
+
+\begin{equation}
+  E_\nu = \frac{m^{2}_{\pi} - m^{2}_{\mu}}{2\left(E_\pi - p_\pi \cos(\theta) \right)},
+\end{equation}
+
+where \quickmath{m_{\pi}} and \quickmath{m_{\mu}} are the mass of the pion and muon respectively. Consequently, the neutrino eneregy distribution is dependent upon the angle at which the neutrinos are observed from the initial pion beam direction. For the \quickmath{295\text{km}} baseline at T2K, \quickmath{E_\nu = 0.6\text{GeV}} maximises the electron neutrino appearance probability, \quickmath{P(\nu_\mu \rightarrow \nu_e)}, whilst minimising the muon disappearance probability, \quickmath{P(\nu_\mu \rightarrow \nu_\mu)}. \autoref{fig:T2KSKExp_T2K_OffAxisTrick} illustrates the neutrino energy distribution for a range of off-axis angles, as well as the oscillation probabilities most relevant to T2K.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KOffAxisTrick.pdf}
+  \end{subfigure}
+    \caption{Top(Middle) panel: T2K muon neutrino disappearance(muon neutrino appearance) probability as a function of neutrino energy. Bottom panel: The neutrino energy distribution for three different off-axis angles (Arbitary units).}
+  \label{fig:T2KSKExp_T2K_OffAxisTrick}
+\end{figure}
+
 \subsection{The Near Detector at \quickmath{280\text{m}}}
 \label{subsec:T2KSKExp_T2K_ND280}
 
 \subsection{The Interactive Neutrino GRID}
 \label{subsec:T2KSKExp_T2K_INGRID}
-
