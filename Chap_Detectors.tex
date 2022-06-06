@@ -242,7 +242,7 @@ For low(high) neutrino energies, \quickmath{E_\nu < 3\text{GeV}}(\quickmath{E_\n
   \label{fig:T2KSKExp_T2K_NuFluxPerMode}
 \end{figure}
 
-The beam dump, situated at the end of the decay volume, stops all charged particles other than highly energetic muons (\quickmath{p_\mu > 5\text{GeV}}). There are several monitors which measure these penentrating muons to determine the beam direction and intensity which is used to constrain some of the beam flux systematics within the analysis \cite{MuMon, Vladisavljevic2020-gv}. 
+The beam dump, situated at the end of the decay volume, stops all charged particles other than highly energetic muons (\quickmath{p_\mu > 5\text{GeV}}). The MuMon detector monitors the penentrating muons to determine the beam direction and intensity which is used to constrain some of the beam flux systematics within the analysis \cite{MuMon, Vladisavljevic2020-gv}. 
 
 The T2K experiment uses the an off-axis beam to narrow the neutrino energy distribution. This was the first implementation of this technique in a long baseline neutrino oscillation experiment after its original proposal \cite{Beavis1995-qf}. Pion decay, \quickmath{\pi \rightarrow \mu + \nu_\mu}, is a two body decay. Consequently, the neutrino energy \quickmath{E_\nu} can be determined based on the pion energy, \quickmath{E_\pi} and the angle at which the neutrino is emitted, \quickmath{\theta},
 
@@ -265,3 +265,19 @@ where \quickmath{m_{\pi}} and \quickmath{m_{\mu}} are the mass of the pion and m
 
 \subsection{The Interactive Neutrino GRID}
 \label{subsec:T2KSKExp_T2K_INGRID}
+
+The Interactive Neutrino GRID (INGRID) detector is situated within the same ``pit'' as the other near detectors and is aligned with the beam in the ``on-axis'' position. It is designed to measure the beam direction, spread and intensity. The detector was originally designed with 16 identical modulues \cite{t2k_det} (two modules have since been switched off) and a ``proton'' module. The design of the detector is cross-shaped with length and height \quickmath{10\text{m} \times 10\text{m}} as illustrated in \autoref{fig:T2KSKExp_T2K_INGRID}. Each module is composed of iron sheets interlaced with eleven tracking scintillator planes for a total target mass of \quickmath{7.1} tonnes. The scintillator design is an X-Y pattern of 24 bars in both orientations, where each bar contains wave-length shifting fibres which are connected to multi-pixel photon counters (MPPCs). The MPPCs convert detected photons into electrical signals via photodiodes which is then readout by Trip-T front-end electronics \cite{Yokoyama2010} and passed to the readout merging modules along with timing information from the clock module. Each module is encapuslated with veto plates to aide rejection of charged particles entering the module.
+
+The proton module is different from the other modules in that it consists of entirely scintillator planes with no iron target. The scintillator bars are also smaller than those used in the other modules to increase the granularity of the detector and improve tracking capabilities. The module sits in the center of the beamline and is designed to give precise measurments of quasi-elastic charged current interactions to evaluate the performance of the monte carlo simulation of the beamline. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.6\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KINGRIDDiagram.pdf}
+  \end{subfigure}
+    \caption{The Interactive Neutrino GRID on-axis Detector. 14 modules are arranged in a cross shape configuration, with the centre modules being directly aligned with the on-axis beam.}
+  \label{fig:T2KSKExp_T2K_INGRID}
+\end{figure}
+
+The INGRID detector can measure the beam direction to an uncertainty of \quickmath{0.4\text{mrad}} and the beam center within a resolution of \quickmath{10 \text{cm}} \cite{t2k_det}. The beam direction in both the vertical and horizontal directions is discussed in \cite{Suzuki_2015} and it is found to be in good agreement with the MUMON monitor described in \autoref{subsec:T2KSKExp_T2K_NeutrinoBeam}.
+
+
