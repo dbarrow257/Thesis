@@ -216,7 +216,7 @@ The neutrino beam used within the T2K experiment is described in \cite{t2k_det, 
   \end{subfigure}
   \begin{subfigure}[t]{0.95\textwidth}
     \vspace{0.5cm}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KSecondaryBeamline.jpg}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KSecondaryBeamline.pdf}
     \subcaption{Secondary beamline}
   \end{subfigure}
   \caption{Top figure: Bird's eye view of the most relevant part of primary and secondary beamline used within the T2K experiment. The primary beamline is the main-ring proton synchrotron, kicker magnet and graphite target. The secondary beamline consists of the the focusing horns, decay volume and beam dump. Figure taken from \cite{t2k_det}. Bottom figure: The side-view of the secondary beamline including the focusing horns, beam dump and neutrino detectors. Figure taken from \cite{MuMon}.}
@@ -266,7 +266,7 @@ where \quickmath{m_{\pi}} and \quickmath{m_{\mu}} are the mass of the pion and m
   \begin{subfigure}[t]{0.7\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KOffAxisTrick.pdf}
   \end{subfigure}
-    \caption{Top(Middle) panel: T2K muon neutrino disappearance(muon neutrino appearance) probability as a function of neutrino energy. Bottom panel: The neutrino energy distribution for three different off-axis angles (Arbitary units).}
+  \caption{Top(Middle) panel: T2K muon neutrino disappearance(muon neutrino appearance) probability as a function of neutrino energy. Bottom panel: The neutrino energy distribution for three different off-axis angles (Arbitary units).}
   \label{fig:T2KSKExp_T2K_OffAxisTrick}
 \end{figure}
 
@@ -279,7 +279,7 @@ Whilst all the near detectors are situated in the same ``pit'' located at \quick
   \begin{subfigure}[t]{0.7\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KND280.pdf}
   \end{subfigure}
-    \caption{The components of the ND280 detector. The neutrino beam travels from right to left. Taken from \cite{t2k_det}.}
+  \caption{The components of the ND280 detector. The neutrino beam travels from right to left. Taken from \cite{t2k_det}.}
   \label{fig:T2KSKExp_T2K_ND280}
 \end{figure}
 
@@ -288,7 +288,7 @@ As illustrated in \autoref{fig:T2KSKExp_T2K_ND280}, the ND280 detector is consis
 \subsubsection{Fine Grained Detectors}
 \label{subsubsec:T2KSKExp_T2K_FGDs}
 
-The T2K tracker region is comprised of two fine grained detectors (FGD). The FGDs are the primary target material which are \quickmath{1.1} tonnes of target material per FDG for the neutrinos to interaction with. Alongside this, the FGDs are designed to be able to track short range particles which don't exit the particular FGD in which the neutrino interacted in. Typically, short range particles are low momentum which are observed as tracks which deposit a large amount of energy per unit length which means the FGD needs good granularity to resolve these particles. The FGDs have the best timing resolution (\quickmath{\sim 3\text{ns}}) of any of the sub-modules of the ND280 detector. As such, the FGDs are used for time of flight measurements to determine forward going positively charged particles from backward going negatively charged particles. Furthermore, the FGDs are used to temporarly tag tracks which pass through multiple sub-modules and any tracks which enter a TPC are required to be track-matched to a track found in the associated FGD.
+The T2K tracker region is comprised of two fine grained detectors (FGD) and three Time Projection Chambers (TPC). A detailed description of the FGD design, construction and assembly is found in \cite{Amaudruz2012} and summarised below. The FGDs are the primary target material which are \quickmath{1.1} tonnes of target material per FDG for the neutrinos to interaction with. Alongside this, the FGDs are designed to be able to track short range particles which do not exit the particular FGD in which the neutrino interacted in. Typically, short range particles are low momentum which are observed as tracks which deposit a large amount of energy per unit length which means the FGD needs good granularity to resolve these particles. The FGDs have the best timing resolution (\quickmath{\sim 3\text{ns}}) of any of the sub-modules of the ND280 detector. As such, the FGDs are used for time of flight measurements to determine forward going positively charged particles from backward going negatively charged particles. Furthermore, the FGDs are used to temporarly tag tracks which pass through multiple sub-modules and any tracks which enter a TPC are required to be track-matched to a track found in the associated FGD.
 
 Both FDGs are made from square scintillator planes of side length \quickmath{186\text{cm}} and width \quickmath{2.02\text{cm}}, which are made from two layers of 192 scintallator bars in an XY orientation. A wave-length shift fibre is threaded through the center of each bar and is readout by an multi-photon pixel counter (MPPC). FGD1 is the most upstream of the two FGDs and contains 15 planes of carbon plastic scintillator which is a common target in external neutrino scattering data. As the far detector is a pure water target, 7 of the 15 scintillator planes in FGD2 have been replaced with a hybrid water-scintillator target. Due to the complexity of the nucleus, nuclear effects can not be extrapolated between different nuclei.Therefore having the ability to take data on one target which is the same as external data and another target which is the same as the far detector target is benefical for reliable model parameter estimates.
 
@@ -296,7 +296,7 @@ Both FDGs are made from square scintillator planes of side length \quickmath{186
   \begin{subfigure}[t]{0.7\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFGDPID.pdf}
   \end{subfigure}
-    \caption{Comparison of data to Monte Carlo prediction of integrated deposited energy as a function of track length for particles which stopped in FGD1. Taken from \cite{Amaudruz2012}.}
+  \caption{Comparison of data to Monte Carlo prediction of integrated deposited energy as a function of track length for particles which stopped in FGD1. Taken from \cite{Amaudruz2012}.}
   \label{fig:T2KSKExp_T2K_FGDPID}
 \end{figure}
 
@@ -304,6 +304,34 @@ For tracks which do not leave the FGD, the track lengths are often to small to m
 
 \subsubsection{Time Projection Chambers}
 \label{subsubsec:T2KSKExp_T2K_TPCs}
+
+The majority of particle identification and momentum measurements within ND280 are provided by the three Time Projection Chambers (TPCs) \cite{Abgrall2011}. The TPCs are located either side of the FGDs inside of the magnetic field meaning the momentum of a charged particle can be determined from the bending of the track.
+%They are designed with a momentum resolution of \quickmath{0.2\%} in order not to limit the determination of \delmsqatm at the far detector. Furthermore, to measure the intrinsic \quickmath{\nu_e} contamination of the beam, the resolution of the ionization energy loss is better than \quickmath{10\%} to ensure reliable particle identification.
+
+Each TPC module consists of two gastight boxes as shown in \autoref{fig:T2KSKExp_T2K_TPCDesign} made of non-magnetic material. The outer box is filled with \quickmath{\text{CO}_2} which acts an electrical insulator between the inner box and ground. The inner box forms the field cage which houses a uniform electric drift field of approximately \quickmath{275 \text{V/cm}} and an argon gas mixture. Charged particles moving through this gas mixture form ionization which is drifted towards micromega detectors which measure the ionization charge. 24 micromega detectors are located in each TPC. The time and position information in the readout allow a three dimensional image of the neutrino interaction.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.55\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KTPCDesign.pdf}
+  \end{subfigure}
+  \caption{Schematic of the design of a single Time Projection Chamber detector. Taken from \cite{Abgrall2011}.}
+  \label{fig:T2KSKExp_T2K_TPCDesign}
+\end{figure}
+
+Particle identification of tracks which pass through the TPCs is performed used dE/dx measurements. \autoref{fig:T2KSKExp_T2K_TPC_dEdx} illustrates the data to Monte Carlo distributions of the energy lost by a charged particle passing through the TPC as a function of the reconstructed particle momentum. The resolution is \quickmath{7.8 \pm 0.2\%} meaning that electrons and muons can be distinguished. This results in a reliable measurement of the intrinsic \quickmath{\nu_e} component of the beam.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2K_TPCdEdx_Positive.pdf}
+    \subcaption{Positively charged particles}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2K_TPCdEdx_Negative.pdf}
+    \subcaption{Negatively charged particles}
+  \end{subfigure}
+  \caption{The distribution of energy loss as a function of reconstructed momentum for charged particles passing through the TPC, compared to Monte Carlo prediction. Taken from \cite{Abgrall2011}.}
+  \label{fig:T2KSKExp_T2K_TPC_dEdx}
+\end{figure}
 
 \subsubsection{\quickmath{\pi^0} Detector}
 \label{subsubsec:T2KSKExp_T2K_P0D}
@@ -333,5 +361,3 @@ The proton module is different from the other modules in that it consists of ent
 \end{figure}
 
 The INGRID detector can measure the beam direction to an uncertainty of \quickmath{0.4\text{mrad}} and the beam center within a resolution of \quickmath{10 \text{cm}} \cite{t2k_det}. The beam direction in both the vertical and horizontal directions is discussed in \cite{Suzuki_2015} and it is found to be in good agreement with the MUMON monitor described in \autoref{subsec:T2KSKExp_T2K_NeutrinoBeam}.
-
-
