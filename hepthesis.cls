@@ -534,8 +534,8 @@
 %% An environment for the rubbish at the front of a typical thesis
 \let\@oldfrontmatter\frontmatter
 \specialcomment{frontmatter}{%
-  \setcounter{tocdepth}{2}% show down to subsections in contents
-  \setcounter{secnumdepth}{2}% number down to subsections
+  \setcounter{tocdepth}{3}% show down to subsections in contents
+  \setcounter{secnumdepth}{3}% number down to subsections
   \newcounter{iterlist}%
   \@oldfrontmatter%
   \adjustwidth{\@frontmatterextramargin}{\@frontmatterextramargin}%

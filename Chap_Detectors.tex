@@ -192,7 +192,17 @@ The Tokai to Kamioka (T2K) experiment is a long baseline neutrino oscillation ex
 
 The T2K collaboration make world leading measurements of the \sinsqatm, \delmsqatm and \dcp oscillation parameters and still keep improving their precision by including new samples and developing the models which describe the neutrino interactions and detector responses \finish{Link to Christophe's slides from Nu2022}. Electron neutrino appearance was first observed at T2K in 2014 \cite{2014_Abe_ElectronNuApp} which accompanied a \quickmath{7.3\sigma} significance of a non-zero \sinsqreac measurement.
 
-The purpose of the near detectors is to constrain the beam flux and cross section model parameters used within the fit. This is because the neutrinos which the near detectors observe have not travelled a distance far enough for the oscillation probability to have significantly changed the neutrino flavour eigenstates from that of the generated neutrino beam. There are a host of detectors situated in the near detector hall; nd280 (\autoref{subsec:T2KSKExp_T2K_ND280}), INGRID (\autoref{subsec:T2KSKExp_T2K_INGRID}), NINJA \cite{ninja}, WAGASCI \cite{wagasci} and Baby-MIND \cite{baby_mind}. The latter three are not currently used within the oscillation analysis presented within this thesis.
+The purpose of the near detectors is to constrain the beam flux and cross section model parameters used within the fit. This is because the neutrinos which the near detectors observe have not travelled a distance far enough for the oscillation probability to have significantly changed the neutrino flavour eigenstates from that of the generated neutrino beam. There are a host of detectors situated in the near detector hall (As illustrated in \autoref{fig:T2KSKExp_T2K_ND280Pit}); nd280 (\autoref{subsec:T2KSKExp_T2K_ND280}), INGRID (\autoref{subsec:T2KSKExp_T2K_INGRID}), NINJA \cite{ninja}, WAGASCI \cite{wagasci} and Baby-MIND \cite{baby_mind}. The latter three are not currently used within the oscillation analysis presented within this thesis.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.6\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KND280Hall.pdf}
+  \end{subfigure}
+  \caption{The near detector suite for the T2K experiment. The distance between the detectors and the beam target is \quickmath{280\text{m}}.}
+  \label{fig:T2KSKExp_T2K_ND280Pit}
+\end{figure}
+
+Whilst the purpose of ND280 described here is for the oscillation analysis, the detector can also make many cross section measurements for different interaction modes at neutrino energies of \quickmath{O(1)\text{GeV}} on the different targets within the detector \cite{PhysRevD.102.012007,10.1093/ptep/ptab014} . These measurements are of equal importance as they can lead the way in determining the model parameters used in the interaction models for the future high-precision era of neutrino physics.
 
 \subsection{The Neutrino Beam}
 \label{subsec:T2KSKExp_T2K_NeutrinoBeam}
@@ -263,6 +273,47 @@ where \quickmath{m_{\pi}} and \quickmath{m_{\mu}} are the mass of the pion and m
 \subsection{The Near Detector at \quickmath{280\text{m}}}
 \label{subsec:T2KSKExp_T2K_ND280}
 
+Whilst all the near detectors are situated in the same ``pit'' located at \quickmath{280\text{m}} from the beamline (as illustrated in \autoref{fig:T2KSKExp_T2K_ND280Pit}), the ``ND280'' detector is the off-axis detector which is situated at the same off-axis angle as the Super-Kamiokande far detector. It is designed to observe the unoscillated neutrino flux to measure the beam flux whilst also counting the event rate of the different interaction modes in which a neutrino can interact through. This allows the systematics used within the model to be constrained for a more accurate prediction of the expected event rate at the far detector.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KND280.pdf}
+  \end{subfigure}
+    \caption{The components of the ND280 detector. The neutrino beam travels from right to left. Taken from \cite{t2k_det}.}
+  \label{fig:T2KSKExp_T2K_ND280}
+\end{figure}
+
+As illustrated in \autoref{fig:T2KSKExp_T2K_ND280}, the ND280 detector is consists of several sub modules. The most important part of the detector for this analysis is the tracker region which is comprised of two time projection chambers (TPCs) sandwhiched beetween three fine grain detectors (FGDs). The FGDs contain both hydrocarbons and water targets for neutrino interactions and provide track reconstruction near the interaction vertex. The emitted charged particles can then propogate into the TPCs which provide particle identification and momentum reconstruction. The FPGs and TPCs are further described in \autoref{subsubsec:T2KSKExp_T2K_FGDs} and \autoref{subsubsec:T2KSKExp_T2K_TPCs} respectively. The electromagnetic calorimeter (ECAL) encapsulates the tracker region alongside the \quickmath{\pi^0} detector (P0D). The ECAL measures the deposited energy from photons emitted from interactions within the FGD and the P0D detector constrains the cross section of neutral current interactions which generate neutal pions, which are one of the largest backgrounds in the electron neutrino appearance oscillation channel. The P0D and ECAL detectors are detailed in \autoref{subsubsec:T2KSKExp_T2K_P0D} and \autoref{subsubsec:T2KSKExp_T2K_ECAL} respectively. The entire detector is located within a large yolk magnet which produces a \quickmath{0.2\text{T}} magnetic field. This design of the magnet also include a scintillating detector called the side muon range detector (SMRD) which is used to track high angle muons as well as acting as a cosmic veto. The SMRD is described in \autoref{subsubsec:T2KSKExp_T2K_SMRD}.  
+
+\subsubsection{Fine Grained Detectors}
+\label{subsubsec:T2KSKExp_T2K_FGDs}
+
+The T2K tracker region is comprised of two fine grained detectors (FGD). The FGDs are the primary target material which are \quickmath{1.1} tonnes of target material per FDG for the neutrinos to interaction with. Alongside this, the FGDs are designed to be able to track short range particles which don't exit the particular FGD in which the neutrino interacted in. Typically, short range particles are low momentum which are observed as tracks which deposit a large amount of energy per unit length which means the FGD needs good granularity to resolve these particles. The FGDs have the best timing resolution (\quickmath{\sim 3\text{ns}}) of any of the sub-modules of the ND280 detector. As such, the FGDs are used for time of flight measurements to determine forward going positively charged particles from backward going negatively charged particles. Furthermore, the FGDs are used to temporarly tag tracks which pass through multiple sub-modules and any tracks which enter a TPC are required to be track-matched to a track found in the associated FGD.
+
+Both FDGs are made from square scintillator planes of side length \quickmath{186\text{cm}} and width \quickmath{2.02\text{cm}}, which are made from two layers of 192 scintallator bars in an XY orientation. A wave-length shift fibre is threaded through the center of each bar and is readout by an multi-photon pixel counter (MPPC). FGD1 is the most upstream of the two FGDs and contains 15 planes of carbon plastic scintillator which is a common target in external neutrino scattering data. As the far detector is a pure water target, 7 of the 15 scintillator planes in FGD2 have been replaced with a hybrid water-scintillator target. Due to the complexity of the nucleus, nuclear effects can not be extrapolated between different nuclei.Therefore having the ability to take data on one target which is the same as external data and another target which is the same as the far detector target is benefical for reliable model parameter estimates.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFGDPID.pdf}
+  \end{subfigure}
+    \caption{Comparison of data to Monte Carlo prediction of integrated deposited energy as a function of track length for particles which stopped in FGD1. Taken from \cite{Amaudruz2012}.}
+  \label{fig:T2KSKExp_T2K_FGDPID}
+\end{figure}
+
+For tracks which do not leave the FGD, the track lengths are often to small to make reliable dE/dx measurements. Consequently, the integrated deposited energy is used for particle identification. The FGD can distinguish protons from other charged particles by comparing the integratedd deposited energy from data to Monte Carlo prediction as seen in \autoref{fig:T2KSKExp_T2K_FGDPID} for particles stopping in FDG1.
+
+\subsubsection{Time Projection Chambers}
+\label{subsubsec:T2KSKExp_T2K_TPCs}
+
+\subsubsection{\quickmath{\pi^0} Detector}
+\label{subsubsec:T2KSKExp_T2K_P0D}
+
+\subsubsection{Electromagnetic Calorimeter}
+\label{subsubsec:T2KSKExp_T2K_ECAL}
+
+\subsubsection{Side Muon Range Detector}
+\label{subsubsec:T2KSKExp_T2K_SMRD}
+
 \subsection{The Interactive Neutrino GRID}
 \label{subsec:T2KSKExp_T2K_INGRID}
 
@@ -277,7 +328,7 @@ The proton module is different from the other modules in that it consists of ent
   \begin{subfigure}[t]{0.55\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KINGRIDModule.pdf}
   \end{subfigure}%
-  \caption{Left panel: The Interactive Neutrino GRID on-axis Detector. 14 modules are arranged in a cross shape configuration, with the centre modules being directly aligned with the on-axis beam. Right panel: The layout of a single module of the INGRID detector.}
+  \caption{Left panel: The Interactive Neutrino GRID on-axis Detector. 14 modules are arranged in a cross shape configuration, with the centre modules being directly aligned with the on-axis beam. Right panel: The layout of a single module of the INGRID detector. Both figures recreated from \cite{t2k_det}.}
   \label{fig:T2KSKExp_T2K_INGRID}
 \end{figure}
 

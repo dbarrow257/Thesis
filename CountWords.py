@@ -5,16 +5,20 @@ Total = 0
 Files = os.listdir(os.getcwd())
 for File in Files:
     if (File[-4:] == ".tex" and File[0:4] == "Chap"):
-        Command = "texcount "+File+" | grep \"Words in text\""
-        Result = os.popen(Command).read()
-        Words = ((Result.split(":"))[1]).rstrip()
+        CommandInText = "texcount "+File+" | grep \"Words in text\""
+        ResultInText = os.popen(CommandInText).read()
+        WordsInText = ((ResultInText.split(":"))[1]).rstrip()
+
+        CommandInCaps = "texcount "+File+" | grep \"Words outside text (captions, etc.)\""
+        ResultInCaps = os.popen(CommandInCaps).read()
+        WordsInCaps = ((ResultInCaps.split(":"))[1]).rstrip()
 
         String = File+"\t\t"
         if (len(File)<16):
             String += "\t"
-        String += Words
+        String += str(int(WordsInText)+int(WordsInCaps))
 
-        Total += int(Words)
+        Total += int(WordsInText)+int(WordsInCaps)
         
         print(String)
 
