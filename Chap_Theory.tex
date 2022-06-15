@@ -1,6 +1,9 @@
 \chapter{Neutrino Oscillation Physics}
 \label{chap:NeutrinoOscillationPhysics}
-Neutrino Oscillation Physics Chapter
+
+When first proposed, neutrinos were expected to be massless fermions that only interact through weak and gravitational forces. This meant they were very difficult to detect as they can pass through significant amounts of matter without interacting. Despite this, experimental neutrino physics has developed with many different detection techniques and neutrino sources being used today. In direct tension with the standard model physics, neutrinos have been determined to oscillate between different lepton flavours requiring them to have mass.
+
+\autoref{sec:NeutrinoOscillationPhysics_Discovery} describes the observation techniques and discovery of neutrinos. The theory underpinning neutrino oscillation is described in \autoref{sec:NeutrinoOscillationPhysics_EvidenceForNeutrinoOscillation}. This section includes the approximations which can be made to simplify the understanding of neutrino oscillation in a two-flavour approximation as well as how the medium in which neutrinos propagate can manipulate the oscillation probability. The past, current, and future neutrino experiments are detailed in \autoref{sec:NeutrinoOscillationPhysics_OscillationMeasurements} including the reactor, atmospheric, and long-baseline accelerator neutrino sources that have been used to successfully constrain oscillation parameter determination.
 
 \section{Discovery of Neutrinos}
 \label{sec:NeutrinoOscillationPhysics_Discovery}
@@ -114,8 +117,6 @@ This culminates in the oscillation probability,
 
 For \quickmath{\alpha \neq \beta}. For a fixed neutrino energy, the oscillation probability is a sinusoidal function depending upon the distance over which the neutrino propagates. The frequency and amplitude of oscillation are dependent upon the ratio of the \quickmath{\Delta m^{2} / 4E} and \quickmath{\sin^2{2\theta}}, respectively. For more human-readable units, the maximum oscillation probability for a fixed value of \quickmath{\theta} is given at \quickmath{L[km]/E[GeV] \sim 1.27 / \Delta m^{2}}. It is this calculation that determines the best \quickmath{L/E} value for a given experiment to be designed around for measurements of a specific value of \quickmath{\Delta m^{2}}.
 
-\finish{Table/Plot of L/E's for different experiments?}
-
 \subsection{The MSW Effect}
 \label{sec:NeutrinoOscillationPhysics_MSW}
 
@@ -135,7 +136,7 @@ where \quickmath{A = 2\sqrt{2}G_{F}N_{e}E} with \quickmath{N_{e}} is the electro
 
 At densities lower than this critical value, the oscillation probability will be much closer to that of vacuum oscillation. The resonance occurring from the MSW effect depends on the sign of \quickmath{\Delta m^{2}}. Therefore, any neutrino oscillation experiment which observes neutrinos and antineutrinos which have propagated through matter can have some sensitivity to the ordering of the neutrino mass eigenstates.
 
-For an experiment observing atmospheric neutrinos propagating through the Earth, such as the studies presented in this thesis, a model of the Earth's density and layering is required. The model used within this analysis is the Preliminary Reference Earth Model (PREM) \cite{Dziewonski1981-sp}. This model provides piecewise cubic polynomials. To follow the methodology set in \finish{Find Ref to SK OA}, this analysis simply approximates the model as four layers of constant density with values taken from the PREM model, as described in \autoref{tab:NeutrinoOscillationPhysics_PREMModel}. As seen in \finish{Link to Oscillation chapter}, the approximation in this methodology has been removed and the density is instead integrated along the track using the piecewise polynomials.
+For an experiment observing atmospheric neutrinos propagating through the Earth, such as the studies presented in this thesis, a model of the Earth's density and layering is required. The model used within this analysis is the Preliminary Reference Earth Model (PREM) \cite{Dziewonski1981-sp}. This model provides piecewise cubic polynomials. To follow the methodology set in \cite{thesis_roger}, this analysis simply approximates the model as four layers of constant density with values taken from the PREM model, as described in \autoref{tab:NeutrinoOscillationPhysics_PREMModel}. As seen in \finish{Link to Oscillation chapter}, the approximation in this methodology has been removed and the density is instead integrated along the track using the piecewise polynomials.
 
 The density measurements provided in the PREM model are provided in terms of mass density, whereas neutrino oscillations are sensitive to the electron number density. This value can be computed as the product of the chemical composition and mass density of each layer.
 
@@ -198,7 +199,7 @@ The conclusive solution to this problem was determined by the SNO collaboration 
   \end{split}
 \end{equation}
 
-\finish{Since then, many experiments have precisely measured the neutrino flux of different interaction chains within the sun \cite{Borexino_Collaboration2018-of, Aharmim2006-yb, Agostini2020-so}. The most recent measurement was that of CNO neutrinos which were recently observed with \quickmath{5\sigma} significance by the Borexino collaboration. Future neutrino experiments aim to further the spectroscopic measurements of different fusion chains within the Sun \cite{Andringa2016-zd, Beacom2017-ff, An2016-gm}. Whilst not of direct focus, dark mattter experiments like DARWIN \cite{aalbers2020solar} will also be sensitive to the solar neutrinos emitted by the Sun.}
+Many experiments have since measured the neutrino flux of different interaction chains within the sun \cite{Borexino_Collaboration2018-of, Aharmim2006-yb, Agostini2020-so}. The most recent measurement was that of CNO neutrinos which were recently observed with \quickmath{5\sigma} significance by the Borexino collaboration. Future neutrino experiments aim to further these spectroscopic measurements of different fusion chains within the Sun \cite{Andringa2016-zd, Beacom2017-ff, An2016-gm}. Solar neutrinos act as an irreducible background for dark matter experiments like DARWIN but oscillation parameter measurements can be made \cite{aalbers2020solar}.
 
 \subsection{Atmospheric Neutrinos}
 \label{subsec:NeutrinoOscillationPhysics_AtmosphericNeutrinos}
@@ -223,7 +224,7 @@ such that for a single pion decay, three neutrinos are produced. The atmospheric
   \label{fig:NeutrinoOscillationPhysics_AtmosphericNeutrinoFlux}
 \end{figure}
 
-\finish{The oscillations present in atmospheric neutrinos still follow the same \quickmath{L/E} probability presented in \autoref{sec:NeutrinoOscillationPhysics_3FlavourOsc}, but unlike a fixed beam experiment, the baseline for each neutrino is dependent upon the zenith angle with respect to Z-axis of the detector as illustrated by \autoref{fig:NeutrinoOscillationPhysics_ZenithAngle}. Neutrinos coming from interactions taking place in the atmospheric above the detector (\quickmath{\cos(\theta)=1.0}) only travel the height of the atmosphere before being observed within the detector; a distance of \quickmath{O(20)\text{km}}. However, neutrinos which are observed as coming from directly below the detector (\quickmath{\cos(\theta)=-1.0}) have travelled \quickmath{O(6 \times 10^{3})\text{km}} from interactions in the atmosphere on the opposite side of the Earth. As discussed in \autoref{sec:NeutrinoOscillationPhysics_MSW}, any neutrino passing through the Earth is subject to matter effects. These effects are most notable for any neutrino which passes through the Earth's core (\quickmath{\cos(\theta)<-0.45}) due to the MSW resonance.}
+Unlike long-baseline experiments which have a fixed baseline, the distance atmospheric neutrinos propagate is dependent upon the zenith angle at which they interact. This is illustrated in \autoref{fig:NeutrinoOscillationPhysics_ZenithAngle}. Neutrinos that are generated directly above the detector (\quickmath{\cos(\theta)=1.0}) have a baseline equivalent to the height of the atmosphere whereas neutrinos that interact directly below the detector (\quickmath{\cos(\theta)=-1.0}) have to travel a length equal to the diameter of the  Earth. This means atmospheric neutrinos have a baseline that varies from \quickmath{O(20)\text{km}} to \quickmath{O(6 \times 10^{3})\text{km}}. Any neutrino generated at or below the horizon will be subject to matter effects as they propagate through the Earth.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.40\textwidth}
@@ -306,7 +307,3 @@ JUNO-TAO \cite{junocollaboration2020tao}, a small collaboration within the large
 
 Kamland \cite{Decowski2016-hh} is the only experiment to have observed reactor neutrinos using a long baseline (flux weighted averaged baseline of \quickmath{L \sim 180\text{km}}) which allows it to have sensitivity to \delmsqsol. Combined with the SK solar neutrino experiment, the combined analysis puts the most stringent constraint on \delmsqsol \cite{PhysRevD.83.052002} which is used as a prior uncertainty within accelerator neutrino experiments.
 
-\section{Measurement Summary}
-\label{sec:NeutrinoOscillationPhysics_MeasurementSummary}
-
-\finish{Need to write this}

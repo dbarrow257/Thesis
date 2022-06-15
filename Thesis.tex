@@ -66,6 +66,8 @@
 %% Start the document
 \begin{document}
 
+\linenumbers
+
 %% Define the un-numbered front matter (cover pages, rubrik and table of contents)
 \begin{frontmatter}
   \input{frontmatter}
@@ -73,11 +75,11 @@
 
 %% Start the content body of the thesis
 \begin{mainmatter}
-  \input{Chap_Introduction}
+  %\input{Chap_Introduction}
   \input{Chap_Theory}
   \input{Chap_Detectors}
   \input{Chap_MCMC}
-  \input{Chap_Simulation}
+  %\input{Chap_Simulation}
   %\input{EventSelection}
   %\input{JointFit}
   %\input{Validation}
@@ -86,9 +88,9 @@
 \end{mainmatter}
 
 %% Produce the appendices
-\begin{appendices}
-  \input{App_AppendixA}
-\end{appendices}
+%\begin{appendices}
+%  \input{App_AppendixA}
+%\end{appendices}
 
 %% Produce the un-numbered back matter (e.g. colophon,
 %% bibliography, tables of figures etc., index...)
