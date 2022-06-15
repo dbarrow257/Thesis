@@ -44,7 +44,7 @@
 
 %% Part-wise spacing commands and definitions
 \def\@frontmatterspacing{onehalfspacing}
-\def\@mainmatterspacing{onehalfspacing}
+\def\@mainmatterspacing{doublespacing}
 \def\@appendixspacing{onehalfspacing}
 \def\@backmatterspacing{onehalfspacing}
 
