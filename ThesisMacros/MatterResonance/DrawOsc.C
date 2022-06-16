@@ -4,7 +4,7 @@ void DrawOsc() {
   
   gStyle->SetOptStat(false);
   
-  TString FileName = "Oscillograms.root";
+  TString FileName = "../../MacroInputs/MatterResonance/Oscillograms.root";
   TFile* File = new TFile(FileName);
 
   TH2D* H_Nu_NH = (TH2D*)File->Get("OscNH/Fine/hSecondaryArray_1_0_0");
