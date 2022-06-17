@@ -4,13 +4,13 @@ void DrawOsc() {
   
   gStyle->SetOptStat(false);
   
-  TString FileName = "../../MacroInputs/MatterResonance/Oscillograms.root";
+  TString FileName = "../../MacroInputs/Oscillograms/Oscillograms_Matter_NoChemComp_PREM4_NoProdHeight.root";
   TFile* File = new TFile(FileName);
 
-  TH2D* H_Nu_NH = (TH2D*)File->Get("OscNH/Fine/hSecondaryArray_1_0_0");
-  TH2D* H_NuBar_NH = (TH2D*)File->Get("OscNH/Fine/hSecondaryArray_0_0_0");
-  TH2D* H_Nu_IH = (TH2D*)File->Get("OscIH/Fine/hSecondaryArray_1_0_0");
-  TH2D* H_NuBar_IH = (TH2D*)File->Get("OscIH/Fine/hSecondaryArray_0_0_0");
+  TH2D* H_Nu_NH = (TH2D*)File->Get("Osc_NH/Fine/hSecondaryArray_1_0_0");
+  TH2D* H_NuBar_NH = (TH2D*)File->Get("Osc_NH/Fine/hSecondaryArray_0_0_0");
+  TH2D* H_Nu_IH = (TH2D*)File->Get("Osc_IH/Fine/hSecondaryArray_1_0_0");
+  TH2D* H_NuBar_IH = (TH2D*)File->Get("Osc_IH/Fine/hSecondaryArray_0_0_0");
 
   H_Nu_NH->GetZaxis()->SetRangeUser(0.0,1.0);
   H_NuBar_NH->GetZaxis()->SetRangeUser(0.0,1.0);

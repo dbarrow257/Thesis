@@ -6706,3 +6706,40 @@ keywords = "T2K, J-PARC, Neutrino beam, Muon monitor, Ionization chamber, Silico
   title = {The {NOMAD} Experiment at {CERN}},
   journal = {Advances in High Energy Physics}
 }
+
+%========================================================================================================================================================================
+%Oscillation
+
+
+@article{probgpu,
+	Abstract = {Oscillation probability calculations are becoming increasingly CPU intensive in modern neutrino oscillation analyses. The independency of reweighting individual events in a Monte Carlo sample lends itself to parallel implementation on a graphics processing unit. The library Prob3++ was ported to the GPU using the CUDA C API, allowing for large scale parallelized calculations of neutrino oscillation probabilities through matter of constant density, decreasing the execution time by 2 orders of magnitude when compared to performance on a single CPU.},
+	Author = {R G Calland and A C Kaboth and D Payne},
+	Doi = {10.1088/1748-0221/9/04/p04016},
+	Month = {4},
+	Number = {04},
+	Pages = {P04016--P04016},
+	Publisher = {{IOP} Publishing},
+	Title = {Accelerated event-by-event neutrino oscillation reweighting with matter effects on a {GPU}},
+	Url = {https://doi.org/10.1088/1748-0221/9/04/p04016},
+	Volume = {9},
+	Year = 2014,
+}
+
+@article{cudaprob3,
+	Abstract = {The computation of neutrino flavor transition amplitudes through inhomogeneous matter is a time-consuming step and thus could benefit from optimization and parallelization. Next to reliable parameter estimation of intrinsic physical quantities such as neutrino masses and mixing angles, these transition amplitudes are important in hypothesis testing of potential extensions of the standard model of elementary particle physics, such as additional neutrino flavors. Hence, fast yet precise implementations are of high importance to research. In the recent past, massively parallel accelerators such as CUDA-enabled GPUs featuring thousands of compute units have been widely adopted due to their superior memory bandwidth, vast compute capability, and highly competitive compute-to-energy ratio in comparison to traditional multi-core architectures with a few tens of monolithic cores. In this paper, we introduce two scalable multi-GPU extensions of common neutrino oscillation frameworks -- namely Prob3++ and νSQuIDS --allowing for the acceleration of oscillation dynamics computation by one to three orders-of-magnitude while preserving numerical accuracy. Our software is licensed under LGPLv3 and can be accessed at https://github.com/fkallen/CUDAProb3 and https://github.com/fkallen/CUDAnuSQuIDS.
+	Program summary
+	Program Title: CUDAProb3++ and CUDAνSQuIDS Program Files doi: http://dx.doi.org/10.17632/j54yymmg5h.1 Licensing provisions: LGPLv3 Programming language: CUDA, C and C++ Nature of problem: Fast computation of neutrino oscillation probabilities in inhomogeneous matter using constant-coefficient or variable-coefficient ODE solvers. Solution method: Solving ordinary differential equations on CUDA-enabled GPUs.},
+	Author = {Felix Kallenborn and Christian Hundt and Sebastian B{\"o}ser and Bertil Schmidt},
+	Doi = {https://doi.org/10.1016/j.cpc.2018.07.022},
+	Issn = {0010-4655},
+	Journal = {Computer Physics Communications},
+	Keywords = {General, High energy physics and computing, Neutrino oscillation, Flavor physics, Parallelization, GPUs},
+	Pages = {235-244},
+	Title = {Massively parallel computation of atmospheric neutrino oscillations on CUDA-enabled accelerators},
+	Url = {https://www.sciencedirect.com/science/article/pii/S0010465518302790},
+	Volume = {234},
+	Year = {2019},
+}
+
+
+

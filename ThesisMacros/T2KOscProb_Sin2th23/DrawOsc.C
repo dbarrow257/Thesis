@@ -1,0 +1,46 @@
+void DrawOsc() {
+
+  bool doPadding = true;
+  
+  gStyle->SetOptStat(false);
+  
+  TString FileName = "../../MacroInputs/T2KOscProb/OscProbSinsqth23Sens.root";
+  TFile* File = new TFile(FileName);
+
+  TH1D* H_NH_NuMu_x_NuMu_NH = (TH1D*)File->Get("Osc_NH/NuMu_x_NuMu");
+  TH1D* H_NH_NuMu_x_NuMu_lBound = (TH1D*)File->Get("Osc_NH_lBound/NuMu_x_NuMu");
+  TH1D* H_NH_NuMu_x_NuMu_hBound = (TH1D*)File->Get("Osc_NH_hBound/NuMu_x_NuMu");
+
+  int DCP_NH_Col = kBlack;
+  int DCP_lBound_Col = kRed;
+  int DCP_hBound_Col = kBlue;
+  int DCP_IH_Col = kGreen;
+  
+  H_NH_NuMu_x_NuMu_NH->SetLineColor(DCP_NH_Col);
+  H_NH_NuMu_x_NuMu_lBound->SetLineColor(DCP_lBound_Col);
+  H_NH_NuMu_x_NuMu_hBound->SetLineColor(DCP_hBound_Col);
+
+  H_NH_NuMu_x_NuMu_NH->SetMarkerColor(DCP_NH_Col);
+  H_NH_NuMu_x_NuMu_lBound->SetMarkerColor(DCP_lBound_Col);
+  H_NH_NuMu_x_NuMu_hBound->SetMarkerColor(DCP_hBound_Col);
+
+  H_NH_NuMu_x_NuMu_lBound->SetTitle(";E_{#nu} (GeV);P(#nu_{#mu} #rightarrow #nu_{#mu})");
+
+  TCanvas* Canv = new TCanvas("Canv","");
+  H_NH_NuMu_x_NuMu_lBound->Draw();
+  H_NH_NuMu_x_NuMu_NH->Draw("SAME");
+  H_NH_NuMu_x_NuMu_hBound->Draw("SAME");
+
+  H_NH_NuMu_x_NuMu_NH->SetLineWidth(2);
+  H_NH_NuMu_x_NuMu_lBound->SetLineWidth(2);
+  H_NH_NuMu_x_NuMu_hBound->SetLineWidth(2);
+
+  TLegend* Legend = new TLegend(0.54,0.14,0.89,0.4);
+  Legend->AddEntry(H_NH_NuMu_x_NuMu_lBound,"sin^{2}(#theta_{23}) = 0.3","l");
+  Legend->AddEntry(H_NH_NuMu_x_NuMu_NH,"sin^{2}(#theta_{23}) = 0.528","l");
+  Legend->AddEntry(H_NH_NuMu_x_NuMu_hBound,"sin^{2}(#theta_{23}) = 0.7","l");
+
+  Legend->SetTextSize(0.04);
+  Legend->SetBorderSize(0);
+  Legend->Draw();
+}

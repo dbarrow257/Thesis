@@ -16,6 +16,8 @@ for File in Files:
         String = File+"\t\t"
         if (len(File)<16):
             String += "\t"
+        if (len(File)<24):
+            String += "\t"
         String += str(int(WordsInText)+int(WordsInCaps))
 
         Total += int(WordsInText)+int(WordsInCaps)
