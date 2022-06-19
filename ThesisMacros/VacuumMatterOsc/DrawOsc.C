@@ -10,10 +10,12 @@ void DrawOsc() {
   TString FileName_Matter = "../../MacroInputs/Oscillograms/Oscillograms_Matter_NoChemComp_PREM4_NoProdHeight.root";
   TFile* File_Matter = new TFile(FileName_Matter);
 
-  TH2D* H_NuE_Vacuum = (TH2D*)File_Vacuum->Get("Osc_NH/Fine/hSecondaryArray_0_0_0");
-  TH2D* H_NuE_Matter = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_0_0_0");
-  TH2D* H_NuMu_Vacuum = (TH2D*)File_Vacuum->Get("Osc_NH/Fine/hSecondaryArray_0_1_0");
-  TH2D* H_NuMu_Matter = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_0_1_0");
+  TH2D* H_NuE_Vacuum = (TH2D*)File_Vacuum->Get("Osc_NH/Fine/hSecondaryArray_1_0_0");
+  TH2D* H_NuE_Matter = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_1_0_0");
+  //TH2D* H_NuMu_Vacuum = (TH2D*)File_Vacuum->Get("Osc_NH/Fine/hSecondaryArray_1_1_0");
+  //TH2D* H_NuMu_Matter = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_1_1_0");
+  TH2D* H_NuMu_Vacuum = (TH2D*)File_Vacuum->Get("Osc_NH/Fine/hSecondaryArray_0_0_0");
+  TH2D* H_NuMu_Matter = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_0_0_0");
 
   H_NuE_Vacuum->GetZaxis()->SetRangeUser(0.0,1.0);
   H_NuE_Matter->GetZaxis()->SetRangeUser(0.0,1.0);
@@ -45,7 +47,7 @@ void DrawOsc() {
   NHTitle->SetTextSize(0.03) ;
 
   TPaveText* IHTitle = new TPaveText(0.0,0.1,0.1,0.5);
-  TText* IHText = (TText*)IHTitle->AddText("#nu_{#mu} #rightarrow #nu_{#mu}");
+  TText* IHText = (TText*)IHTitle->AddText("#bar{#nu}_{e} #rightarrow #bar{#nu}_{e}");
   IHText->SetTextAngle(90);
   IHTitle->SetBorderSize(0) ;
   IHTitle->SetFillColor(0) ;

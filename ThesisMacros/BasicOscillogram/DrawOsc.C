@@ -22,13 +22,18 @@ void DrawOsc() {
   H_NuE_CPViol->GetXaxis()->SetRangeUser(0.1,500.0);
 
   H_NuE_CPViol->SetTitle("");
-  H_NuE_CPViol->GetXaxis()->SetTitleOffset(1.2);
+  H_NuE_CPViol->GetXaxis()->SetTitleOffset(0.95);
   H_NuE_CPViol->GetYaxis()->SetTitleOffset(1.2);
+
+  H_NuE_CPViol->GetXaxis()->SetTitleSize(0.05);
+  H_NuE_CPViol->GetYaxis()->SetTitle("cos(#Theta_{Z})");
+  H_NuE_CPViol->GetZaxis()->SetTitle("Probability");
 
   TCanvas* Canv2 = new TCanvas("Canv2","");
   
   Canv2->cd();
   TPad* Pad4 = new TPad("Pad4","",0.05,0.05,0.95,0.90);
+  Pad4->SetRightMargin(0.15);
   Pad4->Draw();
   Pad4->SetLogx();
   Pad4->cd();
