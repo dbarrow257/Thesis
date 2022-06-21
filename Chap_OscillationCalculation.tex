@@ -133,6 +133,10 @@ In practice, this technique is performed before the fit in order to deal with th
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/SubSamplingExample.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{Illustration of the averaging procedure for $N=2$. The oscillation probabilities calculated on the finer left binning are averaged to obtain the oscillation probabilities in the coarser right binning. These averaged oscillation probabilities with the coarser binning are then applied to each event during the fit.}
   \label{fig:Oscillation_SK_SubSamplingExample}
 \end{figure}
+
+This analysis uses a binned oscillogram in which oscillation probabilities for a given event are selected based on that event's attributes. To perform a similar averaging as the SK analysis, a sub-sampling approach has been devised. The technique can be explained by considering a ``fine'' and ``coarse'' oscillogram. The fine oscillograms are used to define the array of cosine zeniths and energies for the neutrino oscillation engine. The coarse oscillograms cover the same phasespace as the fine oscillograms but have fewer bins in that range. Then, for a given coarse oscillogram bin, the value of that bin will be taken as the average of all the oscillation probabilities of all the fine oscillogram bins which fall into that coarse oscillogram bin.
+
+The binning which is used to calculate the oscillation probabilities, known as the `fine' binning, has \quickmath{N \times N} subdivisions per coarse bin. The value assigned to a coarse bin is the linear average (flat prior in \quickmath{E_{\nu}} and \quickmath{\cos(\theta_{Z})}) of all the oscillation probabilities calculated at the center of each fine bin contained within that coarse bin. \autoref{fig:Oscillation_SK_SubSamplingExample} illustrates the \quickmath{N = 2} example where the assigned value to a coarse bin is the linear average of the four fine bins which fall in that coarse bin. Whilst the coarse bin edges are not linear in either axis, the sub-division of the fine bins is linear over the range of a coarse bin. The alignment of the fine and coarse binning edges are checked at run-time.
