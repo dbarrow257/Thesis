@@ -129,3 +129,10 @@ This averaging works well because of the correlation between true neutrino zenit
 
 In practice, this technique is performed before the fit in order to deal with the computational cost. Oscillation probabilities are pre-calculated on a 4D grid. This is possible as the Osc3++ framework uses binned oscillation parameters rather than continous so the oscillation parameters used in the fit are known prior to run-time. The framework used in the analysis presented within this thesis uses continous oscillation parameters. Due to the MCMC technique invoked within the fitter (\finish{Link to MCMC chapter}), there is no way to know which parameter values will be selected at run-time. Therefore, the oscillation parameter calculation would have to be performed at run-time which is very expensive for event-by-event reweighting. Having to compute five oscillation probabilities per event would require far too much computational resources to be viable so the SK technique can not be used within this analysis. However, the concept of the averaging technique can be taken from it.
 
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/SubSamplingExample.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:Oscillation_SK_SubSamplingExample}
+\end{figure}
