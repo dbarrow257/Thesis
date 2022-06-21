@@ -1,0 +1,22 @@
+void DrawOsc() {
+
+  bool doPadding = true;
+  
+  gStyle->SetOptStat(false);
+  
+
+  TString FileName_Matter = "../../MacroInputs/Oscillograms/Oscillograms_Matter_NoChemComp_PREM4_NoProdHeight.root";
+  TFile* File_Matter = new TFile(FileName_Matter);
+
+  TH2D* H_NuMu_x_NuE = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_1_1_0");
+
+  H_NuMu_x_NuE->GetZaxis()->SetRangeUser(0.,1.);
+  H_NuMu_x_NuE->GetXaxis()->SetRangeUser(0.1,20.);
+  
+  TCanvas* Canv = new TCanvas("Canv","");
+  Canv->SetLogx();
+  H_NuMu_x_NuE->Draw("COLZ");
+  
+
+  Canv->Print("FastOscillationExample.pdf");  
+}
