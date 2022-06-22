@@ -1,0 +1,130 @@
+void DrawOsc() {
+
+  bool doPadding = true;
+  
+  gStyle->SetOptStat(false);
+  
+  TString FileName_Matter = "../../MacroInputs/Oscillograms/Oscillograms_Matter_NoChemComp_PREM4_NoProdHeight.root";
+  TFile* File_Matter = new TFile(FileName_Matter);
+
+  TH2D* H_NuMu_x_NuE_Fine = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_1_1_0");
+  TH2D* H_NuMu_x_NuE_Coarse = (TH2D*)File_Matter->Get("Osc_NH/Coarse/hPrimaryArray_1_1_0");
+  TH2D* H_NuE_x_NuE_Fine = (TH2D*)File_Matter->Get("Osc_NH/Fine/hSecondaryArray_1_0_0");
+  TH2D* H_NuE_x_NuE_Coarse = (TH2D*)File_Matter->Get("Osc_NH/Coarse/hPrimaryArray_1_0_0");
+  
+  TCanvas* Canv = new TCanvas("Canv","",1000,1000);
+
+  H_NuMu_x_NuE_Fine->GetYaxis()->SetTitleSize(0.04);
+  H_NuE_x_NuE_Fine->GetYaxis()->SetTitleSize(0.04);
+
+  H_NuE_x_NuE_Fine->GetXaxis()->SetTitleSize(0.04);
+  H_NuE_x_NuE_Coarse->GetXaxis()->SetTitleSize(0.04);
+  
+  H_NuMu_x_NuE_Fine->GetZaxis()->SetRangeUser(0.,1.);
+  H_NuMu_x_NuE_Coarse->GetZaxis()->SetRangeUser(0.,1.);
+  H_NuE_x_NuE_Fine->GetZaxis()->SetRangeUser(0.,1.);
+  H_NuE_x_NuE_Coarse->GetZaxis()->SetRangeUser(0.,1.);
+  
+  H_NuMu_x_NuE_Fine->GetXaxis()->SetRangeUser(0.069969000,100.);
+  H_NuMu_x_NuE_Coarse->GetXaxis()->SetRangeUser(0.069969000,100.);
+  H_NuE_x_NuE_Fine->GetXaxis()->SetRangeUser(0.069969000,100.);
+  H_NuE_x_NuE_Coarse->GetXaxis()->SetRangeUser(0.069969000,100.);
+
+  H_NuMu_x_NuE_Fine->SetTitle("");
+  H_NuMu_x_NuE_Coarse->SetTitle("");
+  H_NuE_x_NuE_Fine->SetTitle("");
+  H_NuE_x_NuE_Coarse->SetTitle("");
+
+  TPaveText* FineTitle = new TPaveText(0.1,0.9,0.5,1.0);
+  FineTitle->AddText("Fine");
+  FineTitle->SetBorderSize(0) ;
+  FineTitle->SetFillColor(0) ;
+  FineTitle->SetTextSize(0.04) ;
+
+  TPaveText* CoarseTitle = new TPaveText(0.5,0.9,0.9,1.0);
+  CoarseTitle->AddText("Coarse");
+  CoarseTitle->SetBorderSize(0) ;
+  CoarseTitle->SetFillColor(0) ;
+  CoarseTitle->SetTextSize(0.04) ;
+
+  TPaveText* NuMu_x_NuE_Title = new TPaveText(0.0,0.4,0.1,1.0);
+  TText* NHText = (TText*)NuMu_x_NuE_Title->AddText("#nu_{#mu} #rightarrow #nu_{e}");
+  NHText->SetTextAngle(90);
+  NuMu_x_NuE_Title->SetBorderSize(0) ;
+  NuMu_x_NuE_Title->SetFillColor(0) ;
+  NuMu_x_NuE_Title->SetTextSize(0.03) ;
+
+  TPaveText* NuE_x_NuE_Title = new TPaveText(0.0,0.1,0.1,0.5);
+  TText* IHText = (TText*)NuE_x_NuE_Title->AddText("#nu_{e} #rightarrow #nu_{e}");
+  IHText->SetTextAngle(90);
+  NuE_x_NuE_Title->SetBorderSize(0) ;
+  NuE_x_NuE_Title->SetFillColor(0) ;
+  NuE_x_NuE_Title->SetTextSize(0.03) ;
+
+  FineTitle->Draw();
+  CoarseTitle->Draw();
+  NuMu_x_NuE_Title->Draw();
+  NuE_x_NuE_Title->Draw();
+  
+  Canv->cd();
+  TPad* Pad1 = new TPad("Pad1","",0.1,0.5,0.5,0.9);
+  if (doPadding) {
+    Pad1->SetLeftMargin(0.1);
+    Pad1->SetRightMargin(0.0);
+    Pad1->SetBottomMargin(0.0);
+    Pad1->SetTopMargin(0.01);
+  }
+  Pad1->Draw();
+  Pad1->cd();
+  Pad1->SetLogx();
+  H_NuMu_x_NuE_Fine->Draw("COLZ");
+  //Pad1->SetGridy();
+  //Pad1->SetGridx();
+
+  Canv->cd();
+  TPad* Pad2 = new TPad("Pad2","",0.5,0.5,0.9,0.9);
+  if (doPadding) {
+    Pad2->SetLeftMargin(0.0);
+    Pad2->SetRightMargin(0.1);
+    Pad2->SetBottomMargin(0.0);
+    Pad2->SetTopMargin(0.01);
+  }
+  Pad2->Draw();
+  Pad2->cd();
+  Pad2->SetLogx();
+  H_NuMu_x_NuE_Coarse->Draw("COLZ");
+  //Pad2->SetGridy();
+  //Pad2->SetGridx();
+  
+  Canv->cd();
+  TPad* Pad3 = new TPad("Pad3","",0.1,0.1,0.5,0.5);
+  if (doPadding) {
+    Pad3->SetLeftMargin(0.1);
+    Pad3->SetRightMargin(0.0);
+    Pad3->SetBottomMargin(0.1);
+    Pad3->SetTopMargin(0.0);
+  }
+  Pad3->Draw();
+  Pad3->cd();
+  Pad3->SetLogx();
+  H_NuE_x_NuE_Fine->Draw("COLZ");
+  //Pad3->SetGridy();
+  //Pad3->SetGridx();  
+  
+  Canv->cd();
+  TPad* Pad4 = new TPad("Pad4","",0.5,0.1,0.9,0.5);
+  if (doPadding) {
+    Pad4->SetLeftMargin(0.0);
+    Pad4->SetRightMargin(0.1);
+    Pad4->SetBottomMargin(0.1);
+    Pad4->SetTopMargin(0.0);
+  }
+  Pad4->Draw();
+  Pad4->cd();
+  Pad4->SetLogx();
+  H_NuE_x_NuE_Coarse->Draw("COLZ");
+  //Pad4->SetGridy();
+  //Pad4->SetGridx();
+   
+  Canv->Print("SmearingImplementation.pdf");  
+}

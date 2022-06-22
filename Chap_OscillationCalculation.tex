@@ -156,7 +156,7 @@ The choice of \quickmath{N} is justified based on two studies. Firstly, the vari
 Denoting the event rate for one sample for a given throw \quickmath{t} at each \quickmath{N} by \quickmath{\lambda_t^{(N)}}, the average over all considered \quickmath{N} values (\quickmath{\overline \lambda_t = \frac{1}{24} \sum_{N=1}^{24} \lambda_t^{(N)}}) is computed. The variance in the event rate at each \quickmath{N} is then calculated from
 
 \begin{equation}
-  \mathrm{Var}\Big[\lambda^{(N)} - \overline \lambda\Big] = \tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)^2 - \left[\tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)\right]^2 .
+  \mathrm{Var}\Big[\lambda^{(N)}] = \tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)^2 - \left[\tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)\right]^2 .
   \label{eq:Oscillation_SK_Variance}
 \end{equation}
 
@@ -181,3 +181,18 @@ The second study to determine the value of \quickmath{N} is as follows. The like
 \end{figure}
 
 A choice of \quickmath{N} sub-divisions per coarse bin has a variance in both event rate and log-likelihood residuals less than the required threshold of \quickmath{0.001}. The event rate test is the more stringent test. For the variance of log-likelihood residuals the largest value is of order \quickmath{10^{-7}}, corresponding to an error on the log-likelihood of about \quickmath{3\times 10^{-4}}, small enough to be negligible for the oscillation analysis.
+
+In practice \autoref{fig:Oscillation_SK_SmearingImplementation} illustrates the effect of the smearing using \quickmath{N = 10}. The fast oscillations in the sub-GeV upgoing region have been replaced with a normalisation effect whilst the large matter resonance structure remains.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/SmearingImplementation.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:Oscillation_SK_SmearingImplementation}
+\end{figure}
+
+\clearpage
+
+\section{Production Height Averaging}
+\label{sec:Oscillation_ProdHAvergaing}
