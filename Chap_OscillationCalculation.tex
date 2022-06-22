@@ -127,16 +127,57 @@ The uncertainty in the production height is controlled by using an ``average'' p
 
 This averaging works well because of the correlation between true neutrino zenith angle and the inferred direction from secondary particles in the detector. For low energy neutrinos, where the resolution of the true neutrino direction is poor, \quickmath{\sigma_{i}} will be large resulting in significant averaging effects. Contrary to this, the inferred direction of high energy neutrinos will be much closer to the true value, meaning that \quickmath{\sigma_{i}} will be smaller.
 
-In practice, this technique is performed before the fit in order to deal with the computational cost. Oscillation probabilities are pre-calculated on a 4D grid. This is possible as the Osc3++ framework uses binned oscillation parameters rather than continous so the oscillation parameters used in the fit are known prior to run-time. The framework used in the analysis presented within this thesis uses continous oscillation parameters. Due to the MCMC technique invoked within the fitter (\finish{Link to MCMC chapter}), there is no way to know which parameter values will be selected at run-time. Therefore, the oscillation parameter calculation would have to be performed at run-time which is very expensive for event-by-event reweighting. Having to compute five oscillation probabilities per event would require far too much computational resources to be viable so the SK technique can not be used within this analysis. However, the concept of the averaging technique can be taken from it.
+In practice, this technique is performed before the fit in order to deal with the computational cost. Oscillation probabilities are pre-calculated on a 4D grid. This is possible as the Osc3++ framework uses binned oscillation parameters rather than continous so the oscillation parameters used in the fit are known prior to run-time. The framework used in the analysis presented within this thesis uses continous oscillation parameters. Due to the MCMC technique invoked within the fitter (\finish{Link to MCMC chapter}), there is no way to know which oscillation parameter values will be selected in each step at run-time. Therefore, the oscillation parameter calculation would have to be performed at run-time which is very expensive for event-by-event reweighting. Having to compute five oscillation probabilities per event would require far too much computational resources to be viable so the SK technique can not be used within this analysis. However, the concept of the averaging technique can be taken from it.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/SubSamplingExample.pdf}
   \end{subfigure}
-  \caption{Illustration of the averaging procedure for $N=2$. The oscillation probabilities calculated on the finer left binning are averaged to obtain the oscillation probabilities in the coarser right binning. These averaged oscillation probabilities with the coarser binning are then applied to each event during the fit.}
+  \caption{Illustration of the averaging procedure for \quickmath{N=2}. The oscillation probabilities calculated on the finer left binning are averaged to obtain the oscillation probabilities in the coarser right binning. These averaged oscillation probabilities with the coarser binning are then applied to each event during the fit.}
   \label{fig:Oscillation_SK_SubSamplingExample}
 \end{figure}
 
 This analysis uses a binned oscillogram in which oscillation probabilities for a given event are selected based on that event's attributes. To perform a similar averaging as the SK analysis, a sub-sampling approach has been devised. The technique can be explained by considering a ``fine'' and ``coarse'' oscillogram. The fine oscillograms are used to define the array of cosine zeniths and energies for the neutrino oscillation engine. The coarse oscillograms cover the same phasespace as the fine oscillograms but have fewer bins in that range. Then, for a given coarse oscillogram bin, the value of that bin will be taken as the average of all the oscillation probabilities of all the fine oscillogram bins which fall into that coarse oscillogram bin.
 
 The binning which is used to calculate the oscillation probabilities, known as the `fine' binning, has \quickmath{N \times N} subdivisions per coarse bin. The value assigned to a coarse bin is the linear average (flat prior in \quickmath{E_{\nu}} and \quickmath{\cos(\theta_{Z})}) of all the oscillation probabilities calculated at the center of each fine bin contained within that coarse bin. \autoref{fig:Oscillation_SK_SubSamplingExample} illustrates the \quickmath{N = 2} example where the assigned value to a coarse bin is the linear average of the four fine bins which fall in that coarse bin. Whilst the coarse bin edges are not linear in either axis, the sub-division of the fine bins is linear over the range of a coarse bin. The alignment of the fine and coarse binning edges are checked at run-time.
+
+The coarse binning is defined with \quickmath{67 \times 52} bins in true neutrino energy \quickmath{\times} cosine zenith. In general, the binning is logarithmically spaced in neutrino energy but has some hand-picked bin edges. Firstly, the bin density around the matter resonance is smoothly increased around the matter resonance region. This is to avoid smearing this region which can be well sampled by the Monte Carlo. Secondly, bin edges are selected to hit \quickmath{0.4, 0.6, 1, 10, 30, 50, 100 \text{GeV}}. This is to ensure that the Coloumb correction systematic and the atmospheric flux systematics definitions in neutrino energy can be hit. The cosine zenith binning is approximately linearly spaced across the allowable range but the values of layer transitions are hit precisely; \quickmath{-0.8376} (core-mantle) and \quickmath{-0.4464} (mantle/transition zone). Bins are spread further apart for downgoing events as this is a region unaffected by the fast oscillation wavelengths and reduces the total number of calculations required to perform the reweight (Not the number required to perform the oscillation calculation).
+
+The choice of \quickmath{N} is justified based on two studies. Firstly, the variation of event rates of each sample is studied as a function of the number of subdivisions. For a given set of oscillation parameters thrown from the PDG prior constraints, the oscillation probabilities are calculated using a given value of \quickmath{N}. Each sample is re-weighted and the event rate is stored. The value of \quickmath{N} is scanned from \quickmath{1}, which corresponds to no averaging, to \quickmath{24}, which corresponds to the largest computationally viable subdivision binning. The event rate of each sample at large \quickmath{N} is expected to converge to a stationary value due to the fine binning fully sampling the small scale structure. \autoref{fig:Oscillation_SK_EventRateVariable} illustrates this behaviour for the \texttt{SubGeV\_elike\_0dcy} sample for \quickmath{30} different throws of the oscillation parameters.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/EventRate_VariableGraphs.pdf}
+  \end{subfigure}
+  \caption{Event rate of the \texttt{SubGeV\_elike\_0dcy} sample as a function of the number of sub-divisions per coarse bin. Each sub-plot represents the event rate of the sample at a different oscillation parameter set (thrown from the PDG priors). The red-line in each sub plot represents the mean of the event rate over the different values of sub divisions for that particular oscillation parameter throw.}
+  \label{fig:Oscillation_SK_EventRateVariable}
+\end{figure}
+
+Denoting the event rate for one sample for a given throw \quickmath{t} at each \quickmath{N} by \quickmath{\lambda_t^{(N)}}, the average over all considered \quickmath{N} values (\quickmath{\overline \lambda_t = \frac{1}{24} \sum_{N=1}^{24} \lambda_t^{(N)}}) is computed. The variance in the event rate at each \quickmath{N} is then calculated from
+
+\begin{equation}
+  \mathrm{Var}\Big[\lambda^{(N)} - \overline \lambda\Big] = \tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)^2 - \left[\tfrac{1}{N_\mathrm{throws}} \sum_{t=1}^{N_\mathrm{throws}} \left(\lambda_t^{(N)} - \overline \lambda_t\right)\right]^2 .
+  \label{eq:Oscillation_SK_Variance}
+\end{equation}
+
+The aim of the study is to find the lowest value of \quickmath{N} such that this variance is below \quickmath{0.001}. This is the typical threshold used by T2K fitters to validate systematic implementation so is just as applicable to the oscillation probability calculation. The results of this study for each atmospheric sample used within this thesis are illustrated in \autoref{fig:Oscillation_SK_EventRateVariance} for \quickmath{2000} throws of the oscillation parameters. As can be seen, the variance is below the threshold at \quickmath{N = 10}, and is driven primarily by the \texttt{SubGeV\_mulike\_1dcy} and \text{SubGeV\_elike\_0dcy} selections.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/EventRate_VarianceGraphs.pdf}
+  \end{subfigure}
+  \caption{Variance of event rate for each atmospheric sample as a function of the number of sub-divisions per coarse bin. The solid red line indicates the \quickmath{0.1\%} threshold and the dashed red line is a graphical indication of the variance at a sub-division \quickmath{N = 10}.}
+  \label{fig:Oscillation_SK_EventRateVariance}
+\end{figure}
+
+The second study to determine the value of \quickmath{N} is as follows. The likelihood for each sample is computed against an Asimov data set created with oscillation parameters from ``Asimov A'' in \autoref{tab:Oscillation_ParameterSets}. Following \autoref{eq:Oscillation_SK_Variance}, the variance of the log-likelihood over all considered \quickmath{N} is computed. The results are shown in \autoref{fig:Oscillation_SK_LLHVariance}. This tests the impact of the averaging on each sample's binning by reconstructed momentum and/or zenith angle and also provides a scale for the calculation errors compared to their statistical uncertainties. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/EventRate_VarianceGraphs.pdf}
+  \end{subfigure}
+  \caption{Variance of sample likelihood, when compared to `Asimov data' set at Asimov A, for each atmospheric sample as a function of the number of sub-divisions per coarse bin. The solid red line indicates the \quickmath{0.1\%} threshold and the dashed red line is a graphical indication of the variance at a sub-division \quickmath{N = 10}.}
+  \label{fig:Oscillation_SK_LLHVariance}
+\end{figure}
+
+A choice of \quickmath{N} sub-divisions per coarse bin has a variance in both event rate and log-likelihood residuals less than the required threshold of \quickmath{0.001}. The event rate test is the more stringent test. For the variance of log-likelihood residuals the largest value is of order \quickmath{10^{-7}}, corresponding to an error on the log-likelihood of about \quickmath{3\times 10^{-4}}, small enough to be negligible for the oscillation analysis.
