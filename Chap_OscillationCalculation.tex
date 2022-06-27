@@ -1,6 +1,12 @@
 \chapter{Oscillation Probability Calculation}
 \label{chap:OscillationProbability}
 
+The calculation of the oscillation probability is crucial to the reliability of the sensitivity measurements of the analysis presented within this thesis. Firstly, it is important to understand how and where the sensitivity to the oscillation parameters come from for both atmospheric and beam samples. An overview of how these sets of samples observe changes in \dcp, \delmsqatm and \sinsqatm as well as how the atmospheric samples have an increased sensitivity to mass hierarchcy determination is given in \autoref{sec:Oscillation_Overview}. It also explains the additional complexities involved when including atmospheric neutrinos as compared to a beam-only analyis.
+
+Without additional technqiues, atmospheric sub-GeV upward-going neutrinos can artificially inflate the sensistivity to \dcp due to the quickly varying oscillation probability in this region. Therefore, a ``sub-sampling'' approach has been developed to reduce these biases ensuring accurate and reliable sensitvity measurements. This technique ensures that small-scale unresolvable features of the oscillation probability have been averaged over whilst the large-scale resolvable features in the oscillation probability have been kept. The documentaton of this technique is found in \autoref{sec:Oscillation_FastOscillations} alongside the validation of the choices which have been made. The \texttt{CUDAProb3} implementation choice made within the fitting framework, as detailed in \autoref{sec:Oscillation_CalculationEngine}, ensures that the analysis can be done in a timely manner.
+
+Whilst the beam neutrinos are assumed to propagate through a constant density slab of material, the density variations through the Earth result in more complex oscillation patterns Furthermore, the uncertainty in the electron density can modify the oscillation probability for the denser core-layers of the Earth. \autoref{sec:Oscillation_MatterDensity} details the model of the Earth used within this analysis. This includes the official SK-only methodology as well as a relatively straight forward improvement which can be made to more closely approximate the PREM model. Another quirk of atmospheric neutrinos oscillation studies is that the height of production in the atmosphere is not known on an event-by-event analysis. An analytical averaging technique that approximates the uncertainty on the oscillation probability has been followed, with the author of this thesis being responsible for the implementation and validation. This technique is illustrated in \autoref{sec:Oscillation_ProdHAvergaing} alongside the variation in oscillation probability which would be expected effect in the down-going and horiztonal-going neutrinos.
+
 \section{Overview}
 \label{sec:Oscillation_Overview}
 
@@ -188,7 +194,7 @@ In practice \autoref{fig:Oscillation_SK_SmearingImplementation} illustrates the 
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/SmearingImplementation.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The oscillation probability, \quickmath{P(\nu_{\mu} \rightarrow \nu_{e})} (top row) and \quickmath{P(\nu_{e} \rightarrow \nu_{e})} (bottom row), given as a function of neutrino energy and zenith angle. The left column gives the ``fine'' binning used to calculate the oscillation probabilities and the right column illustrates the ``coarse'' binning used to reweight the MC events. The fine binning choice is given with \quickmath{N = 10}, which was determined to be below threshold from \autoref{fig:Oscillation_SK_EventRateVariance} and \autoref{fig:Oscillation_SK_LLHVariance}.}
   \label{fig:Oscillation_SK_SmearingImplementation}
 \end{figure}
 
@@ -197,15 +203,19 @@ In practice \autoref{fig:Oscillation_SK_SmearingImplementation} illustrates the 
 \section{Calculation Engine}
 \label{sec:Oscillation_CalculationEngine}
 
+As previously discussed in \autoref{sec:Oscillation_FastOscillations}, the calculation of oscillation probabilities is performed at run-time due to utilising continuous oscillation parameters. Consequently, the time per calculation is crucial for fit performance. The fitting framework used for this analysis was developed with \texttt{ProbGPU} \cite{probgpu}. This is a GPU-only implementation of the \text{prob3} engine \cite{Prob3}. It is primarily designed for neutrino propagation in a beam experiment (single layer of constant density) with the atmospheric propagation code not being used prior to the analysis in this thesis.
+
+Another engine, \texttt{CUDAProb3} \cite{cudaprob3}, has been implemented within the fitting framework used within this analysis. It has been specifically optimised for atmospheric neutrino oscillation calculation so unfortunately does not contain the code to replace the beam oscillation calculation. The engine is utilises object orientated techniques as compared to the functional implementation of \texttt{ProbGPU}. This allows the energy and cosine zenith arrays to be kept on GPU memory, rather than having to load these arrays onto GPU memory for each calculation. General memory interfacing is one of the slowest tasks which GPUs can do, so being able to eliminate this significantly reduces the time required for calculation. This can be seen in \autoref{fig:Oscillation_CalculationTime}, where the GPU implementaton of \texttt{CUDAProb3} is approximately three times faster than the \texttt{ProbGPU} engine.
+
 \begin{figure}[h]
   \begin{subfigure}[t]{0.8\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/CalculationTime.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The calculation time taken to both calulate the oscillation probabilities and fill the ``coarse'' oscillograms, following the technique given in \autoref{sec:Oscillation_FastOscillations},  for the \texttt{CUDAProb3} and \texttt{ProbGPU} (Red) calculation engines. \texttt{CUDAProb3} has both a GPU (Blue) and CPU (Black) implementation, where the CPU implementation is multithreaded. Therefore, 8-threads (solid) and 40-threads (dashed) configurations have been used. \texttt{Prob3}, which is a CPU single-thread implemenation has a mean step time of \quickmath{1.142\text{s}}.}
   \label{fig:Oscillation_CalculationTime}
 \end{figure}
 
-Prob3 averages \quickmath{1.142\text{s}} per calculation
+Another significant advantage of \texttt{CUDAProb3} is that it contains a CPU multithreaded implementation which is not possible with the \texttt{ProbGPU} or \texttt{prob3} engines. This eliminates the requirement for GPU resources when submitting jobs to batch systems. As illustrated in \autoref{fig:Oscillation_CalculationTime}, the calculation speed depends on the number of available threads. Using \quickmath{8} threads (which is typical of the batch systems being used) is approximately twice as slow as the \texttt{ProbGPU} engine implementation, but would allow the fitting framework to be run on many more resources. This fact is utilised for any SK-only fits but GPU resources are required for any fits which include beam samples due to the \texttt{ProbGPU} requirement.
 
 \section{Matter Density Profile}
 \label{sec:Oscillation_MatterDensity}
@@ -216,7 +226,7 @@ For an experiment observing atmospheric neutrinos propagating through the Earth,
   \begin{subfigure}[t]{0.8\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/DensityComparison.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The density of the Earth given as a function of the radius, as given by the PREM model (Black) and the constant density four-layer approximation (Blue), as used in the official SK-only analysis.}
   \label{fig:Oscillation_SK_PREMModelApproximation}
 \end{figure}
 
@@ -242,7 +252,7 @@ The density measurements provided in the PREM model are provided in terms of mas
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/ChemicalComposition.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The oscillation probability, \quickmath{P(\nu_{\mu} \rightarrow \nu_{e})} (top row) and \quickmath{P(\nu_{e} \rightarrow \nu_{e})} (bottom row), given as a function of neutrino energy and zenith angle. The left column gives probabilities where the constant \quickmath{Z/A = 0.5} approximation which is used in the official SK-only analysis. The middle column gives the probabilities where the more accurate \quickmath{Z/A = [0.468,0.498]} values as given in \autoref{tab:NeutrinoOscillationPhysics_PREMModel}. The right column illustrates the difference in oscillation probability between the two different techniques.}
   \label{fig:Oscillation_SK_ChemicalComposition}
 \end{figure}
 
@@ -264,7 +274,7 @@ The oscillation probabilty calculation speed is approximately linear in the numb
   \begin{subfigure}[t]{0.8\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/DensityComparisonWithAveragePREM.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The density of the Earth given as a function of the radius, as given by the PREM model (Black), the constant density four-layer approximation (Blue), as used in the official SK-only analysis, and the quadratic approximation of the PREM model (Red).}
   \label{fig:Oscillation_SK_PREMModelApproximationWithAveragePREMModel}
 \end{figure}
 
@@ -280,7 +290,7 @@ The oscillation probabilty calculation speed is approximately linear in the numb
       Transition Zone & \quickmath{6371} & \quickmath{-50.42 + 123.33 x - 69.95 x^{2}} \\
       \hline
     \end{tabular}
-    \caption{\quickmath{x = R/R_{Earth}}}
+    \caption{The quadratic polynomial fits to the PREM model for four assumed layers of the PREM model. The fit to calculate the coefficients is given in \cite{t2k_tn_425}, where \quickmath{x = R/R_{Earth}}.}
     \label{tab:NeutrinoOscillationPhysics_AveragePREMModel}
 \end{table}
 
@@ -290,7 +300,7 @@ The effect of using the average density per \quickmath{\cos(\theta_{Z})} model i
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/AverageDensityPREMModel.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The oscillation probability, \quickmath{P(\nu_{\mu} \rightarrow \nu_{e})} (top row) and \quickmath{P(\nu_{e} \rightarrow \nu_{e})} (bottom row), given as a function of neutrino energy and zenith angle. The left column gives probabilities where the four-layer constant density approximation is used. The middle column gives the probabilities where the density is integrated over the trajectory, using the quadratic PREM approximation, for each \quickmath{\cos(\theta_{Z})} is used. The right column illustrates the difference in oscillation probability between the two different techniques.}
   \label{fig:Oscillation_SK_AverageDensityPREMModel}
 \end{figure}
 
@@ -388,6 +398,6 @@ In practice, implementation in CUDAProb3 \cite{cudaprob3} is relatively straight
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/ProductionHeightAveraging.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The oscillation probability, \quickmath{P(\nu_{\mu} \rightarrow \nu_{e})} (top row) and \quickmath{P(\nu_{e} \rightarrow \nu_{e})} (bottom row), given as a function of neutrino energy and zenith angle. The left column gives probabilities where a fixed production height of \quickmath{25\text{km}} is used. The middle column gives the probabilities where the production height is analytically averaged. The right column illustrates the difference in oscillation probability between the two different techniques.}
   \label{fig:Oscillation_SK_ProductionHeightAveraging}
 \end{figure}
