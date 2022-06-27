@@ -65,7 +65,13 @@ A circular modulation of the oscillation peak (in both magnitude and position) i
   \begin{subfigure}[t]{0.5\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/T2K_NuMu_x_NuE_DCPSens.pdf}
     \subcaption{\dcp}
-  \end{subfigure}
+  \end{subfigure}%
+  \iffalse
+    \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/BiProbabilityPlot.pdf}
+    \subcaption{Mass Hierarchy}
+    \end{subfigure}
+  \fi
   \caption{The oscillation probability for beam neutrino events, given as a function of neutrino energy. All oscillation parameters assume the ``Asimov A'' set given in \autoref{tab:Oscillation_ParameterSets} unless otherwise stated. Each panel represents a change in one of the oscillation parameters whilst keeping the remaining parameters fixed.}
   \label{fig:Oscillation_T2K_OscillationProbSensitivity}
 \end{figure}
