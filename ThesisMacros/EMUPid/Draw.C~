@@ -1,0 +1,52 @@
+void Draw() {
+  TString FileName = "../../MacroInputs/EMUPid.root";
+  TFile* File = new TFile(FileName);
+
+  TH1D* NuECC = (TH1D*)File->Get("Atm_NuECC");
+  TH1D* NuEBCC = (TH1D*)File->Get("Atm_NuEBCC");
+  TH1D* NuMuCC = (TH1D*)File->Get("Atm_NuMuCC");
+  TH1D* NuMuBCC = (TH1D*)File->Get("Atm_NuMuBCC");
+  TH1D* NC = (TH1D*)File->Get("Atm_NC");
+
+  NuECC->SetLineColor(kBlack);
+  NuEBCC->SetLineColor(kBlack);
+  NuMuCC->SetLineColor(kBlack);
+  NuMuBCC->SetLineColor(kBlack);
+  NC->SetLineColor(kBlack);
+  
+  NuECC->SetFillColor(kAzure+6);
+  NuEBCC->SetFillColor(kBlue);
+  NuMuCC->SetFillColor(kOrange-3);
+  NuMuBCC->SetFillColor(kRed);
+  NC->SetFillColor(kGray);
+  
+  THStack* Stack = new THStack("Stack","");
+
+  Stack->Add(NuECC);
+  Stack->Add(NuEBCC);
+  Stack->Add(NuMuCC);
+  Stack->Add(NuMuBCC);
+  Stack->Add(NC);
+
+  TCanvas* Canv = new TCanvas("Canv","");
+  
+  Stack->Draw();
+
+  Stack->GetXaxis()->SetTitle("e/#mu PID Parameter");
+  Stack->GetXaxis()->SetTitleSize(0.05);
+  Stack->GetYaxis()->SetTitle("Events");
+  Stack->GetYaxis()->SetTitleSize(0.05);
+  
+  TLegend* Leg = new TLegend(0.7,0.6,0.89,0.89);
+  Leg->SetBorderSize(0);
+  Leg->SetTextSize(0.05);
+  Leg->AddEntry(NuECC,"#nu_{e} CC","f");
+  Leg->AddEntry(NuEBCC,"#bar{#nu}_{e} CC","f");
+  Leg->AddEntry(NuMuCC,"#nu_{#mu} CC","f");
+  Leg->AddEntry(NuMuBCC,"#bar{#nu}_{#mu} CC","f");
+  Leg->AddEntry(NC,"NC","f");
+
+  Leg->Draw("SAME");
+
+  Canv->Print("PIDParameter.pdf");
+}
