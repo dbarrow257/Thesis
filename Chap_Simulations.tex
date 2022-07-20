@@ -1,10 +1,10 @@
-\chapter{Simulation, Reconstruction, and Event Selections}
-\label{chap:Selections}
+\chapter{Simulation, Reconstruction, and Event Reduction}
+\label{chap:Simulations}
 
-As a crucial part of the oscillation analysis, an accurate prediction of the expected neutrino spectrum at the far detector is required. This includes modeling the flux generation, neutrino interactions, and detector effects. All of the simulation packages required to do this are briefly described in \autoref{sec:Selections_Simulation}. The reconstruction of neutrino events inside the far detector, including the \fq algorithm, is documented in \autoref{sec:Simulation_Reconstruction}. This also includes data quality checks of the SK-V data which the author performed for the T2K oscillation analysis presented at Neutrino 2020 \cite{Dunne2020-uf}. Finally, \autoref{sec:Selections_Reduction} describes the steps taken in the SK detector to trigger on events of interest whilst removing the comparatively large rate of cosmic ray muon events.
+As a crucial part of the oscillation analysis, an accurate prediction of the expected neutrino spectrum at the far detector is required. This includes modeling the flux generation, neutrino interactions, and detector effects. All of the simulation packages required to do this are briefly described in \autoref{sec:Simulations_Simulation}. The reconstruction of neutrino events inside the far detector, including the \fq algorithm, is documented in \autoref{sec:Simulation_Reconstruction}. This also includes data quality checks of the SK-V data which the author performed for the T2K oscillation analysis presented at Neutrino 2020 \cite{Dunne2020-uf}. Finally, \autoref{sec:Simulations_Reduction} describes the steps taken in the SK detector to trigger on events of interest whilst removing the comparatively large rate of cosmic ray muon events.
 
 \section{Simulation}
-\label{sec:Selections_Simulation}
+\label{sec:Simulations_Simulation}
 
 In order to generate a Monte Carlo prediction of the expected event rate at the far detector, all the processes in the beam and atmospheric flux, neutrino interaction, and detector need to be modeled. Each of these parts is individually modeled and each of them is detailed below.
 
@@ -16,7 +16,7 @@ Once a flux prediction has been made for all three detectors, NEUT 5.4.0 \cite{H
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NEUTCrossSection.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NEUTCrossSection.pdf}
   \end{subfigure}
   \caption{The NEUT prediction of the \quickmath{\nu_{\mu}}-H2O cross-section overlaid on the T2K \quickmath{\nu_{\mu}} flux. The charged current (black, solid) and neutral current (black, dashed) inclusive, charged current quasi-elastic (blue, solid), charged current 2p2h (blue, dashed), charged current single pion production (pink), and charged current multi--\quickmath{\pi} and DIS (Purple) cross-sections are illustrated. Figure taken from \cite{Hayato2021}.}
   \label{fig:Selection_CrossSection}
@@ -30,7 +30,7 @@ DIS and multi-\quickmath{\pi} producing interactions become the most dominant fo
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/FSIDiagram.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/FSIDiagram.pdf}
   \end{subfigure}
   \caption{Illustration of the various processes which a pion can undergo before exiting the nucleus. Taken from \cite{10.48550/arxiv.1602.05299}.}
   \label{fig:Selection_FSIDiagram}
@@ -50,11 +50,11 @@ For the purposes of this analysis, the \fq reconstruction algorithm is utilised.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NuECandidate.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NuECandidate.pdf}
     \subcaption{\quickmath{\nu_{e}}}
   \end{subfigure}%
   \begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NuMuCandidate.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NuMuCandidate.pdf}
     \subcaption{\quickmath{\nu_{\mu}}}
   \end{subfigure}
   \caption{Event displays from Super Kamiokande illustrating the ``crisp'' ring from a muon and the typically ``fuzzier'' electron ring. Each pixel represents a PMT and the color scheme denotes the accumulated charge deposited on that PMT. Figures taken from \cite{t2k_tn_219}.}
@@ -105,7 +105,7 @@ The track parameters and particle identity which maximise \quickmath{L(\Gamma , 
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.9\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/PIDParameter.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/PIDParameter.pdf}
   \end{subfigure}
   \caption{The electron/muon PID separation parameter for all sub-GeV single-ring events in SK-IV. The charged current (CC) component is broken down in four flavours of neutrino (\quickmath{\nu_{\mu}}, \quickmath{\bar{\nu}_{\mu}}, \quickmath{\nu_{e}} and \quickmath{\bar{\nu}_{e}}). Events with positive values of the parameter are determined to be electron-like.}
   \label{fig:Selection_EMUPIDParamDistribution}
@@ -121,7 +121,7 @@ As an example of how the reconstruction depends on the detector conditions, the 
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/DarkRate.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/DarkRate.pdf}
   \end{subfigure}
   \caption{The variation of the measured dark rate as a function of date, broken down by PMT type. The SK-IV and SK-V periods span September 2008 to May 2018 and January 2019 to July 2020, respectively. The break in measurement in 2018 corresponds to the period of tank repair and refurbishment. Figure adapted from \cite{t2k_tn_326}.}
   \label{fig:Selection_DarkRateVariation}
@@ -131,11 +131,11 @@ The predicted charge calculated in the \fq charge likelihood prediction includes
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/ChargeAssociatedWithMuon.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/ChargeAssociatedWithMuon.pdf}
     \subcaption{Muon}
   \end{subfigure}%
   \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/ChargeAssociatedWithDecayE.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/ChargeAssociatedWithDecayE.pdf}
     \subcaption{Decay Electron}
   \end{subfigure}  
   \caption{Comparison of the measured raw charge deposited per event from the stopping muon data samples between SK-IV (Blue) and SK-V (Red), split by the primary muon subevent and the associated decay electron subevent.}
@@ -146,7 +146,7 @@ The energy scale systematic for the SK-IV period was determined to be \quickmath
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/MuonRangeComparison.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/MuonRangeComparison.pdf}
   \end{subfigure}
   \caption{The distribution of the reconstructed momentum from the muon ring divided by the distance between the reconstructed muon and decay electron vertices as found in the stopping muon data sets of SK-IV (Black) and SK-IV (Red). Only events with one tagged decay electron are considered. A Gaussian fit is considered in the range \quickmath{[2.0,2.4] \text{MeV/cm}} and illustrated as the solid curve.}
   \label{fig:Selection_MuonMomentumByRange}
@@ -156,20 +156,20 @@ The consistency between these distributions has been computed in two ways. First
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Selections/MuonRange_Chi2Scan.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip, page=1]{Figures/Simulations/MuonRange_Chi2Scan.pdf}
   \end{subfigure}
   \caption{The \quickmath{\chi^{2}} difference between the SK-IV and SK-V reconstructed muon momentum divided by range when the SK-V is modified by the scaling parameter \quickmath{\alpha}. Both additive (Blue) and multiplicative (Black) scaling factors have been considered. In practice, the additive scaling factor actually uses the value of (\quickmath{\alpha-1.0}) but is illustrated like this so the results can be shown on the same axis range.}
   \label{fig:Selection_MuonMomentumByRangeChi2Scan}
 \end{figure}
 
 \section{Event Reduction at SK}
-\label{sec:Selections_Reduction}
+\label{sec:Simulations_Reduction}
 
 Atmospheric neutrino events observed in the SK detector are categorised into three different types of samples: fully contained (FC), partially contained (PC) and up-going muon (Up-$\mu$), using PMT hit signatures in the inner and outer detector (ID and OD, respectively). To identify FC neutrino events, it is required that the neutrino interacts inside the fiducial volume of the ID such that no significant OD activity is observed. For this analysis, an event is defined to be in the fiducial volume providing the event vertex is at least $0.5$m away from the ID walls. PC events have the same ID requirements but can have a larger signal present inside the OD. Typically these events are higher energy muon interactions that penetrate the ID walls. The Up-$\mu$ sample contains events where muons are created from neutrino interactions in the OD water or rock below the tank. They then propagate upwards through the detector. The reason downward-going muons generated from neutrino interactions above the tank are neglected is due to the difficulty in separating their signature from the cosmic muon shower background. The sample categories are visually depicted in Figure \ref{fig:Selection_AtmosphericSampleTopology}.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figures/Selections/Atmo_topology.pdf}
+    \includegraphics[width=0.8\textwidth]{Figures/Simulations/Atmo_topology.pdf}
     \caption{A depiction of the topology patterns for fully-contained (FC), partially-contained (PC) and up-going muon (\quickmath{\text{Up-}\mu}) samples included in this analysis.}
     \label{fig:Selection_AtmosphericSampleTopology}
 \end{figure}
@@ -187,13 +187,13 @@ The PC and \quickmath{\text{Up-}\mu} categories are broken down into ``through-g
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.49\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NeutrinoEnergyDist_NuE.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NeutrinoEnergyDist_NuE.pdf}
   \end{subfigure}%
   \begin{subfigure}[t]{0.49\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NeutrinoEnergyDist_NuMu.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NeutrinoEnergyDist_NuMu.pdf}
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NeutrinoEnergyDist_NuTau.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NeutrinoEnergyDist_NuTau.pdf}
   \end{subfigure}%
   \caption{The predicted neutrino flux of the fully contained (FC) sub-GeV and multi-GeV, partially contained (PC), and upward-going muon (\quickmath{\text{Up-}\mu}) events. The prediction is broken down by the \quickmath{\nu_{x} \rightarrow \nu_{e}} prediction (top left), \quickmath{\nu_{x} \rightarrow \nu_{\mu}} prediction (top right) and \quickmath{\nu_{x} \rightarrow \nu_{\tau}} prediction (bottom). All systematic dials are set to their nominal values and the Asimov A oscillation parameters are assumed.}
   \label{fig:Selection_NeutrinoEnergyDistribution}
