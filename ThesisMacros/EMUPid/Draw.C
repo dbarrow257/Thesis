@@ -50,5 +50,18 @@ void Draw() {
 
   Leg->Draw("SAME");
 
+  TLine* Line = new TLine(0.,0.,0.,700);
+  Line->Draw("SAME");
+
+  TArrow* Arrow = new TArrow(0.,700.,500.,700.,0.03,"|>");
+  Arrow->SetFillColor(kBlack);
+  Arrow->SetLineColor(kBlack);
+  Arrow->SetAngle(60);
+  Arrow->Draw("SAME |>");
+
+  TText* Text = new TText(30.,650,"Electron-like");
+  Text->SetTextSize(0.04);
+  Text->Draw("SAME");
+  
   Canv->Print("PIDParameter.pdf");
 }

@@ -136,7 +136,7 @@
    SK5TOTQ2RH->SetBinError(61,0.0203714);
    SK5TOTQ2RH->SetEntries(157142);
    SK5TOTQ2RH->SetStats(0);
-   SK5TOTQ2RH->SetLineColor(2);
+   SK5TOTQ2RH->SetLineColor(kRed);
    SK5TOTQ2RH->GetXaxis()->SetTitle("Total Charge e-ring [pe]");
    SK5TOTQ2RH->GetXaxis()->SetLabelFont(42);
    SK5TOTQ2RH->GetXaxis()->SetLabelSize(0.035);
@@ -281,6 +281,7 @@
    SK4TOTQ2RH->SetBinError(61,0.00834924);
    SK4TOTQ2RH->SetEntries(595046);
    SK4TOTQ2RH->SetStats(0);
+   SK4TOTQ2RH->SetLineColor(kBlack);
    SK4TOTQ2RH->GetXaxis()->SetTitle("Total Charge e-ring [pe]");
    SK4TOTQ2RH->GetXaxis()->SetLabelFont(42);
    SK4TOTQ2RH->GetXaxis()->SetLabelSize(0.035);

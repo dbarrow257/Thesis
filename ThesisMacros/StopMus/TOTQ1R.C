@@ -134,7 +134,7 @@
    SK5TOTQ1RH->SetBinError(61,0.0482656);
    SK5TOTQ1RH->SetEntries(157142);
    SK5TOTQ1RH->SetStats(0);
-   SK5TOTQ1RH->SetLineColor(2);
+   SK5TOTQ1RH->SetLineColor(kRed);
    SK5TOTQ1RH->GetXaxis()->SetTitle("Total Charge #mu-ring [pe]");
    SK5TOTQ1RH->GetXaxis()->SetLabelFont(42);
    SK5TOTQ1RH->GetXaxis()->SetLabelSize(0.035);
@@ -277,6 +277,7 @@
    SK4TOTQ1RH->SetBinError(61,0.02635978);
    SK4TOTQ1RH->SetEntries(595046);
    SK4TOTQ1RH->SetStats(0);
+   SK4TOTQ1RH->SetLineColor(kBlack);
    SK4TOTQ1RH->GetXaxis()->SetTitle("Total Charge #mu-ring [pe]");
    SK4TOTQ1RH->GetXaxis()->SetLabelFont(42);
    SK4TOTQ1RH->GetXaxis()->SetLabelSize(0.035);
