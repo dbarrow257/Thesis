@@ -99,5 +99,149 @@ On top of the combination of the SK and T2K interaction models, several other pa
 
 Further additions to the model have been included due to the the subGeV \quickmath{\pi^{0}} atmospheric sample. This particulary targets charged current and neutral current \quickmath{\pi^{0}} producing interactions to constrain the systematic uncertainties. However, there is no analogous sample in the T2K beam-only analysis so no significant effort has been placed into building a sufficient uncertainty model. Therefore, an uncertainty which effects neutral current resonant \quickmath{\pi^{0}} production is incorporated in this analysis. Comparisons of NEUT's NC resonant pion production predictions have been made to MiniBooNE \cite{MB_NC1pi0} data and a consistent \quickmath{16\%} to \quickmath{21\%} underprediction is observed. Consequently, a conservative \quickmath{30\%} normalisation is invoked. 
 
+\finish{Adler Angle Dial}
 
+\finish{ND Constraint/BANFF}
 
+\subsection{Near Detector}
+\label{sec:SelsAndSysts_Systs_ND}
+
+The systematics applied due to uncertainties arising from the response of the near detector is contained within \quickmath{574} normalisation parameters binned in momentum and angle, \quickmath{P_{\mu}} ad \quickmath{\cos(\theta_{\mu})}, of the final-state muon. These are applied via a covariance matrix with each parameter been assigned a Gaussian prior from that covariance matrix. These normalisation parameters are built from underlying systematics, e.g. pion secondary interaction systematics, which are randomly thrown and the variation in each \quickmath{P_{\mu} \times \cos(\theta_{\mu})} bin is determined. This is performed \quickmath{2000} times and a covariance matrix response is created. This allows singificant correlations between FGD1 and FGD2 samples, as well as adjacent bins. Statistical uncertainties are accounted for by including fluctuations of each event's weight from a Poission distribution.
+
+Similar to the cross section systematcs, MaCh3 and BANFF are used to constrain the uncertainty of these systematics through independent validations. Each fitter generates a post-fit covariance matrix which is compared and passed to the far-detector oscillation analysis working group. However, as the analysis presented within this thesis uses the MaCh3 framework, a joint oscillation analysis fit of all three sets of samples is performed. From the T2K-only perspective, this joint analysis including atmospheric samples allows additional constraints on the systematic uncertainties where correlations have been invoked. 
+
+\subsection{Far Detector}
+\label{sec:SelsAndSysts_Systs_FD}
+
+Two configurations of the far detector systematic model implementation have been considered. Firstly, the far detector systematic uncertatinties for beam and atmospheric samples are taken from their respective analysis inputs, denoted ``official inputs'' analysis. Consequently, no correlations are assumed between the beam and atmospheric samples. The generation of the beam- and atmospheric- specific inputs are documented in \autoref{sec:SelsAndSysts_Systs_FDBeam} and \autoref{sec:SelsAndSysts_Systs_AtmBeam} for the beam and atmospheric samples, respectively. Secondly, a correlated detector model has been considered. Here, the distribution of parameters used for applying event cuts (e.g. electron-muon separation) are modified within the fit, following similar methodology to the beam far detector systematics model implementation. However, it has been designed to ensure that the atmospheric data is not double-counted, which would be the case for the official inputs analysis. This alternative implementation is detailed in \autoref{sec:SelsAndSysts_Systs_Correlated}.
+
+\subsubsection{Beam Samples}
+\label{sec:SelsAndSysts_Systs_FDBeam}
+
+There are \quickmath{45} systematics which describe the response of the far detector, specifically for beam sample neutrino events. \quickmath{44} of these parameters are normalisation parameters and are split by the interaction mode, true neutrino flavour, reconstructed neutrino energy and sample which they effect. The final parameter is the energy scale uncertainty. It is applied as a multiplicative factor to the reconstructed neutrino energy. The value of the systematic is taken from Monte Carlo to data differences illustrated in \cite{sk_2017}. The normalisation parameters are assigned a Gaussian error centrelised at \quickmath{1.0} and error taken from a covariance matrix. A detailed breakdown of the following procedure is found in \cite{t2k_tn_318}. To build the covariance matrix, first a fit is performed to atmospheric data which has been selected using beam sample selection cuts. The variable which defines each cut, \quickmath{L} (e.g. the electron-muon pid parameter) is assigned a smear, \quickmath{\alpha}, and shift, \quickmath{\beta} parameter such that,
+
+\begin{equation}
+  \label{eqn:SelsAndSysts_Systs_ShiftSmear}
+  L^{i}_{j} \rightarrow \bar{L}^{i}_{j} = \alpha^{i}_{j} L + \beta^{i}_{j}
+\end{equation}
+
+Where \quickmath{L^{i}_{j}} (\quickmath{\bar{L}^{i}_{j}}) correspond to nominal(varied) pid cut parameters given in \autoref{tab:SelsAndSysts_Systs_CutVariables}. The shift and smear parameters are binned by final-state topology, \quickmath{j}, where the binning is given in \autoref{tab:SelsAndSysts_Systs_Topologies}. This approach is uses to allow the cut parameter distributions to be modified within the fit which allows better data to Monte Carlo agreement.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|l}
+      \hline
+      Cut Variable & Parameter Name \\
+      \hline
+      \quickmath{0} & \fq \quickmath{e/\mu} PID \\
+      \quickmath{1} & \fq \quickmath{e/\pi^{0}} PID \\
+      \quickmath{2} & \fq \quickmath{\mu/\pi} PID \\
+      \quickmath{3} & \fq Ring-Counting Parameter \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{List of cut variables which are included within the shift/smear fit documented in \cite{t2k_tn_318}.}      
+    \label{tab:SelsAndSysts_Systs_CutVariables}
+\end{table}
+
+\begin{table}[ht!]
+  \resizebox{16cm}{!}{
+    \centering
+    \begin{tabular}{c|c|l}
+      \hline
+      Index & Category & Description \\
+      \hline
+      \quickmath{0} & \quickmath{1e} & Only one electron above Cerenkov threshold in the final state \\
+      \quickmath{1} & \quickmath{1\mu} & Only one muon above Cerenkov threshold in the final state \\
+      \quickmath{2} & \quickmath{1e\text{+other}} & One electron and one or more other charged particles above Cerenkov threshold in the final state \\
+      \quickmath{3} & \quickmath{1\mu\text{+other}} & One muon and one or more other charged particles above Cerenkov threshold in the final state \\
+      \quickmath{4} & \quickmath{1\pi^0} & Only one $\pi^0$ in the final state\\
+      \quickmath{5} & \quickmath{1\pi^\pm} or \quickmath{1\text{p}} & Only one hadron (typically charged pion or proton) in the final state\\
+      \quickmath{6} & Other & Any other final state\\
+      \hline
+    \end{tabular}
+  }
+  \caption{Reconstructed event topology categories on which the SK detector systematics \cite{t2k_tn_318} are based.}
+  \label{tab:SelsAndSysts_Systs_Topologies}
+\end{table}
+
+Beyond the uncertainty on the pid cut criteria, the mis-modelling of \quickmath{\pi^{0}} events is also considered. If one of the two rings from a \quickmath{\pi^{0}} event is missed, this will reconstructed as a CC\quickmath{\nu_{e}} event. This is one of the largest systematics hindering the electron neutrino appearance analyses. Consequently, a systematic has been introduced to constrain the mis-modelling of \quickmath{\pi^{0}} events in SK. To evaluate this systematic uncertainty, a set of “hybrid-\quickmath{\pi^{0}} samples is constructed. These events are built by overlaying one electron-like ring from the SK atmospheric neutrino samples or decay electron ring from a stopping cosmic ray muon with one simulated photon ring. Both rings are chosen so that momenta and opening angle follow the decay kinematics of NC \quickmath{\pi^0} events from the T2K-MC. Hybrid-\quickmath{\pi^{0}} Monte Carlo samples with both rings from the SK Monte Carlo are produced to compare with the hybrid-\quickmath{\pi^{0}} data samples and the difference in the fraction of events that pass the \quickmath{\nu_{e}} selection criteria is used to assign the systematic error. In order to investigate any data to Monte Carlo differences which may originate from either the higher energy ring or lower energy ring, two samples are built; a sample in which the electron constitutes the higher energy ring from the \quickmath{\pi^{0}} decay called the primary sample, and another one in which it constitutes the lower energy ring called the secondary sample. The standard T2K \quickmath{\nu_{e}} fiTQun event selection criteria are used to select events.
+
+Final contributions to the covariance matrix are determined by supplementary uncertainties attained by comparing stopping muon data to Monte Carlo prediction, as first introduced in \autoref{sec:Simulation_Reconstruction}. The efficiency of tagging decay electrons is estimated by the stopping muon data/Monte Carlo differences by comparing the number of one decay electron events to the number of events with one or less decay electrons. The rate at which fake decay electrons are reconstructed by \fq is estimated in a similar way with the only difference being the ratio compares the number of two decay electron events to the number of events with one or two reconstructed decay electrons. The two sources of systematics are added in quadrature weighted by the number of events with one true decay electron yielding a \quickmath{0.2\%} systematic uncertainty. The muon mis-identification rate is estimated by comparing the number of electron-like events which have one decay electron to the total number of events with one decay electron. This systematic is estimated as a \quickmath{30\%} effect in the rate of muon mis-identification. A fiducial volume systematic of \quickmath{\pm 2.5\text{cm}} which corresponds to a \quickmath{0.5\%} shift in the normalisation of events. Additional normalisation uncertainties based on neutrino flavour and interaction mode are also defined in \cite{t2k_tn_326, t2k_tn_186, t2k_tn_107}.
+
+This covariance matrix is then added in quadrature with two other covariance matrices. These are matrices which describe the uncertainties due to secondary interactions which modify the final state kinematics and the photo-nucleon interactions. These are generated by studying the effect of each samples event rates when considering variations of the underlying parameters.
+
+\subsubsection{Atmospheric Samples}
+\label{sec:SelsAndSysts_Systs_AtmBeam}
+
+\subsubsection{Correlated Detector Model}
+\label{sec:SelsAndSysts_Systs_Correlated}
+
+A complete uncertainty model of the SK detector would be able to determine the systematic shift on the sample spectra for a variation of the underyling parameters, e.g. PMT angular acceptance. However, this is particularly resource intensive, requiring Monte Carlo predictions to be made for each plausible variation. Consequently an effective parameter model has been utilised for a correlated detector model. This follows from the T2K-only model implementation documented in \autoref{sec:SelsAndSysts_Systs_FDBeam}. The T2K-only implementation can not be used for atmospheric sample systematics because it is built upon on a fit to atmospheric data. Consequently, an implementation where the cut distributions (given in \autoref{tab:SelsAndSysts_Systs_CutVariables}) from both beam and atmospheric samples are fit, whilst simultaneously fitting for oscillation parameters. The fit to the cut variables performs a shape-only fit to ensure that no double-counting occurs.
+
+The correlated detector model utilises the same smear and shift parameters documented in \autoref{sec:SelsAndSysts_Systs_FDBeam}, split by final state topology. This splitting is done because the detector will respond differently for events which have one or multiple rings. For example, the detector will be able to distinguish single-ring events better than two overlapping ring events, resulting in smaller systematic uncertainty for one ring events compared to two ring events. Furthermore, the shift and smear parameters are split by visible energy deposited within the tank has been included, with binning specified in \autoref{tab:SelsAndSysts_Systs_EVisBinning}. This is because atmospheric events are categorised by subGeV and multiGeV events based on visible energy, so this splitting is required when correlating the systematic model for beam and atmospheric events. Alongside the technical requirement, higher energy events will be better recontructed due to fractionally less noise within the detector. Consequently, this analysis correlates the detector systematics between the far-detector beam and subGeV atmospheric samples due to their similar energies and interaction types. As a result of the incluson of visible energy binning, \autoref{eqn:SelsAndSysts_Systs_ShiftSmear} becomes
+
+\begin{equation}
+  \label{eqn:SelsAndSysts_Systs_ShiftSmearWithEVis}
+  L^{i}_{jk} \rightarrow \bar{L}^{i}_{jk} = \alpha^{i}_{jk} L + \beta^{i}_{jk},
+\end{equation}
+
+where \quickmath{k} is the visible energy bin. The multi-GeV, multi-ring, PC and Up-\quickmath{\mu} samples will be subject to the ATMPD detector systematics implementation as described in \autoref{sec:SelsAndSysts_Systs_AtmBeam}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|c}
+      \hline
+      Index & Range (MeV) \\
+      \hline
+      \quickmath{0} & \quickmath{30 \geq x > 300} \\
+      \quickmath{1} & \quickmath{300 \geq x > 700} \\
+      \quickmath{2} & \quickmath{700 \geq x > 1330} \\
+      \quickmath{3} & \quickmath{1330 \geq x} \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{Reconstructed event topology categories on which the SK detector systematics are based}
+    \label{tab:SelsAndSysts_Systs_EVisBinning}
+\end{table}
+
+The implementation of this systematic model takes the events reconstructed values of the cut parameters, modifies them by the particular shift and smear parameter for that event, and then re-applies event selection. This invokes event migration, which is a new feature incorporated into the MaCh3 framework which is only achievable due to the event-by-event reweighting scheme.
+
+Particular care has to be taken when varying the ring counting parameter. This is because the number of rings is a finite value (one-ring, two-rings, etc.) which can not be continously varied. Consequently a ring counting parameter, \quickmath{RC_{i}}, is calculated for the \quickmath{i^{th}} event, following the definition in \cite{Tobayama:2016dsi}. The likelihood from all considered one-ring (\quickmath{1R}) and two-ring (\quickmath{2R}) fits are compared to determine the preferred hypothesis. This is done by searching for the minimum log likelihoods, \quickmath{\log(L_{1R})} and \quickmath{\log(L_{2R})}. The difference is computed as \quickmath{\Delta_{LLH} = \log(L_{1R}) - \log(L_{2R})}. The ring counting parameter is then defined as,
+
+\begin{equation}
+  RC_{i} = \text{sgn} \left(\Delta_{LLH} - C_{Thres} \right) \times \sqrt{\lvert \Delta_{LLH} - C_{Thres} \rvert},
+\end{equation}
+
+where \quickmath{C_{Thres} = 150.0 - 0.6 \times P_{2R}}, and \quickmath{P_{2R}} is the momentum of the preferred two-ring hypothesis, and \quickmath{\text{sgn}(x) = x/\lvert x \rvert}. The co-efficients used within the definition of \quickmath{C_{Thres}} are calculated based Monte Carlo studies. This ring counting parameter corresponds to a intermediate likelihood value used within the \fq algorithm to decide the number of rings associated with a particular event. However, fake-ring merging algorithms are applied after this likelihood value is used to determine the number of rings associated with an event. Consequently, this ring counting parameter does not always exactly correspond to the number of reconstructed rings. This can be seen in \finish{Plot of RC Parameter}.
+
+\finish{Plot of RC Parameter}
+
+As the \fq algorithm does not provide a likelihood value after the fake-ring algorithms have been applied, the ring counting parameter distribution is connected to the final number of reconstructed rings through ``maps''. These are two dimensional distributions linking the ring counting parameter and the final number of reconstructed rings. An example is illustrated in \finish{Plot of RC Map}. In principle, the \fq reconstruction algorithm should be re-ran after the variation in the ring counting parameter. However, this is not computationally viable. Therefore the ``maps'' are used as a reweighting template.
+
+The maps are split by final state topology and true neutrino flavour and all \fq-reconstructed Monte Carlo events are used to fill them. To ensure conservation of event rate, the maps are normalised such that the total event rate across all number of reconstructed rings is equal to one. Prior to the fit, an event's nominal weight is calculated as \quickmath{W(N^{i}_{Rings},L^{i}_{jk})}, where \quickmath{N^{i}_{Rings}} is the reconstructed number of rings for the \quickmath{i^{th}} event and \quickmath{W(x,y)} is the bin content in the associated map for \quickmath{x} number of rings and ring counting parameter \quickmath{L}. Then during the fit, the value of \quickmath{R = W(N^{i}_{Rings},\bar{L}^{i}_{jk})/W(N^{i}_{Rings},L^{i}_{jk})} is calculated as the ring-counting weight for the \quickmath{i^{th}} event. This is the only cut variable which uses a reweighting scheme rather than event migration.
+
+\finish{Plot of RC Map}
+
+The \quickmath{\pi^{0}} systematics introduced in \autoref{sec:SelsAndSysts_Systs_ND} were expected to be applied via a covariance matrix. As this alternative technique performs a simultaneous fit between detector distributions and oscillation parameters, the implementation of the \quickmath{\pi^{0}} systematics has been modified. In practice, the inputs from the hybrid \quickmath{\pi^{0}} sample is included via the use of ``\quickmath{\chi^{2}} maps'', which are two dimensional histograms in \quickmath{\alpha} and \quickmath{\beta} parameters over some range. Illustrative examples of the \quickmath{\chi^{2}} maps are given in \autoref{fig:SelsAndSysts_HybridChi2Maps}. Due to their nature, the shift and smear parameter are typically very correlated.
+
+The maps are filled through the \quickmath{\chi^{2}} comparison of the hybrid \quickmath{\pi^{0}} Monte Carlo and data in the particle identification parameters documented in \autoref{tab:SelsAndSysts_Systs_CutVariables}. The Monte Carlo distribution is modified with the \quickmath{\alpha} and \quickmath{\beta} scaling, whilst cross-section and flux nuisance parameters are thrown from there prior uncertainties, and the \quickmath{\chi^{2}} between the scaled Monte Carlo and data is calculated and the relevant point in the \quickmath{\chi^{2}} map is filled. Then in the fit, the likelihood penalty term is found for the particular particle identification parameter by using the value of the relevant \quickmath{\chi^{2}} map for the \quickmath{\alpha} and \quickmath{\beta} parameter at that step in the MCMC fit. For this fit, only \quickmath{1\pi^{0}} final state topology shift and smear parameters use the hybrid \quickmath{\pi^{0}} \quickmath{\chi^{2}} prior uncertainty. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/EMUPID_Elt300_Chi2Map.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/EPI0PID_Elt300_Chi2Map.pdf}
+  \end{subfigure}
+  \caption{The \quickmath{\chi^{2}} between the hybrid-\quickmath{\pi^{0}} Monte Carlo and data samples, as a function of smear (\quickmath{\alpha}) and shift (\quickmath{\beta}) parameters, for events which have \quickmath{1\pi^{0}} final state topology. Left: Electron-muon separation PID parameter for events with \quickmath{30 \geq E_{vis} (MeV) < 300}. Right: Electron-\quickmath{\pi^{0}} separation PID parametter for events with \quickmath{30 \geq E_{vis} (MeV) < 300}.}
+  \label{fig:SelsAndSysts_HybridChi2Maps}
+\end{figure}
+
+Similarly, the supplementary systematics which are added into the covariance from stopping muon and decay electron studies need to be included. A new framework \cite{t2ksk-common} was built in tandem with the T2K-SK working group \cite{t2k_tn_326} so the additional parameters can be incorporated in the MaCh3 framework. These are applied as normalisation parameters, depending on the partricular interaction mode, number of tagged decay electrons and whether the primary particle generated Cherenkov light. They are assigned Gaussian uncertainties with widths described by a covariance matrix.
+
+Finally, the secondary interaction and photo-nuclear effects need to be accounted for in this detector model. In the T2K-only analysis, a covariance matrix was built to describe the response of the samples to variations of these parameters which was then added in quadrature to the detector covariance matrix. However, this technique can not be applied in the correlated detector model. Consequently, a binned response of each of the secondary interaction systematic parameters and the photo-nuclear response was generated and included through splined shape parameters, similar to the application of shape parameters in the cross-section model (see \autoref{sec:SelsAndSysts_Systs_Interaction}).
+
+There are a total of \quickmath{224} \quickmath{\alpha^{i}_{jk}} and \quickmath{\beta^{i}_{jk}} parameters, of which \quickmath{32} have prior constraints from the hybrid \quickmath{\pi^0} samples.
+
+\finish{Correlations of e/mu and e/pi}
