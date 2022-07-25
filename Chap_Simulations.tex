@@ -206,3 +206,16 @@ The first two steps in the FC reconstruction remove the majority of cosmic ray m
 The PC and \quickmath{\text{Up-}\mu} events are processed through their own reduction processes detailed in \cite{Ashie_2005}. Both of these samples are reconstructed with the \apfit algorithm rather than \fq. This is because the efficiency of reconstructing events that leave the detector has not been sufficiently studied for reliable systematic uncertainties. The PC and \quickmath{\text{Up-}\mu} samples attain events at approximately \quickmath{0.66} and \quickmath{1.44} events/day.
 
 Events due to beam neutrinos undergo the same reduction steps as FC events and are then subject to further cuts \cite{t2k_tn_027}. The GPS system which links the timing between the beam facility and SK needs to be operating correctly and there should be no activity within the detector in the previous \quickmath{100 \mu\text{s}} before the trigger. The events then need to triggered between \quickmath{-2 \mu\text{s}} and \quickmath{10\mu\text{s}} of the expected spill timing.
+
+Due to the lower energy beam neutrinos, the T2K samples are not dependent upon the visible energy neutrino as the range of neutrino energies are smaller than that found in atmospheric neutrinos. Furthermore, the 2020 T2K-only oscillation analysis only considers events which contain a single ring. Similar to atmospheric event selection, the number of decay electrons is used as a proxy for distinguishing CCQE and CCRES events. The expected neutrino energy, broken down by number of decay electrons, is given in \autoref{fig:Simulations_NeutrinoEnergyDistribution_T2K}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NeutrinoEnergyDist_T2K_NuE.pdf}
+  \end{subfigure}%                                                                                                                                                                                         
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Simulations/NeutrinoEnergyDist_T2K_NuMu.pdf}
+  \end{subfigure}
+  \caption{The predicted neutrino flux of the beam neutrinos, illustrated as a function of neutrino energy. The predictions are broken down by the number of decay electrons associated with the particular events. All systematic dials are set to their nominal values and the Asimov A oscillation parameters are assumed.}
+  \label{fig:Simulations_NeutrinoEnergyDistribution_T2K}
+\end{figure}
