@@ -174,6 +174,52 @@ This covariance matrix is then added in quadrature with two other covariance mat
 \subsubsection{Atmospheric Samples}
 \label{sec:SelsAndSysts_Systs_AtmBeam}
 
+The systematic parameters which control the detector systematics are split into two sub-groups. Those which are related to particle identification and ring counting systematics and those which are related to calibration measurements. 
+
+The particle identification systematics consist of five parameters. The ring separation systematic enforces an anti-correlated response between the single-ring and multi-ring samples. This is implemented as a fractional increase/decrease in the overall normalisation of each sample, depending on the distance to the nearest wall from an event's vertex. The coefficients of the normalisation is estimated prior to the fit and depends on the atmospheric sample. The single-ring and multi-ring PID systematics encode the detector's ability to separate electron-like and muon-like events and are implemented in an identical way as the ring separation systematic.
+
+The multi-ring electron-like separation systematics encode the ability of the detector to separate neutrino from anti-neutrino events. As an important systematic in the mass hierarchy determination, this systematic controls the relative normalisation's of the \quickmath{\nu_e} and \quickmath{\bar{\nu}_e} enriched samples. A two-stage approach is implemented in the event selection and a systematic is implemented for both stages. The first stage in the event selection is to confirm that the most energetic ring, which is required to be electron-like, is from the neutrino interaction rather than a pion decay from any hadronic system present in the event. The second stage of separation uses a likelihood-based cut to separate \quickmath{\nu_e/\bar{\nu}_e} events. This takes the typical properties of \quickmath{\nu_e} scattering events into account; e.g. less forward-going, with larger energy fractions in the hadronic system. These parameters are implemented via normalisation parameters which vary the event rate of each multi-ring sample, whilst ensuring the total event rate is conserved.
+
+There are 22 systematics related to calibration measurements, including effects from backgrounds, reduction and showering effects. They are documented in \cite{Jiang2019-iw} are briefly summarised in \autoref{SelsAndSysts_Systs_ATMPDCalibSysts}.
+
+\begin{table}[ht!]
+  \centering
+  \caption{Sources of systematic errors specified within the grouped into the ``calibration'' systematics model.}
+  \label{SelsAndSysts_Systs_ATMPDCalibSysts}
+		
+  \begin{tabular}{ll} 
+    
+    \hline Index & Description \\ 
+    \hline
+    0 & Partially contained reduction  \\
+    1 & Fully contained reduction \\
+    2 & Separation of fully contained and partially contained events \\
+    3 & Separation of stopping and through-going\\
+      & \hspace{0.4cm} partially contained events in top of detector \\
+    4 & Separation of stopping and through-going\\
+      & \hspace{0.4cm} partially contained events in barrel of detector \\
+    5 & Separation of stopping and through-going\\
+      & \hspace{0.4cm} partially contained events in bottom of detector \\
+    6 & Background due to cosmic rays \\
+    7 & Background due to flasher events \\
+    8 & Vertex systematic moving events into and out of fiducial volume \\
+    9 & Upward going muon event reduction \\
+    10 & Separation of stopping and through-going in upward going muon events \\
+    11 & Energy systematic in upward going muon events \\
+    12 & Reconstruction of path length of upward going muon events \\
+    13 & Separation of showering and non-showering upward going muon events \\
+    14 & Background of stopping upward going muon events \\
+    15 & Background of non-showering through-going upward going muon events \\
+    16 & Background of showering through-going upward going muon events \\
+    17 & Efficiency of tagging two rings from $\pi^0$ decay \\
+    18 & Efficiency of decay electron tagging \\
+    19 & Background from down going cosmic muons \\
+    20 & Asymmetry of energy deposition in tank \\
+    21 & Energy scale deposition \\
+    \hline
+  \end{tabular}
+\end{table}
+
 \subsubsection{Correlated Detector Model}
 \label{sec:SelsAndSysts_Systs_Correlated}
 
@@ -186,7 +232,7 @@ The correlated detector model utilises the same smear and shift parameters docum
   L^{i}_{jk} \rightarrow \bar{L}^{i}_{jk} = \alpha^{i}_{jk} L + \beta^{i}_{jk},
 \end{equation}
 
-where \quickmath{k} is the visible energy bin. The multi-GeV, multi-ring, PC and Up-\quickmath{\mu} samples will be subject to the ATMPD detector systematics implementation as described in \autoref{sec:SelsAndSysts_Systs_AtmBeam}.
+where \quickmath{k} is the visible energy bin. The multi-GeV, multi-ring, PC and Up-\quickmath{\mu} samples will be subject to the ATMPD particle identification systematics implementation as described in \autoref{sec:SelsAndSysts_Systs_AtmBeam} rather than using this correlated detector model. The calibration systematics also described in the aforementioned chapter still apply to all atmospheric samples.
 
 \begin{table}[ht!]
     \centering
@@ -210,18 +256,42 @@ The implementation of this systematic model takes the events reconstructed value
 Particular care has to be taken when varying the ring counting parameter. This is because the number of rings is a finite value (one-ring, two-rings, etc.) which can not be continously varied. Consequently a ring counting parameter, \quickmath{RC_{i}}, is calculated for the \quickmath{i^{th}} event, following the definition in \cite{Tobayama:2016dsi}. The likelihood from all considered one-ring (\quickmath{1R}) and two-ring (\quickmath{2R}) fits are compared to determine the preferred hypothesis. This is done by searching for the minimum log likelihoods, \quickmath{\log(L_{1R})} and \quickmath{\log(L_{2R})}. The difference is computed as \quickmath{\Delta_{LLH} = \log(L_{1R}) - \log(L_{2R})}. The ring counting parameter is then defined as,
 
 \begin{equation}
+  \label{eqn:SelsAndSysts_Systs_RCParam}
   RC_{i} = \text{sgn} \left(\Delta_{LLH} - C_{Thres} \right) \times \sqrt{\lvert \Delta_{LLH} - C_{Thres} \rvert},
 \end{equation}
 
-where \quickmath{C_{Thres} = 150.0 - 0.6 \times P_{2R}}, and \quickmath{P_{2R}} is the momentum of the preferred two-ring hypothesis, and \quickmath{\text{sgn}(x) = x/\lvert x \rvert}. The co-efficients used within the definition of \quickmath{C_{Thres}} are calculated based Monte Carlo studies. This ring counting parameter corresponds to a intermediate likelihood value used within the \fq algorithm to decide the number of rings associated with a particular event. However, fake-ring merging algorithms are applied after this likelihood value is used to determine the number of rings associated with an event. Consequently, this ring counting parameter does not always exactly correspond to the number of reconstructed rings. This can be seen in \finish{Plot of RC Parameter}.
+where \quickmath{C_{Thres} = 150.0 - 0.6 \times P_{2R}}, and \quickmath{P_{2R}} is the momentum of the preferred two-ring hypothesis, and \quickmath{\text{sgn}(x) = x/\lvert x \rvert}. The co-efficients used within the definition of \quickmath{C_{Thres}} are calculated based Monte Carlo studies. This ring counting parameter corresponds to a intermediate likelihood value used within the \fq algorithm to decide the number of rings associated with a particular event. However, fake-ring merging algorithms are applied after this likelihood value is used to determine the number of rings associated with an event. Consequently, this ring counting parameter does not always exactly correspond to the number of reconstructed rings. This can be seen in \autoref{fig:SelsAndSysts_RCParameterDistribution}.
 
-\finish{Plot of RC Parameter}
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/RCParam_SGE0Dcy.pdf}
+    \subcaption{SubGeV e-Like 0d.e.}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/RCParam_MRENue.pdf}
+    \subcaption{MultiRing \quickmath{\nu_{e}}-Like}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/RCParameterLegend.pdf}
+  \end{subfigure}
+  \caption{The ring counting parameter, as defined in \autoref{eqn:SelsAndSysts_Systs_RCParam}, for the subGeV electron-like zero decay electron and multi-ring \quickmath{\nu_{e}}-like samples.}
+  \label{fig:SelsAndSysts_RCParameterDistribution}
+\end{figure}
 
-As the \fq algorithm does not provide a likelihood value after the fake-ring algorithms have been applied, the ring counting parameter distribution is connected to the final number of reconstructed rings through ``maps''. These are two dimensional distributions linking the ring counting parameter and the final number of reconstructed rings. An example is illustrated in \finish{Plot of RC Map}. In principle, the \fq reconstruction algorithm should be re-ran after the variation in the ring counting parameter. However, this is not computationally viable. Therefore the ``maps'' are used as a reweighting template.
+As the \fq algorithm does not provide a likelihood value after the fake-ring algorithms have been applied, the ring counting parameter distribution is connected to the final number of reconstructed rings through ``maps''. These are two dimensional distributions linking the ring counting parameter and the final number of reconstructed rings. An example is illustrated in \autoref{fig:SelsAndSysts_RCMaps}. In principle, the \fq reconstruction algorithm should be re-ran after the variation in the ring counting parameter. However, this is not computationally viable. Therefore the ``maps'' are used as a reweighting template.
 
 The maps are split by final state topology and true neutrino flavour and all \fq-reconstructed Monte Carlo events are used to fill them. To ensure conservation of event rate, the maps are normalised such that the total event rate across all number of reconstructed rings is equal to one. Prior to the fit, an event's nominal weight is calculated as \quickmath{W(N^{i}_{Rings},L^{i}_{jk})}, where \quickmath{N^{i}_{Rings}} is the reconstructed number of rings for the \quickmath{i^{th}} event and \quickmath{W(x,y)} is the bin content in the associated map for \quickmath{x} number of rings and ring counting parameter \quickmath{L}. Then during the fit, the value of \quickmath{R = W(N^{i}_{Rings},\bar{L}^{i}_{jk})/W(N^{i}_{Rings},L^{i}_{jk})} is calculated as the ring-counting weight for the \quickmath{i^{th}} event. This is the only cut variable which uses a reweighting scheme rather than event migration.
 
-\finish{Plot of RC Map}
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NuFlavour_14_Top_1.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/NuFlavour_14_Top_3.pdf}
+  \end{subfigure}
+  \caption{The ring counting parameter, defined in \autoref{eqn:SelsAndSysts_Systs_RCParam}, as a function of the number of reconstructed rings as found by the \fq algorithm. Left: true \quickmath{\nu_{\mu}} events with only one muon above Cherenkov threshold in the final state. Right: true \quickmath{\nu_{\mu}} events with one mmuon and at least one other charged particle above Cherenkov threshold in the final state.}
+  \label{fig:SelsAndSysts_RCMaps}
+\end{figure}
 
 The \quickmath{\pi^{0}} systematics introduced in \autoref{sec:SelsAndSysts_Systs_ND} were expected to be applied via a covariance matrix. As this alternative technique performs a simultaneous fit between detector distributions and oscillation parameters, the implementation of the \quickmath{\pi^{0}} systematics has been modified. In practice, the inputs from the hybrid \quickmath{\pi^{0}} sample is included via the use of ``\quickmath{\chi^{2}} maps'', which are two dimensional histograms in \quickmath{\alpha} and \quickmath{\beta} parameters over some range. Illustrative examples of the \quickmath{\chi^{2}} maps are given in \autoref{fig:SelsAndSysts_HybridChi2Maps}. Due to their nature, the shift and smear parameter are typically very correlated.
 
@@ -244,4 +314,19 @@ Finally, the secondary interaction and photo-nuclear effects need to be accounte
 
 There are a total of \quickmath{224} \quickmath{\alpha^{i}_{jk}} and \quickmath{\beta^{i}_{jk}} parameters, of which \quickmath{32} have prior constraints from the hybrid \quickmath{\pi^0} samples.
 
-\finish{Correlations of e/mu and e/pi}
+One final complexity of this correlated detector model is that the two sets of samples, beam and subGeV atmospheric, use slightly different parameters to distinguish electron and muon like events. The beam-only events use the \quickmath{\log(L_{e}/L_{\mu})} whereas the atmospheric samples use \quickmath{\log(L_{e}/L_{\pi})}, where \quickmath{L_{X}} is the likelihood for hypothesis \quickmath{X}. This is because the beam-only fits use single-ring \fq fitting techniques, whereas multi-ring fits are applied to the atmospheric samples where only the electron and pion hypothesis are considered. As discussed in \autoref{sec:Simulation_Reconstruction}, the pion hypothesis is a very good approximation of the muon hypothesis due to their similar mass. The correlation between the two likelihood ratios is illustrated in \autoref{fig:SelsAndSysts_LLHCorrelation}. A very strong correlation is clearly shown. Consequently, using the same shift and smear parameters correlated between beam and subGeV atmospheric is a good approximation.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Correlation_SG0Dcy.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Correlation_SG1Dcy.pdf}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Correlation_SG2Dcy.pdf}
+  \end{subfigure}
+  \caption{The distribution of \quickmath{\log(L_{e}/L_{\mu})} compared to \quickmath{\log(L_{e}/L_{\pi})} for subGeV events with zero (top left), one (top right) or two (bottom) decay electrons. The correlation in the distribution is calculated as \quickmath{0.997}, \quickmath{0.999} and \quickmath{0.996}, respectively.}
+  \label{fig:SelsAndSysts_LLHCorrelation}
+\end{figure}
+
