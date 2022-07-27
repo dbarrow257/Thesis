@@ -31,7 +31,7 @@ void Draw(TString SampleName) {
   TString PostFitPredFileName = "../../MacroInputs/DowngoingPredictives/MaCh3-Atmospherics-MCMC_PostFit_Pred.root";
   TFile* PostFitPredFile = new TFile(PostFitPredFileName);
 
-  TString PreBANFFFileName = "../../MacroInputs/DowngoingPredictives/Spectra_PreBANFF.root";
+  TString PreBANFFFileName = "../../MacroInputs/DowngoingPredictives/Spectra_Generated.root";
   TFile* PreBANFFFile = new TFile(PreBANFFFileName);
   
   TString DataFileName = "../../MacroInputs/DowngoingPredictives/Data.root";
