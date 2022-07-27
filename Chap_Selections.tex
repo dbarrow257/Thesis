@@ -95,13 +95,33 @@ The high energy systematic model includes parameters developed from comparisons 
 
 The T2K uncertainty model is applied in a similar methodology to the SK model parameters. It consists of \quickmath{19} shape parameters applied via third order polynominal splines and \quickmath{24} normalisation parameters. Four additional parameters, which model the uncertainty in the bining energy, are applied in a way to shift the momentum of lepton emitted from a nucleus. The majority of these parameters are assigned a Gaussian prior uncertainty. Those that have no theoretical reasoning, or those which have not been fit to external data, are assigned a flat prior which does not affect the penalty term. The CCQE model parameters were tuned to MiniBooNE \cite{miniboone_nu_ccqe} and MINER\quickmath{\nu}A \cite{minerva_nubar_ccqe} measurements and CCRES model parameters are tuned to ANL and BNL experiments \cite{ANL_BNL_corr}.
 
+There are three particular tunes of the T2K low energy cross section model typically considered. Firstly, the ``generated'' tune which is the set of dial values at which the Monte Carlo was generated with. Secondly, the set of dial values which are taken from external data measurements and used as inputs. These are the ``pre-fit'' dial values. The reason these two sets of dial values are different is because the external data measurements are continually updated but it is very computational intensive to regenerate a Monte Carlo prediction after each update. Consequently the pre-fit and generated dial values differ. The final tune is the ``post-fit'' or ``post-BANFF'' dial values. These are the values taken from a fit to the beam near detector data. This fit is performed by two indepedent fitting frameworks, \texttt{MaCh3} and \texttt{BANFF}, which ensures reliable measurements. The output of each fitter is converted into a covariance matrix to describe the error and correlations between all the cross section parameters. This is then propagated to the far-detector oscillation analysis group for use in the \texttt{P-Theta} fitting framework. As \text{MaCh3} can perform a near detector fit, it is included within the simulataineous fit of far-detector beam and atmospheric oscillation analysis. This is because this technique does not require any assumption of Gaussian posterior distributions which is required in the covariance matrix methodology.
+
 On top of the combination of the SK and T2K interaction models, several other parameters have been specifically developed for the joint oscillation analysis. As the majority of the atmospheric samples' \dcp sensitivity comes from the normalisation of subGeV electron-like events, additional dial which models an alternative Continous Random Phase Approximation (CRPA) nuclear ground state has been implemented \cite{t2k_tn_422}. As the near detector can not sufficiently constrain the model, this dial approximates the event weights if a CRPA model had been assumed rather than a spectral function. This dial only effects \quickmath{\nu_{e}} and \quickmath{\bar{\nu}_{e}} and is applied as a shape parameter.
 
 Further additions to the model have been included due to the the subGeV \quickmath{\pi^{0}} atmospheric sample. This particulary targets charged current and neutral current \quickmath{\pi^{0}} producing interactions to constrain the systematic uncertainties. However, there is no analogous sample in the T2K beam-only analysis so no significant effort has been placed into building a sufficient uncertainty model. Therefore, an uncertainty which effects neutral current resonant \quickmath{\pi^{0}} production is incorporated in this analysis. Comparisons of NEUT's NC resonant pion production predictions have been made to MiniBooNE \cite{MB_NC1pi0} data and a consistent \quickmath{16\%} to \quickmath{21\%} underprediction is observed. Consequently, a conservative \quickmath{30\%} normalisation is invoked. 
 
-\finish{Adler Angle Dial}
+Events which originate from above the detector and travel downward are very insensitive to oscillation parameters and act similar to the near detector within an accelerator experiment (Details are illustrated in \autoref{chap:OscillationProbability}). Consequently, the application of the T2K low energy cross section and the effect of the near detector constraint on the atmospheric samples can be studied through these events, without biasing the results from oscillation effects. The downward going predictives are illustrated in \autoref{fig:SelsAndSysts_DownGoingPredictives}. For samples which target CCQE interactions (electron-like with 0 decay electrons and muon-like with 0 or 1 decay electrons), the application of the near detector constraint is well within statistical fluctuation of the down-going data and no significant tension is observed between the data and the Monte Carlo prediction with the T2K near detector constraint. This is not the case for samples with target CCRES interactions (electron-like with 1 decay electron and muon-like with 2 deca electrons). The electron-like data is cosistent with the constrained prediction at higher reconstructed momenta but diverges at lower momentum, whereas the muon-like sample is under-predicted throughout the range of momenta. To combat this disagreement, an additional cross section systematic dial, specifically designed to inflate the low pion momentum systematics was developed in \cite{t2k_tn_422}. This is a shape parameter implemented with through a splined response.
 
-\finish{ND Constraint/BANFF}
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Predictive_SubGeV-elike-0dcy.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Predictive_SubGeV-elike-1dcy.pdf}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Predictive_SubGeV-mulike-0dcy.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Predictive_SubGeV-mulike-1dcy.pdf}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Predictive_SubGeV-mulike-2dcy.pdf}
+  \end{subfigure}
+  \caption{Down-going atmospheric subGeV single-ring samples comparing an mean and error the of pre-fit and post-fit Monte predictions in Red and Blue, respectively. The magneta histogram illustrates the Monte Carlo prediction using the generated dial values. The black points illustrates the down-going data with statistical errors given.}
+  \label{fig:SelsAndSysts_DownGoingPredictives}
+\end{figure}
 
 \subsection{Near Detector}
 \label{sec:SelsAndSysts_Systs_ND}
@@ -180,7 +200,7 @@ The particle identification systematics consist of five parameters. The ring sep
 
 The multi-ring electron-like separation systematics encode the ability of the detector to separate neutrino from anti-neutrino events. As an important systematic in the mass hierarchy determination, this systematic controls the relative normalisation's of the \quickmath{\nu_e} and \quickmath{\bar{\nu}_e} enriched samples. A two-stage approach is implemented in the event selection and a systematic is implemented for both stages. The first stage in the event selection is to confirm that the most energetic ring, which is required to be electron-like, is from the neutrino interaction rather than a pion decay from any hadronic system present in the event. The second stage of separation uses a likelihood-based cut to separate \quickmath{\nu_e/\bar{\nu}_e} events. This takes the typical properties of \quickmath{\nu_e} scattering events into account; e.g. less forward-going, with larger energy fractions in the hadronic system. These parameters are implemented via normalisation parameters which vary the event rate of each multi-ring sample, whilst ensuring the total event rate is conserved.
 
-There are 22 systematics related to calibration measurements, including effects from backgrounds, reduction and showering effects. They are documented in \cite{Jiang2019-iw} are briefly summarised in \autoref{SelsAndSysts_Systs_ATMPDCalibSysts}.
+There are 22 systematics related to calibration measurements, including effects from backgrounds, reduction and showering effects. They are documented in \cite{Jiang2019-iw} are briefly summarised in \autoref{SelsAndSysts_Systs_ATMPDCalibSysts}. They are applied via normalisation parameters, with the separation systematics required the conservation of event rate across all samples.
 
 \begin{table}[ht!]
   \centering
