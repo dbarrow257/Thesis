@@ -1,6 +1,118 @@
 \chapter{Sample Selections and Systematics}
 \label{chap:SelsAndSysts}
 
+\section{Sample Selection}
+\label{sec:SelsAndSysts_Sels}
+
+\subsection{Near Detector Beam Samples}
+\label{sec:SelsAndSysts_Sels_ND}
+
+\subsection{Far Detector Beam Samples}
+\label{sec:SelsAndSysts_Sels_FD}
+
+\subsection{Atmospheric Samples}
+\label{sec:SelsAndSysts_Sels_Atms}
+
+The atmospheric event selection follows the official SK analysis presented in \autoref{Jiang2019-iw} and is documented below.
+
+The fully contained (FC), partially contained (PC) and upward going muon events (up-\quickmath{\mu}) which pass the reduction cuts discussed in \autoref{sec:Simulations_Reduction} are further broken down into different samples based on reconstruction information. This section details the samples used within the oscillation analysis, alongside the chosen binning and final spectra used within the fit.
+
+In general, the FC events are first separated by the visible energy deposited within the detector. This is calculated as the sum of the reconstructed kinetic energy above the Cerenkov threshold for all rings present in the event. Events are separated by whether they were above or below \quickmath{E_{vis} = 1.33\text{GeV}}. This separates ``subGeV'' and ``multiGeV'' events. Typically, lower energy events consist of charge current quasi-elastic (CCQE) interactions which are simpler to reconstruct resulting in smaller systematic uncertainties. Events are further separated by the number of rings associated with the event due to a similar reasoning. As the oscillation probability is dependent upon the flavour of neutrino, electron and muon events are separated using a similar likelihood method to that discussed in \autoref{sec:Simulation_Reconstruction}. To reduce computational resources required for the reconstruction, only electron and pion hypothesis are considered so this separation cuts depends on the ratio of the electron to pion likelihoods. Finally, the number of decay electrons is also used to classify events. As charged current resonant pion prodiction (CCRES) generates a final-state pion which decays to an electron, electron-like events with one decay electron or muon-like events with two decay electrons must have contained a pion in the final state. Consequently, the number of decay electrons is used to target CCQE and CCRES interaction modes.
+
+FC subGeV events are then separated into the samples listed in \autoref{tab:SelsAndSysts_Sels_Atms_SubGeV}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|l}
+      \hline
+      Index & Sample \\
+      \hline
+      0 & \texttt{SubGeV-elike-0dcy} \\
+      & \hspace{0.2cm} Single ring \quickmath{e}-like events with zero decay electrons \\ \hline
+      1 & \texttt{SubGeV-elike-1dcy} \\
+      & \hspace{0.2cm} Single ring \quickmath{e}-like events with one or more decay electrons \\ \hline
+      2 & \texttt{SubGeV-mulike-0dcy} \\
+      & \hspace{0.2cm} Single ring \quickmath{\mu}-like events with zero decay electrons \\ \hline
+      3 & \texttt{SubGeV-mulike-1dcy} \\ 
+      & \hspace{0.2cm} Single ring \quickmath{\mu}-like events with one decay electrons \\ \hline
+      4 & \texttt{SubGeV-mulike-2dcy} \\
+      & \hspace{0.2cm} Single ring \quickmath{\mu}-like events with two or more decay electrons \\ \hline
+      5 & \texttt{SubGeV-pi0like} \\
+      & \hspace{0.2cm} Two \quickmath{e}-like ring events with zero decay electrons \\
+      & \hspace{0.2cm} and reconstructed \quickmath{\pi^{0}} mass \quickmath{85 \leq m_{\pi^{0}} < 215 \text{MeV}} \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The fully contained subGeV samples used within this oscillation analysis. Both the sample name and description are given.}
+    \label{tab:SelsAndSysts_Sels_Atms_SubGeV}
+\end{table}
+
+In addition to the cuts discussed above, multiGeV samples also have additional cuts to separate samples which target neutrino and antineutrino separation. As discussed in \autoref{sec:Oscillation_Overview}, the matter resonance only occurs for neutrinos in normal hierachy and antineutrinos in inverse mass hierarchy so having flavour-enriched samples aides in the determination of the mass hierarchy. For a CCRES interaction,
+
+\begin{align}
+  \begin{split}
+    \bar{\nu}_e + N \rightarrow e^{+} + N^{'} + &\pi^{-}, \\
+    \nu_e + N \rightarrow e^{-} + N^{'} + &\pi^{+} \\
+    &\hspace{5pt} \rotatebox[origin=c]{180}{$\Lsh$} \hspace{5pt} \mu^{+} + \nu_\mu \\
+    &\hspace{20pt} \rotatebox[origin=c]{180}{$\Lsh$} \hspace{5pt} e^{+} + \nu_e + \bar{\nu}_\mu.
+\end{split}
+\end{align}
+
+Where the \quickmath{\pi^{-}} emitted from a \quickmath{\bar{\nu_{e}}} interaction is more likely to be absorbed within the oxygen nucleus \cite{LeeKaPik} compared to the \quickmath{\pi^{+}} from \quickmath{\nu_{e}} interactions. Consequently, the number of tagged decay electrons associated with an event gives an indication of whether the interaction was due to a neutrino or antineutrino: zero for \quickmath{\bar{\nu}_{e}} events, and one or more for \quickmath{\nu_{e}} events.
+
+\finish{Purity of MGenue and MGenuebar samples?}
+
+This relatively simple discriminator works reasonably well for single-ring events. However, this is not the case for multi-ring events. A multi-GeV multi-ring separation (MME) likelihood cut which specifically targets multiGeV multiRing electron-like events was introduced in \cite{PhysRevD.81.092004, PhysRevD.74.032002}. Four observables are used within this likelihood cut: number of decay electrons, maximum distance between the vertex of the neutrino and the decay electrons, the energy deposited by the leading energy ring, and the reconstructed particle identification of that highest energy ring. The last three variables are selected based on typical event kinematics comparing CC\quickmath{\nu_{e}} events to the CC\quickmath{\nu_{\mu}} and NC backgrounds. Typically, more energy is carried by the hadronic system in these background interactions and the distance cut targets the decay of muons from CC\quickmath{\nu_{\mu}}, which tend to travel further than the pions from CC\quickmath{\nu_{e}} interactions.
+
+Neutrino and antineutrino events are then separated by a second likelihood method (\quickmath{\nu/\bar{\nu}} separation) detailed in \cite{Kamiokande_Collaboration2017-nf}. This uses the number of decay electrons, the number of reconstructed rings and the event's transverse momentum. As discussed above, positively changed pions from neutrino interactions are less likely to be absorbed. For this high energy sample, the majority of those pions will be above the Cherenkov threshold which results in more number of rings compared to an antineutrino interaction. The angular distribution also tends to be more forward peaked in antineutrino interactons.
+
+The FC multiGeV sample definitions are detailed in \autoref{tab:SelsAndSysts_Sels_Atms_MultiGeV}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|l}
+      \hline
+      Index & Sample \\
+      \hline
+      0 & \texttt{MultiGeV-elike-nue} \\
+      & \hspace{0.2cm} Single ring \quickmath{e}-like events with zero decay electrons \\ \hline
+      1 & \texttt{MultiGeV-elike-nuebar} \\
+      & \hspace{0.2cm} Single ring \quickmath{e}-like events with one or more decay electrons \\ \hline
+      2 & \texttt{MultiGeV-mulike} \\
+      & \hspace{0.2cm} Single ring \quickmath{\mu}-like events \\ \hline
+      3 & \texttt{MultiRing-elike-nue} \\
+      & \hspace{0.2cm} Two or more ring events with leading energy \quickmath{e}-like ring \\ 
+      & \hspace{0.2cm} and passed both MME and \quickmath{\nu/\bar{\nu}} separation likelihood cuts\\ \hline
+      4 & \texttt{MultiRing-elike-nuebar} \\
+      & \hspace{0.2cm} Two or more ring events with leading energy \quickmath{e}-like ring \\ 
+      & \hspace{0.2cm} and passed MME and failed \quickmath{\nu/\bar{\nu}} separation likelihood cuts\\ \hline
+      5 & \texttt{MultiRing-mulike} \\
+      & \hspace{0.2cm} Two or more ring events with leading energy \quickmath{\mu}-like ring \\ 
+      & \hspace{0.2cm} and only requires \quickmath{E_{vis} > 0.6\text{GeV}} \\ \hline
+      6 & \texttt{MultiRing-Other1} \\
+      & \hspace{0.2cm} Two or more ring events with leading energy \quickmath{e}-like ring \\ 
+      & \hspace{0.2cm} and failed the MME likelihood cut \\ 
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The fully contained multiGeV samples used within this oscillation analysis. Both the sample name and description are given.}
+    \label{tab:SelsAndSysts_Sels_Atms_MultiGeV}
+\end{table}
+
+\finish{PC and Upmu sample definitions}
+\finish{CosZ and Momentum binning}
+
+The distribution of reconstructed lepton momentum and zenith angle for each atmospheric sample used within this analysis is illustrated in \autoref{fig:SelsAndSysts_AllSampleComparison}. 
+
+\begin{sidewaysfigure}
+  \centering
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/HistogramComparison.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:SelsAndSysts_AllSampleComparison}
+\end{sidewaysfigure}
+
 \section{Systematic Uncertainties}
 \label{sec:SelsAndSysts_Systs}
 

@@ -697,7 +697,7 @@
     \end{doublespace}%
     \vspace*{3cm}%
     {\Large{{\theauthor} \\ {#1}}}\\%
-    \vspace*{10cm}%
+    \vspace*{6cm}%
     {#2}%
   \end{center}%
 
