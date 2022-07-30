@@ -166,6 +166,35 @@ The atmospheric samples are binned in reconstructed lepton momentum and directio
 \subsection{Near Detector Beam Samples}
 \label{sec:SelsAndSysts_Sels_ND}
 
+The near detector sample selections are documented in detail within \cite{t2k_tn_395} and summarised below. Samples are selected based upon the particular Fine Grained Detector (FGD) (see \autoref{subsec:T2KSKExp_T2K_ND280}) the neutrino interacted within as well as the operating mode of the beam. For stronger constraints on cross-section model parameters, wrong-sign neutrino samples are also considered when the beam is operating in RHC (antineutrino) mode. Samples from the wrong-sign component of the FHC beam mode are not included as they are statistically insignificant compared to those already listed.
+
+Before being assigned a sample, all events have to undergo CC-inclusive cuts, as defined in TN212.
+
+\begin{itemize}
+\item Event Timing: The DAQ must be operational and the event must occur within the expected time window
+\item TPC Requirement: The track path must intercept one or more TPCs
+\item Fiducial volume: The event must originate from within a fiducial volume
+\item Upstream Background: Remove reconstruction failures occuring from muons which originate upstream of the FGDs by requiring no high-momentum tracks within \quickmath{150\text{mm}} of the candidate vertex. Additionally, events which occur within the downstream FGD are vetoed if a secondary track starts within the upstream FGD
+\item Broken track removal: All candidates where the muon candidate is broken in two tracks are removed
+\item Muon PID: Measurements of \quickmath{dE/dx} in a TPC are used to distinguish muon-like events using a likelihood cut
+\end{itemize}
+
+In addition to these cuts, the RHC neutrino events also have to undergo the following cuts to aide in the separation of neutrino and antineutrino TN246:
+
+\begin{itemize}
+\item TPC Requirement: The track path must intercept TPC2
+\item Positive Track: The highest momentum track must be positive
+\item TPC1 Veto: Remove any events originating upstream of TPC1
+\end{itemize}
+
+Once all CC-inclusive events have been determined, they are further segregated into sub-samples which target the constraints on interaction modes most relevant at the far detector. These are CC\quickmath{0\pi}, CC\quickmath{1\pi} and CCOther, which target CCQE, CCRES and other CC background interactions. They are defined with the following cuts:
+
+\begin{itemize}
+\item \textbf{\quickmath{\nu_{\mu} \text{CC} 0\pi} Selection}:
+\item \textbf{\quickmath{\nu_{\mu} \text{CC} 1\pi} Selection}:
+\item \textbf{\quickmath{\nu_{\mu} \text{CCOther}} Selection}: 
+\end{itemize}
+
 \subsection{Far Detector Beam Samples}
 \label{sec:SelsAndSysts_Sels_FD}
 
