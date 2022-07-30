@@ -5,6 +5,7 @@ void DivideByBinWidth(TH1D* Hist) {
 }
 
 void Draw_X() {
+  bool DrawLegend = true;
   
   TString FileName = "../../MacroInputs/Spectra/SpectraByMode.root";
   TFile* File = new TFile(FileName);
@@ -154,11 +155,29 @@ void Draw_X() {
       Stack->GetYaxis()->SetTitle("Events/Bin");
 
       if (SampleName == "FHC1Rmu-2020" || SampleName == "RHC1Rmu-2020") {
-	Stack->GetXaxis()->SetRangeUser(0.,5.0);
+	Stack->GetXaxis()->SetRangeUser(0.,3.0);
       }
       
       Canv->Modified();
       Canv->Print(SampleName+"_X.pdf");
+
+      if (DrawLegend) {
+	TCanvas* LegendCanv = new TCanvas("LegendCanv","");
+	TLegend* Legend = new TLegend(0.1,0.1,0.9,0.9);
+	Legend->AddEntry(CCQE_1D,"CCQE","f");
+	Legend->AddEntry(MEC_1D,"2p2h","f");
+	Legend->AddEntry(CCRES_1D,"CC1#pi^{#pm}","f");
+	Legend->AddEntry(CCMPi_1D,"CCM#pi","f");
+	Legend->AddEntry(CCOther_1D,"CC Other","f");
+	Legend->AddEntry(NCPi0_1D,"NC1#pi^{0}","f");
+	Legend->AddEntry(NCOther_1D,"NC Other","f");
+	
+	Legend->Draw();
+	LegendCanv->Print("Legend.pdf");
+	DrawLegend = false;
+      }
     }
+    
+    Canv->Clear();
   }
 }
