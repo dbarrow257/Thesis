@@ -1,17 +1,35 @@
 \chapter{Sample Selections and Systematics}
 \label{chap:SelsAndSysts}
 
-The oscillation analysis presented within this thesis rests upon the simultaneous fit of atmospheric samples at SK, and beam near and far detector samples. The sample definitions and binning are documented in \autoref{sec:SelsAndSysts_Sels_Atms}, \autoref{sec:SelsAndSysts_Sels_ND}, and \autoref{sec:SelsAndSysts_Sels_FD}, respectively. This analysis uses \quickmath{1.1531 \times 10^{21}} protons on target (POT) in FHC and \quickmath{8.336 \times 10^{20}} POT in RHC for the near detector samples corresponding to Runs \quickmath{2-9}, \quickmath{1.9664 \times 10^{21}} POT in FHC, \quickmath{1.6346 \times 10^{21}} POT in RHC corresponding to T2K far detector beam runs \quickmath{1-10} and the full SK-IV livetime of \quickmath{3244.4} days. The accumulated POT and beam power for runs \quickmath{1-10} is illustrated in \autoref{fig:SelsAndSysts_Beam_PowerAndPOT}.
+The oscillation analysis presented within this thesis is built upon a simultaneous fit to atmospheric data at SK, neutrino beam data in the near detector and beam data measured at SK. The definitions of these samples are documented in \autoref{sec:SelsAndSysts_Sels_Atms}, \autoref{sec:SelsAndSysts_Sels_ND}, and \autoref{sec:SelsAndSysts_Sels_FD}, respectively. The data collected and used within this analysis is detailed in \autoref{tab:SelsAndSysts_Sels_DataTotal}. The near and far detector data corresponds to T2K runs 2-9 and runs 1-10, respectively. The accumulated POT and beam power for runs \quickmath{1-10} is illustrated in \autoref{fig:SelsAndSysts_Beam_PowerAndPOT}.
 
-The difference in POT recorded at the near detector and the far detector is due to the difference in downtime of the detector. The SK detector is very stable with almost \quickmath{100\%} of data recorded during beam operation. Due to various technical and operational issues, the downtime of the near detector is significantly higher due to its more complex design and operating requirements.
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c}
+      \hline
+      Data Type & Total \\
+      \hline
+      Near Detector FHC & \quickmath{1.15 \times 10^{21}}POT \\
+      Near Detector RHC & \quickmath{8.34 \times 10^{20}}POT \\
+      Far Detector FHC & \quickmath{1.97 \times 10^{21}}POT \\
+      Far Detector RHC & \quickmath{1.63 \times 10^{21}}POT \\
+      Atmospheric SK-IV & \quickmath{3244.4} days \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The amount of data collected in each detector used within this analysis. The data collected at the near and far detector, for both neutrino beam (FHC) and antineutrino beam (RHC), is measured as the amount of protons on target (POT).}
+    \label{tab:SelsAndSysts_Sels_DataTotal}
+\end{table}
 
-The systematic parameters invoked within the flux, detector, and interaction models used within this analysis are documented in \autoref{sec:SelsAndSysts_Systs}. The standard configuration of the joint beam and atmospheric data fit utilises far detector systematics provided in the official inputs from the two experiments. Alongside this, a correlated detector model, which utilises a fit to the parameters which are used within sample selections, has been developed and documented. The details of these choices are documented in \autoref{sec:SelsAndSysts_Systs_FD}.
+The difference in POT recorded at the near and far detector is due to the difference in downtime of the respective detector. The SK detector is very stable with almost \quickmath{100\%} of data recorded during beam operation. Due to various technical and operational issues, the downtime of the near detector is significantly higher due to its more complex design and operating requirements.
+
+The systematic parameters invoked within the flux, detector, and interaction models used within this analysis are documented in \autoref{sec:SelsAndSysts_Systs}. The standard configuration of the joint beam and atmospheric data fit utilises far detector systematics provided in the official inputs from the two experiments. Additionally, a correlated detector model which fits the parameters used in sample selections to data has been developed and documented in \autoref{sec:SelsAndSysts_Systs_FD}.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/BeamPowerAndPOT.pdf}
   \end{subfigure}
-  \caption{The accumulated beam data, measured as the number of protons on target (POT). The total (blue), FHC-only (red), and RHC-only (purple) are given. The beam power is also given by the dot markers. The timescale runs from Run 1 which started in January 2010 until Run 10 which ended in February 2020. The FHC and RHC accumulated data is split \quickmath{54.7\%:45.3\%}.}
+  \caption{The accumulated beam data, measured as the number of protons on target (POT). The total data (blue) is given which comprises of the neutrino beam (red) and antineutrino (purple) components. The beam power for neutrino and antineutrino beams is given as the markers using the same colourscheme. The timescale runs from Run 1 which started in January 2010 until Run 10 which ended in February 2020. The ratio of accumulated data in neutrino and antineutrino beam is \quickmath{54.7\%:45.3\%}.}
   \label{fig:SelsAndSysts_Beam_PowerAndPOT}
 \end{figure}
 
@@ -19,7 +37,7 @@ The systematic parameters invoked within the flux, detector, and interaction mod
 \section{Atmospheric Samples}
 \label{sec:SelsAndSysts_Sels_Atms}
 
-The atmospheric event selection follows the official SK analysis presented in \cite{Jiang2019-iw} and is documented below. The Monte Carlo prediction used within this analysis corresponds to \quickmath{500} years worth of neutrino events, which is weighted down to match the SK-IV livetime of \quickmath{3244.4} days.
+The atmospheric event selection follows the official SK-IV analysis presented in \cite{Jiang2019-iw} and is documented below. The Monte Carlo prediction used within this analysis corresponds to \quickmath{500} years worth of neutrino events, which is scaledx down to match the SK-IV livetime of \quickmath{3244.4} days.
 
 The fully contained (FC), partially contained (PC), and upward going muon events (up-\quickmath{\mu}) which pass the reduction cuts discussed in \autoref{sec:Simulations_Reduction} are further broken down into different samples based on reconstruction information. This section details the samples used within the oscillation analysis, alongside the chosen binning and final spectra used within the fit.
 
