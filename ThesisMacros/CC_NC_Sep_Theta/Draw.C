@@ -40,18 +40,33 @@ void Draw() {
 
       CC_2D->SetTitle("Charged Current Modes");
       NC_2D->SetTitle("Neutral Current Modes");
+      CC_2D->GetZaxis()->SetTitle("Events/Bin");
+      NC_2D->GetZaxis()->SetTitle("Events/Bin");
       
       //CC_2D->RebinY(2);
       //NC_2D->RebinY(2);
-      
-      CC_2D->GetYaxis()->SetTitleOffset(1.2);
-      NC_2D->GetYaxis()->SetTitleOffset(1.2);
-      
-      Canv->cd(1);
-      CC_2D->Draw("COL");
 
-      Canv->cd(2);
-      NC_2D->Draw("COL");
+      CC_2D->SetTitleSize(0.05);
+      CC_2D->GetXaxis()->SetTitleSize(0.05);
+      CC_2D->GetYaxis()->SetTitleSize(0.05);
+      CC_2D->GetZaxis()->SetTitleSize(0.05);
+      NC_2D->SetTitleSize(0.05);
+      NC_2D->GetXaxis()->SetTitleSize(0.05);
+      NC_2D->GetYaxis()->SetTitleSize(0.05);
+      NC_2D->GetZaxis()->SetTitleSize(0.05);
+      
+      CC_2D->GetZaxis()->SetTitleOffset(1.2);
+      NC_2D->GetZaxis()->SetTitleOffset(1.2);
+      
+      TPad* Pad1 = (TPad*)Canv->cd(1);
+      Pad1->SetRightMargin(0.2);
+      Pad1->SetLeftMargin(0.12);
+      CC_2D->Draw("COLZ");
+
+      TPad* Pad2 = (TPad*)Canv->cd(2);
+      Pad2->SetRightMargin(0.2);
+      Pad2->SetLeftMargin(0.12);
+      NC_2D->Draw("COLZ");
 
       Canv->Print("2DSpectra_"+SampleName+".pdf");
       
