@@ -1,4 +1,7 @@
 void Draw() {
+  bool DrawLegend4 = true;
+  bool DrawLegend7 = true;
+  
   TString FileName = "../../MacroInputs/MaCh3-Atmospherics-MCMC_SystLLHScan.root";
   TFile* File = new TFile(FileName);
 
@@ -207,48 +210,57 @@ void Draw() {
       if (Hists[iHist]->GetMaximum() > Max) Max = Hists[iHist]->GetMaximum();
     }
 
-    Canv->cd();
-    TPad* Pad1 = new TPad("Pad1","",0.0,0.0,0.8,1.0);
-    Pad1->SetLeftMargin(0.15);
-    Pad1->SetBottomMargin(0.15);
-    Pad1->SetRightMargin(0.);
-    Pad1->Draw();
-    Pad1->cd();
-    
     for (int iHist=0;iHist<nHists;iHist++) {
       Hists[iHist]->SetMaximum(Max*1.1);
+    }
+
+    if (SystNames[iSyst] == "sin2th_23") {
+      Hists[0]->GetXaxis()->SetRangeUser(0.3,0.7);
+      Hists[0]->SetMaximum(200);
+    }
+    if (SystNames[iSyst] == "delm2_23") {
+      Hists[0]->GetXaxis()->SetRangeUser(2.3*0.001,2.7*0.001);
+      Hists[0]->SetMaximum(30);
+    }
+
+    Canv->cd();
+    Canv->SetLeftMargin(0.15);
+    Canv->SetBottomMargin(0.15);
+    Canv->SetRightMargin(0.15);
+
+    if (DrawLegend4 || DrawLegend7) {
+      TLegend* Leg;
+      if (nHists == 4) {
+	Leg = new TLegend(0.1,0.1,0.9,0.9);
+	DrawLegend4 = false;
+      } else {
+	Leg = new TLegend(0.1,0.1,0.9,0.9);
+	DrawLegend7 = false;
+      }
+      //Leg->SetHeader("Samples");
+      Leg->SetTextSize(0.09);
+      for (int iHist=0;iHist<nHists;iHist++) {
+	Leg->AddEntry(Hists[iHist],HistNames[iHist],"l");
+      }
+      Leg->Draw();
+      Canv->Print(OutputName);
+      Canv->Clear();
+    }
+
+    for (int iHist=0;iHist<nHists;iHist++) {
       if (iHist==0) {
 	Hists[iHist]->Draw();
       } else {
 	Hists[iHist]->Draw("SAME");
       }
     }
-
-    Canv->cd();
-    TPad* Pad2 = new TPad("Pad1","",0.8,0.0,1.0,1.0);
-    Pad2->SetLeftMargin(0.);
-    Pad2->Draw();
-    Pad2->cd();
-
-    TLegend* Leg;
-    if (nHists == 4) {
-      Leg = new TLegend(0.,0.7,0.9,0.9);
-    } else {
-      Leg = new TLegend(0.,0.5,0.9,0.9);
-    }
-    Leg->SetHeader("Samples");
-    Leg->SetTextSize(0.09);
-    for (int iHist=0;iHist<nHists;iHist++) {
-      Leg->AddEntry(Hists[iHist],HistNames[iHist],"l");
-    }
-    Leg->Draw();
-    
     Canv->Print(OutputName);
 
     nHists = 0;
     Hists.clear();
     HistNames.clear();
     Canv->Clear();
+
   }
 
   Canv->Print(OutputName+"]");
