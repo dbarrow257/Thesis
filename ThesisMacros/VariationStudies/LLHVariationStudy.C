@@ -420,7 +420,7 @@ void plotSquaredDifferenceGraphs(std::vector< std::vector<TGraph*> > SquaredDiff
 void plotVarianceGraphs(std::vector<TGraph*> VarianceGraphs, std::vector<TString> TreeNames, TString OutputName, double XAxisRange, TString XAxisCaption, TString YAxisCaption) {
   TCanvas* Canv = new TCanvas("VarianceCanv","");
   
-  int nDiv = 5;
+  int nDiv = 3;
   int nPlots = VarianceGraphs.size();
   if (nPlots < nDiv) {nDiv = nPlots;}
 

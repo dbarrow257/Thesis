@@ -350,18 +350,18 @@ void plotVariableGraphs(std::vector< std::vector<TGraph*> > VariableGraphs, std:
   TCanvas* Canv = new TCanvas("VariableCanv","");
   Canv->Print(OutputName+"[");
   
-  int nDiv = 5;
-  int nPlots = 30;
+  int nDiv = 3;
+  int nPlots = 9;
 
   int nTrees = TreeNames.size();
   for (int iTree=0;iTree<nTrees;iTree++) {
-    Canv->Divide(nDiv+1,int(nPlots/nDiv));
+    Canv->Divide(nDiv,int(nPlots/nDiv));
 
-    TLatex *lat = new TLatex();
-    lat->DrawLatexNDC(.4,.95,TreeNames[iTree]);
+    //TLatex *lat = new TLatex();
+    //lat->DrawLatexNDC(.4,.95,TreeNames[iTree]);
     
     for (int iPlot=0;iPlot<nPlots;iPlot++) {
-      Canv->cd(nDiv+2+iPlot);
+      Canv->cd(1+iPlot);
 
       VariableGraphs[iTree][iPlot]->Draw();
       VariableGraphs[iTree][iPlot]->GetXaxis()->SetRangeUser(0.,XAxisRange);
@@ -426,7 +426,7 @@ void plotSquaredDifferenceGraphs(std::vector< std::vector<TGraph*> > SquaredDiff
 void plotVarianceGraphs(std::vector<TGraph*> VarianceGraphs, std::vector<TString> TreeNames, TString OutputName, double XAxisRange, TString XAxisCaption, TString YAxisCaption) {
   TCanvas* Canv = new TCanvas("VarianceCanv","");
   
-  int nDiv = 5;
+  int nDiv = 3;
   int nPlots = VarianceGraphs.size();
   if (nPlots < nDiv) {nDiv = nPlots;}
 

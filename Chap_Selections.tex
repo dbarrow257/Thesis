@@ -195,13 +195,14 @@ The atmospheric samples are binned in direct observables: reconstructed lepton m
 \section{Near Detector Beam Samples}
 \label{sec:SelsAndSysts_Sels_ND}
 
-The near detector sample selections are documented in detail within \cite{t2k_tn_395} and summarised below. Samples are selected based upon the particular FGD in which the vertex of the neutrino interaction is in as well as the operating mode of the beam: FHC or RHC. For additional constraints on model parameters, wrong-sign neutrino samples are also considered when the beam is operating in RHC mode. Samples from the wrong-sign component of the FHC beam mode are not included as they are statistically insignificant compared to those samples already listed.
+The near detector sample selections are documented in detail within \cite{t2k_tn_395} and summarised below. Samples are selected based upon the which Fine Grained Detector (FGD) that the vertex is reconstructed in as well as the operating mode of the beam: FHC or RHC. For additional constraints on model parameters, wrong-sign neutrino samples are also considered when the beam is operating in RHC mode. Samples from the wrong-sign component of the FHC beam mode are not included as they are statistically insignificant compared to those samples already listed.
 
-Before being assigned a sample, all events must undergo CC-inclusive cuts, as defined in \cite{t2k_tn_212}:
+\Change{The below paragraph has been added}
+The reconstruction algorithm uses a clustering algorithm to group hits within the TPC. It then adds information from the upstream FGD to form a track which passes through both sub-detectors. In FHC(RHC), the highest momentum negative(positive) curvature track is defined as the muon candidate. Before being assigned a sample, these candidate muon events must undergo CC-inclusive cuts, as defined in \cite{t2k_tn_212}:
 
 \begin{itemize}
-\item Event Timing: The DAQ must be operational and the event must occur within the expected beam time window
-\item TPC Requirement: The track path must intercept one or more TPCs
+\item Event Timing: The DAQ must be operational and the event must occur within the expected beam time window consistent with the beam spill
+\item TPC Requirement: The muon-candidate track path must intercept one or more TPCs
 \item Fiducial volume: The event must originate from within the fiducial volume. The fiducial volumes are defined as a region within each sub-detector \cite{thesis_will}.
 \item Upstream Background: Remove events that have muons tracks that originate upstream of the FGDs by requiring no high-momentum tracks within \quickmath{150\text{mm}} upstream of the candidate vertex. Additionally, events that occur within the downstream FGD are vetoed if a secondary track starts within the upstream FGD
 \item Broken track removal: All candidates where the muon candidate is broken in two are removed
@@ -216,7 +217,7 @@ In addition to these cuts, RHC neutrino events also have to undergo the followin
 \item TPC1 Veto: Remove any events originating upstream of TPC1
 \end{itemize}
 
-Once all CC-inclusive events have been determined, they are further segregated into sub-samples that target the constraints on interaction modes most relevant at the far detector. They are split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. These target specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs and FGDs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. If the pion originated within a FDG, it must also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). 
+Once all CC-inclusive events have been determined, they are further separated into sub-samples that target the constraints on interaction modes most relevant at the far detector. They are split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. These target specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs and FGDs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. If the pion originated within a FDG, it must also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). 
 
 CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther samples are defined with the following cuts:
 

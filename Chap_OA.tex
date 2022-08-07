@@ -67,6 +67,54 @@ Using the defintion of the likelihood presented in \autoref{sec:OscillationAnaly
   \label{fig:OscillationAnalysis_LLHScanOscPars}
 \end{figure}
 
-The response to \delmsqatm is much larger in beam samples, specfically \quickmath{\mu}-like samples, compared to atmospheric samples. This is in agreement with what we observe in the comparison of the data fit contours presented in \autoref{fig:NeutrinoOscillationPhysics_AtmosphericParamContour}. However, we know that the determination of the mass hierarchy is signficantly enhanced when using the atmospheric samples due to them transitioning through the Earth's core. A similar story is seen in the response to \sinsqatm. However, the disparity is much smaller. Summing the atmospheric sample likelihood contributions, the responce becomes close to that of the beam samples. The only samples which respond to the \sinsqreac parameter are the electron-like beam samples. Consequently, no increase in sensitivity beyond that of the T2K-only analysis is expected. The \delmsqsol and \sinsqsol are not considered as there is simply no sensitivity in any sample considered within this analysis.
+The response to \delmsqatm is much larger in beam samples, specfically \quickmath{\mu}-like samples, compared to atmospheric samples. This is in agreement with what we observe in the comparison of the data fit contours presented in \autoref{fig:NeutrinoOscillationPhysics_AtmosphericParamContour}. However, we know that the determination of the mass hierarchy is signficantly enhanced when using the atmospheric samples due to them transitioning through the Earth's core. A similar behaviour is observed in the response to \sinsqatm. However, the disparity is much smaller. Summing the atmospheric sample likelihood contributions, the responce becomes close to that of the beam samples. The only samples which respond to the \sinsqreac parameter are the electron-like beam samples. Consequently, no increase in sensitivity beyond that of the T2K-only analysis is expected. The \delmsqsol and \sinsqsol are not considered as there is simply no sensitivity in any sample considered within this analysis.
 
-In addition to the oscillation parameters, the response to the systematic model parameters can also be considered. Due to the correlated cross section model, the most informative 
+In addition to the oscillation parameters, the response to the systematic model parameters can also be considered. Due to the correlated cross section model, the most informative \finish{Finish this}
+
+\section{Monte Carlo Prediction}
+\label{sec:OscillationAnalysis_MonteCarloPred}
+
+Using the three sets of dial values defined in \autoref{sec:SelsAndSysts_Systs_Interaction}, the predicted event rates for each sample are defined in \autoref{tab:OscillationAnalysis_MCPred}. Both the oscillated event rates assuming Asimov A oscillation parameters (defined in \autoref{tab:Theory_ParameterSets}) and the un-oscillated event rates are given.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+      \hline
+      & \multicolumn{6}{|c|}{Total Predicted Events} \\
+      \cline{2-7}
+      & \multicolumn{2}{|c}{Generated} & \multicolumn{2}{|c}{Pre-fit} & \multicolumn{2}{|c|}{Post-fit} \\
+      \cline{2-7}
+      Sample & Osc & UnOsc & Osc & UnOsc & Osc & UnOsc \\
+      \hline
+      \texttt{SubGeV-elike-0dcy} & 7121.0 & 7102.6 & 6556.8 & 6540.0 & 7035.2 & 7015.7 \\
+      \texttt{SubGeV-elike-1dcy} & 704.8 & 725.5 & 693.8 & 712.8 & 565.7 & 586.0 \\
+      \texttt{SubGeV-mulike-0dcy} & 1176.5 & 1737.2 & 1078.6 & 1588.1 & 1182.7 & 1757.1 \\
+      \texttt{SubGeV-mulike-1dcy} & 5850.7 & 8978.1 & 5351.7 & 8205.1 & 5867.0 & 9009.9 \\
+      \texttt{SubGeV-mulike-2dcy} & 446.9 & 655.2 & 441.6 & 647.7 & 345.9 & 505.6 \\
+      \texttt{SubGeV-pi0like} & 1438.8 & 1445.4 & 1454.9 & 1461.1 & 1131.1 & 1136.2 \\
+      \texttt{MultiGeV-elike-nue} & 201.4 & 195.6 & 201.1 & 195.3 & 202.6 & 196.7 \\
+      \texttt{MultiGeV-elike-nuebar} & 1141.5 & 1118.3 & 1060.7 & 1039.5 & 1118.5 & 1095.7 \\
+      \texttt{MultiGeV-mulike} & 1036.7 & 1435.8 & 963.1 & 1334.1 & 1015.2 & 1405.9 \\
+      \texttt{MultiRing-elike-nue} & 1025.1 & 982.2 & 1026.8 & 984.3 & 1029.8 & 986.4 \\
+      \texttt{MultiRing-elike-nuebar} & 1014.8 & 984.5 & 991.0 & 962.0 & 1008.9 & 978.5 \\
+      \texttt{MultiRing-mulike} & 2510.0 & 3474.4 & 2475.6 & 3425.8 & 2514.6 & 3480.4 \\      
+      \texttt{MultiRingOther-1} & 1204.5 & 1279.1 & 1205.8 & 1280.3 & 1207.4 & 1281.0 \\
+      \texttt{PCStop} & 349.2 & 459.2 & 338.4 & 444.7 & 346.8 & 456.1 \\
+      \texttt{PCThru} & 1692.8 & 2192.5 & 1661.5 & 2149.8 & 1689.2 & 2187.8 \\
+      \texttt{UpStop-mu} & 751.2 & 1295.0 & 739.7 & 1271.6 & 750.4 & 1293.0 \\
+      \texttt{UpThruNonShower-mu} & 2584.4 & 3031.6 & 2577.9 & 3019.4 & 2586.8 & 3034.0 \\
+      \texttt{UpThruShower-mu} & 473.0 & 488.6 & 473.2 & 488.7 & 473.8 & 489.4 \\
+      \texttt{FHC1Rmu} & 328.0 & 1409.2 & 301.1 & 1274.7 & 345.1 & 1568.0 \\
+      \texttt{RHC1Rmu} & 133.0 & 432.3 & 122.7 & 396.2 & 135.0 & 443.9 \\
+      \texttt{FHC1Re} & 84.6 & 19.2 & 77.4 & 18.2 & 93.7 & 19.7 \\
+      \texttt{RHC1Re} & 15.7 & 6.4 & 14.6 & 6.1 & 15.9 & 6.3 \\
+      \texttt{FHC1Re1de} & 10.5 & 3.2 & 10.3 & 3.1 & 8.8 & 2.9 \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The Monte Carlo prediction of each sample observed at SK used within this analysis. Three model parameter tunes are considered, as defined in \autoref{sec:SelsAndSysts_Systs_Interaction}. The oscillated predictions assumed Asimov A oscillation parameters provided in \autoref{tab:Theory_ParameterSets}.}
+    \label{tab:OscillationAnalysis_MCPred}
+\end{table}
+
+Generally, samples which target CCQE interaction modes observe a decrease in prediction when using the pre-fit dial values. This is in accordance with the Monte Carlo being produced assumed \quickmath{M_{A}^{QE} = 1.21\text{GeV}} whilst the pre-fit dial value should be \quickmath{M_{A}^{QE} = 1.03\text{GeV}}, as suggested by \cite{t2k_tn_344}. Furthermore, the predicted event rates of samples which target CCRES interaction modes is significantly reduced when considering the post-ND fit. This follows the observations in \autoref{sec:SelsAndSysts_Systs_Interaction}. The strength of the accelerator neutrino experiment can also be seen in the remarkable difference between the oscillated and unoscillated predictions in the \texttt{FHC1Rmu} and \texttt{RHC1Rmu} samples. There is a very obvious decrease in the expected event rate between the two predictions which is not as clearly observed in the atmospheric samples. This is due to the fact that the beam energy is tuned to the maximum disappearance probability, which is not the case for the naturally generated atmospheric neutrinos.
+
