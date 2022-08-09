@@ -1,4 +1,6 @@
 void Draw() {
+  gStyle->SetOptStat(false);
+  
   bool DrawLegend = true;
   
   TString FileName = "../../MacroInputs/Spectra/SpectraByMode.root";
@@ -38,37 +40,53 @@ void Draw() {
       NC_2D->Add((TH2D*)Dir->Get("NCcoh"));
       NC_2D->Add((TH2D*)Dir->Get("NCDIS"));
 
-      CC_2D->SetTitle("Charged Current Modes");
-      NC_2D->SetTitle("Neutral Current Modes");
-      CC_2D->GetZaxis()->SetTitle("Events/Bin");
-      NC_2D->GetZaxis()->SetTitle("Events/Bin");
+      TH1D* CC_1D = (TH1D*)(CC_2D->ProjectionY())->Clone();
+      TH1D* NC_1D = (TH1D*)(NC_2D->ProjectionY())->Clone();
+      
+      CC_1D->SetTitle("Charged Current Modes");
+      NC_1D->SetTitle("Neutral Current Modes");
+      CC_1D->GetXaxis()->SetTitle("Reconstructed Lepton Theta [Deg]");
+      NC_1D->GetXaxis()->SetTitle("Reconstructed Lepton Theta [Deg]");
+      CC_1D->GetYaxis()->SetTitle("Events/Bin");
+      NC_1D->GetYaxis()->SetTitle("Events/Bin");
       
       //CC_2D->RebinY(2);
       //NC_2D->RebinY(2);
 
-      CC_2D->SetTitleSize(0.05);
-      CC_2D->GetXaxis()->SetTitleSize(0.05);
-      CC_2D->GetYaxis()->SetTitleSize(0.05);
-      CC_2D->GetZaxis()->SetTitleSize(0.05);
-      NC_2D->SetTitleSize(0.05);
-      NC_2D->GetXaxis()->SetTitleSize(0.05);
-      NC_2D->GetYaxis()->SetTitleSize(0.05);
-      NC_2D->GetZaxis()->SetTitleSize(0.05);
-      
-      CC_2D->GetZaxis()->SetTitleOffset(1.2);
-      NC_2D->GetZaxis()->SetTitleOffset(1.2);
+      CC_1D->SetTitleSize(0.05);
+      CC_1D->GetXaxis()->SetTitleSize(0.05);
+      CC_1D->GetYaxis()->SetTitleSize(0.05);
+      NC_1D->SetTitleSize(0.05);
+      NC_1D->GetXaxis()->SetTitleSize(0.05);
+      NC_1D->GetYaxis()->SetTitleSize(0.05);
       
       TPad* Pad1 = (TPad*)Canv->cd(1);
-      Pad1->SetRightMargin(0.2);
-      Pad1->SetLeftMargin(0.12);
-      CC_2D->Draw("COLZ");
+      //Pad1->SetRightMargin(0.2);
+      Pad1->SetLeftMargin(0.13);
+      CC_1D->Draw();
+
+      TLegend* Leg1 = new TLegend(0.4,0.7,0.89,0.89);
+      Leg1->SetBorderSize(0.);
+      Leg1->SetTextSize(0.06);
+      Leg1->SetFillStyle(0);
+      Leg1->AddEntry((TObject*)0,Form("Mean = %2.2f#circ",CC_1D->GetMean()),"");
+      Leg1->AddEntry((TObject*)0,Form("RMS = %2.2f#circ",CC_1D->GetRMS()),"");
+      Leg1->Draw("SAME");
 
       TPad* Pad2 = (TPad*)Canv->cd(2);
-      Pad2->SetRightMargin(0.2);
-      Pad2->SetLeftMargin(0.12);
-      NC_2D->Draw("COLZ");
+      //Pad2->SetRightMargin(0.2);
+      Pad2->SetLeftMargin(0.13);
+      NC_1D->Draw();
 
-      Canv->Print("2DSpectra_"+SampleName+".pdf");
+      TLegend* Leg2 = new TLegend(0.4,0.7,0.89,0.89);
+      Leg2->SetBorderSize(0.);
+      Leg2->SetTextSize(0.06);
+      Leg2->SetFillStyle(0);
+      Leg2->AddEntry((TObject*)0,Form("Mean = %2.2f#circ",NC_1D->GetMean()),"");
+      Leg2->AddEntry((TObject*)0,Form("RMS = %2.2f#circ",NC_1D->GetRMS()),"");
+      Leg2->Draw("SAME");
+
+      Canv->Print("1DSpectra_"+SampleName+".pdf");
       
     }
   }

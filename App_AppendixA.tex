@@ -3,6 +3,42 @@
 
 This appendix documents theinteraction mode breakdown of all the atmospheric samples used within the analysis. The generated tune of the model parameters and the Asimov A oscillation parameter set (defined in \autoref{tab:Theory_ParameterSets}) are assumed. The livetime of SK-IV is taken to be \quickmath{3244.4} days.
 
+\section{Binning}
+
+The lepton momentum and cosine zenith binning edges for the atmospheric samples used within this analysis are defined in \autoref{tab:SelsAndSysts_Sels_Atms_Binning}. 
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c|c}
+      \hline
+      Sample & \quickmath{\cos(\theta_{Z})} Bins & Momentum Bin Edges (\quickmath{\log_{10}(P) \text{ MeV}}) \\
+      \hline
+      \texttt{SubGeV-elike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-elike-1dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-1dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-2dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-pi0like} & 1 & 2.0, 2.2, 2.4, 2.6, 2.8, 3.2 \\
+      \texttt{MultiGeV-elike-nue} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{MultiGeV-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{MultiGeV-mulike} & 10 & 3.0, 3.4, 5.0 \\
+      \texttt{MultiRing-elike-nue} & 10 & 3.0, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-mulike} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-Other1} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{PC-Stop} & 10 & 2.0, 3.4, 5.0\\
+      \texttt{PC-Through} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
+      \texttt{Upmu-Stop} & 10 & 3.2, 3.4, 3.7, 8.0 \\
+      \texttt{Upmu-Through-Showering} & 10 & 2.0, 8.0 \\
+      \texttt{Upmu-Through-NonShowering} & 10 & 2.0, 8.0 \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The reconstructed cosine zenith and lepton momentum binning assigned to the atmospheric samples. The ``\quickmath{\cos(\theta_{Z})} Bins'' column illustrates the number of bins uniformly distributed over the \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 1.0} region for fully and partially contained samples and \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 0.0} region for up-\quickmath{\mu} samples.}
+    \label{tab:SelsAndSysts_Sels_Atms_Binning}
+\end{table}
+
+
 \section{Fully Contained Sub-GeV Samples}
 The interaction mode breakdown of the fully contained Sub-GeV samples are shown in \autoref{fig:SKSamples:FCSubGeVCC0pi} and \autoref{fig:SKSamples:FCSubGeVCC1pi}, for the samples with enriched CC$0\pi$ and CC$1\pi^\pm$ respectively.
 

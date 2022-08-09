@@ -147,37 +147,6 @@ The PC and up-\quickmath{\mu} events are split by the amount of energy deposited
     \label{tab:SelsAndSysts_Sels_AtmPurity}
 \end{table}
 
-\begin{table}[ht!]
-    \centering
-    \begin{tabular}{l|c|c}
-      \hline
-      Sample & \quickmath{\cos(\theta_{Z})} Bins & Momentum Bin Edges (\quickmath{\log_{10}(P) \text{ MeV}}) \\
-      \hline
-      \texttt{SubGeV-elike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
-      \texttt{SubGeV-elike-1dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
-      \texttt{SubGeV-mulike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
-      \texttt{SubGeV-mulike-1dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
-      \texttt{SubGeV-mulike-2dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
-      \texttt{SubGeV-pi0like} & 1 & 2.0, 2.2, 2.4, 2.6, 2.8, 3.2 \\
-      \texttt{MultiGeV-elike-nue} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
-      \texttt{MultiGeV-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
-      \texttt{MultiGeV-mulike} & 10 & 3.0, 3.4, 5.0 \\
-      \texttt{MultiRing-elike-nue} & 10 & 3.0, 3.4, 3.7, 5.0 \\
-      \texttt{MultiRing-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 5.0 \\
-      \texttt{MultiRing-mulike} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
-      \texttt{MultiRing-Other1} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
-      \texttt{PC-Stop} & 10 & 2.0, 3.4, 5.0\\
-      \texttt{PC-Through} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
-      \texttt{Upmu-Stop} & 10 & 3.2, 3.4, 3.7, 8.0 \\
-      \texttt{Upmu-Through-Showering} & 10 & 2.0, 8.0 \\
-      \texttt{Upmu-Through-NonShowering} & 10 & 2.0, 8.0 \\
-      \hline
-      \hline
-    \end{tabular}
-    \caption{The reconstructed cosine zenith and lepton momentum binning assigned to the atmospheric samples. The ``\quickmath{\cos(\theta_{Z})} Bins'' column illustrates the number of bins uniformly distributed over the \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 1.0} region for fully and partially contained samples and \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 0.0} region for up-\quickmath{\mu} samples. \finish{Does this belong in the appendix?}}
-    \label{tab:SelsAndSysts_Sels_Atms_Binning}
-\end{table}
-
 The atmospheric samples are binned in direct observables: reconstructed lepton momentum and direction, as given by \autoref{tab:SelsAndSysts_Sels_Atms_Binning}. The distribution of the reconstructed lepton momentum (for samples that only have one bin reconstructed zenith angle) and reconstructed direction for each atmospheric sample used within this analysis is illustrated in \autoref{fig:SelsAndSysts_AllSampleComparison}. The by-mode breakdown of each of the atmospheric samples is given in \autoref{chap:AppendixA}.
 
 \begin{sidewaysfigure}
@@ -264,8 +233,6 @@ The beam neutrino events which occur at the SK detector, which pass the reductio
 
 The fiducial volume definition for beam samples is slightly different from that used within the atmospheric samples.  It uses both the distance to the closest wall (\texttt{dWall}) and the distance to the wall along the trajectory of the particle (\texttt{toWall}). This allows events that originate close to the wall but are facing into the tank to be included within the analysis, which would have otherwise been removed. These additional events are beneficial for a statistics-limited experiment. The exact cut values for both \texttt{dWall} and \texttt{toWall} are different for each of the three types of sample and are optimised based on T2K sensitivity to \dcp \cite{t2k_tn_318, t2k_tn_319}. They are:
 
-\finish{Diagram of dWall and toWall needed?}
-
 \paragraph{\quickmath{1\text{R}e} event selection}
 
 For an event to be classified as a \quickmath{1\text{R}e}-like, the event must follow:
@@ -337,9 +304,9 @@ The reconstructed neutrino energy for the FHC samples is illustrated in \autoref
 
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/2DSpectra_FHC1Re-2020.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/1DSpectra_FHC1Re-2020.pdf}
   \end{subfigure}
-  \caption{The distribution of the angle between the neutrino beam direction and the reconstructed final state lepton, for the FHC \quickmath{1\text{R}e}-like sample. The distribution is broken down by neutrino interaction mode into charged current (left) and neutral current (right) components. Asimov A oscillation parameter sets are assumed (given in \autoref{tab:Theory_ParameterSets}). \finish{Is this needed or will it just bring up more questions?}}
+  \caption{The distribution of the angle between the neutrino beam direction and the reconstructed final state lepton, for the FHC \quickmath{1\text{R}e}-like sample. The distribution is broken down by neutrino interaction mode into charged current (left) and neutral current (right) components. Asimov A oscillation parameter sets are assumed (given in \autoref{tab:Theory_ParameterSets}). The RMS of the charged and neutral current plots are \quickmath{35.17\degree} and \quickmath{40.37\degree}, respectively.}
   \label{fig:SelsAndSysts_Beam_FHC1ReThetaSpectra}
 \end{figure}
 
