@@ -545,7 +545,7 @@ void ExampleMacro() {
   Canv->SetBottomMargin(0.15);
   
   Variable_Graphs[Sample][Throw]->SetLineWidth(2);
-  Variable_Graphs[Sample][Throw]->SetLineColor(kRed);
+  Variable_Graphs[Sample][Throw]->SetLineColor(kBlack);
   Variable_Graphs[Sample][Throw]->GetXaxis()->SetTitle("Sub-division Binning (N)");
   Variable_Graphs[Sample][Throw]->GetYaxis()->SetTitle("Event Rate");
   Variable_Graphs[Sample][Throw]->GetXaxis()->SetTitleSize(0.05);
@@ -557,7 +557,7 @@ void ExampleMacro() {
   std::cout << "Mean_Vector[Sample][Throw]:" << Mean_Vector[Sample][Throw] << std::endl;
   
   TLine* MeanLine = new TLine(SubDivisionBinning[0],Mean_Vector[Sample][Throw],SubDivisionBinning[nSubDivisionBinning-1],Mean_Vector[Sample][Throw]);
-  MeanLine->SetLineColor(kBlue);
+  MeanLine->SetLineColor(kRed);
   MeanLine->Draw();
 
   double X,Y;
@@ -571,7 +571,8 @@ void ExampleMacro() {
   std::cout << "Found Y:" << Y << std::endl;
   
   TArrow* Arrow = new TArrow(SubDivisionBinning[PointToDraw],Mean_Vector[Sample][Throw],SubDivisionBinning[PointToDraw],Y*0.9999,0.01,"<|>");
-  Arrow->SetLineColor(kBlack);
+  Arrow->SetLineColor(kBlue);
+  Arrow->SetFillColor(kBlue);
   Arrow->Draw("SAME <|>");
 
   Canv->Print("ExampleCalculation.pdf");
