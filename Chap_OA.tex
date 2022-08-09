@@ -38,6 +38,7 @@ This is the value determined at each step of the MCMC to build the posterior dis
 Alongside the analysis presented within this analysis, an alternative fitter \texttt{P-Theta}, has also been developing the analysis. For the purposes of this analysis, the main benefit of the alternative fitter is to validate the response to each parameter. 
 \fi
 
+\clearpage
 \subsection{Likelihood Scans}
 \label{sec:OscillationAnalysis_LLHScans}
 
@@ -67,7 +68,49 @@ Using the defintion of the likelihood presented in \autoref{sec:OscillationAnaly
   \label{fig:OscillationAnalysis_LLHScanOscPars}
 \end{figure}
 
-The response to \delmsqatm is much larger in beam samples, specfically \quickmath{\mu}-like samples, compared to atmospheric samples. This is in agreement with what we observe in the comparison of the data fit contours presented in \autoref{fig:NeutrinoOscillationPhysics_AtmosphericParamContour}. However, we know that the determination of the mass hierarchy is signficantly enhanced when using the atmospheric samples due to them transitioning through the Earth's core. A similar behaviour is observed in the response to \sinsqatm. However, the disparity is much smaller. Summing the atmospheric sample likelihood contributions, the responce becomes close to that of the beam samples. The only samples which respond to the \sinsqreac parameter are the electron-like beam samples. Consequently, no increase in sensitivity beyond that of the T2K-only analysis is expected. The \delmsqsol and \sinsqsol are not considered as there is simply no sensitivity in any sample considered within this analysis.
+The response to \delmsqatm is much larger in beam samples, specfically \quickmath{\mu}-like samples, compared to atmospheric samples. This is to be expected as the beam neutrino energy can be specifically tuned to match the maximal disappearance probability. As discussed in \autoref{sec:Oscillation_Overview}, the determination of the mass hierarchy is signficantly enhanced when using the atmospheric samples due to them transitioning through the Earth's core. So whilst the atmospheric samples do not add much information to the constraint of \quickmath{|\Delta m^{2}_{32}|} beyond that of the beam analysis, they do enhance the ability to determine the sign of the parameter.
+
+The sensitivity to \sinsqatm is again dominated by the T2K experiment. However, the difference in the response for atmospheric and beam samples is much smaller. Consequently, one would expect that the joint fit would become more sensivity to \sinsqatm than just T2K experiment alone. The summed response over all atmospheric samples becomes comparable to that of the muon-like beam samples. For this particular choice of Asimov point, the only samples which respond to the \sinsqreac parameter are the electron-like beam samples. Consequently, no increase in sensitivity beyond that of the T2K-only analysis is expected at that Asimov point. The \delmsqsol and \sinsqsol are not considered as there is simply no sensitivity in any sample considered within this analysis.
+  
+As discussed, the correlations between oscillation parameters induce marignalisation effects within the response of the likelihood. That is to say, the response to \dcp is affected by the choice of \sinsqreac or \sinsqatm. The two-dimensional scans of the appearance (\sinsqreac-\dcp) and disappearance (\sinsqatm-\delmsqatm) parameters are illustrated in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App} and \autoref{fig:OscillationAnalysis_2DLLHOscScans_Dis}, respectively.
+
+The appearance log-likelihood scans show the distinct difference in how the beam and atmospheric samples respond. The beam samples have an approximately constant width of the \quickmath{2\sigma} and \quickmath{3\sigma} contours, throughout all ranges of \dcp. The atmospheric samples response to \dcp is very strongly correlated to the choice of \sinsqreac, with the strongest constraints around \quickmath{\delta_{CP}\sim1}. Consequently, this difference allows some of the degeneracy in a beam-only fit to be broken. Comparing the beam and joint fit log-likelihood scans, the \quickmath{2\sigma} continous contour in \dcp for beam samples is broken when the atmospheric samples are added. Furthermore, the width of the \quickmath{3\sigma} contours also becomes dependent upon the value of \dcp. Whilst these are encouraging results for the joint fit, these are not sensitivity measurements as the nuisance parameters are fixed.
+
+The disappearance log-likelihood scans in \sinsqatm-\delmsqatm space show the expected result when considering the one-dimensional scans already discussed. The uncertainty on the width of \quickmath{|\Delta m^{2}_{32}|} is mostly driven by the beam-only sensitivties. However, the width of this contour in the inverted mass region (\quickmath{\Delta m^{2}_{32} < 0}) is significantly reduced due to the ablity of the atmospheric samples to select the correct mass hierarchy (these log-likelihood scans use the Asimov A oscillation probabilities which assumes true normal hierarchy). The width of the uncertainty in \sinsqatm is also reduce compared to a beam-only analysis, with a further decrease in the inverted hierarchy region due to mass hierarchy determination.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \subcaption{Beam Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/AppearanceScans.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.5\textwidth}
+    \subcaption{Atmospheric Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=2]{Figures/OA/AppearanceScans.pdf}
+  \end{subfigure}
+  \begin{subfigure}[t]{1.0\textwidth}
+    \subcaption{All Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=3]{Figures/OA/AppearanceScans.pdf}
+  \end{subfigure}
+  \caption{Two-dimensional log-likelihood scan of the appearance (\sinsqreac-\dcp) parameters showing the response of the beam samples (top), atmospheric samples (middle) and the summed response (bottom). The Asimov A oscillation parameters, defined in \autoref{tab:Theory_ParameterSets}, are assumed to be the true point (Black Cross). The position of the smallest log-likelihood is highlighted with the triangle. Prior uncertainty terms of the oscillation parameters are neglected. The two(three) sigma contour levels are illlustrated with the dashed(solid) red line.}
+  \label{fig:OscillationAnalysis_2DLLHOscScans_App}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \subcaption{Beam Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/DisappearanceScans.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.5\textwidth}
+    \subcaption{Atmospheric Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=2]{Figures/OA/DisappearanceScans.pdf}
+  \end{subfigure}
+  \begin{subfigure}[t]{1.0\textwidth}
+    \subcaption{All Samples}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=3]{Figures/OA/DisappearanceScans.pdf}
+  \end{subfigure}
+  \caption{Two-dimensional log-likelihood scan of the disappearance (\sinsqatm-\delmsqatm) parameters showing the response of the beam samples (top), atmospheric samples (middle) and the summed response (bottom). The Asimov A oscillation parameters, defined in \autoref{tab:Theory_ParameterSets}, are assumed to be the true point (Black Cross). The position of the smallest log-likelihood is highlighted with the triangle. Prior uncertainty terms of the oscillation parameters are neglected. The two(three) sigma contour levels are illlustrated with the dashed(solid) red line.}
+  \label{fig:OscillationAnalysis_2DLLHOscScans_Dis}
+\end{figure}
 
 In addition to the oscillation parameters, the response to the systematic model parameters can also be considered. Due to the correlated cross section model, the most informative \finish{Finish this}
 
