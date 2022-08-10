@@ -10,5 +10,13 @@ Thesis.lot
 Thesis.out
 Thesis.toc
 comment.cut
+*.bcf
+*.maf
+*.aux
+*.mtc
+*.mtc0
+*-blx.bib
+*.run.xml
+
 
 *~

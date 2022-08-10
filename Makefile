@@ -3,5 +3,5 @@ thesis:
 
 clean:
 	@rm -f thesis.pdf thesis.log thesis.aux
-	@rm -f *.bbl *.blg *.lof *.cut *.log
-	@rm -f *.lot *.out *.toc
+	@rm -f *.bbl *.blg *.lof *.cut *.log *.bcf *.maf *.aux *.mtc *.mtc0 *~
+	@rm -f *.lot *.out *.toc *.xml *-blx.bib *.pdf

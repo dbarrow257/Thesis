@@ -1,0 +1,431 @@
+\chapter{T2K and SK Experiment Overview}
+\label{chap:T2KSKExp}
+
+As the successor of the Kamiokande experiment, the Super-Kamiokande (SK) collaboration has been leading atmospheric neutrino oscillation analyses for over two decades. The detector has provided some of the strongest constraints on proton decay and the first precise measurements of the \delmsqatm and \sinsqatm neutrino oscillation parameters. The ability of the detector to low-energy neutrino events has been significantly improved with the recent gadolinium doping of the ultra-pure water target. The history, detection technique, and operation of the SK detector is described in \autoref{sec:T2KSKExp_SK}.
+
+The Tokai-to-Kamioka (T2K) experiment was one of the first long-baseline experiments to use both neutrino and antineutrino beams to precisely measure the charge parity violation within the neutrino sector. With the SK detector observing the oscillated neutrino flux, the T2K experiment observed the first hints of a non-zero \sinsqreac measurement and continues to lead the field with the constraints it provides on \sinsqreac, \sinsqatm, \delmsqatm and \dcp. The techniques which T2K uses in generating its neutrino beam as well as the near-detector used to constrain the flux and cross-section parameters used in this analysis are documented in \autoref{sec:T2KSKExp_T2K}.
+
+\section{The Super-Kamiokande Experiment}
+\label{sec:T2KSKExp_SK}
+
+The SK experiment began taking data in 1996 \cite{Fukuda1998-tw} and has had many modifications throughout its lifespan. There have been seven defined periods of data taking as noted in \autoref{tab:T2KSKExp_SKPeriods}. Data taking began in SK-I which ran for five years. Between the SK-I and SK-II periods, a significant proportion of the PMTs were damaged during maintenance. Those that survived were equally distributed throughout the detector in the SK-II era, which resulted in a reduced photo-coverage. From SK-III onwards, repairs to the detector meant the full suite of PMTs was operational. Before the start of SK-IV, the data acquisition and electronic systems were upgraded. Between SK-IV and SK-V, a significant effort was placed into tank open maintenance and repair/replacement of defective PMTs, a task for which the author of this thesis was required. Consequently, the detector conditions were significantly different between the two operational periods. SK-VI saw the start of the \quickmath{0.01\%} gadolinium doped water. SK-VII, which started during the writing of this thesis, has increased the gadolinium concentration to \quickmath{0.03\%} for continued operation \cite{10.5281/zenodo.6694761}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|l|l|c}
+      \hline
+      Period & Start Date & End Date & Live-time (days) \\
+      \hline
+      I & April 1996 & July 2001 & 1489.19 \\
+      II & October 2002 & October 2005 & 798.59 \\
+      III & July 2006 & September 2008 & 518.08 \\
+      IV & September 2008 & May 2018 & 3244.4 \\
+      V & January 2019 & July 2020 & 461.02 \\
+      VI & July 2020 & May 2022 & 583.3 \\
+      VII & May 2022 & Ongoing & N/A \\
+      \hline 
+      \hline
+    \end{tabular}
+    \caption{The various SK periods and respective live-time. The SK-VI live-time is calculated until \quickmath{1^{\text{st}}} April 2022. SK-VII started during the writing of this thesis.}
+    \label{tab:T2KSKExp_SKPeriods}
+\end{table}
+
+\subsection{The SK Detector}
+\label{subsec:T2KSKExp_SKDetector}
+
+The basic structure of the Super-Kamiokande (SK) detector is a cylindrical tank with a diameter \quickmath{39.3\text{m}} and height \quickmath{41.1\text{m}} filled with ultrapure water \cite{Abe_2014_SKCalib}. A diagram of the significant components of the SK detector is given in \autoref{fig:T2KSKExp_SK_Diag}. The SK detector is situated in the Kamioka mine in Gifu, Japan. The mine is underground with roughly \quickmath{1\text{km}} rock overburden (\quickmath{2.7 \text{km}} water equivalent overburden) \cite{Fukuda2003-ly}. At this depth, the rate of cosmic ray muons is significantly decreased to a value of \quickmath{\sim 2\text{Hz}}. The top of the tank is covered with stainless steel which is designed as a working platform for maintenance, calibration, and location for high voltage and data acquisition electronics.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.95\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/SKDiagram.pdf}
+  \end{subfigure}
+  \caption{A schematic diagram of the Super-Kamiokande Detector. Taken from \cite{Itow2001-bc}.}
+  \label{fig:T2KSKExp_SK_Diag}
+\end{figure}
+
+A smaller cylindrical structure (\quickmath{36.2\text{m}} diameter, \quickmath{33.8\text{m}} height) is situated inside the tank, with an approximate \quickmath{2\text{m}} gap between this structure and the outer tank wall. The purpose of this structure is to support the photomultiplier tubes (PMTs). The volume inside and outside the support structure is referred to as the inner detector (ID) and outer detector (OD), respectively. In the SK-IV era, the ID and OD are instrumented by \quickmath{11,129} \quickmath{50\text{cm}} and \quickmath{1,885} \quickmath{20 \text{cm}} PMTs respectively \cite{Abe_2014_SKCalib}. The ID contains a \quickmath{32\text{kton}} mass of water. Many analyses performed at SK use a ``fiducial volume'' defined by the volume of water inside the ID excluding some distance to the ID wall. This reduces the volume of the detector which is sensitive to neutrino events but reduces radioactive backgrounds and allows for better reconstruction performance. The nominal fiducial volume is defined as the area contained inside \quickmath{2\text{m}} from the ID wall for a total of \quickmath{22.5\text{kton}} water \cite{Jiang2019-iw}.
+
+The two regions of the detector (ID and OD) are optically separated with opaque black plastic. The purpose of this is to determine whether a track entered or exited the ID. This allows cosmic ray muons and partially contained events to be tagged and separated from neutrino events entirely contained within the ID. This black plastic is also used to cover the area between the ID PMTs to reduce photon reflection from the ID walls. Opposite to this, the OD is lined with a reflective material to allow photons to reflect around inside the OD until collected by one of the PMTs. Furthermore, each OD PMT is backed with \quickmath{50\times50\text{cm}} plates of wavelength shifting acrylic which increases the efficiency of light collection \cite{Fukuda2003-ly}.
+
+In the SK-IV data-taking period, the photocathode coverage of the detector, or the fraction of the ID wall instrumented with PMTs, is \quickmath{\sim 40\%} \cite{Fukuda2003-ly}. The PMTs have a quantum efficiency (the ratio of detected electrons to incident photons) of \quickmath{\sim 21\%} for photons with wavelengths of \quickmath{360\text{nm} < \lambda < 390\text{nm}}. The proportion of photoelectrons that produce a signal in the dynode of a PMT, termed the collection efficiency, is \quickmath{>70 \%} \cite{Fukuda2003-ly}. The PMTs used within SK are most sensitive to photons with wavelength \quickmath{300\text{nm} \leq \lambda \leq 600\text{nm}} \cite{Fukuda2003-ly}. One disadvantage of using PMTs as the detection media is that the Earth's geomagnetic field can modify its response. Therefore, a set of compensation coils is built around the inner surface of the detector to mitigate this effect \cite{t2k_sk}.
+
+As mentioned, the SK detector is filled with ultrapure water, which in a perfect world would contain no impurities. However, bacteria and organic compounds can significantly degrade the water quality. This decreases the attenuation length, which reduces the total number of photons that hit a PMT. To combat this, a sophisticated water treatment system has been developed \cite{Fukuda2003-ly, Nakano2020-sb}. UV lights, mechanical filters, and membrane degasifiers are used to reduce the bacteria, suspended particulates, and radioactive materials from the water. The flow of water within the tank is also critical as it can remove stagnant bacterial growth or build-up of dust on the surfaces within the tank. Gravity drifts impurities in the water towards the bottom of the tank which, if left uncontrolled, can create asymmetric water conditions between the top and bottom of the tank.
+%The flow of water in the tank can be controlled via mechanically driven circulation or temperature driven convection.
+Typically, the water entering the tank is cooled below the ambient temperature of the tank to control convection and inhibit bacteria growth. Furthermore, the rate of dark noise hits within PMTs is sensitive to the PMT temperature \cite{HamamatsuPMT} so controlling the temperature gradients within the tank is beneficial for stable measurements.
+
+SK-VI is the first phase of the SK experiment to use gadolinium dopants within the ultrapure water \cite{10.5281/zenodo.6694761}. As such, the SK water system had to be replaced to avoid removing the gadolinium concentrate from the ultrapure water \cite{Abe2022-qq}. For an inverse \quickmath{\beta}-decay (IBD) interaction in a water target, the emitted neutron is thermally captured on hydrogen. This process releases \quickmath{2.2 \text{MeV}} \quickmath{\gamma} rays which are difficult to detect as the resulting Compton scattered electrons are very close to the Cherenkov threshold, limiting the number of photons produced. Thermal capture of neutrons on gadolinium generates \quickmath{\gamma} rays with higher energy (\quickmath{8\text{MeV}} \cite{Abe2022-ij}) meaning they are more easily detected. SK-VI has \quickmath{0.01 \%} Gd loading (\quickmath{0.02\%} gadolinium sulphate by mass) which causes \quickmath{\approx 50\%} of neutrons emitted by IBD to be captured on gadolinium\cite{PhysRevLett.93.171101,Marti2020-le} . Whilst predominantly useful for low energy analyses, Gd loading allows better \quickmath{\nu/\bar{\nu}} separation for atmospheric neutrino event selections \cite{Marti2019-gu}. Efforts are currently in place to increase the gadolinium concentrate to \quickmath{0.03 \%} for \quickmath{\approx 75\%} neutron capture efficiency on gadolinium \cite{Vagins2022-sj}. The final stage of loading targets \quickmath{0.1 \%} concentrate.
+
+\subsection{Calibration}
+\label{subsec:T2KSKExp_SKCalibration}
+
+The calibration of the SK detector is documented in \cite{Abe_2014_SKCalib} and summarised below. The analysis presented within this thesis is dependent upon `high energy events' (Charged particles with \quickmath{O(>100)\text{MeV}} momenta). These are events that are expected to generate a larger number of photons such that each PMT will be hit with multiple photons. The reconstruction of these events depends upon the charge deposited within each PMT and the timing response of each individual PMT. Therefore, the most relevant calibration techniques to this thesis are outlined.
+
+Before installation, \quickmath{420} PMTs were calibrated to have identical charge responses and then distributed throughout the tank in a cross-shape pattern (As illustrated by \autoref{fig:T2KSKExp_SK_StandardPMTs}). These are used as a standardised measure for the rest of the PMTs installed at similar geometric positions within SK to be calibrated against.
+%This allows each PMT to have it's high voltage set so that all PMTs give the same signal for an identical light collection.
+To perform this calibration, a xenon lamp is located at the center of the SK tank which flashes uniform light at \quickmath{1 \text{Hz}}. This allows for geometrical effects, water quality variation, and timing effects to be measured in-situ throughout normal data-taking periods.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.50\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/StandardPMTs.pdf}
+  \end{subfigure}
+  \caption{The location of ``standard PMTs'' (red) inside the SK detector. Taken from \cite{Abe_2014_SKCalib}.}
+  \label{fig:T2KSKExp_SK_StandardPMTs}
+\end{figure}
+
+When specifically performing calibration of the detector (in out-of-data taking mode), the water in the tank was circulated to avoid top/bottom asymmetric water quality. Any non-uniformity within the tank significantly affects the PMT hit probability through scattering or absorption. This becomes a dominant effect for the very low-intensity light sources discussed later which are designed such that only one photon is incident upon a given PMT.
+
+The ``gain'' of a PMT is defined as the ratio of the total charge of the signal produced compared to the charge of photoelectrons emitted by the photocathodes within the PMT. To calibrate the signal of each PMT, the ``relative'' and ``absolute'' gain values are measured. The relative gain is the variation of gain among each of the PMTs whereas the absolute gain is the average gain of all PMTs. 
+
+The relative gain is calibrated as follows. A laser is used to generate two measurements: a high-intensity flash that illuminates every PMT with a sufficient number of photons, and a low-intensity flash in which only a small number of PMTs collect light. The first measurement creates an average charge, \quickmath{Q_{obs}(i)} on PMT \quickmath{i}, whereas the second measurement ensures that each hit PMT only generates a single photoelectron. For the low-intensity measurement, the number of times each PMT records a charge larger than \quickmath{1/4} photoelectrons, \quickmath{N_{obs}(i)}, is counted. The values measured can be expressed as
+
+\begin{equation}
+  \label{eq:T2KSKExp_RelativeGainCalib}
+  \begin{split}
+    Q_{obs}(i) &\propto I_{H} \times f(i) \times \epsilon(i) \times G(i), \\
+    N_{obs}(i) &\propto I_{L} \times f(i) \times \epsilon(i),
+  \end{split}
+\end{equation}
+
+Where \quickmath{I_{H}} and \quickmath{I_{L}} is the intensity of the high and low flashes, \quickmath{f(i)} is the acceptance efficiency of the \quickmath{i^{\text{th}}} PMT, \quickmath{\epsilon(i)} is the product of the quantum and collection efficiency of the \quickmath{i^{\text{th}}} PMT and \quickmath{G(i)} is the gain of the \quickmath{i^{\text{th}}}	PMT. The relative gain for each PMT can determined by taking the ratio of these quantities.
+
+The absolute gain calibration is performed by observing fixed energy \quickmath{\gamma}-rays of \quickmath{E_{\gamma} \sim 9\text{MeV}} emitted isotropically from neutron capture on a NiCf source situated at the center of the detector. This generates a photon yield of about \quickmath{0.004} photoelectrons/PMT/event, meaning that \quickmath{>99\%} of PMT signals are generated from single photoelectrons. A charge distribution is generated by performing this calibration over all PMTs, and the average value of this distribution is taken to be the absolute gain value.
+%It has been found that the absolute gain increases as a function of time despite there being no known reason for this behaviour.
+
+As mentioned in \autoref{subsec:T2KSKExp_SKDetector}, the average quantum and collection efficiency for the SK detector is \quickmath{\sim 21\%} and \quickmath{>70 \%} respectively. However, these values do differ between each PMT and need to be calibrated accordingly. Consequently, the NiCf source is also used to calibrate the ``quantum \quickmath{\times} collection'' efficiency (denoted ``QE'') value of each PMT.
+%This value is calculated as calibrating the signal generated by one incident photon is of more importance than the individual efficiency of photoelectron emission or detection on the dynode.
+The NiCf low-intensity source is used as the PMT hit probability is proportional to the QE (\quickmath{N_{obs}(i) \propto \epsilon(i)} in \autoref{eq:T2KSKExp_RelativeGainCalib}). A Monte Carlo prediction which includes photon absorption, scattering, and reflection is made to estimate the number of photons incident on each PMT and the ratio of the number of predicted to observed hits is calculated. The difference is attributed to the QE efficiency of that PMT. This technique is extended to calculate the relative QE efficiency by normalizing the average of all PMTs which removes the dependence on the light intensity.
+
+Due to differing cable lengths and readout electronics, the timing response between a photon hitting the PMT and the signal being captured by the data acquisition can be different between each PMT. Due to threshold triggers (Described in \autoref{subsec:T2KSKExp_SKTriggering}), the time at which a pulse reaches a threshold is dependent upon the size of the pulse. This is known as the `time-walk' effect and also needs to be accounted for in each PMT. To calibrate the timing response, a pulse of light with width \quickmath{0.2\text{ns}} is emitted into the detector through a diffuser. Two-dimensional distributions of time and pulse height (or charge) are made for each PMT and are used to calibrate the timing response. This is performed in-situ during data taking with the light source pulsing at \quickmath{0.03\text{Hz}}.
+
+The top/bottom water quality asymmetry is measured using the NiCf calibration data and cross-referencing these results to the ``standard PMTs''. The water attenuation length is continuously measured by the rate of vertically-downgoing cosmic-ray muons which enter via the top of the tank.
+
+%In the ultra-relativistic approximation that \quickmath{\beta=1}, a charged particle will generate Cherenkov photons with a characteristic pitch angle of \quickmath{42^{\circ}}. By calculating the ratio of the charge deposited on PMTs within this cone angle to that outside of the cone, the rate of photon scattering can be calculated. This value is dependent upon the water quality inside the tank. Performing this calculation using cosmic ray muons allows the water quality to be monitored in real time. A more complex analysis, which uses a collimated laser to inject photons at different wavelengths is performed to determine the Rayleigh scattering, Mie scattering and absorption coefficients. This methodology divides the tank into five horizontal slices, where the timing and spatial distribution of hits PMTs in each slice can be compared between data and various Monte Carlo predictions. The coefficients which minimise the \quickmath{\chi^2} between data and Monte Carlo are selected and utilised within the detector simulation.
+
+Dark noise is the phenomenon where a PMT registers a pulse that is consistent with a single photoelectron emitted from photon detection despite the PMT being in complete darkness. This is predominately caused by two processes. Firstly there is intrinsic dark noise which is where photoelectrons gain enough thermal energy to be emitted from the photocathode, and secondly, the radioactive decay of contaminants inside the structure of the PMT. Typical dark noise rate for PMTs used within SK are \quickmath{O(3)\text{kHz}} \cite{Fukuda2003-ly}. This is lower than the expected number of photons generated for a `high energy event' (As described in \autoref{subsec:T2KSKExp_Cherenkov}) but instability in this value can cause biases in reconstruction. Dark noise is related to the gain of a PMT and is calibrated using hits inside a time window recorded before an event trigger \cite{thesis_focht}.
+
+\subsection{Data Acquisition and Triggering}
+\label{subsec:T2KSKExp_SKTriggering}
+
+%The maximum distance that a photon can travel within the SK detector is \quickmath{\sim 200\text{ns}} \cite{PhysRevD.73.112001}.
+The analysis presented in this thesis only uses the SK-IV period of the SK experiment so this subsection focuses on the relevant points of the data acquisition and triggering systems to that SK period.
+The earlier data acquisition and triggering systems are documented in \cite{34489,PhysRevD.73.112001}. 
+
+Before the SK-IV period started, the existing front-end electronics were replaced with ``QTC-Based Electrons with Ethernet, QBEE'' systems \cite{Nishino2009-wh}. When the QBEE observes a signal above a \quickmath{1/4} photoelectron threshold, the charge-to-time (QTC) converter generates a rectangular pulse. The start of the rectangular pulse indicates the time at which the analog photoelectron signal was received and the width of the pulse indicates the total charge integrated throughout the signal. This is then digitized by time-to-digital converters and sent to the ``front-end'' PCs. The digitized signal from every QBEE is then chronologically ordered and sent to the ``merger'' PCs. It is the merger PCs that apply the software trigger. Any triggered events are passed to the ``organizer'' PC. This sorts the data stream of multiple merger PCs into chronologically ordered events which are then saved to disk. The schematic of data flow from PMTs to disk is illustrated in \autoref{fig:T2KSKExp_SK_DataFlow}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.80\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/SKDataFlow.pdf}
+  \end{subfigure}
+  \caption{Schematic view of the data flow through the data acquisition and online system. Taken from \cite{5446533}.}
+  \label{fig:T2KSKExp_SK_DataFlow}
+\end{figure}
+
+%The software trigger applied in SK-IV replaces the hardware trigger applied in SK-I to SK-III.
+The software trigger (described in \cite{Yamada2007-cp}) operates by determining the number of PMT hits within a \quickmath{200\text{ns}} sliding window, \quickmath{N_{200}}. This window coincides with the maximum time that a Cherenkov photon would take to traverse the length of the SK tank \cite{PhysRevD.73.112001}. For lower energy events that generate fewer photons, this technique is useful for eliminating background processes like dark noise and radioactive decay which would be expected to separate in time. When the value of \quickmath{N_{200}} exceeds some threshold, a software trigger is issued. There are several trigger thresholds used within the SK-IV period which are detailed in \autoref{tab:T2KSKExp_TriggerThreshold}. If one of these thresholds is met, the PMT hits within an extended time window are also read out and saved to disk.
+%The length of the time window is also included in the tabulated threshold conditions.
+In the special case of an event that exceeds the SHE trigger but does not exceed the OD trigger, the AFT trigger looks for delayed coincidences of \quickmath{2.2 \text{MeV}} gamma rays emitted from neutron capture in a \quickmath{535 \mu\text{s}} window after the SHE trigger. A similar but more complex ``Wideband Intelligent Trigger (WIT)'' has been deployed and is described in \cite{Carminati2015-zx}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c|c|c}
+      \hline
+      Trigger & Acronym & Condition & Extended time window (\quickmath{\mu \text{s}}) \\
+      \hline
+      Super Low Energy & SLE & >34/31 hits & 1.3 \\
+      Low Energy & LE & >47 hits & 40 \\
+      High Energy & HE & >50 hits & 40 \\
+      Super High Energy & SHE & >70/58 hits & 40 \\
+      Outer Detector & OD & >22 hits in OD & N/A \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The trigger thresholds and extended time windows saved around an event which were utilised throughout the SK-IV period. The exact thresholds can change and the values listed here represent the thresholds at the start and end of the SK-IV period.}
+    \label{tab:T2KSKExp_TriggerThreshold}
+\end{table}
+
+\subsection{Cherenkov Radiation}
+\label{subsec:T2KSKExp_Cherenkov}
+
+Cherenkov light is emitted from any highly energetic charged particle traveling with relativistic velocity, \quickmath{\beta}, greater than the local speed of light in a medium \cite{Cerenkov1937-tl}.
+%with refractive index \quickmath{n>1.0} 
+%This occurs due to the charged particle exciting the polarised media, which de-excites via photon emission. From Huygen's principal, the emitted waves propagate outwards but only generate coherent wavefronts when the charged particle moves faster than the phase velocity of that media. Consequently,
+Cherenkov light is formed at the surface of a cone with characteristic pitch angle,
+
+\begin{equation}
+  \label{eq:T2KSKExp_CherenkovConeAngle}
+  \cos(\theta)=\frac{1}{\beta n}.
+\end{equation}
+
+where \quickmath{n} is the refractive index of the medium. Consequently, the Cherenkov momentum threshold, \quickmath{P_{thres}}, is dependent upon the mass, \quickmath{m}, of the charged particle moving through the medium, 
+
+\begin{equation}
+  P_{thres} = \frac{m}{\sqrt{n^{2}-1}}
+\end{equation}
+
+For water, where \quickmath{n = 1.33}, the Cherenkov threshold momentum and energy for various particles are given in \autoref{tab:T2KSKExp_CherenkovThreshold}. In contrast, \quickmath{\gamma}-rays are detected indirectly via the combination of photons generated by Compton scattering and pair production. The threshold for detection in the SK detector is typically higher than the threshold for photon production. This is due to the fact that the attenuation of photons in the water means that typically \quickmath{\sim 75\%} of Cherenkov photons reach the ID PMTs. Then the collection and quantum efficiencies described in \autoref{subsec:T2KSKExp_SKDetector} result in the number of detected photons being lower than the number of photons which reach the PMTs. 
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c|c}
+      \hline
+      Particle & Threshold Momentum (MeV) & Threshold Energy (MeV)\\
+      \hline
+      Electron & 0.5828 & 0.7751 \\
+      Muon & 120.5 & 160.3 \\
+      Pion & 159.2 & 211.7 \\
+      Proton & 1070.0 & 1423.1 \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The threshold momentum and energy for a particle to generate Cherenkov light in ultrapure water, as calculated in \autoref{eq:T2KSKExp_CherenkovConeAngle} in ultrapure water which has refractive index \quickmath{n = 1.33}.}
+    \label{tab:T2KSKExp_CherenkovThreshold}
+\end{table}
+
+The Frank-Tamm equation \cite{Frank1991-wj} describes the relationship between the number of Cherenkov photons generated per unit length, \quickmath{dN/dx}, the wavelength of the photons generated, \quickmath{\lambda}, and the relativistic velocity of the charged particle,
+
+\begin{equation}
+  \label{eq:T2KSKExp_FrankTammFormula}
+  \frac{d^2N}{dxd\lambda} = 2\pi\alpha \left(1 - \frac{1}{n^2 \beta^2} \right)\frac{1}{\lambda^2} .
+\end{equation}
+
+where \quickmath{\alpha} is the fine structure constant. For a \quickmath{100\text{MeV}} momentum electron, approximately \quickmath{330} photons will be produced per centimeter in the \quickmath{300\text{nm} \leq \lambda \leq 700\text{nm}} region which the ID PMTs are most sensitive to \cite{Fukuda2003-ly}.
+
+\section{The Tokai to Kamioka Experiment}
+\label{sec:T2KSKExp_T2K}
+
+The Tokai to Kamioka (T2K) experiment is a long-baseline neutrino oscillation experiment located in Japan. Proposed in the early 2000s \cite{jhf_loi, Itow2001-vw} to replace K2K \cite{The_K2K_Collaboration2001-oo}, T2K was designed to observe electron neutrino appearance whilst precisely measuring the oscillation parameters associated with muon neutrino disappearance \cite{t2k_proposal}. The experiment consists of a neutrino beam generated at the Japan Proton Accelerator Research Complex (J-PARC), a suite of near detectors situated \quickmath{280\text{m}} from the beam target, and the Super Kamiokande far detector positioned at a \quickmath{295\text{km}} baseline. The cross-section view of the T2K experiment is drawn in \autoref{fig:T2KSKExp_T2K_Overview}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.95\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KCrossSection.pdf}
+  \end{subfigure}
+  \caption{The cross-section view of the Tokai to Kamioka experiment illustrating the beam generation facility at J-PARC, the near detector situated at a baseline of \quickmath{280\text{m}} and the Super Kamiokande far detector situated \quickmath{295\text{km}} from the beam target.}
+  \label{fig:T2KSKExp_T2K_Overview}
+\end{figure}
+
+The T2K collaboration makes world-leading measurements of the \sinsqatm, \delmsqatm, and \dcp oscillation parameters. Improvements in the precision and accuracy of parameter estimates are still being made by including new data samples and developing the models which describe the neutrino interactions and detector responses \cite{Bronner2022-wd}. Electron neutrino appearance was first observed at T2K in 2014 \cite{2014_Abe_ElectronNuApp} with \quickmath{7.3\sigma} significance.
+
+The near detectors provide constraints on the beam flux and cross-section model parameters used within the oscillation analysis by observing the unoscillated neutrino beam. There are a host of detectors situated in the near detector hall (As illustrated in \autoref{fig:T2KSKExp_T2K_ND280Pit}): ND280 (\autoref{subsec:T2KSKExp_T2K_ND280}), INGRID (\autoref{subsec:T2KSKExp_T2K_INGRID}), NINJA \cite{ninja}, WAGASCI \cite{wagasci}, and Baby-MIND \cite{baby_mind}. The latter three are not currently used within the oscillation analysis presented within this thesis.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KND280Hall.pdf}
+  \end{subfigure}
+  \caption{The near detector suite for the T2K experiment showing the ND280 and INGRID detectors. The distance between the detectors and the beam target is \quickmath{280\text{m}}.}
+  \label{fig:T2KSKExp_T2K_ND280Pit}
+\end{figure}
+
+Whilst this thesis presents the ND280 in terms of its purpose for the oscillation analysis, the detector can also make many cross-section measurements at neutrino energies of \quickmath{O(1)\text{GeV}} for the different targets within the detector \cite{PhysRevD.102.012007,10.1093/ptep/ptab014}. These measurements are of equal importance as they can lead the way in determining the model parameters used in the interaction models for the future high-precision era of neutrino physics.
+
+\Change{Review the rest of this subsection}
+
+There are two independent fitters, \texttt{MaCh3} and \texttt{BANFF}, which perform the near detector fit. \texttt{MaCh3} is the basis of this analysis and uses a bayesian Markov Chain Monte Carlo fitting technique, whereas \texttt{BANFF} uses a frequentist gradient descent technique. The output of each fitter is converted into a covariance matrix to describe the error and correlations between all the flux and cross-section parameters. This is then propagated to the far-detector oscillation analysis group for use in the \texttt{P-Theta} and \texttt{VALOR} fitting framework. As \texttt{MaCh3} can handle both near and far detector samples, it does not use this covariance matrix and instead opts for a simultaneous fit of the two detector measurements. This is an analysis choice which removes the assumption of Gaussian posterior distributions required when building the post-fit covariance matrix.
+
+\finish{MaCh3 vs PTheta and Valor}
+
+There are three particular tunes of the T2K flux and low energy cross section model typically considered. Firstly, the ``generated'' tune which is the set of dial values with which the Monte Carlo was generated. Secondly, the set of dial values which are taken from external data measurements and used as inputs. These are the ``pre-fit'' dial values. The reason these two sets of dial values are different is that the external data measurements are continually updated but it is very computationally intensive to regenerate a Monte Carlo prediction after each update. The final tune is the ``post-fit'', ``post-ND fit'' or ``post-BANFF'' dial values. These are the values taken from the fit to the beam near detector data.
+
+\subsection{The Neutrino Beam}
+\label{subsec:T2KSKExp_T2K_NeutrinoBeam}
+
+The neutrino beam used within the T2K experiment is described in \cite{t2k_det, Abe_2013} and summarised below. The accelerating facility at J-PARC is composed of two sections; the primary and secondary beamlines. \autoref{fig:T2KSKExp_T2K_Beamline} illustrates a schematic of the beamline, focusing mostly on the components of the secondary beamline. The primary beamline has three accelerators that progressively accelerate protons; a linear accelerator, a rapid-cycling synchrotron, and the main-ring (MR) synchrotron. Once fully accelerated by the MR, the protons have a kinetic energy of \quickmath{30\text{GeV}}. Eight bunches of these protons, separated by \quickmath{500\text{ns}}, are extracted per ``spill'' from the MR and directed towards a graphite target (a rod of length \quickmath{91.4\text{cm}} and diameter \quickmath{2.6\text{cm}}).
+Spills are extracted at \quickmath{~0.5\text{Hz}} with \quickmath{\sim 3\times10^{14}} protons contained per spill.
+%A total of \quickmath{\sim 3\times 10^{14}} protons are contained in each spill. The rate of extracted spills is \quickmath{\sim 0.5\text{Hz}} although the width of the spill is \quickmath{\sim 5 \mu\text{s}}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KBeamline.pdf}
+    \subcaption{Primary and secondary beamline}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.95\textwidth}
+    \vspace{0.5cm}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KSecondaryBeamline.pdf}
+    \subcaption{Secondary beamline}
+  \end{subfigure}
+  \caption{Top panel: Bird's eye view of the most relevant part of primary and secondary beamline used within the T2K experiment. The primary beamline is the main-ring proton synchrotron, kicker magnet, and graphite target. The secondary beamline consists of the three focusing horns, decay volume, and beam dump. Figure taken from \cite{t2k_det}. Bottom panel: The side-view of the secondary beamline including the focusing horns, beam dump and neutrino detectors. Figure taken from \cite{MuMon}.}
+  \label{fig:T2KSKExp_T2K_Beamline}
+\end{figure}
+
+The secondary beamline consists of three main components: the target station, the decay volume, and the beam dump. The target station is comprised of the target, beam monitors, and three magnetic focusing horns. The proton beam interacts with the graphite target to form a secondary beam of mostly pions and kaons. The secondary beam travels through a \quickmath{96\text{m}} long decay volume, generating neutrinos through the following decays \cite{Abe_2013},
+
+\begin{minipage}{.45\linewidth}
+  \begin{equation}
+    \begin{split}
+      \pi^+ &\rightarrow \mu^+ + \nu_\mu \\
+      K^+ &\rightarrow \mu^+ + \nu_\mu \\
+      &\rightarrow \pi^0 + e^+ + \nu_e \\
+      &\rightarrow \pi^0 + \mu^+ + \nu_\mu \\
+      K^0_L &\rightarrow \pi^- + e^+ + \nu_e \\
+      &\rightarrow \pi^- + \mu^+ + \nu_\mu \\
+      \mu^+ &\rightarrow e^+ + \bar{\nu}_\mu + \nu_e  \notag
+    \end{split}
+  \end{equation}
+\end{minipage}%
+\begin{minipage}{.45\linewidth}
+  \begin{equation}
+    \begin{split}
+      \pi^- &\rightarrow \mu^- + \bar{\nu}_\mu\\
+      K^- &\rightarrow \mu^- + \bar{\nu}_\mu \\
+      &\rightarrow \pi^0 + e^- + \bar{\nu}_e\\
+      &\rightarrow \pi^0 + \mu^- + \bar{\nu}_\mu \\
+      K^0_L &\rightarrow \pi^+ + e^- + \bar{\nu}_e \\
+      &\rightarrow \pi^+ + \mu^- + \bar{\nu}_\mu \\
+      \mu^- &\rightarrow e^- + \nu_\mu + \bar{\nu}_e  \notag
+    \end{split}
+  \end{equation}
+\end{minipage}
+
+The electrically charged component of the secondary beam is focused towards the far detector by the three magnetic horns. These horns direct charged particles of a particular polarity towards SK whilst defocusing the oppositely charged particles. This allows a mostly neutrino or mostly antineutrino beam to be used within the experiment, denoted as ``forward horn current (FHC)'' or ``reverse horn current (RHC)'' respectively.
+
+\autoref{fig:T2KSKExp_T2K_NuFluxPerMode} illustrates the different contributions to the FHC and RHC neutrino flux. The low energy flux is dominated by the decay of pions whereas kaon decay becomes the dominant source of neutrinos for \quickmath{E_\nu > 3\text{GeV}}. The ``wrong-sign'' component, which is the \quickmath{\bar{\nu}_\mu} background in a \quickmath{\nu_\mu} beam, and the intrinsic irreducible \quickmath{\nu_e} background, are predominantly due to muon decay for \quickmath{E_\nu < 2\text{GeV}}. As the antineutrino production cross-section is smaller than the neutrino cross-section, the wrong-sign component is more dominant in the RHC beam as compared to that in the FHC beam.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFluxInNuMode.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFluxInANuMode.pdf}
+  \end{subfigure}
+  \caption{The Monte Carlo prediction of the energy spectrum for each flavour of neutrino (\quickmath{\nu_e}, \quickmath{\bar{\nu}_e}, \quickmath{\nu_\mu} and \quickmath{\bar{\nu}_\mu}) in the neutrino dominated beam FHC mode (Left) and antineutrino dominated beam RHC mode (Right) expected at SK. Taken from \cite{Abe2021-tr}.}
+  \label{fig:T2KSKExp_T2K_NuFluxPerMode}
+\end{figure}
+
+The beam dump, situated at the end of the decay volume, stops all charged particles other than highly energetic muons (\quickmath{p_\mu > 5\text{GeV}}). The MuMon detector monitors the penetrating muons to determine the beam direction and intensity which is used to constrain some of the beam flux systematics within the analysis \cite{MuMon, Vladisavljevic2020-gv}. 
+
+The T2K experiment uses an off-axis beam to narrow the neutrino energy distribution. This was the first implementation of this technique in a long-baseline neutrino oscillation experiment after its original proposal \cite{Beavis1995-qf}. Pion decay, \quickmath{\pi \rightarrow \mu + \nu_\mu}, is a two-body decay. Consequently, the neutrino energy, \quickmath{E_\nu}, can be determined based on the pion energy, \quickmath{E_\pi}, and the angle at which the neutrino is emitted, \quickmath{\theta},
+
+\begin{equation}
+  E_\nu = \frac{m^{2}_{\pi} - m^{2}_{\mu}}{2\left(E_\pi - p_\pi \cos(\theta) \right)},
+\end{equation}
+
+where \quickmath{m_{\pi}} and \quickmath{m_{\mu}} are the mass of the pion and muon respectively. For a fixed energy pion, the neutrino energy distribution is dependent upon the angle at which the neutrinos are observed from the initial pion beam direction. For the \quickmath{295\text{km}} baseline at T2K, \quickmath{E_\nu = 0.6\text{GeV}} maximises the electron neutrino appearance probability, \quickmath{P(\nu_\mu \rightarrow \nu_e)}, whilst minimising the muon disappearance probability, \quickmath{P(\nu_\mu \rightarrow \nu_\mu)}. \autoref{fig:T2KSKExp_T2K_OffAxisTrick} illustrates the neutrino energy distribution for a range of off-axis angles, as well as the oscillation probabilities most relevant to T2K.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KOffAxisTrick.pdf}
+  \end{subfigure}
+  \caption{Top panel: T2K muon neutrino disappearance probability as a function of neutrino energy. Middle panel: T2K electron neutrino appearance probability as a function of neutrino energy. Bottom panel: The neutrino flux distribution for three different off-axis angles (Arbitrary units) as a function of neutrino energy.}
+  \label{fig:T2KSKExp_T2K_OffAxisTrick}
+\end{figure}
+
+\subsection{The Near Detector at \quickmath{280\text{m}}}
+\label{subsec:T2KSKExp_T2K_ND280}
+
+Whilst all the near detectors are situated in the same ``pit'' located at \quickmath{280\text{m}} from the beamline, the ``ND280'' detector is the off-axis detector which is situated at the same off-axis angle as the Super-Kamiokande far detector. It has two primary functions; firstly it measures the neutrino flux and secondly it counts the event rates of different types of neutrino interactions. Both of these constrain the flux and cross-section systematics invoked within the model for a more accurate prediction of the expected event rate at the far detector.
+%It is designed to observe the unoscillated neutrino flux to measure the beam flux whilst also counting the event rate of the different interaction modes in which a neutrino can interact through. This allows the systematics used within the model to be constrained for a more accurate prediction of the expected event rate at the far detector.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KND280.pdf}
+  \end{subfigure}
+  \caption{The components of the ND280 detector. The neutrino beam travels from left to right. Taken from \cite{t2k_det}.}
+  \label{fig:T2KSKExp_T2K_ND280}
+\end{figure}
+
+As illustrated in \autoref{fig:T2KSKExp_T2K_ND280}, the ND280 detector consists of several sub-detectors. The most important part of the detector for this analysis is the tracker region. This is comprised of two time projection chambers (TPCs) sandwiched between three fine grain detectors (FGDs). The FGDs contain both hydrocarbon plastics and water targets for neutrino interactions and provide track reconstruction near the interaction vertex. The emitted charged particles can then propagate into the TPCs which provide particle identification and momentum reconstruction. The FGDs and TPCs are further described in \autoref{subsubsec:T2KSKExp_T2K_FGDs} and \autoref{subsubsec:T2KSKExp_T2K_TPCs} respectively. The electromagnetic calorimeter (ECAL) encapsulates the tracker region alongside the \quickmath{\pi^0} detector (P0D). The ECAL measures the deposited energy from photons emitted from interactions within the FGD. The P0D constrains the cross-section of neutral current interactions which generate neutral pions, which is one of the largest backgrounds in the electron neutrino appearance oscillation channel. The P0D and ECAL detectors are detailed in \autoref{subsubsec:T2KSKExp_T2K_P0D} and \autoref{subsubsec:T2KSKExp_T2K_ECAL} respectively. The entire detector is located within a large yoke magnet which produces a \quickmath{0.2\text{T}} magnetic field. This design of the magnet also includes a scintillating detector called the side muon range detector (SMRD) which is used to track high-angle muons as well as acting as a cosmic veto. The SMRD is described in \autoref{subsubsec:T2KSKExp_T2K_SMRD}.  
+
+\subsubsection{Fine Grained Detectors}
+\label{subsubsec:T2KSKExp_T2K_FGDs}
+
+The T2K tracker region is comprised of two fine grained detectors (FGD) and three Time Projection Chambers (TPC). A detailed description of the FGD design, construction, and assembly is found in \cite{Amaudruz2012} and summarised below. The FGDs are the primary target for neutrino interactions with a mass of \quickmath{1.1} tonnes per FGD.
+%material which are \quickmath{1.1} tonnes of target material per FDG for the neutrinos to interaction with.
+Alongside this, the FGDs are designed to be able to track short-range particles which do not exit the FGD. Typically, short-range particles are low momentum and are observed as tracks that deposit a large amount of energy per unit length. This means the FGD needs good granularity to resolve these particles. The FGDs have the best timing resolution (\quickmath{\sim 3\text{ns}}) of any of the sub-detectors of the ND280 detector. As such, the FGDs are used for time of flight measurements to distinguish forward going positively charged particles from backward going negatively charged particles. Finally, any tracks which pass through multiple sub-detectors are required to be track matched to the FGD.
+
+Both FGDs are made from square scintillator planes of side length \quickmath{186\text{cm}} and width \quickmath{2.02\text{cm}}. Each plane consists of two layers of 192 scintillator bars in an X or Y orientation. A wavelength shifting fiber is threaded through the center of each bar and is read out by a multi-pixel photon counter (MPPC). FGD1 is the most upstream of the two FGDs and contains 15 planes of carbon plastic scintillator which is a common target in external neutrino scattering data. As the far detector is a pure water target, 7 of the 15 scintillator planes in FGD2 have been replaced with a hybrid water-scintillator target. Due to the complexity of the nucleus, nuclear effects can not be extrapolated between different nuclei. Therefore having the ability to take data on one target which is the same as external data and another target which is the same as the far detector target is beneficial for reliable model parameter estimates.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.7\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KFGDPID.pdf}
+  \end{subfigure}
+  \caption{Comparison of data to Monte Carlo prediction of integrated deposited energy as a function of track length for particles that stopped in FGD1. Taken from \cite{Amaudruz2012}.}
+  \label{fig:T2KSKExp_T2K_FGDPID}
+\end{figure}
+
+The integrated deposited energy is used for particle identification. The FGD can distinguish protons from other charged particles by comparing the integrated deposited energy from data to Monte Carlo prediction as seen in \autoref{fig:T2KSKExp_T2K_FGDPID}.
+
+\subsubsection{Time Projection Chambers}
+\label{subsubsec:T2KSKExp_T2K_TPCs}
+
+The majority of particle identification and momentum measurements within ND280 are provided by three Time Projection Chambers (TPCs) \cite{Abgrall2011}. The TPCs are located on either side of the FGDs. They are located inside of the magnetic field meaning the momentum of a charged particle can be determined from the bending of the track.
+%They are designed with a momentum resolution of \quickmath{0.2\%} in order not to limit the determination of \delmsqatm at the far detector. Furthermore, to measure the intrinsic \quickmath{\nu_e} contamination of the beam, the resolution of the ionization energy loss is better than \quickmath{10\%} to ensure reliable particle identification.
+
+Each TPC module consists of two gas-tight boxes, as shown in \autoref{fig:T2KSKExp_T2K_TPCDesign}, which are made of non-magnetic material. The outer box is filled with \quickmath{\text{CO}_2} which acts as an electrical insulator between the inner box and the ground. The inner box forms the field cage which produces a uniform electric drift field of \quickmath{\sim 275 \text{V/cm}} and is filled with an argon gas mixture. Charged particles moving through this gas mixture ionize the gas and the ionised charge is drifted towards micromegas detectors which measure the ionization charge. The time and position information in the readout allows a three-dimensional image of the neutrino interaction.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.55\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KTPCDesign.pdf}
+  \end{subfigure}
+  \caption{Schematic design of a Time Projection Chamber detector. Taken from \cite{Abgrall2011}.}
+  \label{fig:T2KSKExp_T2K_TPCDesign}
+\end{figure}
+
+The particle identification of tracks that pass through the TPCs is performed using dE/dx measurements. \autoref{fig:T2KSKExp_T2K_TPC_dEdx} illustrates the data to Monte Carlo distributions of the energy lost by a charged particle passing through the TPC as a function of the reconstructed particle momentum. The resolution is \quickmath{7.8 \pm 0.2\%} meaning that electrons and muons can be distinguished. This allows reliable measurements of the intrinsic \quickmath{\nu_e} component of the beam.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2K_TPCdEdx_Positive.pdf}
+    \subcaption{Positively charged particles}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2K_TPCdEdx_Negative.pdf}
+    \subcaption{Negatively charged particles}
+  \end{subfigure}
+  \caption{The distribution of energy loss as a function of reconstructed momentum for charged particles passing through the TPC, comparing data to Monte Carlo prediction. Taken from \cite{Abgrall2011}.}
+  \label{fig:T2KSKExp_T2K_TPC_dEdx}
+\end{figure}
+
+\subsubsection{\quickmath{\pi^0} Detector}
+\label{subsubsec:T2KSKExp_T2K_P0D}
+
+If one of the \quickmath{\gamma}-rays from a \quickmath{\pi^0 \rightarrow 2\gamma} decay is missed at the far detector, the reconstruction will determine that event to be a charge current \quickmath{\nu_{e}}-like event. This is one of the main backgrounds hindering the electron neutrino appearance searches. The \quickmath{\pi^0} detector (P0D) measures the cross-section of the neutral current induced neutral pion production on a water target to constrain this background.
+
+The P0D is a cube of approximately \quickmath{2.5\text{m}} length consisting of layers of scintillating bars, brass and lead sheets, and water bags as illustrated in \autoref{fig:T2KSKExp_T2K_P0DDesign}. Two electromagnetic calorimeters are positioned at the most upstream and most downstream position in the sub-detector and the water target is situated in between them. The scintillator layers are built from two triangular bars orientated in opposite directions to form a rectangular layer. Each triangular scintillator bar is threaded with optical fiber which is read out by MPPCs. The high-Z brass and lead regions produce electron showers from the photons emitted in \quickmath{\pi^0} decay.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.55\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KP0DDesign.pdf}
+  \end{subfigure}
+  \caption{A schematic of the P0D side-view. Taken from \cite{Assylbekov2012}.}
+  \label{fig:T2KSKExp_T2K_P0DDesign}
+\end{figure}
+
+The sub-detector can generate measurements of NC\quickmath{1\pi^0} cross-sections on a water target by measuring the event rate both with and without the water target, with the cross-section on a water target being determined as the difference. The total active mass is \quickmath{16.1} tonnes when filled with water and \quickmath{13.3} tonnes when empty.
+
+\subsubsection{Electromagnetic Calorimeter}
+\label{subsubsec:T2KSKExp_T2K_ECAL}
+
+The electromagnetic calorimeter \cite{Allan_2013} (ECal) encapsulates the P0D and tracking sub-detectors. Its primary purpose is to aid \quickmath{\pi^0} reconstruction from any interaction in the tracker. To do this, it measures the energy and direction of photon showers from \quickmath{\pi^0 \rightarrow 2\gamma} decay. It can also distinguish pion and muon tracks depending on the shape of the photon shower deposited.
+
+The ECal is comprised of three sections; the P0D ECal which surrounds the P0D, the barrel ECal which encompasses the tracking region, and the downstream ECal which is situated downstream of the tracker region. The barrel and downstream ECals are tracking calorimeters that focus on electromagnetic showers from high-angle particles emitted from the tracking sub-detectors. Particularly in  the TPC, high-angle tracks (those which travel perpendicularly to the beam-axis) can travel along a single scintillator bar resulting in very few hits. The width of the barrel and downstream ECal corresponds to \quickmath{\sim 11} electron radiation lengths to ensure a significant amount of the \quickmath{\pi^{0}} energy is contained. As the P0D has its own calorimetry which reconstructs showers, the P0D ECal determines the energy which escapes the P0D.
+
+Each ECal is constructed of multiple layers of scintillating bars sandwiched between lead sheets. The scintillating bars are threaded with optical fiber and read out by MPPCs. Each sequential layer of the scintillator is orientated perpendicular to the previous which allows a three dimensional event reconstruction. The target mass of the P0D ECal, barrel ECal, and downstream ECal are \quickmath{1.50}, \quickmath{4.80} and \quickmath{6.62} tonnes respectively.
+
+\subsubsection{Side Muon Range Detector}
+\label{subsubsec:T2KSKExp_T2K_SMRD}
+
+As illustrated in \autoref{fig:T2KSKExp_T2K_ND280}, the ECal, FGDs, P0D, and TPCs are enclosed within the UA1 magnet. Originally designed for the NOMAD \cite{Vannucci2014} experiment and reconditioned for use in the T2K experiment \cite{cerncourier_2022}, the UA1 magnet provides a uniform horizontal magnetic field of 0.2\text{T} with an uncertainty of \quickmath{2\times10^{-4}\text{T}}.
+
+Built into the UA1 magnet, the side muon range detector (SMRD)\cite{Aoki2013} monitors high-energy muons which leave the tracking region and permeate through the ECal. It additionally acts as a cosmic muon veto and trigger. 
+
+\subsection{The Interactive Neutrino GRID}
+\label{subsec:T2KSKExp_T2K_INGRID}
+
+The Interactive Neutrino GRID (INGRID) detector is situated within the same ``pit'' as the other near detectors. It is aligned with the beam in the ``on-axis'' position and measures the beam direction, spread, and intensity. The detector was originally designed with 16 identical modules \cite{t2k_det} (two modules have since been decommissioned) and a ``proton'' module. The design of the detector is cross-shaped with length and height \quickmath{10\text{m} \times 10\text{m}} as illustrated in \autoref{fig:T2KSKExp_T2K_INGRID}.
+
+Each module is composed of iron sheets interlaced with eleven tracking scintillator planes for a total target mass of \quickmath{7.1} tonnes per module. The scintillator design is an X-Y pattern of 24 bars in both orientations, where each bar contains wave-length shifting fibers which are connected to multi-pixel photon counters (MPPCs). Each module is encapsulated inside veto planes to aid the rejection of charged particles entering the module.
+
+The proton module is different from the other modules in that it consists of entirely scintillator planes with no iron target. The scintillator bars are also smaller than those used in the other modules to increase the granularity of the detector and improve tracking capabilities. The module sits in the center of the beamline and is designed to give precise measurements of quasi-elastic charged current interactions to evaluate the performance of the Monte Carlo simulation of the beamline. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KINGRIDDiagram.pdf}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.55\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Detectors/T2KINGRIDModule.pdf}
+  \end{subfigure}%
+  \caption{Left panel: The Interactive Neutrino GRID on-axis Detector. 14 modules are arranged in a cross-shape configuration, with the center modules being directly aligned with the on-axis beam. Right panel: The layout of a single module of the INGRID detector. Both figures are recreated from \cite{t2k_det}.}
+  \label{fig:T2KSKExp_T2K_INGRID}
+\end{figure}
+
+The INGRID detector can measure the beam direction to an uncertainty of \quickmath{0.4\text{mrad}} and the beam center within a resolution of \quickmath{10 \text{cm}} \cite{t2k_det}. The beam direction in both the vertical and horizontal directions is discussed in \cite{Suzuki_2015} and it is found to be in good agreement with the MUMON monitor described in \autoref{subsec:T2KSKExp_T2K_NeutrinoBeam}.
+
