@@ -215,8 +215,8 @@ void Draw() {
     }
 
     if (SystNames[iSyst] == "sin2th_23") {
-      Hists[0]->GetXaxis()->SetRangeUser(0.3,0.7);
-      Hists[0]->SetMaximum(200);
+      Hists[0]->GetXaxis()->SetRangeUser(0.4,0.62);
+      Hists[0]->SetMaximum(20);
     }
     if (SystNames[iSyst] == "delm2_23") {
       Hists[0]->GetXaxis()->SetRangeUser(2.3*0.001,2.7*0.001);
