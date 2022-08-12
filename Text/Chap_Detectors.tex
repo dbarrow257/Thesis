@@ -1,7 +1,9 @@
 \chapter{T2K and SK Experiment Overview}
 \label{chap:T2KSKExp}
 
-As the successor of the Kamiokande experiment, the Super-Kamiokande (SK) collaboration has been leading atmospheric neutrino oscillation analyses for over two decades. The detector has provided some of the strongest constraints on proton decay and the first precise measurements of the \delmsqatm and \sinsqatm neutrino oscillation parameters. The ability of the detector to low-energy neutrino events has been significantly improved with the recent gadolinium doping of the ultra-pure water target. The history, detection technique, and operation of the SK detector is described in \autoref{sec:T2KSKExp_SK}.
+As the successor of the Kamiokande experiment, the Super-Kamiokande (SK) collaboration has been leading atmospheric neutrino oscillation analyses for over two decades. The detector has provided some of the strongest constraints on proton decay and the first precise measurements of the \delmsqatm and \sinsqatm neutrino oscillation parameters.
+%The ability of the detector to observe low-energy neutrino events has been significantly improved with the recent gadolinium doping of the ultra-pure water target.
+The history, detection technique, and operation of the SK detector is described in \autoref{sec:T2KSKExp_SK}.
 
 The Tokai-to-Kamioka (T2K) experiment was one of the first long-baseline experiments to use both neutrino and antineutrino beams to precisely measure the charge parity violation within the neutrino sector. With the SK detector observing the oscillated neutrino flux, the T2K experiment observed the first hints of a non-zero \sinsqreac measurement and continues to lead the field with the constraints it provides on \sinsqreac, \sinsqatm, \delmsqatm and \dcp. The techniques which T2K uses in generating its neutrino beam as well as the near-detector used to constrain the flux and cross-section parameters used in this analysis are documented in \autoref{sec:T2KSKExp_T2K}.
 
@@ -9,6 +11,8 @@ The Tokai-to-Kamioka (T2K) experiment was one of the first long-baseline experim
 \label{sec:T2KSKExp_SK}
 
 The SK experiment began taking data in 1996 \cite{Fukuda1998-tw} and has had many modifications throughout its lifespan. There have been seven defined periods of data taking as noted in \autoref{tab:T2KSKExp_SKPeriods}. Data taking began in SK-I which ran for five years. Between the SK-I and SK-II periods, a significant proportion of the PMTs were damaged during maintenance. Those that survived were equally distributed throughout the detector in the SK-II era, which resulted in a reduced photo-coverage. From SK-III onwards, repairs to the detector meant the full suite of PMTs was operational. Before the start of SK-IV, the data acquisition and electronic systems were upgraded. Between SK-IV and SK-V, a significant effort was placed into tank open maintenance and repair/replacement of defective PMTs, a task for which the author of this thesis was required. Consequently, the detector conditions were significantly different between the two operational periods. SK-VI saw the start of the \quickmath{0.01\%} gadolinium doped water. SK-VII, which started during the writing of this thesis, has increased the gadolinium concentration to \quickmath{0.03\%} for continued operation \cite{10.5281/zenodo.6694761}.
+
+The oscillation analysis presented within this thesis focuses on the SK-IV period of running and the data taking within it. This follows from the recent SK analysis presented in \cite{thesis_miao}. Therefore, the information presented within this section focuses on that period.
 
 \begin{table}[ht!]
     \centering
@@ -107,8 +111,7 @@ Dark noise is the phenomenon where a PMT registers a pulse that is consistent wi
 \label{subsec:T2KSKExp_SKTriggering}
 
 %The maximum distance that a photon can travel within the SK detector is \quickmath{\sim 200\text{ns}} \cite{PhysRevD.73.112001}.
-The analysis presented in this thesis only uses the SK-IV period of the SK experiment so this subsection focuses on the relevant points of the data acquisition and triggering systems to that SK period.
-The earlier data acquisition and triggering systems are documented in \cite{34489,PhysRevD.73.112001}. 
+As the analysis presented in this thesis only uses the SK-IV period of the SK experiment so this subsection focuses on the relevant points of the data acquisition and triggering systems to that SK period. The earlier data acquisition and triggering systems are documented in \cite{34489,PhysRevD.73.112001}. 
 
 Before the SK-IV period started, the existing front-end electronics were replaced with ``QTC-Based Electrons with Ethernet, QBEE'' systems \cite{Nishino2009-wh}. When the QBEE observes a signal above a \quickmath{1/4} photoelectron threshold, the charge-to-time (QTC) converter generates a rectangular pulse. The start of the rectangular pulse indicates the time at which the analog photoelectron signal was received and the width of the pulse indicates the total charge integrated throughout the signal. This is then digitized by time-to-digital converters and sent to the ``front-end'' PCs. The digitized signal from every QBEE is then chronologically ordered and sent to the ``merger'' PCs. It is the merger PCs that apply the software trigger. Any triggered events are passed to the ``organizer'' PC. This sorts the data stream of multiple merger PCs into chronologically ordered events which are then saved to disk. The schematic of data flow from PMTs to disk is illustrated in \autoref{fig:T2KSKExp_SK_DataFlow}.
 
