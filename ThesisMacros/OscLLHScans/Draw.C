@@ -198,7 +198,7 @@ void Draw() {
     if (nHists == 0) continue;
     
     Hists[0]->SetTitle("");
-    Hists[0]->GetYaxis()->SetTitle("-ln(Likelihood)");
+    Hists[0]->GetYaxis()->SetTitle("-2 #times ln(Likelihood)");
     Hists[0]->GetYaxis()->SetTitleOffset(1.25);
 
     Hists[0]->GetXaxis()->SetTitleSize(0.05);
