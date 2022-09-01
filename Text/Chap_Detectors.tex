@@ -223,8 +223,6 @@ The near detectors provide constraints on the beam flux and cross-section model 
 
 Whilst this thesis presents the ND280 in terms of its purpose for the oscillation analysis, the detector can also make many cross-section measurements at neutrino energies of \quickmath{O(1)\text{GeV}} for the different targets within the detector \cite{PhysRevD.102.012007,10.1093/ptep/ptab014}. These measurements are of equal importance as they can lead the way in determining the model parameters used in the interaction models for the future high-precision era of neutrino physics.
 
-\Change{Review the rest of this subsection}
-
 There are two independent fitters, \texttt{MaCh3} and \texttt{BANFF}, which perform the near detector fit. \texttt{MaCh3} is the basis of this analysis and uses a bayesian Markov Chain Monte Carlo fitting technique, whereas \texttt{BANFF} uses a frequentist gradient descent technique. The output of each fitter is converted into a covariance matrix to describe the error and correlations between all the flux and cross-section parameters. This is then propagated to the far-detector oscillation analysis group for use in the \texttt{P-Theta} and \texttt{VALOR} fitting framework. As \texttt{MaCh3} can handle both near and far detector samples, it does not use this covariance matrix and instead opts for a simultaneous fit of the two detector measurements. This is an analysis choice which removes the assumption of Gaussian posterior distributions required when building the post-fit covariance matrix.
 
 \finish{MaCh3 vs PTheta and Valor}
