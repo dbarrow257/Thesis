@@ -34,6 +34,13 @@ The denominator in \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} is t
 
 In \autoref{sec:MarkovChainMonteCarlo_Marginalisation}, we see that for the cases used within this analysis, it is reasonable to know the posterior to some normalisation constant.
 
+\subsection{Application of Prior Knowledge}
+\label{sec:MarkovChainMonteCarlo_Priors}
+
+The posterior distribution is proportional to the prior uncertainty applied on each parameter, as illustrated by \autoref{eq:MarkovChainMonteCarlo_PosteriorDistributionReduced}. This means that it is possible to change the prior after the posterior distribution has been determined. The prior uncertainty of a particular parameter can be `divided' out of the posterior distribution and the resulting distribution can be reweighted using the new prior uncertainty that is to be applied. The methodology and implementation of changing the prior follows that described in \cite{thesis_artur}. 
+
+An example implementation that is useful for this analysis is the application of the ``reactor constraint''. As discussed in \autoref{sec:Theory_Summary}, an external constraint on \quickmath{\sin^{2}(\theta_{13})} is determined from measurements taken from reactor experiments. However, the sensitivities from just using the T2K and SK samples is equally as important. Without this technique, two fits would have to be run, doubling the required resources. Therefore, the key benefit for this analysis is the fact that only a single `fit' has to be performed and can be used to build the two posterior distributions of the with and without reactor constraint applied.
+
 \section{Monte Carlo Simulation}
 \label{sec:MarkovChainMonteCarlo_MonteCarloSimulation}
 Monte Carlo techniques are used to numerically solve a complex problem that does not necessarily have an analytical solution. These techniques rely on building a large ensemble of samples from an unknown distribution and then using the ensemble to approximate the properties of the distribution.
