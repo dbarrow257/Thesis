@@ -218,6 +218,7 @@ The sensitivities of the joint T2K and SK oscillation analysis are presented in 
 In practice, the asimov fits presented within this analysis are modified from the above definition. An asimov prediction of both beam and atmospheric far detector samples is fit whilst the true data is used for near detector samples. The asimov predictions at the far detector are built using the BANFF tuning (as discussed in \autoref{sec:T2KSKExp_T2K}). This is equivalent to performing a far detector asimov fit using inputs from the BANFF data fit. Consequently, this allows the results to be cross-checked to the P-Theta analysis.
 
 \subsection{Atmospheric-Only Sensitivity Without Reactor Constraint}
+\label{sec:OscillationAnalysis_SKOnly}
 
 This section presents the results of an asimov fit using samples from the near detector and only atmospheric samples from the far detector. The results are marginalised over the nuisance parameters using the technique outlined in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}. Each histogram displays the posterior probability density at each point within the parameter space. One dimensional histograms illustrate the \quickmath{1}, \quickmath{2} and \quickmath{3\sigma} credible intervals, calculated using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_ParameterEstimation}. For these fits, a flat penalty term is used for \sinsqreac (i.e. the reactor constraint is not applied). The asimov data is generated assuming the AsimovA oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
 
@@ -325,8 +326,9 @@ The \quickmath{\sin^{2}(\theta_{23}) - \Delta m^{2}_{32}} disappearance contours
 
 \clearpage
 \subsection{Atmospheric-Only Sensitivity With Reactor Constraint}
+\label{sec:OscillationAnalysis_SKOnly_wRC}
 
-The results in the previous section discuss the atmospheric sensitivity when the reactor constraint is not applied. However, the correlations illustrated in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} indicate that the marginalisation effects could contribute to differing sensitivities when the external constraint is applied. Using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_Priors}, the posterior distribution can be reweighted to include the reactor constraint of \quickmath{\sin^{2}(\theta_{13}) = \left(2.18 \pm 0.08\right) \times 10^{-2}}.
+The results in \autoref{sec:OscillationAnalysis_SKOnly} discuss the atmospheric sensitivity when the reactor constraint is not applied. However, the correlations illustrated in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} indicate that the marginalisation effects could contribute to differing sensitivities when the external constraint is applied. Using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_Priors}, the posterior distribution can be reweighted to include the reactor constraint of \quickmath{\sin^{2}(\theta_{13}) = \left(2.18 \pm 0.08\right) \times 10^{-2}}.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{1.0\textwidth}
@@ -374,6 +376,7 @@ The reactor constraint increases the sensitivity of the atmospheric samples to \
 The asymmetry in the number of steps within the NH to IH clearly shows that the reactor constraint increases the NH preference. The fraction of steps in each hierarchy and octant model for this fit are given in \autoref{tab:OscillationAnalysis_SKOnlyWRC_BayesFactors}. The preference of octant model is very slightly increased by the application of the reactor constraint which is consistent with expectation. The reactor constraint significantly increases the NH preference, increasing the Bayes factor from \quickmath{B(\text{NH}/\text{IH}) = 1.37} to \quickmath{B(\text{NH}/\text{IH}) = 2.85} when the reactor constraint is applied. This is still defined as a weak preference for NH according to the Jeffrey's scale (see \autoref{tab:MarkovChainMonteCarlo_JeffreysScale}), however it is a stronger preference than without the constraint. The Bayes factor for octant determination is calculated as \quickmath{B(\text{UO}/\text{LO}) = 2.45}.
 
 \subsection{Application of Near Detector Constraints for Atmospheric Samples}
+\label{sec:OscillationAnalysis_SKOnly_NoND}
 
 The choice to apply the near detector constraints onto the low energy atmospheric samples was introduced in \autoref{sec:SelsAndSysts_Systs_Interaction}. The effect of this choice can be studied by comparing the sensitivities of the atmospheric only analysis when the near detector constraints are and are not applied. The change in sensitivity on \dcp is given in \autoref{fig:OscillationAnalysis_SKOnly_NoND_DCP}. The shape of the posterior is approximately the same although slightly less peaked at the asimov point. The width of the \quickmath{1\sigma} credible intervals are approximately the same (identical to within a bin width) and the same conclusion holds for the higher credible intervals. Similar conclusions hold for the other oscillation parameters. As expected, the sensitivities are still statistics dominated and the exact choice of systematic model and constraint does not effect the physics conclusions one would make from this analysis.
 
@@ -386,6 +389,7 @@ The choice to apply the near detector constraints onto the low energy atmospheri
 \end{figure}
 
 \subsection{Atmospheric and Beam Sensitivity without Reactor Constraint}
+\label{sec:OscillationAnalysis_JointFit}
 
 This section presents the sensitivities of the simulataneous beam and atmospheric analysis without the reactor constraint. The asimov data is built assuming the post-BANFF cross section tune and Asimov A oscillation parameters defined in \autoref{tab:Theory_ParameterSets}. This is a fit to all 18 near detector beam samples, 5 far detector beam samples and 18 atmospheric samples. The sensitivity to \dcp, marginalised over both hierarchies is given in \autoref{fig:OscillationAnalysis_JointFit_DCP}.
 
@@ -502,6 +506,9 @@ The correlation between \sinsqreac and \delmsqatm can be seen in \autoref{fig:Os
 \end{figure}
 
 \subsection{Atmospheric and Beam Sensitivity with Reactor Constraint}
+\label{sec:OscillationAnalysis_JointFit_wRC}
+
+
 
 \subsection{Comparison to Latest T2K Sensitivities}
 
