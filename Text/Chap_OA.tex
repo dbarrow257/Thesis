@@ -352,7 +352,7 @@ The reactor constraint increases the sensitivity of the atmospheric samples to \
 
 \begin{figure}[h]
   \begin{subfigure}[t]{1.0\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_wRC/ContourComparison_2D_dm32_th13_BH_0_wRC_woRC_UnSmeared_CredibleInterval.pdf}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_wRC/ContourComparison_2D_th13_dm32_BH_0_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
   \caption{}
   \label{fig:OscillationAnalysis_SKOnly_DELM32TH13_WRC}
@@ -483,7 +483,6 @@ The sensitivity in terms of the `disappearance' parameters marginalised over bot
   \label{fig:OscillationAnalysis_JointFit_DM32TH23}
 \end{figure}
 
-\clearpage
 
 The two-dimensional posterior distribution for each permutation of the oscillaton parameters of interest is given in \autoref{fig:OscillationAnalysis_JointFit_TriPlot}. The most notable observation is that the \sinsqreac and \sinsqatm are anti-correlated. If the value of \sinsqreac was known to be closer to the asimov point, the preferred value of \sinsqatm would increase. That would move the highest posterior probability closer in line with the asimov value. This also means that, the preference for the UO would be increased if the reactor constraint was to be applied. 
 
@@ -508,7 +507,122 @@ The correlation between \sinsqreac and \delmsqatm can be seen in \autoref{fig:Os
 \subsection{Atmospheric and Beam Sensitivity with Reactor Constraint}
 \label{sec:OscillationAnalysis_JointFit_wRC}
 
+This section presents the sensitivities of the joint beam and atmospheric fit when the reactor constraint is applied to \sinsqreac. \autoref{fig:OscillationAnalysis_JointFit_wRC_DCP} illustrates the sensitivity to \quickmath{\delta_{CP}}, marginalised over both hierarchies. The posterior distribution is much more peaked around the asimov parameter value of \quickmath{\delta_{CP} = -1.601}, as compared to the sensitivities without the reactor constraint applied (\autoref{sec:OscillationAnalysis_JointFit}). This follows from the correlations shown in \autoref{fig:OscillationAnalysis_JointFit_DCPTH13}, where a lower value of \sinsqreac results in tighter constraints on \quickmath{\delta_{CP}}. The CP-conserving values of \quickmath{\delta_{CP} = -\pi,0,\pi} are disfavoured at \quickmath{2\sigma}. Furtermore, the \quickmath{3\sigma} credible interval excludes the region of \quickmath{\delta_{CP} = [0.50,2.39]}. Thus clearly disfavouring the region of \quickmath{\delta_{CP} = \pi/2} at more than \quickmath{3\sigma} for this particular asimov parameter set. The width of the \quickmath{1\sigma} credible intervals and the position of hte highest posterior density is given in \autoref{tab:OscillationAnalysis_JointFit_wRC_CredIntervals}. The highest posterior density in \dcp is calculated as \quickmath{\delta_{CP} = -1.57} showing no significant biases in the determination of the known oscillation parameters.
+  
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_DCP}
+\end{figure}
 
+The effect of applying the reactor constraint for \quickmath{\delta_{CP}} in the joint beam and atmospheric fit is presented in \autoref{fig:OscillationAnalysis_JointFit_wRC_Comp_DCP}. These contours are marginalised over both hierarchies. Clearly, the reactor constraint improves the abiility of the fit to select the known oscillation parameter as the shape of the distribution is much more peaked. This is also evidence by the tightening of the \quickmath{1\sigma} and \quickmath{90\%} credible intervals. Additionally, the region of \quickmath{1 < \delta_{CP} < 2} is disfavoured more strongly when the reactor constraint is applied. 
 
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_dcp_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_Comp_DCP}
+\end{figure}
+
+\begin{table}[ht!]
+  \centering
+  \begingroup
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{c|c|c}
+    Parameter               & Interval & HPD \\ \hline
+    \quickmath{\delta_{CP}, \text{ (BH)}} & \quickmath{\left[ -2.26, -0.75 \right]} & -1.57 \\
+    \quickmath{\delta_{CP}, \text{ (NH)}} & \quickmath{\left[ -2.26, -0.75 \right]} & -1.57 \\
+    \quickmath{\delta_{CP}, \text{ (IH)}} & \quickmath{\left[ -2.13, -1.00 \right]} & -1.57 \\ \hline
+    \quickmath{\Delta m^{2}_{32} \text{ (BH) } [\times 10^{-3} \text{eV}^{2}]} & \quickmath{\left[ 2.46, 2.52 \right]} & 2.49 \\
+    \quickmath{\Delta m^{2}_{32} \text{ (NH) } [\times 10^{-3} \text{eV}^{2}]} & \quickmath{\left[ 2.48, 2.56 \right]} & 2.51 \\
+    \quickmath{\Delta m^{2}_{32} \text{ (IH) } [\times 10^{-3} \text{eV}^{2}]} & \quickmath{\left[ -2.60, -2.52 \right]} & -2.55 \\ \hline
+    \quickmath{\sin^{2}(\theta_{23}) \text{ (BH) }} & \quickmath{\left[ 0.49, 0.55 \right]} & 0.527 \\ 
+    \quickmath{\sin^{2}(\theta_{23}) \text{ (NH) }} & \quickmath{\left[ 0.49, 0.55 \right]} & 0.527 \\ 
+    \quickmath{\sin^{2}(\theta_{23}) \text{ (IH) }} & \quickmath{\left[ 0.50, 0.56 \right]} & 0.539 \\ \hline \hline
+  \end{tabular}
+  \caption{}
+  \label{tab:OscillationAnalysis_JointFit_wRC_CredIntervals}
+  \endgroup
+\end{table}
+
+The sensitivity to \sinsqatm, marginalised over both hierarchies, is given in \autoref{fig:OscillationAnalysis_JointFit_wRC_TH23}. The highest posterior density is located at \quickmath{\sin^{2}(\theta_{23}) = 0.527} which agrees with the known Asimov value of \quickmath{\sin^{2}(\theta_{23}) = 0.528}. The distribution is clearly favouring the UO, where the application of the reactor constrain shifts the relatively flat posterior (seen in \autoref{fig:OscillationAnalysis_JointFit_TH23}) to a much more peaked distribution.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_th23_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TH23}
+\end{figure}
+
+\autoref{fig:OscillationAnalysis_JointFit_wRC_Comp_TH23} highlights the sensitivity of the joint fit both with and without the reactor constraint. The with reactor constraint fit selects the known asimov point much better (\quickmath{\sin^{2}(\theta_{23})=0.528}). Furthermore, the reactor constraint increases the UO preference which is evidenced by the distribution moving away from the octant boundary. This indicates that there are marginalisation effects between the two mixing parameters. The follows from the correlation illustrated between \quickmath{\sin^{2}(\theta_{23}) - \sin^{2}(\theta_{13})} in \autoref{fig:OscillationAnalysis_JointFit_TriPlot}. The posterior distribution of the with reactor constraint fit is more peaked compared to the flatter distribution when the reactor constraint is not applied. 
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_th23_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_Comp_TH23}
+\end{figure}
+
+The fraction of steps contained within the two hierarchy and two octant models is given in \autoref{tab:OscillationAnalysis_JointFit_BayesFactors_wRC}. The reactor constraint significantly reduces the fraction of steps which are contained within the IH-LO from \quickmath{0.08} to \quickmath{0.02}, whilst significantly increasing the fraction of steps within the NH-UO region from \quickmath{0.53} to \quickmath{0.64}. The application of the reactor constraint increases the Bayes factor from {B(\text{NH}/\text{IH}) = 3.67} to \quickmath{B(\text{NH}/\text{IH}) = 7.28}. There is a very clear preference for the NH, with the Jeffreys scale stating a substational preference (see \autoref{sec:MarkovChainMonteCarlo_BayesTheorem}). The Bayes factor for UO preference is calculated as  \quickmath{B(\text{UO}/\text{LO}) = 2.85}. Whilst still weak preference, this is certainly a stronger statement than the sensitivity when the reactor constrain is not applied.
+
+\begin{table}[ht!]
+  \centering
+  \begingroup
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{c|cc|c}
+                                                        & LO \quickmath{\left(\sin^{2}\theta_{23} < 0.5 \right)} & UO \quickmath{\left( \sin^{2}\theta_{23} > 0.5 \right)} & Sum  \\ \hline
+    NH \quickmath{\left( \Delta m^{2}_{32} > 0 \right)} &                                                   0.24 &                                                    0.64 & 0.88 \\
+    IH \quickmath{\left( \Delta m^{2}_{32} < 0 \right)} &                                                   0.02 &                                                    0.10 & 0.12 \\ \hline
+    Sum                                                 &                                                   0.26 &                                                    0.74 & 1.00 \\
+  \end{tabular}
+  \caption{}
+  \label{tab:OscillationAnalysis_JointFit_BayesFactors_wRC}
+  \endgroup
+\end{table}
+
+The sensitivity to \delmsqatm, marginalised over both hierarchies, is presented in \autoref{fig:OscillationAnalysis_JointFit_wRC_DM32}. As another clear indication of the NH preference, the \quickmath{1\sigma} credible interval is entirely contained within the NH region. This follows from the correlation of \sinsqreac and \delmsqatm presented in \autoref{fig:OscillationAnalysis_JointFit_DM32TH13}. The position of the highest posterior density is given as \quickmath{2.49 \times 10^{-3} \text{eV}^{2}}, illustrating no significant bias between the fit results and the known oscillation parameters.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_dm32_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_DM32}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_dcp_th13_IH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TH13DCP}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_th23_dm32_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TH23DM32}
+\end{figure}
+
+The sensitivity to the appearance parameters (\quickmath{\sin^{2}(\theta_{13}) - \delta_{CP}}) is given in \autoref{fig:OscillationAnalysis_JointFit_wRC_TH13DCP}. The distribution is mostly uncorrelated between the two parameters and is centered at the known Asimov values. The sensitivity to the disappearance parameters (\quickmath{\sin^{2}(\theta_{23}) - \Delta m^{2}_{32}}) is illustrated in \autoref{fig:OscillationAnalysis_JointFit_wRC_TH23DM32}. As expected from the one-dimensional distribution, the \quickmath{1\sigma} credible interval is entirely contained within the NH region. Both of the NH and IH regions favour the UO. The width of the \quickmath{\Delta m^{2}_{32}} \quickmath{1\sigma} credible interval does not significantly depend upon the value or octant of \quickmath{\sin^{2}(\theta_{23})}.
+
+\autoref{fig:OscillationAnalysis_JointFit_wRC_TrianglePlot} illustrates the posterior distribution for each permutation of two oscillation parameters of interest. The application of the reactor constraint significantly reduces the correlations previously seen in \autoref{fig:OscillationAnalysis_JointFit_TriPlot}. There is still a small correlation between \dcp and \delmsqatm. The width of the \quickmath{1\sigma} credible interval in \delmsqatm is wider for a value of \quickmath{\delta_{CP} = 0} as compared to a value of \quickmath{\delta_{CP} = \pi}. Similarly, the width of the \quickmath{1\sigma} credible interval in \dcp is smaller for lower values of \sinsqatm.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{1.0\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_wRC_UnSmeared_CredibleInterval_TrianglePlot.pdf}
+  \end{subfigure}
+  \caption{}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TrianglePlot}
+\end{figure}
+
+\clearpage
 \subsection{Comparison to Latest T2K Sensitivities}
 

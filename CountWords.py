@@ -2,14 +2,14 @@ import os
 
 Total = 0
 
-Files = os.listdir(os.getcwd())
+Files = os.listdir(os.getcwd()+"/Text")
 for File in Files:
     if (File[-4:] == ".tex" and File[0:4] == "Chap"):
-        CommandInText = "texcount "+File+" | grep \"Words in text\""
+        CommandInText = "texcount ./Text/"+File+" | grep \"Words in text\""
         ResultInText = os.popen(CommandInText).read()
         WordsInText = ((ResultInText.split(":"))[1]).rstrip()
 
-        CommandInCaps = "texcount "+File+" | grep \"Words outside text (captions, etc.)\""
+        CommandInCaps = "texcount ./Text/"+File+" | grep \"Words outside text (captions, etc.)\""
         ResultInCaps = os.popen(CommandInCaps).read()
         WordsInCaps = ((ResultInCaps.split(":"))[1]).rstrip()
 
