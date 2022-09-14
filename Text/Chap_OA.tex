@@ -216,7 +216,7 @@ Despite the increase sensitivity at \quickmath{1\sigma}, the \quickmath{2\sigma}
 
 \clearpage
 
-Alongside oscillation parameters (\autoref{fig:OscillationAnalysis_LLHScanOscPars}), the sensitivity to systematic parameters can also be studied for the joint fit. As some of these parameters are correlated between the beam and atmospheric events, the response of the atmospheric samples can modify the constraint. This means the systematics can have additional constraints than what they would from a beam-only analysis. Therefore, the response from beam and atmospheric samples to various systematic parameters has been compared in \autoref{fig:OscillationAnalysis_LLHScanSystPars}. The Asimov data set has been created using the AsimovA oscillation parameter and the pre-fit systematic tune. set For example, the systematic parameter controlling the effective axial mass coupling in CCQE interactions, \quickmath{M_{A}^{QE}}, is clearly dominated by the ND constraint. An example where the response of the atmospheric sample is approximately similar to the near detector constraint is the \texttt{2p2h\_CtoO} normalisation systematic. This systematic scales the 2p2h interaction cross section on a carbon target to an oxygen target. There are also systematics which have no near detector constraint. For example, the systematic parameters which describe the normalisation of the NC1Gamma and NCOther interaction modes. The atmospheric samples are significantly more sensitive to these systematics than the beam samples due to their similar interaction contributions but relatively highero statistics (\autoref{tab:OscillationAnalysis_MCPred}). As an example of how the atmospheric samples can help constrain systematic parameters used within the T2K-only analysis, these NC background events in beam electron-like samples will be considerably more constrained with the additional sensitivity of atmospheric samples. This would be expected to reduce the overall uncertainty of the beam electron-like event rates in the joint analysis compared to the beam-only studies. This could modify the sensitivity of the beam samples due to the more constrained background events.
+Alongside oscillation parameters (\autoref{fig:OscillationAnalysis_LLHScanOscPars}), the sensitivity to systematic parameters can also be studied for the joint fit. As some of these parameters are correlated between the beam and atmospheric events, the response of the atmospheric samples can modify the constraint. This means the systematics can have additional constraints than what they would from a beam-only analysis. Therefore, the response from beam and atmospheric samples to various systematic parameters has been compared in \autoref{fig:OscillationAnalysis_LLHScanSystPars}. The Asimov data set has been created using the AsimovA oscillation parameter and the pre-fit systematic tune. set For example, the systematic parameter controlling the effective axial mass coupling in CCQE interactions, \quickmath{M_{A}^{QE}}, is clearly dominated by the ND constraint. An example where the response of the atmospheric sample is approximately similar to the near detector constraint is the \texttt{2p2h\_CtoO} normalisation systematic. This systematic models the scaleinig of the 2p2h interaction cross section on a carbon target to an oxygen target. There are also systematics which have no near detector constraint. For example, the systematic parameters which describe the normalisation of the NC1Gamma and NCOther interaction modes. The atmospheric samples are significantly more sensitive to these systematics than the beam samples due to their similar interaction contributions but relatively highero statistics (\autoref{tab:OscillationAnalysis_MCPred}). As an example of how the atmospheric samples can help constrain systematic parameters used within the T2K-only analysis, these NC background events in beam electron-like samples will be considerably more constrained with the additional sensitivity of atmospheric samples. This would be expected to reduce the overall uncertainty of the beam electron-like event rates in the joint analysis compared to the beam-only studies. This could modify the sensitivity of the beam samples due to the more constrained background events.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.5\textwidth}
@@ -246,35 +246,44 @@ Alongside oscillation parameters (\autoref{fig:OscillationAnalysis_LLHScanOscPar
 \section{Sensitivities}
 \label{sec:OscillationAnalysis_Sensitivities}
 
-The sensitivities of the joint T2K and SK oscillation analysis are presented in the form of Asimov fits. This technique builds a fake `data' prediction of each sample's spectra from the Monte Carlo, reweighted to a particular set of oscillation and systematic parameters. This prediction is then used as data on which to fit against. Whilst this results in unphysical non-integer data predictions, it eliminates statistical fluctuations from the data. Therefore, the results of a fit to Asimov data should not include any biases from statistical fluctuations. Furthermore, these results should produce posterior probability distributions consistent with the parameters which were used to make the data prediction. That is to say, the fit results should return the known parameters. Any biases seen would be attributed to correlations between each oscillation parameter and correlations between oscillation and systematic parameters. Consequently, Asimov fit results present the maximum precision at which the oscillation parameters could be measured to.
+\finish{Need to include ND in all figure captions}
 
-In practice, the Asimov fits presented within this analysis are modified from the above definition. An Asimov prediction of both beam and atmospheric far detector samples is fit whilst the true data is used for near detector samples. The Asimov predictions at the far detector are built using the BANFF tuning (as discussed in \autoref{sec:T2KSKExp_T2K}). This is equivalent to performing a far detector Asimov fit using inputs from the BANFF data fit. Consequently, this allows the results to be cross-checked to the P-Theta analysis.
+The sensitivities of the joint T2K and SK oscillation analysis are presented in the form of Asimov fits.
+\finish{Need to combine with Likelihood scan information, proofreading hasn't been implemented - 
+  This technique builds a fake `data' prediction of each sample's spectra from the Monte Carlo, reweighted to a particular set of oscillation and systematic parameters. This prediction is then used as data on which to fit against. Whilst this results in unphysical non-integer data predictions, it eliminates statistical fluctuations from the data. Therefore, the results of a fit to Asimov data should not include any biases from statistical fluctuations. Furthermore, these results should produce posterior probability distributions consistent with the parameters which were used to make the data prediction. That is to say, the fit results should return the known parameters. Any biases seen would be attributed to correlations between each oscillation parameter and correlations between oscillation and systematic parameters. Consequently, Asimov fit results present the maximum precision at which the oscillation parameters could be measured to.
+}
+
+In practice, the Asimov fits presented within this analysis are modified from the above definition. An Asimov prediction of both beam and atmospheric far detector samples is fit whilst the true data is used for near detector samples. The Asimov predictions at the far detector are built using the BANFF tuning (as discussed in \autoref{sec:T2KSKExp_T2K}). These modifications mean that the results are equivalent to performing a far detector Asimov fit using inputs from the BANFF data fit. Consequently, this allows the results to be cross-checked to the results from the P-Theta analysis. The comparison has been performed and is documented in \cite{barrow_M3_PT_Comp}. No signifanct discrepancies were found between the fitters.
+
+This section proceeds with the following studies. Firstly, the sensitivity of the atmospheric samples after the T2K cross-section has been applied to the low-energy events is detailed in \autoref{sec:OscillationAnalysis_SKOnly}. This includes studying the choice of applying the 2020 PDG reactor constraint \cite{Particle_Data_Group2020-ms} to the atmospheric samples, which is documented in \autoref{sec:OscillationAnalysis_SKOnly_wRC}. Additionally, the effect of applying the near-detector constraints onto the atmospheric samples is discussed in \autoref{sec:OscillationAnalysis_SKOnly_NoND}. The main result is the sensitivity of the simultaneous beam and atmospheric fit. The sensitivities, both with and without the application of the reactor constraint, are presented in \autoref{sec:OscillationAnalysis_JointFit} and \autoref{sec:OscillationAnalysis_JointFit_wRC}, respectively. To indicate the benefit of the joint analysis, the sensitivities are compared to the 2020 T2K sensitivities \cite{Dunne2020-uf, t2k_tn_399} in \autoref{sec:OscillationAnalysis_JointFit_OA2020} and \autoref{sec:OscillationAnalysis_JointFit_OA2020_wRC}. As shown in \autoref{sec:OscillationAnalysis_LLHScans}, the response of the the beam and atmospheric samples change depending upon the true set of oscillation parameters assumed. Therefore, \autoref{sec:OscillationAnalysis_AsimovB} documents the sensitivities at an alternative oscillation parameter set. It is important to note that these results have been published in the Neutrino 2022 conference on behalf of the T2K and SK collaborations \cite{Bronner2022-wd}.
 
 \clearpage
 \subsection{Atmospheric-Only Sensitivity Without Reactor Constraint}
 \label{sec:OscillationAnalysis_SKOnly}
 
-This section presents the results of an Asimov fit using samples from the near detector and only atmospheric samples from the far detector. The results are marginalised over the nuisance parameters using the technique outlined in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}. Each histogram displays the posterior probability density at each point within the parameter space. One-dimensional histograms illustrate the \quickmath{1}, \quickmath{2} and \quickmath{3\sigma} credible intervals, calculated using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_ParameterEstimation}. For these fits, a flat penalty term is used for \quickmath{\sin^{2}(\theta_{13})} (i.e. the reactor constraint is not applied). The Asimov data is generated assuming the AsimovA oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
+\finish{1D TH23}
+
+This section presents the results of an Asimov fit using samples from the near detector and only atmospheric samples from the far detector. The results are presented as one-dimensional or two-dimensional histograms which have been marginalised over all other parameters using the technique outlined in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}. Each histogram displays the posterior probability density and illustrate the credible intervals, calculated using the technique in \autoref{sec:MarkovChainMonteCarlo_ParameterEstimation}. For these fits in this subsection, a flat penalty term is used for \quickmath{\sin^{2}(\theta_{13})} such the reactor constraint is not applied. The Asimov data is generated assuming the AsimovA oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_1D_dcp_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_SKOnly_DCP}
 \end{figure}
 
-\autoref{fig:OscillationAnalysis_SKOnly_DCP} illustrates the posterior probability density for \quickmath{\delta_{CP}}, marginalised over both hierarchies. The fit does favour the Asimov position (\quickmath{\delta_{CP} = -1.601}) although the posterior probability is very flat through the range of \quickmath{2 < \delta_{CP} < \pi} and \quickmath{-\pi < \delta_{CP} < -1}. There is also a region around \quickmath{\delta_{CP} \sim 0.4} which is disfavoured at \quickmath{2\sigma}. This indicates that the SK samples can rule out some parts of the CP conserving parameter space reasonably well, near \quickmath{\delta_{CP} \sim 0}, when the true value of \quickmath{\delta_{CP}} is CP violating. 
+\autoref{fig:OscillationAnalysis_SKOnly_DCP} illustrates the posterior probability density for \quickmath{\delta_{CP}}, marginalised over both hierarchies. If instead, only steps in the normal hierarchy were considered, the shape of the contours would change. The fit favours the known oscillation parameter (\quickmath{\delta_{CP} = -1.601}) although the posterior probability is very flat through the range of \quickmath{-\pi < \delta_{CP} < -1} and \quickmath{2 < \delta_{CP} < \pi}. There is also a region around \quickmath{\delta_{CP} \sim 0.4} which is disfavoured at \quickmath{2\sigma}. This indicates that the SK samples can rule out some parts of the CP conserving parameter space reasonably well, near \quickmath{\delta_{CP} \sim 0.4}, when the true value of \quickmath{\delta_{CP} \sim \pi/2}.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_1D_dm32_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_SKOnly_DM32}
 \end{figure}
 
-The posterior probability density in \quickmath{\Delta m^{2}_{32}} is given in \autoref{fig:OscillationAnalysis_SKOnly_DM32}. This distribution includes steps in both the normal hierarchy \quickmath{\left(\text{NH, } \Delta m^{2}_{32} > 0 \right)} and the inverse hierarchy \quickmath{\left(\text{IH, } \Delta m^{2}_{32} < 0 \right)}. The highest posterior probability density is found within the NH, which agrees with the Asimov point. However, all of the credible intervals span both hierarchies. This is the result of marginalising over both hierarchies. If instead, only steps in the normal hierarchy were considered, the shape of the contours would change. The known oscillation parameter is \quickmath{2.509 \times 10^{-3} \text{eV}^{2}}, which is contained within the \quickmath{1\sigma} credible interval.
+The posterior probability density in \quickmath{\Delta m^{2}_{32}} is given in \autoref{fig:OscillationAnalysis_SKOnly_DM32}. This distribution includes steps in both the normal hierarchy \quickmath{\left(\text{NH, } \Delta m^{2}_{32} > 0 \right)} and the inverse hierarchy \quickmath{\left(\text{IH, } \Delta m^{2}_{32} < 0 \right)}. The highest posterior probability density is found within the NH, which agrees with the Asimov point. However, all of the credible intervals span both of the hierarchies hypotheses. If instead, only steps in the normal hierarchy were considered, the shape of the contours would change. The known oscillation parameter is \quickmath{2.509 \times 10^{-3} \text{eV}^{2}}, which is contained within the \quickmath{1\sigma} credible interval.
 
 \begin{table}[ht!]
   \centering
@@ -291,7 +300,7 @@ The posterior probability density in \quickmath{\Delta m^{2}_{32}} is given in \
   \endgroup
 \end{table}
 
-Following the discussion in \autoref{sec:MarkovChainMonteCarlo_BayesTheorem}, the Bayes factor for hierarchy preference can be calculated by determining the fraction of steps which fall into the NH and the IH, as an equal prior is placed on both models. A similar analysis can be performed by calculating the fraction of steps which fall in the lower octant \quickmath{\left(\text{LO, } \sin^{2}\theta_{23} < 0.5 \right)} or upper octant \quickmath{\left(\text{UO, } \sin^{2}\theta_{23} > 0.5 \right)}. The fraction of steps, broken down by hierarchy and octant, are given in \autoref{tab:OscillationAnalysis_SKOnly_BayesFactors}. The Bayes factor for preferred hierarchy model is \quickmath{B(\text{NH}/\text{IH}) = 1.37}. \autoref{tab:MarkovChainMonteCarlo_JeffreysScale} states this value of the Bayes factor indicates a weak preference for the normal hierarchy model. The Bayes factor for choice of octant is \quickmath{B(\text{UO}/\text{LO}) = 2.24}. This is also classified as a weak preference for the UO. Both of these show that the fit is returning the correct choice of models (NH and UO) for the known Asimov A oscillation parameters defined in \autoref{tab:Theory_ParameterSets}. 
+Following the discussion in \autoref{sec:MarkovChainMonteCarlo_BayesTheorem}, the Bayes factor for hierarchy preference can be calculated by determining the fraction of steps which fall into the NH and the IH regions, as an equal prior is placed on both hypotheses. A similar calculation can be performed by calculating the fraction of steps which fall in the lower octant \quickmath{\left(\text{LO, } \sin^{2}\theta_{23} < 0.5 \right)} or upper octant \quickmath{\left(\text{UO, } \sin^{2}\theta_{23} > 0.5 \right)}. The fraction of steps, broken down by hierarchy and octant, are given in \autoref{tab:OscillationAnalysis_SKOnly_BayesFactors}. The Bayes factor for preferred hierarchy model is \quickmath{B(\text{NH}/\text{IH}) = 1.37}. \autoref{tab:MarkovChainMonteCarlo_JeffreysScale} states this value of the Bayes factor indicates a weak preference for the normal hierarchy model. The Bayes factor for choice of octant is \quickmath{B(\text{UO}/\text{LO}) = 2.24}. This is also classified as a weak preference for the UO. Both of these show that the fit is returning the correct choice of models (NH and UO) for the known Asimov A oscillation parameters defined in \autoref{tab:Theory_ParameterSets}. 
 
 \begin{table}[ht!]
   \centering
@@ -309,52 +318,53 @@ Following the discussion in \autoref{sec:MarkovChainMonteCarlo_BayesTheorem}, th
     \quickmath{\sin^{2}(\theta_{23}) \text{ (NH) }} & \quickmath{\left[ 0.476, 0.59 \right]} & 0.554 \\ 
     \quickmath{\sin^{2}(\theta_{23}) \text{ (IH) }} & \quickmath{\left[ 0.476, 0.59 \right]} & 0.542 \\ \hline \hline
   \end{tabular}
-  \caption{The position of the highest posterior probability density (HPD) and width of the \quickmath{1\sigma} credible interval for the SK atmospheric only fit. The reactor constraint is not applied. The values are presented by which hierarchy hypothesis is assumed: marginalised over both hierarchies (BH), normal hierarchy only (NH), and inverted hierarchy only (IH).}
+  \caption{The position of the highest posterior probability density (HPD) and width of the \quickmath{1\sigma} credible interval for the SK atmospheric-only fit. The reactor constraint is not applied. The values are presented by which hierarchy hypothesis is assumed: marginalised over both hierarchies (BH), normal hierarchy only (NH), and inverted hierarchy only (IH).}
   \label{tab:OscillationAnalysis_SKOnly_CredIntervals}
   \endgroup
 \end{table}
 
-The \quickmath{1\sigma} credible intervals, broken down by hierarchy, and position in parameter space of the highest posterior probability density is given in \autoref{tab:OscillationAnalysis_SKOnly_CredIntervals}. These are taken from the one-dimensional projections of the oscillation parameters, marginalised over all other parameters within the fit. For the known Asimov value of \quickmath{\delta_{CP} = -1.601}, the \quickmath{1\sigma} credible interval rules out a region between \quickmath{\delta_{CP} = -0.86} and \quickmath{\delta_{CP} = 1.96}, when marginalising over both hierarchies. Interestingly, when considering the width of the interval when only considering steps in the NH, the intervals become narrower and the results exclude a large region of parameter space. Thus, if the hierarchy model is known before the fit, the constraint would be stronger. The \quickmath{1\sigma} credible intervals for \quickmath{\sin^{2}(\theta_{23})} were found to be the same in all three hierarchy choices (marginalised over both, NH and IH). This illustrates that the distribution of \quickmath{\sin^{2}(\theta_{23})} is symmetric across the hierarchy discontinuity.
+The \quickmath{1\sigma} credible intervals, broken down by hierarchy, and position in parameter space of the highest posterior probability density is given in \autoref{tab:OscillationAnalysis_SKOnly_CredIntervals}. These are taken from the one-dimensional projections of the oscillation parameters, marginalised over all other parameters within the fit. For the known Asimov value of \quickmath{\delta_{CP} = -1.601}, the \quickmath{1\sigma} credible interval rules out a region between \quickmath{\delta_{CP} = -0.86} and \quickmath{\delta_{CP} = 1.96}, when marginalising over both hierarchies.
+\finish{Discuss the HPD more}
 
-As expected, the width of the credible intervals in \quickmath{\Delta m^{2}_{32}} is smaller when only the NH is considered compared to when both models are marginalised over. This follows from the fit weakly preferring the NH model over the IH model. Conversely, when the credible intervals are built using only IH steps, the credible intervals are wider than when both hierarchies are considered.
+%Interestingly, when considering the width of the interval when only considering steps in the NH, the intervals become narrower and the results exclude a large region of parameter space. Thus, if the hierarchy model is known before the fit, the constraint would be stronger. The \quickmath{1\sigma} credible intervals for \quickmath{\sin^{2}(\theta_{23})} were found to be the same in all three hierarchy choices (marginalised over both, NH and IH). This illustrates that the distribution of \quickmath{\sin^{2}(\theta_{23})} is symmetric across the hierarchy discontinuity. As expected, the width of the credible intervals in \quickmath{\Delta m^{2}_{32}} is smaller when only the NH is considered compared to when both models are marginalised over. This follows from the fit weakly preferring the NH model over the IH model. Conversely, when the credible intervals are built using only IH steps, the credible intervals are wider than when both hierarchies are considered.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_1D_th13_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_SKOnly_TH13}
 \end{figure}
 
-The sensitivity of the atmospheric samples to \quickmath{\sin^{2}(\theta_{13})} is presented in \autoref{fig:OscillationAnalysis_SKOnly_TH13}. The likelihood scans presented in \autoref{fig:OscillationAnalysis_LLHScanOscPars} suggest that the sensitivity to \quickmath{\sin^{2}(\theta_{13})} will be small. This is seen from the fit results, where the width of the \quickmath{1\sigma} credible intervals span the region of \quickmath{\sin^{2}(\theta_{13}) = [0.008, 0.08]}. This is an order of magnitude worse than the constraint from reactor experiments.
+The sensitivity of the atmospheric samples to \quickmath{\sin^{2}(\theta_{13})} is presented in \autoref{fig:OscillationAnalysis_SKOnly_TH13}. The likelihood scans presented in \autoref{fig:OscillationAnalysis_LLHScanOscPars} suggest that the sensitivity to \quickmath{\sin^{2}(\theta_{13})} will be small. This behaviour is also seen in the fit results, where the width of the \quickmath{1\sigma} credible intervals span the region of \quickmath{\sin^{2}(\theta_{13}) = [0.008, 0.08]}. This is an more than an order of magnitude worse than the constraint from reactor experiments \cite{Particle_Data_Group2020-ms}.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_2D_th13_dcp_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_SKOnly_DCPTH13}
 \end{figure}
 
-As previously discussed, the correlations between oscillation parameters are also important to understand how the atmospheric samples respond. \autoref{fig:OscillationAnalysis_SKOnly_DCPTH13} illustrates the two dimensional \quickmath{\sin^{2}(\theta_{13}) - \delta_{CP}} projection of the full posterior probability distribution, marginalised over both hierarchies. The shape of the \quickmath{1\sigma} credible interval shows that the constraining power of the fit on \quickmath{\delta_{CP}} is dependent upon the choice of \quickmath{\sin^{2}(\theta_{13})}. As expected from \autoref{fig:OscillationAnalysis_LLHScanOscPars}, the atmospheric samples do not strongly constrain the value of \quickmath{\sin^{2}(\theta_{13})}. However, the choice of preferred value of \quickmath{\sin^{2}(\theta_{13})} does impact the atmospherics sensitivity to \quickmath{\delta_{CP}}. The \quickmath{1\sigma} credible interval is consistent with the reactor constraint.
+As previously discussed, the correlations between oscillation parameters are also important to understand how the atmospheric samples respond. \autoref{fig:OscillationAnalysis_SKOnly_DCPTH13} illustrates the two dimensional \quickmath{\sin^{2}(\theta_{13}) - \delta_{CP}} sensitivity, marginalised over all other parameters. The displayed contours are calculated by marginalising over both hierarchies. The shape of the \quickmath{1\sigma} credible interval shows that the constraining power of the fit on \quickmath{\delta_{CP}} is dependent upon the value of \quickmath{\sin^{2}(\theta_{13})}. Whilst the atmospheric samples do not strongly constrain the value of \quickmath{\sin^{2}(\theta_{13})}, the value of \quickmath{\sin^{2}(\theta_{13})} does impact the atmospherics sensitivity to \quickmath{\delta_{CP}}. A value of \quickmath{\sin^{2}(\theta_{13}) \sim 0.02} would select a continous contour over all values of \quickmath{\delta_{CP}}. This shows the effect of the marginalisation effect previously described. \finish{Resemblance to \autoref{fig:OscillationAnalysis_2DLLHOscScans_App}}.
 
-The \quickmath{\sin^{2}(\theta_{23}) - \Delta m^{2}_{32}} disappearance contours are illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DM32TH23}. As expected, the distribution in the inverted hierarchy is slightly smaller than that in the normal hierarchy. This follows from the Bayes factor showing a weak preference for NH meaning that more of the steps will exist in the \quickmath{\Delta m^{2}_{32} > 0} region. The Asimov points of \quickmath{\sin^{2}(\theta_{23}) = 0.528} and \quickmath{\Delta m^{2}_{32} = 2.509\times 10^{-3}\text{eV}^{2}} are clearly contained within the \quickmath{1\sigma} credible interval.
+The \quickmath{\sin^{2}(\theta_{23}) - \Delta m^{2}_{32}} disappearance contours are illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DM32TH23}. As expected, the area contained in the inverted hierarchy \quickmath{1\sigma} credible interval is slightly smaller than that in the normal hierarchy. This follows from the Bayes factor showing a weak preference for NH meaning that more of the steps will exist in the \quickmath{\Delta m^{2}_{32} > 0} region. The known oscillation parameters of \quickmath{\sin^{2}(\theta_{23}) = 0.528} and \quickmath{\Delta m^{2}_{32} = 2.509\times 10^{-3}\text{eV}^{2}} are contained within the \quickmath{1\sigma} credible interval.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_2D_th23_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_SKOnly_DM32TH23}
 \end{figure}
 
-\autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} highlights the two-dimensional projections for each combination of oscillation parameters to which this analysis is sensitive. The contours are built when marginalising over both hierarchies but only the NH is illustrated when considering \quickmath{\Delta m^{2}_{32}}. As expected the correlations play a significant role in these sensitivity measurements, especially the choice of the \quickmath{\sin^{2}(\theta_{13})} constraint. The application of reactor constraint would be expected to alter both the width and position of the \quickmath{\Delta m^{2}_{32}} credible interval and the width of the \quickmath{\delta_{CP}} and \quickmath{\sin^{2}(\theta_{23})} constraints. The majority of the octant model preference comes from the region of \quickmath{\sin^{2}(\theta_{13}) \sim 0.03}. Consequently, the application of the reactor constraint would not be expected to significantly change the octant preference. Interestingly, the distribution of steps in the \quickmath{\delta_{CP}}-\quickmath{\sin^{2}(\theta_{13})} plot is slightly flatter in the region of the reactor constraint. This follows from \autoref{fig:OscillationAnalysis_2DLLHOscScans_App} where the likelihood scan shows a region of low negative log-likelihood extending out towards higher values of \quickmath{\sin^{2}(\theta_{13})} in the \quickmath{\delta_{CP} = -1.601} region. Consequently, the reactor constraint could feasibly reduce the sensitivity of the atmospheric samples to \quickmath{\delta_{CP}}, due to these marginalisation effects. 
+\autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} illustrates the two-dimensional projections for each permutation of oscillation parameters which this analysis is sensitive to: \quickmath{\delta_{CP}}, \quickmath{\sin^{2}(\theta_{13})}, \quickmath{\sin^{2}(\theta_{23})}, and \quickmath{\Delta m^{2}_{32}}. The purpose of this plot is to illustrate the correlations between the oscillation parameters. The contours are calculated whilst marginalising over both hierarchies, however, only the NH is illustrated when plotting the \quickmath{\Delta m^{2}_{32}} parameter. As expected the correlations play a significant role in these sensitivity measurements, especially the choice of the \quickmath{\sin^{2}(\theta_{13})} constraint. The application of reactor constraint would be expected to alter both the width and position of the \quickmath{\Delta m^{2}_{32}}, \quickmath{\delta_{CP}}, and \quickmath{\sin^{2}(\theta_{23})} constraints. The majority of the octant model preference comes from the region of \quickmath{\sin^{2}(\theta_{13}) \sim 0.03} such that the application of the reactor constraint would not be expected to significantly change the octant preference. The reactor constraint would result in lower values of \quickmath{|\Delta m^{2}_{32}|}. Interestingly, the distribution of steps in the \quickmath{\delta_{CP}}-\quickmath{\sin^{2}(\theta_{13})} plot is slightly flatter in the region of the reactor constraint. Both the posterior distribution from this fit and the dsitribution in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App} show a region of low negative log-likelihood extending out towards higher values of \quickmath{\sin^{2}(\theta_{13})} in the \quickmath{\delta_{CP} \sim -\pi/2} and \quickmath{\delta_{CP} \sim 2} region. Consequently, the reactor constraint could feasibly reduce the sensitivity of the atmospheric samples to \quickmath{\delta_{CP}}, due to the previously discussed marginalisation effects. 
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_1D_woRC_UnSmeared_CredibleInterval_TrianglePlot.pdf}
   \end{subfigure}
-  \caption{The posterior probability density distribution from the SK atmospheric only fit. The reactor constraint is not applied. The distribution is given for each two-dimensional permutation of the oscillation parameters of interest. The one-dimensional distribution of each parameter is also given.}
+  \caption{The posterior probability density distribution from the SK atmospheric-only fit. The reactor constraint is not applied. The distribution is given for each two-dimensional permutation of the oscillation parameters of interest. The one-dimensional distribution of each parameter is also given.}
   \label{fig:OscillationAnalysis_SKOnly_TrianglePlot}
 \end{figure}
 
@@ -362,33 +372,34 @@ The \quickmath{\sin^{2}(\theta_{23}) - \Delta m^{2}_{32}} disappearance contours
 \subsection{Atmospheric-Only Sensitivity With Reactor Constraint}
 \label{sec:OscillationAnalysis_SKOnly_wRC}
 
-The results in \autoref{sec:OscillationAnalysis_SKOnly} discuss the atmospheric sensitivity when the reactor constraint is not applied. The correlations illustrated in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} indicate that the marginalisation effects could contribute to differing sensitivities when the external constraint is applied. Using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_Priors}, the posterior distribution can be reweighted to include the reactor constraint of \quickmath{\sin^{2}(\theta_{13}) = \left(2.18 \pm 0.08\right) \times 10^{-2}}. The Asimov data is generated assuming the `AsimovA' oscillation parameter set defined in \autoref{tab:Theory_ParameterSets}) and the post-BANFF systematic parameter tune.
+The results in \autoref{sec:OscillationAnalysis_SKOnly} discuss the atmospheric sensitivity when the reactor constraint is not applied. The correlations illustrated in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} indicate that the marginalisation effects could contribute to differing sensitivities when the external reactor constraint is applied. Using the technique discussed in \autoref{sec:MarkovChainMonteCarlo_Priors}, the posterior distribution of the fit in \autoref{sec:OscillationAnalysis_SKOnly} can be reweighted to include the reactor constraint of \quickmath{\sin^{2}(\theta_{13}) = \left(2.18 \pm 0.08\right) \times 10^{-2}} \cite{Particle_Data_Group2020-ms}.
+%The Asimov data is generated assuming the `AsimovA' oscillation parameter set defined in \autoref{tab:Theory_ParameterSets}) and the post-BANFF systematic parameter tune.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_wRC/ContourComparison_1D_dcp_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the SK atmospheric only fit (Black) and the SK atmospheric fit with the reactor constraint (Red). The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the SK atmospheric-only fit (Black) and the SK atmospheric fit with the reactor constraint applied (Red). The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_SKOnly_DCP_WRC}
 \end{figure}
 
-\autoref{fig:OscillationAnalysis_SKOnly_DCP_WRC} illustrates the sensitivity to \quickmath{\delta_{CP}}. The posterior distribution for the `with Reactor Constraint' fit is less peaked than the previous results. This is due to the expected marginalisation effect observed in the likelihood scan in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App}. The width of the \quickmath{1\sigma} credible interval is increased when the reactor constraint is applied, indicating less sensitivity in that region of \quickmath{\sin^{2}(\theta_{13})}. 
+\autoref{fig:OscillationAnalysis_SKOnly_DCP_WRC} illustrates the sensitivity to \quickmath{\delta_{CP}} of the atmospheric fit with reactor constraint applied. The distribution is less peaked than the previous results. This is due to the expected marginalisation effect previousl discussed. The width of the \quickmath{1\sigma} credible interval is increased when the reactor constraint is applied, indicating less sensitivity to \quickmath{\delta_{CP}} in the region of \quickmath{\sin^{2}(\theta_{13})} preferred by the reactor constraint.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_wRC/ContourComparison_1D_dm32_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the SK atmospheric only fit (Black) and the SK atmospheric fit with the reactor constraint (Red). The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the SK atmospheric-only fit (Black) and the SK atmospheric fit with the reactor constraint applied (Red). The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_SKOnly_DELM32_WRC}
 \end{figure}
 
-The reactor constraint increases the sensitivity of the atmospheric samples to \quickmath{\Delta m^{2}_{32}} as illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DELM32_WRC}. Due to the marginalisation efefcts observed in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot}, the favoured region of \quickmath{\Delta m^{2}_{32}} moves closer to zero for both hierarchies. A clear explanation of this behaviour is illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DELM32TH13_WRC}. The correlation between \quickmath{\Delta m^{2}_{32}} and \quickmath{\sin^{2}(\theta_{13})} is such that lower values of \quickmath{\sin^{2}(\theta_{13})} tend towards lower values of \quickmath{|\Delta m^{2}_{32}|}. The \quickmath{1\sigma} credible interval in \quickmath{\Delta m^{2}_{32}} is determined to be \quickmath{[-2.70, -2.55] \times 10^{-3} \text{eV}^{2}} and \quickmath{[2.25, 2.95] \times 10^{-3} \text{eV}^{2}}. The width of the IH credible interval is reduced by \quickmath{\sim70\%} when the reactor constraint is applied.
+The reactor constraint increases the sensitivity of the atmospheric samples to \quickmath{\Delta m^{2}_{32}} as illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DELM32_WRC}. The \quickmath{1\sigma} credible interval in \quickmath{\Delta m^{2}_{32}} is determined to be \quickmath{[-2.70, -2.55] \times 10^{-3} \text{eV}^{2}} and \quickmath{[2.25, 2.95] \times 10^{-3} \text{eV}^{2}}. The width of the IH credible interval is reduced by \quickmath{\sim70\%} when the reactor constraint is applied. Due to the marginalisation effects observed in \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot}, the favoured region of \quickmath{\Delta m^{2}_{32}} moves closer to zero for both hierarchies. A clear explanation of this behaviour is illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DELM32TH13_WRC} which illustrates the posterior distribution in the \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{13})} parameters, marginalised over both hierarchies. The correlation between \quickmath{\Delta m^{2}_{32}} and \quickmath{\sin^{2}(\theta_{13})} is such that lower values of \quickmath{\sin^{2}(\theta_{13})} tend towards lower values of \quickmath{|\Delta m^{2}_{32}|}. This moves the posterior distribution towards the known oscillation parameter \quickmath{\Delta m^{2}_{32} = 2.509 \times 10^{-3} \text{eV}^{2}}.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_wRC/ContourComparison_2D_th13_dm32_BH_0_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-    \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{13})} compared between the SK atmospheric only fit (Black) and the SK atmospheric fit with the reactor constraint (Red). The distributions are marginalised over both hierarchies.}
+    \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{13})} compared between the SK atmospheric-only fit (Black) and the SK atmospheric fit with the reactor constraint (Red). The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_SKOnly_DELM32TH13_WRC}
 \end{figure}
 
@@ -407,21 +418,24 @@ The reactor constraint increases the sensitivity of the atmospheric samples to \
   \endgroup
 \end{table}
 
-The asymmetry in the number of steps within the NH to IH shows that the reactor constraint increases the NH preference. The fraction of steps in each hierarchy and octant model for this fit are given in \autoref{tab:OscillationAnalysis_SKOnlyWRC_BayesFactors}. The preference for the correct octant model is very slightly increased by the application of the reactor constraint which is consistent with expectation. The reactor constraint significantly increases the NH preference, increasing the Bayes factor from \quickmath{B(\text{NH}/\text{IH}) = 1.37} to \quickmath{B(\text{NH}/\text{IH}) = 2.86} when the reactor constraint is applied. This is still defined as a weak preference for NH according to Jeffrey's scale (see \autoref{tab:MarkovChainMonteCarlo_JeffreysScale}), however, it is a stronger preference than without the constraint. The Bayes factor for octant determination is calculated as \quickmath{B(\text{UO}/\text{LO}) = 2.39}.
+
+\autoref{tab:OscillationAnalysis_SKOnlyWRC_BayesFactors} presents the fraction of steps in each hierarchy and octant model for the fit after the reactor constraint has been applied. The reactor constraint significantly increases the NH preference, increasing the Bayes factor from \quickmath{B(\text{NH}/\text{IH}) = 1.37} to \quickmath{B(\text{NH}/\text{IH} = 2.86} when the reactor constraint is applied. This is still defined as a weak preference for NH hypothesis according to Jeffrey's scale (see \autoref{tab:MarkovChainMonteCarlo_JeffreysScale}), however, it is a stronger preference than when the constraint is not applied. The preference for the correct octant model is slightly increased by the application of the reactor constraint which is consistent with expectation. However, the conclusion that would be made does not significantly change. 
+
+%The asymmetry in the number of steps within the NH to IH shows that the reactor constraint increases preference for the NH hypothesis. The fraction of steps in each hierarchy and octant model for this fit are given in \autoref{tab:OscillationAnalysis_SKOnlyWRC_BayesFactors}. The preference for the correct octant model is very slightly increased by the application of the reactor constraint which is consistent with expectation. The reactor constraint significantly increases the NH preference, increasing the Bayes factor from \quickmath{B(\text{NH}/\text{IH}) = 1.37} to \quickmath{B(\text{NH}/\text{IH}) = 2.86} when the reactor constraint is applied. This is still defined as a weak preference for NH according to Jeffrey's scale (see \autoref{tab:MarkovChainMonteCarlo_JeffreysScale}), however, it is a stronger preference than without the constraint. The Bayes factor for octant determination is calculated as \quickmath{B(\text{UO}/\text{LO}) = 2.39}.
 
 \clearpage
 \subsection{Application of Near Detector Constraints for Atmospheric Samples}
 \label{sec:OscillationAnalysis_SKOnly_NoND}
 
-The choice to apply the near detector constraints to the low-energy atmospheric samples was introduced in \autoref{sec:SelsAndSysts_Systs_Interaction}. The effect of this choice can be studied by comparing the sensitivities of the atmospheric only analysis when the near detector constraints are and are not applied. This section presents those effects where the Asimov data was generated assuming the `AsimovA' oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
+The choice of applying the near detector constraints to the low-energy atmospheric samples was introduced in \autoref{sec:SelsAndSysts_Systs_Interaction}. This subsection illustrates the effect of that choice on the sensitivities of the atmospheric samples to the oscillation parameters. This Asimov data was generated assuming the `AsimovA' oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
 
-The change in sensitivity on \quickmath{\delta_{CP}} is given in \autoref{fig:OscillationAnalysis_SKOnly_NoND_DCP}. The reactor constraint is not applied in this comparison. The shape of the posterior is approximately the same although slightly less peaked at the Asimov point (\quickmath{\delta_{CP} = -1.601}). The width of the \quickmath{1\sigma} credible intervals are approximately the same (identical to within a bin width) and the same conclusion holds for the higher credible intervals. Similar conclusions hold for the other oscillation parameters. As expected, the sensitivities are still statistics dominated and the exact choice of systematic model and constraint does not affect the physics conclusions one would make from this analysis.
+The change in sensitivity on \quickmath{\delta_{CP}} is given in \autoref{fig:OscillationAnalysis_SKOnly_NoND_DCP}. The reactor constraint is not applied in either of the fits within this comparison. The shape of the posterior is similar although less peaked at the Asimov point (\quickmath{\delta_{CP} = -1.601}) and more symmetric between the regions of \quickmath{\delta_{CP} = -1.601} and \quickmath{\delta_{CP} \sim 2.5}. The width of the \quickmath{1\sigma} credible intervals are approximately the same (identical to within a bin width) and the same conclusion holds for the higher credible intervals. The change in sensitivity to other oscillation parameters has been studied and no significant discrepancies were found. As expected, the sensitivities are statistics dominated and the exact choice of systematic model and constraint does not significantly affect the physics conclusions one would make from this analysis.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit_noND/ContourComparison_1D_dcp_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the SK atmospheric only fit where the near detector constraint is (Black) and is not (Red) applied. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the SK atmospheric-only fit where the near detector constraint is (Black) and is not (Red) applied. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_SKOnly_NoND_DCP}
 \end{figure}
 
@@ -497,7 +511,7 @@ The sensitivity to \quickmath{\sin^{2}(\theta_{23})} is presented in \autoref{fi
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_1D_th23_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric only fit. The reactor constraint is not applied.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied.}
   \label{fig:OscillationAnalysis_JointFit_TH23}
 \end{figure}
 
@@ -564,7 +578,7 @@ The effect of applying the reactor constraint for \quickmath{\delta_{CP}} in the
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_dcp_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam and atmospheric only fit (Red) and the joint beam and atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit (Red) and the joint beam and atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_wRC_Comp_DCP}
 \end{figure}
 
@@ -605,7 +619,7 @@ The sensitivity to \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hie
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_th23_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Red) and the joint beam and atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Red) and the joint beam and atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_wRC_Comp_TH23}
 \end{figure}
 
@@ -674,7 +688,7 @@ The benefits of the joint beam and atmospheric analysis can be determined by com
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_dcp_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DCP}
 \end{figure}
 
@@ -686,7 +700,7 @@ The addition of the atmospheric samples does significantly impact the sensitivit
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_dm32_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32}
 \end{figure}
 
@@ -696,7 +710,7 @@ The sensitivity to \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hie
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_th23_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_TH23}
 \end{figure}
 
@@ -710,7 +724,7 @@ The sensitivity to the disappearance parameters \quickmath{\sin^{2}(\theta_{23})
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th13_dcp_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DCPTH13}
 \end{figure}
 
@@ -718,7 +732,7 @@ The sensitivity to the disappearance parameters \quickmath{\sin^{2}(\theta_{23})
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th23_dm32_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32TH23}
 \end{figure}
 
@@ -726,7 +740,7 @@ The sensitivity to the disappearance parameters \quickmath{\sin^{2}(\theta_{23})
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_dcp_dm32_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\Delta_{CP}} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\Delta_{CP}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32DCP}
 \end{figure}
 
@@ -740,7 +754,7 @@ The beam-only and joint beam-atmospheric fits have a slightly different contour 
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th13_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32TH13}
 \end{figure}
 
@@ -748,7 +762,7 @@ The beam-only and joint beam-atmospheric fits have a slightly different contour 
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th13_th23_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})-\sin^{2}(\theta_{13})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})-\sin^{2}(\theta_{13})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_TH13TH23}
 \end{figure}
 
@@ -761,7 +775,7 @@ The comparison between the beam-only and joint beam-atmospheric fits are compare
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_wRC_Comp/ContourComparison_2D_th23_dm32_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is applied in both fits. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_wRC_TH23DM32}
 \end{figure}
 
@@ -773,7 +787,7 @@ The sensitivity of the beam-only and joint beam-atmospheric analyses, to the app
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_wRC_Comp/ContourComparison_2D_th13_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is applied in both fits. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_wRC_TH13DCP}
 \end{figure}
 
@@ -787,7 +801,7 @@ The sensitivity of the beam-only and joint beam-atmospheric analyses, to the app
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp_AsimovB/ContourComparison_1D_dcp_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_AsimovB_DCP}
 \end{figure}
 
@@ -809,7 +823,7 @@ The sensitivity to \quickmath{\delta_{CP}} from an AsimovB fit for the joint bea
     \quickmath{\sin^{2}(\theta_{23}) \text{ (NH) }} & \quickmath{\left[ 0.43, 0.49 \right], \left[ 0.55, 0.58 \right]} & 0.45 \\
     \quickmath{\sin^{2}(\theta_{23}) \text{ (IH) }} & \quickmath{\left[ 0.44, 0.48 \right], \left[ 0.54, 0.59 \right]} & 0.57 \\ \hline \hline
   \end{tabular}
-  \caption{The position of the highest posterior probability density (HPD) and width of the \quickmath{1\sigma} credible interval for the SK atmospheric only fit. The reactor constraint is not applied. The values are presented by which hierarchy hypothesis is assumed: marginalised over both hierarchies (BH), normal hierarchy only (NH) and inverted hierarchy only (IH).}
+  \caption{The position of the highest posterior probability density (HPD) and width of the \quickmath{1\sigma} credible interval for the SK atmospheric-only fit. The reactor constraint is not applied. The values are presented by which hierarchy hypothesis is assumed: marginalised over both hierarchies (BH), normal hierarchy only (NH) and inverted hierarchy only (IH).}
   \label{tab:OscillationAnalysis_JointFit_AsimovB_CredIntervals}
   \endgroup
 \end{table}
@@ -822,7 +836,7 @@ This contradiction stems from the methodology in which the credible interval is 
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp_AsimovB/ContourComparison_1D_th23_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_AsimovB_TH23}
 \end{figure}
 
@@ -849,7 +863,7 @@ The distribution of steps, split by hierarchy and octant hypothesis, is presente
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp_AsimovB/ContourComparison_1D_dm32_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam and atmospheric only fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{t2k_tn_399}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies.}
   \label{fig:OscillationAnalysis_JointFit_AsimovB_DELM23}
 \end{figure}
 
