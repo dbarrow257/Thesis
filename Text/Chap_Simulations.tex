@@ -90,13 +90,13 @@ To find all the subevents in an event, a vertex goodness metric is calculated fo
 %The number of subevents is equal to the number of decay electrons plus one (the primary event).
 
 \begin{equation}
-  G(\vec{x},t) = \sum^{\text{hit PMTs}}_{i} \exp \left( - \frac{1}{2} \left( \frac{T_{Res}^{i}(\vec{x},t)}{\sigma} \right)^{2} \right)
+  G(\vec{x},t) = \sum^{\text{hit PMTs}}_{i} \exp \left( - \frac{1}{2} \left( \frac{T_{Res}^{i}(\vec{x},t)}{\sigma} \right)^{2} \right),
 \end{equation}
 
 where
 
 \begin{equation}
-  T_{Res}^{i}(\vec{x},t) = t^{i} - t - \left| R^{i}_{PMT} - \vec{x} \right|/c_{n}
+  T_{Res}^{i}(\vec{x},t) = t^{i} - t - \left| R^{i}_{PMT} - \vec{x} \right|/c_{n},
 \end{equation}
 
 is the residual hit time. It is the difference in time between the PMT hit time \quickmath{t^{i}}, of the \quickmath{i^{th}} PMT, and the expected time of the PMT hit if the photon was at the vertex. \quickmath{R^{i}_{PMT}} is the position of the \quickmath{i^{th}} PMT, \quickmath{c_{n}} is the speed of light in water and \quickmath{\sigma = 4\text{ns}} which is comparable to the time resolution of the PMT. When the proposed fit values of time and vertex are close to the true values, \quickmath{T_{Res}^{i}(\vec{x},t)} tends to zero resulting in subevents appearing as spikes in the goodness metric. The proposed fit vertex and time are grid-scanned, and the values which maximise the goodness metric are selected as the ``pre-fit vertex''. Whilst this predicts a vertex for use in the clustering algorithm, the final vertex is fit using the higher-precision maximum likelihood method described below.
@@ -106,10 +106,10 @@ Once the pre-fit vertex has been determined, the goodness metric is scanned as a
 For a given subevent, the \texttt{fiTQun} algorithm constructs a likelihood based on the accumulated charge \quickmath{q_{i}} and time information \quickmath{t_{i}} from the \quickmath{i^{th}} PMT,
 
 \begin{equation}
-  L(\Gamma, \vec{\theta}) = \prod^{\text{unhit}}_{j} P_{j}(\text{unhit}|\Gamma,\vec{\theta}) \prod^{\text{hit}}_{i} \{ 1 - P_{i}(\text{unhit}|\Gamma,\vec{\theta}) \}   f_{q}(q_{i} | \Gamma, \vec{\theta}) f_{t}(t_{i} | \Gamma, \vec{\theta}),
+  L(\Gamma, \vec{\theta}) = \prod^{\text{unhit}}_{j} P_{j}(\text{unhit}|\Gamma,\vec{\theta}) \prod^{\text{hit}}_{i} \{ 1 - P_{i}(\text{unhit}|\Gamma,\vec{\theta}) \}   f_{q}(q_{i} | \Gamma, \vec{\theta}) f_{t}(t_{i} | \Gamma, \vec{\theta}).
 \end{equation}
 
-where \quickmath{\vec{\theta}} defines the track parameters; vertex position, direction vector and momenta, and \quickmath{\Gamma} represents the particle hypothesis. \quickmath{P_{i}(\text{unhit}|\Gamma,\vec{\theta})} is the probability of the \quickmath{i^{th}} tube to not register a hit given the track parameters and particle hypothesis. The charge likelihood, \quickmath{f_{q}(q_{i} | \Gamma, \vec{\theta})}, and time likelihood, \quickmath{f_{t}(t_{i} | \Gamma,\vec{\theta})}, represents the probability density function of observing charge \quickmath{q_{i}} and time \quickmath{t_{i}} on the \quickmath{i^{th}} PMT given the specified track parameters and particle hypothesis.
+Where \quickmath{\vec{\theta}} defines the track parameters; vertex position, direction vector and momenta, and \quickmath{\Gamma} represents the particle hypothesis. \quickmath{P_{i}(\text{unhit}|\Gamma,\vec{\theta})} is the probability of the \quickmath{i^{th}} tube to not register a hit given the track parameters and particle hypothesis. The charge likelihood, \quickmath{f_{q}(q_{i} | \Gamma, \vec{\theta})}, and time likelihood, \quickmath{f_{t}(t_{i} | \Gamma,\vec{\theta})}, represents the probability density function of observing charge \quickmath{q_{i}} and time \quickmath{t_{i}} on the \quickmath{i^{th}} PMT given the specified track parameters and particle hypothesis.
 
 %As the generation and propagation of the optical photons are independent of the PMT and electronics response, it is natural to split the calculation into two. This split was also performed to . Firstly, the expected number of photoelectrons (or predicted charge), \quickmath{\mu_{i} = \mu_{i}(\vec{\theta},\Gamma)}, at the \quickmath{i^{th}} PMT is calculated. This value is then substituted into the likelihood function. This allows the charge likelihood density \quickmath{f_{q}(q_{i} | \mu_{i})} and unhit probability \quickmath{P_{i}(\text{unhit}|\mu_{i})} to be expressed via quantities that are only dependent on the response of the PMT. 
 

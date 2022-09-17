@@ -56,6 +56,8 @@ Generally, the samples which target CCQE interaction modes observe a decrease in
 \section{Likelihood Calculation}
 \label{sec:OscillationAnalysis_LLHCalc}
 
+\finish{Should this section be moved?}
+
 This analysis performs a joint oscillation parameter fit of the ND280 beam samples, the T2K far detector beam samples, and the SK atmospheric samples.
 
 Once the Monte Carlo predictions of each beam and atmospheric sample have been built (see \autoref{chap:SelsAndSysts}) a likelihood needs to be constructed. This is done by comparing the binned Monte Carlo prediction to binned data. The Monte Carlo prediction is calculated at a particular point, \quickmath{\vec{\theta}}, in the model parameter space such that \quickmath{N_{i}^{MC} = N_{i}^{MC}(\vec{\theta})}, where \quickmath{N_{i}} represents the bin content of the \quickmath{i^{th}} bin. The data and Monte Carlo spectra are represented by \quickmath{N_{i}^{D}} and \quickmath{N_{i}^{MC}}, respectively. The bin contents for the beam near detector, beam far detector and atmospheric samples are denoted with \quickmath{ND}, \quickmath{FD}, and \quickmath{Atm}, respectively. The binning index, \quickmath{i}, runs over all the bins within a sample. Taking the \texttt{FHC1Rmu} far detector sample as an example, the binning index runs over all the reconstructed neutrino energy bins. The likelihood calculation between the data and the Monte Carlo prediction for a particular bin follows a Poisson distribution, where the data is treated as a fluctuation of the simulation. 

@@ -20,14 +20,14 @@ Bayesian inference treats observable data, \quickmath{D}, and model parameters, 
 
 The prior distribution, \quickmath{P(\vec{\theta})}, describes all previous knowledge about the parameters within the model. For example, if the risk of developing health problems is known to increase with age, the prior distribution would describe the increase. For the purpose of this analysis, the prior distribution is typically the best-fit values taken from external data measurements with a Gaussian uncertainty. The prior distribution can also contain correlations between model parameters. In an analysis using Monte Carlo techniques, the likelihood of measuring some data assuming some set of model parameters is calculated by comparing the Monte Carlo prediction generated at that particular set of model parameters to the data.
 
-It is parameter estimation that is important for this analysis and as such, we apply Bayes' theorem \cite{Bayes:1764vd} to calculate the probability for each parameter to have a certain value given the observed data, \quickmath{P(\vec{\theta}|D)}, which is known as the posterior distribution (often termed the posterior). This can be expressed as
+It is parameter estimation that is important for this analysis and as such, Bayes' theorem \cite{Bayes:1764vd} is applied to calculate the probability for each parameter to have a certain value given the observed data, \quickmath{P(\vec{\theta}|D)}, which is known as the posterior distribution (often termed the posterior). This can be expressed as
 
 \begin{equation}
   \label{eq:MarkovChainMonteCarlo_PosteriorDistribution}
   P(\vec{\theta}|D) = \frac{ P(D|\vec{\theta}) P(\vec{\theta}) }{\int P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}.
 \end{equation}
 
-The denominator in \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} is the integral of the joint probability distribution over all values of all parameters used within the fit. For brevity, we say that the posterior distribution is
+The denominator in \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} is the integral of the joint probability distribution over all values of all parameters used within the fit. For brevity, the posterior distribution is
 
 \begin{equation}
   \label{eq:MarkovChainMonteCarlo_PosteriorDistributionReduced}
@@ -147,17 +147,17 @@ Multiple configurations of this analysis have been performed throughout this the
 \section{Understanding the MCMC Results}
 \label{sec:MarkovChainMonteCarlo_UnderstandingMCMCResults}
 
-The previous sections have described how to generate the posterior probability distribution using Bayesian MCMC techniques. However, this analysis focuses on oscillation parameter determination. The posterior distribution output from the chain is a high-dimension object, with as many dimensions as there are parameters included in the oscillation analysis. However, this multi-dimensional object is difficult to conceptualize so parameter estimations are often presented in one or two-dimensional projections of this probability distribution. To do this, we invoke the marginalisation technique highlighted in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}.
+The previous sections have described how to generate the posterior probability distribution using Bayesian MCMC techniques. However, this analysis focuses on oscillation parameter determination. The posterior distribution output from the chain is a high-dimension object, with as many dimensions as there are parameters included in the oscillation analysis. However, this multi-dimensional object is difficult to conceptualize so parameter estimations are often presented in one or two-dimensional projections of this probability distribution. To do this, marginalisation techniques are invoked.
 
 \subsection{Marginalisation}
 \label{sec:MarkovChainMonteCarlo_Marginalisation}
 
-The output of the MCMC chain is a highly dimensional probability distribution which is very difficult to interpret. From the standpoint of an oscillation analysis experiment, the one or two-dimensional `projections' of the oscillation parameters of interest are most relevant. Despite this, the best fit values and uncertainties on the oscillation parameters of interest should correctly encapsulate the correlations to the other systematic uncertainties (colloquially called `nuisance' parameters). For this joint beam and atmospheric analysis, the oscillation parameters of interest are \quickmath{\sin^{2}(\theta_{23})}, \quickmath{\sin^{2}(\theta_{13})}, \quickmath{\Delta m^{2}_{32}}, and\quickmath{\delta_{CP}}. All other parameters (including the oscillation parameters this fit is insensitive to) are deemed nuisance parameters. To generate these projections, we rely upon integrating the posterior distribution over all nuisance parameters. This is called marginalisation. This technique also explains why it is acceptable to neglect the normalisation constant of the posterior distribution, which was discussed in \autoref{sec:MarkovChainMonteCarlo_BayesianStatistics}.
+The output of the MCMC chain is a highly dimensional probability distribution which is very difficult to interpret. From the standpoint of an oscillation analysis experiment, the one or two-dimensional `projections' of the oscillation parameters of interest are most relevant. Despite this, the best fit values and uncertainties on the oscillation parameters of interest should correctly encapsulate the correlations to the other systematic uncertainties (colloquially called `nuisance' parameters). For this joint beam and atmospheric analysis, the oscillation parameters of interest are \quickmath{\sin^{2}(\theta_{23})}, \quickmath{\sin^{2}(\theta_{13})}, \quickmath{\Delta m^{2}_{32}}, and\quickmath{\delta_{CP}}. All other parameters (including the oscillation parameters this fit is insensitive to) are deemed nuisance parameters. To generate these projections, the posterior distribution is integrated over all nuisance parameters. This is called marginalisation. This technique also explains why it is acceptable to neglect the normalisation constant of the posterior distribution, which was discussed in \autoref{sec:MarkovChainMonteCarlo_BayesianStatistics}.
 
-A simple example of the marginalisation technique is to imagine the scenario where two coins are flipped. To determine the probability that the first coin returned a `head', the exact result of the second coin flip is disregarded and simply integrated over. For the parameters of interest, \quickmath{\vec{\theta}_{i}}, we can calculate the marginalised posterior by integrating over the nuisance parameters, \quickmath{\vec{\theta}_{n}}. In this case, \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} becomes
+A simple example of the marginalisation technique is to imagine the scenario where two coins are flipped. To determine the probability that the first coin returned a `head', the exact result of the second coin flip is disregarded and simply integrated over. For the parameters of interest, \quickmath{\vec{\theta}_{i}}, the marginalised posterior is calculated by integrating over the nuisance parameters, \quickmath{\vec{\theta}_{n}}. In this case, \autoref{eq:MarkovChainMonteCarlo_PosteriorDistribution} becomes
 
 \begin{equation}
-P(\vec{\theta}_{i}|D) = \frac{\int P(D|\vec{\theta}_{i},\vec{\theta}_{n}) P(\vec{\theta}_{i},\vec{\theta}_{n}) d\vec{\theta}_{n}}{\int P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}
+P(\vec{\theta}_{i}|D) = \frac{\int P(D|\vec{\theta}_{i},\vec{\theta}_{n}) P(\vec{\theta}_{i},\vec{\theta}_{n}) d\vec{\theta}_{n}}{\int P(D|\vec{\theta}) P(\vec{\theta}) d\vec{\theta}}.
 \end{equation}
 
 Where \quickmath{P(\vec{\theta}_{i},\vec{\theta}_{n})} encodes the prior knowledge about the uncertainty and correlations between the parameters of interest and the nuisance parameters. In practice, this is simply taking the one or two-dimensional projection of the multi-dimensional probability distribution.
@@ -183,13 +183,13 @@ The purpose of this analysis is to determine the best fit values for the oscilla
 %Typically, the results presented take the form of one or two-dimension marginalised probability distributions for the appearance (\quickmath{\sin^{2}(\theta_{13})} and \quickmath{\delta_{CP}}) and disappearance (\quickmath{\sin^{2}(\theta_{23})} and \quickmath{\Delta m^{2}_{32}}) parameters.
 The posterior probability density, taken from the output MCMC chain, is binned in these parameters. The parameter best-fit point is then taken to be the value that has the highest posterior probability. This is performed in both one and two-dimensional projections.
 
-However, the single best-fit point in a given parameter is not of much use on its own. We would also like to determine the uncertainty, or credible interval, on that best-fit point. The definition of the \quickmath{1\sigma} credible interval is that we have \quickmath{68\%} belief that the parameter is within those bounds. For a more generalised definition, the credible interval is the region, \quickmath{R}, of the posterior distribution that contains a specific fraction of the total probability, such that
+However, the single best-fit point in a given parameter is not of much use on its own. The uncertainty on the best-fit point must also be presented using credible intervals. The definition of the \quickmath{1\sigma} credible interval is that there is \quickmath{68\%} belief that the parameter is within those bounds. For a more generalised definition, the credible interval is the region, \quickmath{R}, of the posterior distribution that contains a specific fraction of the total probability, such that
 
 \begin{equation}
-\int_{R} P(\theta|D)d\theta = \alpha
+\int_{R} P(\theta|D)d\theta = \alpha.
 \end{equation}
 
-Where \quickmath{\theta} is the parameter on which we calculate the credible interval. This technique then calculates the \quickmath{\alpha \times 100\%} credible interval.
+Where \quickmath{\theta} is the parameter being evaluated. This technique then calculates the \quickmath{\alpha \times 100\%} credible interval.
 
 In practice, this analysis uses the highest posterior density (HPD) credible intervals which are calculated through the following method. First, the probability distribution is area-normalised such that it has an integrated area equal to \quickmath{1.0}. The bins of probability are then summed from the highest to lowest until the sum exceeds the \quickmath{1\sigma} level (\quickmath{0.68} in this example). This process is repeated for a range of credible intervals, notably the \quickmath{1\sigma}, \quickmath{2\sigma} and \quickmath{3\sigma} along with other levels where the critical values for each level can be found in \cite{Particle_Data_Group2020-ms}. This process can be repeated for the two-dimensional probability distributions by creating two-dimensional contours of credible intervals rather than a one-dimensional result. 
 
