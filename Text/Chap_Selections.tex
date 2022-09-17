@@ -1,8 +1,6 @@
 \chapter{Sample Selections and Systematics}
 \label{chap:SelsAndSysts}
 
-\finish{Say that I have merged T2K and SK which hadn't previously been done}
-
 The oscillation analysis presented within this thesis is built upon a simultaneous fit to atmospheric data at SK, neutrino beam data in the near detector, and beam data measured at SK. The definitions of these samples are documented in \autoref{sec:SelsAndSysts_Sels_Atms}, \autoref{sec:SelsAndSysts_Sels_ND}, and \autoref{sec:SelsAndSysts_Sels_FD}, respectively. The data collected and used within this analysis is detailed in \autoref{tab:SelsAndSysts_Sels_DataTotal}. The near and far detector data corresponds to T2K runs 2-9 and runs 1-10, respectively. The accumulated POT and beam power for runs \quickmath{1-10} are illustrated in \autoref{fig:SelsAndSysts_Beam_PowerAndPOT}.
 
 \begin{table}[ht!]
@@ -35,6 +33,8 @@ The systematic parameters invoked within the flux, detector, and interaction mod
   \label{fig:SelsAndSysts_Beam_PowerAndPOT}
 \end{figure}
 
+\finish{Say that I have merged T2K and SK which hadn't previously been done}
+
 \newpage
 \section{Atmospheric Samples}
 \label{sec:SelsAndSysts_Sels_Atms}
@@ -43,7 +43,7 @@ The atmospheric event selection follows the official SK-IV analysis presented in
 
 The fully contained (FC), partially contained (PC), and upward going muon events (up-\quickmath{\mu}) which pass the reduction cuts discussed in \autoref{sec:Simulations_Reduction} are further broken down into different samples based on reconstruction information. This section details the samples used within this oscillation analysis, alongside the chosen binning.
 
-FC events are first separated by the visible energy deposited within the detector. This is calculated as the sum of the reconstructed kinetic energy above the Cherenkov threshold for all rings present in the event. Events are separated by whether they were above or below \quickmath{E_{vis} = 1.33\text{GeV}}. This separates ``subGeV'' and ``multiGeV'' events. Typically, lower energy events consist of charged current quasi-elastic (CCQE) interactions which are better understood and simpler to reconstruct resulting in smaller systematic uncertainties. Events are further separated by the number of rings associated with the event due to similar reasoning. As the oscillation probability is dependent upon the flavour of neutrino, electron and muon events are separated using a similar likelihood method to that discussed in \autoref{sec:Simulation_Reconstruction}. To reduce computational resources required for the reconstruction, only electron and pion hypotheses are considered so this separation cut depends on the ratio of the electron to pion likelihoods, \quickmath{\log(L_{e}/L_{\pi})}. Finally, the number of decay electrons is used to classify events. Charged current resonant pion production (CCRES) interactions generate a final-state pion. This can decay, mostly likely through a muon, into a decay electron. Therefore any electron-like event with one decay electron or muon-like event with two decay electrons was most likely produced by a CCRES interaction. Consequently, the number of decay electrons can be used to distinguish CCQE and CCRES interaction modes. Ultimately, FC subGeV events are separated into the samples listed in \autoref{tab:SelsAndSysts_Sels_Atms_SubGeV}.
+FC events are first separated by the visible energy deposited within the detector. This is calculated as the sum of the reconstructed kinetic energy above the Cherenkov threshold for all rings present in the event. Events are separated by whether they were above or below \quickmath{E_{vis} = 1.33\text{GeV}}. This separates ``subGeV'' and ``multiGeV'' events. Typically, lower energy events consist of charged current quasi-elastic (CCQE) interactions which are better understood and simpler to reconstruct resulting in smaller systematic uncertainties. Events are further separated by the number of rings associated with the event due to similar reasoning. As the oscillation probability is dependant upon the flavour of neutrino, electron and muon events are separated using a similar likelihood method to that discussed in \autoref{sec:Simulation_Reconstruction}. To reduce computational resources required for the reconstruction, only electron and pion hypotheses are considered so this separation cut depends on the ratio of the electron to pion likelihoods, \quickmath{\log(L_{e}/L_{\pi})}. Finally, the number of decay electrons is used to classify events. Charged current resonant pion production (CCRES) interactions generate a final-state pion. This can decay, mostly likely through a muon, into a decay electron. Therefore any electron-like event with one decay electron or muon-like event with two decay electrons was most likely produced by a CCRES interaction. Consequently, the number of decay electrons can be used to distinguish CCQE and CCRES interaction modes. Ultimately, FC subGeV events are separated into the samples listed in \autoref{tab:SelsAndSysts_Sels_Atms_SubGeV}.
 
 \begin{table}[ht!]
     \centering
@@ -76,7 +76,7 @@ In addition to the cuts discussed above, multiGeV samples also have additional c
 \end{split}
 \end{align}
 
-The \quickmath{\pi^{-}} emitted from a \quickmath{\bar{\nu_{e}}} interaction is more likely to be absorbed within the oxygen nucleus than the \quickmath{\pi^{+}} from \quickmath{\nu_{e}} interactions \cite{LeeKaPik}. These pions then decay, mostly through muons, to electrons. Therefore the number of tagged decay electrons associated with an event gives an indication of whether the interaction was due to a neutrino or antineutrino: zero for \quickmath{\bar{\nu}_{e}} events, and one for \quickmath{\nu_{e}} events. The ability to separate neutrino from antineutrino events is illustrated in \autoref{tab:SelsAndSysts_Sels_AtmPurity}, where the \texttt{MultiGeV-elike-nue} has \quickmath{78\%} purity of CC neutrino interactions with only \quickmath{7\%} antineutrino background, the rest consisting of NC backgrounds.
+The \quickmath{\pi^{-}} emitted from a \quickmath{\bar{\nu_{e}}} interaction is more likely to be captured by an oxygen nucleus than the \quickmath{\pi^{+}} from \quickmath{\nu_{e}} interactions \cite{LeeKaPik}. These pions then decay, mostly through muons, to electrons. Therefore the number of tagged decay electrons associated with an event gives an indication of whether the interaction was due to a neutrino or antineutrino: zero for \quickmath{\bar{\nu}_{e}} events, and one for \quickmath{\nu_{e}} events. The ability to separate neutrino from antineutrino events is illustrated in \autoref{tab:SelsAndSysts_Sels_AtmPurity}, where the \texttt{MultiGeV-elike-nue} has \quickmath{78\%} purity of CC neutrino interactions with only \quickmath{7\%} antineutrino background, the rest consisting of NC backgrounds.
 
 The number of decay electrons discriminator works reasonably well for single-ring events. However, this is not the case for multi-ring events. A multiGeV multiring electron-like (MME) likelihood cut was introduced in \cite{PhysRevD.81.092004, PhysRevD.74.032002}. This is a two-stage likelihood selection cut. Four observables are used in the first likelihood cut to distinguish CC\quickmath{\nu_{e}} and CC\quickmath{\bar{\nu}_{e}} events from background:
 
@@ -145,7 +145,7 @@ The PC and up-\quickmath{\mu} samples are split by the amount of energy deposite
       \hline
       \hline
     \end{tabular}
-    \caption{The purity of each atmospheric sample used within this analysis, broken down by charged current (CC) and neutral current (NC) interactions and which neutrino flavour interacted within the detector. Asimov A oscillation parameter sets are assumed (given in \autoref{tab:Theory_ParameterSets}). Electron neutrino and antineutrino events are separated to illustrate the ability of the separation likelihood cuts used within the multiGeV and multiring sample selections.}
+    \caption{The purity of each atmospheric sample used within this analysis, broken down by charged current (CC) and neutral current (NC) interactions and which neutrino flavour interacted within the detector. Each row sums to \quickmath{100\%} by definition. Asimov A oscillation parameter sets are assumed (given in \autoref{tab:Theory_ParameterSets}). Electron neutrino and antineutrino events are separated to illustrate the ability of the separation likelihood cuts used within the multiGeV and multiring sample selections.}
     \label{tab:SelsAndSysts_Sels_AtmPurity}
 \end{table}
 
@@ -164,9 +164,8 @@ The atmospheric samples are binned in direct observables: reconstructed lepton m
 \section{Near Detector Beam Samples}
 \label{sec:SelsAndSysts_Sels_ND}
 
-The near detector sample selections are documented in detail within \cite{t2k_tn_395} and summarised below. Samples are selected based upon the which Fine Grained Detector (FGD) that the vertex is reconstructed in as well as the operating mode of the beam: FHC or RHC. Wrong-sign neutrino samples are considered in the RHC mode in order to add additional constraints on model parameters. Samples from the wrong-sign component of the FHC beam mode are not included as they are statistically insignificant compared to those samples already listed.
-
-For additional constraints on model parameters, wrong-sign neutrino samples are also considered when the beam is operating in RHC mode.
+The near detector sample selections are documented in detail within \cite{t2k_tn_395} and summarised below. Samples are selected based upon which of the two Fine Grained Detector (FGD) that the vertex is reconstructed in as well as the operating mode of the beam: FHC or RHC. Wrong-sign neutrino background samples are considered in the RHC mode in order to add additional constraints on model parameters. Samples from the wrong-sign component of the FHC beam mode are not included as they are statistically insignificant compared to those samples already listed.
+%For additional constraints on model parameters, wrong-sign neutrino samples are also considered when the beam is operating in RHC mode.
 
 The reconstruction algorithm uses a clustering algorithm to group hits within the TPC. It then adds information from the upstream FGD to form a track which passes through both sub-detectors. In FHC(RHC), the highest momentum negative(positive) curvature track is defined as the muon candidate. Before being assigned a sample, these candidate muon events must pass CC-inclusive cuts, as defined in \cite{t2k_tn_212}:
 
@@ -187,7 +186,7 @@ In addition to these cuts, RHC neutrino events also have to undergo the followin
 \item TPC1 Veto: Remove any events originating upstream of TPC1
 \end{itemize}
 
-Once all CC-inclusive events have been determined, they are further split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. These target specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs and FGDs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. If the pion originated within a FGD, it must also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). 
+Once all CC-inclusive events have been determined, they are further split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. These target the specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs and FGDs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. If the pion originated within a FGD, it must also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). 
 
 CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther samples are defined with the following cuts:
 
@@ -294,7 +293,7 @@ Where \quickmath{M_{N}}, \quickmath{M_{P}} and \quickmath{m_{l}} are the masses 
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/FHCCC1pi-2020_X.pdf}
     \subcaption{FHC CC\quickmath{1\pi^{+}}}
   \end{subfigure}
-  \caption{The reconstructed neutrino energy, as defined by \autoref{sec:SelsAndSysts_Erec_CCQE} and \autoref{sec:SelsAndSysts_Erec_CCRES}, for the \quickmath{1\text{R}\mu}-like, \quickmath{1\text{R}e}-like and CC\quickmath{1\pi^{+}}-like samples. Asimov A oscillation parameter sets are assumed (given in \autoref{tab:Theory_ParameterSets}). These samples are the FHC mode samples. For ease of viewing, the \quickmath{1\text{R}\mu} sample only shows the \quickmath{0. \leq E^{rec}_{\nu} < 3.0 \text{GeV}} but the binning extends to \quickmath{30.0 \text{GeV}}.}
+  \caption{The reconstructed neutrino energy, as defined by \autoref{sec:SelsAndSysts_Erec_CCQE} and \autoref{sec:SelsAndSysts_Erec_CCRES}, for the \quickmath{1\text{R}\mu}-like, \quickmath{1\text{R}e}-like and CC\quickmath{1\pi^{+}}-like samples. The AsimovA oscillation parameters are assumed (given in \autoref{tab:Theory_ParameterSets}). These samples are the FHC mode samples. For ease of viewing, the \quickmath{1\text{R}\mu} sample only shows the \quickmath{0. \leq E^{rec}_{\nu} < 3.0 \text{GeV}} but the binning extends to \quickmath{30.0 \text{GeV}}.}
   \label{fig:SelsAndSysts_Beam_ERecSpectra}
 \end{figure}
 
