@@ -98,7 +98,7 @@ As a requirement for MCMCs, the Markov chain implemented in this technique must 
   \alpha(\vec{x}_{i},\vec{y}_{i+1}) = \min\left(1,\frac{P(\vec{y}_{i+1}|D)f(\vec{x}_{i}|\vec{y}_{i+1})}{P(\vec{x}_{i}|D)f(\vec{y}_{i+1}|\vec{x}_{i})} \right).
 \end{equation}
 
-Where \quickmath{P(\vec{y}_{i+1}|D)} is the posterior distribution as introduced in \autoref{sec:MarkovChainMonteCarlo_BayesianStatistics}. To simplify this calculation, the proposal function is required to be symmetric such that \quickmath{f(\vec{x}_{i}|\vec{y}_{i+1}) = f(\vec{y}_{i+1}|\vec{x}_{i})}. In practice, a multi-variate Gaussian distribution is used to throw parameter proposals. This reduces \autoref{eq:MarkovChainMonteCarlo_FullAcceptanceProbability} to
+Where \quickmath{P(\vec{y}_{i+1}|D)} is the posterior distribution as introduced in \autoref{sec:MarkovChainMonteCarlo_BayesianStatistics}. To simplify this calculation, the proposal function is required to be symmetric such that \quickmath{f(\vec{x}_{i}|\vec{y}_{i+1}) = f(\vec{y}_{i+1}|\vec{x}_{i})}. In practice, a multi-variate Gaussian distribution centered on \quickmath{\vec{x}_{i}} is used to throw parameter proposals. This reduces \autoref{eq:MarkovChainMonteCarlo_FullAcceptanceProbability} to
 
 \begin{equation}
   \label{eq:MarkovChainMonteCarlo_ReducedAcceptanceProbability}
@@ -132,13 +132,13 @@ As discussed, step size tuning directly correlates to the average step acceptanc
 
 where \quickmath{N_{p}} is the number of parameters included in the MCMC fit. However, the complex correlations between systematics mean that some parameters have to be hand-tuned and many efforts have been taken to select a set of parameter-by-parameter step sizes to approximately reach the ideal acceptance rate.
 
-\autoref{fig:MCMC_MCTechniqueLLHVsStep} highlights the likelihood as calculated by the fit in \finish{Link to AsimovA Sensitivity Section} as a function of the number of steps in each chain. In practice, many independent MCMC chains are run simultaneously to parallelise the task of performing the fit. This figure overlays the distribution found in each chain. As seen, the likelihood decreases from its initial value and converges towards a stationary distribution after \quickmath{\sim 1 \times 10^{5}} steps.
+\autoref{fig:MCMC_MCTechniqueLLHVsStep} highlights the likelihood as calculated by the fit in \autoref{sec:OscillationAnalysis_JointFit} as a function of the number of steps in each chain. In practice, many independent MCMC chains are run simultaneously to parallelise the task of performing the fit. This figure overlays the distribution found in each chain. As seen, the likelihood decreases from its initial value and converges towards a stationary distribution after \quickmath{\sim 1 \times 10^{5}} steps.
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.8\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/MCMC/MCTechnique_LLHStep.pdf}
   \end{subfigure}
-  \caption{The log-likelihood from the fit detailed in \finish{Link to AsimovA Sensitivity Section} as a function of the number of steps accumulated in each fit. Many independent MCMC chains were run in parallel and overlaid on this plot. The red line indicates the \quickmath{1 \times 10^{5}} step burn-in period after which the log-likelihood becomes stable.}
+  \caption{The log-likelihood from the fit detailed in \autoref{sec:OscillationAnalysis_JointFit} as a function of the number of steps accumulated in each fit. Many independent MCMC chains were run in parallel and overlaid on this plot. The red line indicates the \quickmath{1 \times 10^{5}} step burn-in period after which the log-likelihood becomes stable.}
   \label{fig:MCMC_MCTechniqueLLHVsStep}
 \end{figure}
 
