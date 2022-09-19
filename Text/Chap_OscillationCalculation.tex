@@ -22,18 +22,22 @@ As a consequence of the unresolvable structure, an event rate consistent with th
   \label{fig:Oscillation_SK_FastOscillogram}
 \end{figure}
 
-\finish{Figure out what this actually means}
 The official SK-only analysis uses the osc3++ oscillation parameter fitter \cite{thesis_roger}. To perform the fast oscillation averaging, it uses a 'nearest-neighbour' technique. For a given Monte Carlo neutrino event, the nearest twenty Monte Carlo neighbours in reconstructed lepton momentum and zenith angle are found and a distribution of their neutrino energies is built. The RMS, \quickmath{\sigma}, of this distribution is then used to compute an average oscillation probability for the given neutrino Monte Carlo event. 
 
 For the \quickmath{i^{th}} event, the oscillation weight is calculated as
 
 \begin{equation}
+  \label{eq:SKOscProbCalc}
   W_{i} = \frac{1}{5} P(E_{i},\bar{L}_{i}) + \frac{1}{5} \sum_{\beta = -1, -0.5, 0.5, 1} P(E_{i} + \beta\sigma_{i},L_{\beta}),
 \end{equation}
 
-where \quickmath{P(E,L)} is the oscillation probability calculation for neutrino energy \quickmath{E} and path length \quickmath{L} and the two path lengths, \quickmath{\bar{L}_{i}} and \quickmath{L_{\beta}} are discussed below. All of the oscillation probability calculations are performed with a fixed zenith angle such that the same density profile is used.
+where \quickmath{P(E,L)} is the oscillation probability calculation for neutrino energy \quickmath{E} and path length \quickmath{L} and the two path lengths, \quickmath{\bar{L}_{i}} and \quickmath{L_{\beta}} are described below. All of the oscillation probability calculations are performed with a fixed zenith angle such that the same density profile is used. The uncertainty in the production height is controlled by using an ``average'' production height, \quickmath{\bar{L}_{i}}, which represents the average path length computed using twenty production heights taken from the Honda flux model's prediction \cite{Honda:2011}. These inputs are provided in \quickmath{5\%} intervals of the cumulative distribution function. The value of \quickmath{\bar{L}_{i}} is calculated as:
 
-The uncertainty in the production height is controlled by using an ``average'' production height, \quickmath{\bar{L}_{i}}, which represents the average path length computed using twenty production heights taken from the Honda flux model's prediction \cite{Honda:2011}. For a given event, the production heights are sampled in steps of \quickmath{5\%} of their cumulative distribution function. \quickmath{L_{\beta}} values are similarly calculated but instead use different combinations of four production heights,
+\begin{equation}
+  \bar{L}_{i} = \frac{1}{20} \sum^{20}_{j=1} \sqrt{ \left(R_{E} + h_{j} \right)^{2} - R_{E}^{2} \left(1 - \cos^{2}\theta_{i} \right) } - R_{E} \cos\theta_{i}.
+\end{equation}
+
+Where \quickmath{R_{E}} is the Earth's radius and \quickmath{\theta_{i}} is the zenith angle of the \quickmath{i^{th}} event. The production heights \quickmath{h_{j}} represent the \quickmath{(j \times 5)^{th}} percentile of the cumulative distribution function. \quickmath{L_{\beta}} values (where the values of \quickmath{\beta} are given in \autoref{eq:SKOscProbCalc}) are similarly calculated but instead use different combinations of four production heights,
 
 \begin{equation}
   \begin{split}
@@ -43,6 +47,8 @@ The uncertainty in the production height is controlled by using an ``average'' p
     L_{+1.0} &= \frac{1}{4} L(15,20,85,89). \\
   \end{split}
 \end{equation}
+
+Where \quickmath{L(i,j,k,l)} represents the sum of the of the path lengths with fixed zenith angle and production heights corresponding to the \quickmath{i^{th}}, \quickmath{j^{th}}, \quickmath{k^{th}} and \quickmath{l^{th}} percentile of the cuumulative distribution function. The values that are taken as \quickmath{\beta} (and values for \quickmath{L_{\beta}}) are chosen to smooth the oscillation contours in \quickmath{\Delta m^{2}_{32}} without incurring loss of sensitivity \cite{t2k_tn_425}.
 
 This averaging technique works because of the inference between the zenith angle and the reconstructed direction of final state particles in the detector. For low-energy neutrinos, where the resolution of the true neutrino direction is poor, \quickmath{\sigma_{i}} will be large, resulting in significant averaging effects. Contrary to this, the inferred direction of high-energy neutrinos will be much closer to the true value, meaning that \quickmath{\sigma_{i}} will be smaller, culminating in small averaging effects.
 
