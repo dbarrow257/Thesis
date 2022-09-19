@@ -7,7 +7,7 @@ The oscillation parameter determination presented here is built upon a simultane
 
 This analysis uses a Monte Carlo technique to generate a multi-dimensional probability distribution across all of the model parameters used in the fit. To determine an estimate for each parameter, this multi-dimensional object is integrated over all other parameters. This process is called Marginalisation and is described in \autoref{sec:MarkovChainMonteCarlo_Marginalisation}. Monte Carlo techniques approximate the probability distribution of each parameter within the limit of generating infinite samples. As ever, generating a large number of samples is time and resource-dependent. Therefore, an MCMC technique is utilised within this analysis to reduce the required number of steps to sufficiently sample the parameter space. This technique is described in further detail in \autoref{sec:MarkovChainMonteCarlo_MarkovChainMC}.
 
-\finish{Introduce MaCh3 and say what I did on it}
+The Bayesian analysis techniques used within this thesis are built within the \texttt{MaCh3} framework \cite{t2k_tn_140}. This uses a custom MCMC library package exclusively supported and developed by the \texttt{MaCh3} collaborators (which includes the author of this thesis). 
 
 \section{Bayesian Statistics}
 \label{sec:MarkovChainMonteCarlo_BayesianStatistics}
