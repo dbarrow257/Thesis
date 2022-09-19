@@ -216,7 +216,7 @@ These experiments confirmed the \quickmath{\nu_{\mu}} disappearance seen in atmo
 The current generation of accelerator neutrino experiments, T2K and \quickmath{\text{NO}\nu\text{A}} extended this field by observing \quickmath{\bar{\nu}_{\mu} \rightarrow \bar{\nu}_{e}} and lead the sensitivity to atmospheric mixing parameters as seen in \autoref{fig:NeutrinoOscillationPhysics_AtmosphericParamContour} \cite{PhysRevLett.123.151803}.
 The two experiments differ in their peak neutrino energy, baseline, and detection technique.
 The \quickmath{\text{NO}\nu\text{A}} experiment is situated at a baseline of \quickmath{810\text{km}} from the NuMI beamline which delivers \quickmath{2\text{GeV}} neutrinos.
-The T2K neutrino beam is peaked around \quickmath{0.6 \text{GeV}} and propagates \quickmath{295\text{km}}.
+The T2K neutrino beam is peaked around \quickmath{0.6 \text{GeV}} and propagates \quickmath{295\text{km}} \cite{t2k_det}.
 Additionally, the \quickmath{\text{NO}\nu\text{A}} experiment uses functionally identical detectors (near and far) whereas T2K uses a plastic scintillator technique at the near detector and a water Cherenkov far detector.
 The future generation experiments DUNE \cite{Abi2020-cm} and Hyper-Kamiokande \cite{Hyper-Kamiokande_Proto-Collaboration2015-ac} will succeed these experiments as the high-precision era of neutrino oscillation parameter measurements develops.
 
@@ -351,3 +351,114 @@ Throughout this thesis, several sample spectra predictions and contours are pres
     \caption{Reference values of the neutrino oscillation parameters for two different oscillation parameter sets.}
     \label{tab:Theory_ParameterSets}
 \end{table}
+
+\section{Overview of Oscillation Effects}
+\label{sec:Oscillation_Overview}
+
+The analysis presented within this thesis focuses on the determination of oscillation parameters from atmospheric and beam neutrinos. Whilst subject to the same oscillation formalism, the way in which the two samples have sensitivity to the different oscillation parameters differs significantly.
+
+Atmospheric neutrinos have a varying baseline, or ``path length'' \quickmath{L}, such that the distance each neutrino travels before interacting is dependent upon the zenith angle, \quickmath{\theta_{Z}}. As primary cosmic rays can interact anywhere between the Earth's surface and \quickmath{\sim50\text{km}} above that, the height, \quickmath{h}, in the atmosphere at which the neutrino was generated also affects the path length,
+
+\begin{equation}
+  L = \sqrt{\left(R_{E} + h\right)^{2} - R_{E}^{2} \left(1 - \cos^{2} \left(\theta_{Z} \right) \right)} - R_{E}\cos(\theta_{Z}).
+\end{equation}
+
+\finish{Ask Giles what he means about the horizontal issue and Layering in the ProdH section}
+
+Where \quickmath{R_{E} = 6,371\text{km}} is the Earth's radius. Consequently, the oscillation probability is dependent upon two parameters, \quickmath{\cos(\theta_{Z})} and \quickmath{E_{\nu}}.
+
+The oscillation probability used within this analysis is based on \cite{Barger:1980tf}. The neutrino wavefunction in the vacuum Hamiltonian evolves in each layer of constant matter density via
+
+\begin{equation}
+  i \frac{d\psi_{j}(t)}{dt} = \frac{m_{j}^{2}}{2E_{\nu}} \psi_{j}(t) - \sum_{k} \sqrt{2} G_{F} N_{e} U_{ej} U_{ke}^{\dagger} \psi_{k}(t),
+\end{equation}
+
+where \quickmath{m_{j}^{2}} is the square of the \quickmath{j^{th}} vacuum eigenstate mass, \quickmath{E_{\nu}} is the neutrino energy, \quickmath{G_{F}} is Fermi's constant, \quickmath{N_{e}} is the electron number density and \quickmath{U} is the PMNS matrix. The transformation \quickmath{N_{e} \rightarrow -N_{e}} and \quickmath{\delta_{CP} \rightarrow -\delta_{CP}} is applied for antineutrino propagation. Thus, a model of the Earth's density is required for neutrino propagation. Following the official SK-only methodology \cite{thesis_roger}, this analysis uses the Preliminary Reference Earth Model (PREM) \cite{Dziewonski1981-sp} which provides piecewise cubic polynomials as a function of the Earth's radius. This density profile is illustrated in \autoref{fig:Oscillation_SK_PREMModelApproximation}. As the propagator requires layers of constant density, the SK methodology approximates the PREM model by using four layers of constant density \cite{thesis_roger}, detailed in \autoref{tab:NeutrinoOscillationPhysics_PREMModel}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/DensityComparison.pdf}
+  \end{subfigure}
+  \caption{The density of the Earth given as a function of the radius, as given by the PREM model (Black), and the constant density four-layer approximation (Blue), as used in the official SK-only analysis.}
+  \label{fig:Oscillation_SK_PREMModelApproximation}
+\end{figure}
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|c|c|c}
+      \hline
+      Layer & Outer Radius [\quickmath{\text{km}}] & Density [\quickmath{\text{g/cm}^{3}}] & Chemical composition (Z/A) \\
+      \hline
+      Inner Core & \quickmath{1220} & \quickmath{13} & \quickmath{0.468 \pm 0.029} \\
+      Outer Core & \quickmath{3480} & \quickmath{11.3} & \quickmath{0.468 \pm 0.029} \\
+      Lower Mantle & \quickmath{5701} & \quickmath{5.0} & \quickmath{0.496} \\
+      Transition Zone & \quickmath{6371} & \quickmath{3.3} & \quickmath{0.496} \\
+      \hline
+    \end{tabular}
+    \caption{Description of the four layers of the Earth invoked within the constant density approximation of the PREM model \cite{Dziewonski1981-sp}.}
+    \label{tab:NeutrinoOscillationPhysics_PREMModel}
+\end{table}
+
+The atmospheric neutrino oscillation probabilities can be presented as two dimensional ``oscillograms'' as illustrated in \autoref{fig:Oscillation_SK_BasicOscillogram}. The distinct discontinuities, as a function of \quickmath{\cos(\theta_{Z})}, are due to the discontinuous density in the PREM model.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/BasicOscillogramWithNotes.pdf}
+  \end{subfigure}
+  \caption{An ``oscillogram'' that depicts the \quickmath{P(\nu_\mu \rightarrow \nu_e)} oscillation probability as a function of neutrino energy and cosine of the zenith angle. The zenith angle is defined such that \quickmath{\cos(\theta_{Z}) = 1.0} represents neutrinos that travel from directly above the detector. The four-layer constant density PREM model approximation is used and Asimov A oscillation parameters are assumed (\autoref{tab:Theory_ParameterSets}).}
+  \label{fig:Oscillation_SK_BasicOscillogram}
+\end{figure}
+
+Atmospheric neutrinos have sensitivity to \quickmath{\delta_{CP}} through the overall event rate. \autoref{fig:Oscillation_SK_DCPSensitivity} illustrates the difference in oscillation probability between CP-conserving (\quickmath{\delta_{CP} = 0.}) and a CP-violating (\quickmath{\delta_{CP} = -1.601}) value taken from Asimov A oscillation parameter set (\autoref{tab:Theory_ParameterSets}). The result is a complicated oscillation pattern in the appearance probability for sub-GeV upgoing neutrinos. The detector does not have sufficient resolution to resolve these individual patterns so the sensitivity to \quickmath{\delta_{CP}} for atmospheric neutrinos comes via the overall normalisation of these events.
+
+The presence of matter means that the effect \quickmath{\delta_{CP}} has on the oscillation probability is not equal between neutrinos and antineutrinos. Furthermore, the interaction cross-section for neutrinos is larger than for antineutrinos so the two effects have to be disentangled. These effects are further convoluted by detector efficiencies as SK cannot distinguish neutrinos and antineutrinos well. All of these effects lead to a difference in the number of neutrinos detected compared to antineutrinos. This changes how the \quickmath{\delta_{CP}} normalisation term is observed, resulting in a very complex sensitivity to \quickmath{\delta_{CP}}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/AtmDCPSens.pdf}
+  \end{subfigure}
+  \caption{The effect of \quickmath{\delta_{CP}} for atmospheric neutrinos given in terms of the neutrino energy and zenith angle. This oscillogram compares the \quickmath{P(\nu_{\mu} \rightarrow \nu_{e})} oscillation probability for a CP conserving (\quickmath{\delta_{CP}=0.0}) and a CP violating (\quickmath{\delta_{CP}=-1.601}) value taken from the Asimov A parameter set. The other oscillation parameters assume the Asimov A oscillation parameter set given in \autoref{tab:Theory_ParameterSets}.}
+  \label{fig:Oscillation_SK_DCPSensitivity}
+\end{figure}
+
+The vacuum and matter oscillation probabilities for \quickmath{P(\nu_{e} \rightarrow \nu_{e})} and \quickmath{P(\bar{\nu}_{e} \rightarrow \bar{\nu}_{e})} are presented in \autoref{fig:Oscillation_SK_VacuumMatter}, where the PREM model has been assumed. The oscillation probability for both neutrinos and antineutrinos is affected in the presence of matter. However, the resonance effects around \quickmath{O(5)\text{GeV}} only occur for neutrinos in the normal mass hierarchy and antineutrinos in the inverse mass hierarchy. The exact position and amplitude of the resonance depend on \quickmath{\sin^{2}(\theta_{23})}, further increasing the atmospheric neutrinos' sensitivity to the parameter.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/MatterEffect.pdf}
+  \end{subfigure}
+  \caption{An illustration of the matter-induced effects on the oscillation probability, given as a function of neutrino energy and zenith angle. The top row of panels gives the \quickmath{P(\nu_{e} \rightarrow \nu_{e})} oscillation probability and the bottom row illustrates the \quickmath{P(\bar{\nu}_{e} \rightarrow \bar{\nu}_{e})} oscillation probability. The left column highlights the oscillation probability in a vacuum, whereas the middle and right column represents the oscillation probabilities when the four-layer fixed density PREM model is assumed. All oscillation probabilities assume the ``Asimov A'' set given in \autoref{tab:Theory_ParameterSets}, but importantly, the right column sets an inverted mass hierarchy. The ``matter resonance'' effects at \quickmath{E_{\nu} \sim 5\text{GeV}} can be seen in the \quickmath{P(\nu_{e} \rightarrow \nu_{e})} for normal mass hierarchy and \quickmath{P(\bar{\nu}_{e} \rightarrow \bar{\nu}_{e})} for inverted hierarchy.}
+  \label{fig:Oscillation_SK_VacuumMatter}
+\end{figure}
+
+As the T2K beam flux is centered at the first oscillation maximum (\quickmath{E_{\nu} = 0.6\text{GeV}}) \cite{t2k_det}, the sensitivity to \quickmath{\delta_{CP}} is predominantly observed as a change in the event-rate of e-like samples in \quickmath{\nu/\bar{\nu}} modes. \autoref{fig:Oscillation_T2K_OscillationProbSensitivity} illustrates the \quickmath{P(\nu_\mu \rightarrow \nu_e)} oscillation probability for a range of \quickmath{\delta_{CP}} values. %The magnitude of the oscillation peak has an approximate factor of two difference between the CP-violating values \quickmath{\delta_{CP} = \pm\pi/2} and the difference in oscillation probability between the CP-conserving
+A circular modulation of the first oscillation peak (in both magnitude and position) is observed when varying throughout the allowable values of \quickmath{\delta_{CP}}. The CP-conserving values of \quickmath{\delta_{CP}=0,\pi} have a lower(higher) oscillation maximum than the CP-violating values of \quickmath{\delta_{CP}=-\pi/2}(\quickmath{\delta_{CP}=\pi/2}). A sub-dominant shift in the energy of the oscillation peak is also present, which aids in separating the two CP-conserving values of \quickmath{\delta_{CP}}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/T2K_NuMu_x_NuMu_DelMsq32Sens.pdf}
+    \subcaption{\quickmath{\Delta m^{2}_{32}}}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/T2K_NuMu_x_NuMu_Sinsqth23Sens.pdf}
+    \subcaption{\quickmath{\sin^{2}(\theta_{23})}}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/T2K_NuMu_x_NuE_DCPSens.pdf}
+    \subcaption{\quickmath{\delta_{CP}}}
+  \end{subfigure}
+  \caption{The oscillation probability for beam neutrino events given as a function of neutrino energy. All oscillation parameters assume the ``Asimov A'' set given in \autoref{tab:Theory_ParameterSets} unless otherwise stated. Each panel represents a change in one of the oscillation parameters whilst keeping the remaining parameters fixed.}
+  \label{fig:Oscillation_T2K_OscillationProbSensitivity}
+\end{figure}
+
+T2K's sensitivity to \quickmath{\sin^{2}(\theta_{23})} and \quickmath{\Delta m^{2}_{32}} is observed as a shape-based variation of the muon-like samples, as illustrated in \autoref{fig:Oscillation_T2K_OscillationProbSensitivity}. The value of \quickmath{\Delta m^{2}_{32}} laterally shifts the position of the oscillation dip (around \quickmath{E_\nu \sim 0.6\text{GeV}}) in the \quickmath{P(\nu_\mu \rightarrow \nu_\mu)} oscillation probability. A variation of \quickmath{\sin^{2}(\theta_{23})} is predominantly observed as a vertical shift of the oscillation dip with second-order horizontal shifts being due to matter effects. The beam neutrinos have limited sensitivity to matter effects due to the relatively shorter baseline as well as the Earth's mantle being a relatively low-density material (as compared to the Earth's core). For some values of \quickmath{\delta_{CP}}, the degeneracy in the number of e-like events allows the mass hierarchy to be broken. This leads to a \quickmath{\delta_{CP}}-dependent mass hierarchy sensitivity which can be seen in \autoref{fig:Oscillation_SK_BiProbabilityPlot}.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.65\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Oscillation/BiProbabilityPlot.pdf}
+  \end{subfigure}
+  \caption{The number of electron-like events in the FHC and RHC operating mode of the beam, as a function of the oscillation probabilities. Both normal hierarchy (Solid)) and inverse hierarchy (Dashed) values of \quickmath{\Delta m^{2}_{32}} are given.}
+  \label{fig:Oscillation_SK_BiProbabilityPlot}
+\end{figure}
+
+Whilst all oscillation channels should be included for completeness, the computational resources required to run a fit are limited and any reasonable approximations which reduce the number of oscillation probability calculations that need to be made should be applied. The \quickmath{\nu_{e} \rightarrow \nu_{e,\mu,\tau}} (and antineutrino equivalent) oscillations can be ignored for beam neutrinos as the \quickmath{\nu_{e}/\bar{\nu}_{e}} fluxes are approximately two orders of magnitude smaller than the corresponding \quickmath{\nu_{\mu}/\bar{\nu}_{\mu}} flux. Furthermore, as the peak neutrino energy of the beam is well below the threshold for charged current tau production (\quickmath{E_\nu = 3.5\text{GeV}} \cite{Li_2018}), only a small proportion of the neutrinos produced in the beam have the required energy. For the few neutrinos that have sufficient energy, the oscillation probability is very small due to their energy being well above the oscillation maximum (small value of \quickmath{L/E}). Whilst these approximations have be made for the beam neutrinos, the atmospheric flux of \quickmath{\nu_{e}} is of the same order of magnitude as the \quickmath{\nu_{\mu}} flux and the energy distribution of atmospheric neutrinos extends well above the tau production threshold. These events can have non-negligible oscillation probabilities due to the further distance they travel.
