@@ -104,7 +104,7 @@ Background events consist of CC\quickmath{\nu_{\mu}} and NC interactions. Typica
       \texttt{MultiRing-elike-nuebar} & Two or more ring events with leading energy \quickmath{e}-like ring \\ 
       & \hspace{0.2cm} and passed MME and failed \quickmath{\nu/\bar{\nu}} separation cuts\\ \hline
       \texttt{MultiRing-mulike} & Two or more ring events with leading energy \quickmath{\mu}-like \\ 
-      & \hspace{0.2cm} ring and only requires \quickmath{E_{vis} > 0.6\text{GeV}} \finish{Why is this not 1.33GeV? Need to ask SK} \\ \hline
+      & \hspace{0.2cm} ring and only requires \quickmath{E_{vis} > 0.6\text{GeV}} \\ \hline
       \texttt{MultiRing-Other1} & Two or more ring events with leading energy \quickmath{e}-like \\ 
       & \hspace{0.2cm} ring and failed the MME likelihood cut \\ 
       \hline
@@ -287,7 +287,6 @@ Where \quickmath{M_{N}}, \quickmath{M_{P}} and \quickmath{m_{l}} are the masses 
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/Legend.pdf}
-    %\subcaption{}
   \end{subfigure}%
   \begin{subfigure}[t]{0.49\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/FHCCC1pi-2020_X.pdf}
@@ -531,9 +530,15 @@ Final contributions to the covariance matrix are determined by supplementary unc
 %The muon misidentification rate is estimated by comparing the number of electron-like events which have one decay electron to the total number of events with one decay electron. This systematic is estimated as a \quickmath{30\%} effect in the rate of muon misidentification.
 A fiducial volume systematic of \quickmath{\pm 2.5\text{cm}} which corresponds to a \quickmath{0.5\%} shift in the normalisation of events is also applied. Additional normalisation uncertainties based on neutrino flavour and interaction mode are also defined in \cite{t2k_tn_399, t2k_tn_186, t2k_tn_107}.
 
-Two additional sources of uncertainty are included: secondary and photo-nuclear interactions. These are estimated by varying the underlying parameters are building a distribution of sample event rates. These contributions are then added in quadrature to the above covariance matrix.
+Two additional sources of uncertainty are included: secondary and photo-nuclear interactions. These are estimated by varying the underlying parameters are building a distribution of sample event rates. These contributions are then added in quadrature to the above covariance matrix. The final uncertainty on the SK detector systematics are provided in \autoref{fig:SelsAndSysts_SKCovDiagonals}. 
 
-\finish{Matrix Diagonals from SK Det Matrix}
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.9\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/Selections/SK_Error_2020_Erec.pdf}
+  \end{subfigure}
+  \caption{The uncertainty on each of the 44 parameters describing the SK detector systematics (The energy scale systematic is neglected). The parameters are split by sample, oscillation channel, interaction mode and reconstructed neutrino energy.}
+  \label{fig:SelsAndSysts_SKCovDiagonals}
+\end{figure}
 
 \subsubsection{Atmospheric Samples}
 \label{sec:SelsAndSysts_Systs_FDAtm}
