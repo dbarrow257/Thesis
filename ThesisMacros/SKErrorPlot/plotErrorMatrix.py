@@ -90,6 +90,6 @@ for div in sample_divs :
 
 #plt.tight_layout()
 #ax.legend()
-plt.savefig('SK_Error_2021_'+out_string+'_MR.pdf', bbox_inches='tight')
+plt.savefig('SK_Error_2020_'+out_string+'.pdf', bbox_inches='tight')
 
 plt.show()
