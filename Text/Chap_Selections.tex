@@ -184,15 +184,13 @@ In addition to these cuts, RHC neutrino events also have to undergo the followin
 \item TPC1 Veto: Remove any events originating upstream of TPC1
 \end{itemize}
 
-Once all CC-inclusive events have been determined, they are further split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. This breakdown targets the specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs and FGDs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. If the pion originated within a FGD, it must also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). 
+Once all CC-inclusive events have been determined, they are further split by pion multiplicity: CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther. This breakdown targets the specific interaction modes CCQE, CCRES, and other CC background interactions, respectively. Pions in the TPCs are selected by requiring a second track to be observed, which is separate from the muon track and is in the same beam spill window and sub-detector. The number of FGD pions is equal to the number of Michel electrons which were tagged within the same sub-detector and spill window. If this value is equal to zero, the number of FGD pions is equivalent to the number of pion-like tracks which have \quickmath{dE/dx} measurements consistent with the pion hypothesis and have a vertex consistent with that of the muon candidate. This pion track also pass through the sequential downstream TPC (TPC2 for FGD1, TPC3 for FGD2). The Michel electron tagging is preferential as a delayed Michel is almost always a pion, whereas a track in the FGD that is consistent with a pion could be another particle. Michel electrons are neglected in the TPC as the pions very rarely stop due to the low density.
 
 CC\quickmath{0\pi}, CC\quickmath{1\pi}, and CCOther samples are defined with the following cuts:
 
-\finish{Understand pion cuts at ND}
-
 \begin{itemize}
 \item \textbf{\quickmath{\nu_{\mu} \text{CC} 0\pi} Selection}: No electrons in TPC and no charged pions or decay electrons within the TPC or FGD
-\item \textbf{\quickmath{\nu_{\mu} \text{CC} 1\pi} Selection}: Exactly one charged pion in either the TPC or FGD, where the number of charged pions in the FGD is equal to the number of decay electrons
+\item \textbf{\quickmath{\nu_{\mu} \text{CC} 1\pi} Selection}: Exactly one charged pion in either the TPC or FGD
 \item \textbf{\quickmath{\nu_{\mu} \text{CCOther}} Selection}: All events which are not classified into the above two selections
 \end{itemize}
 
