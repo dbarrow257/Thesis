@@ -105,8 +105,6 @@ Where \quickmath{P(\vec{y}_{i+1}|D)} is the posterior distribution as introduced
   \alpha(\vec{x}_{i},\vec{y}_{i+1}) = \min\left(1,\frac{P(\vec{y}_{i+1}|D)}{P(\vec{x}_{i}|D)} \right).
 \end{equation}
 
-\finish{Figure out what Giles means}
-
 After calculating this quantity, a random number, \quickmath{\beta}, is generated uniformly between 0 and 1. If \quickmath{\beta \leq \alpha(\vec{x}_{i},\vec{y}_{i+1})}, the proposed step is accepted. Otherwise, the chain sets the next step equal to the current step. This procedure is repeated for subsequent steps. This can be interpreted as if the posterior probability of the proposed step is greater than that of the current step, (\quickmath{P(\vec{y}_{i+1}|D) \geq P(\vec{x}_{i}|D)}), the proposed step will always be accepted. If the opposite is true, (\quickmath{P(\vec{y}_{i+1}|D) \leq P(\vec{x}_{i}|D)}), the proposed step will be accepted with probability \quickmath{P(\vec{x}_{i}|D) / P(\vec{y}_{i+1}|D)}. This ensures that the Markov chain does not get trapped in any local minima in the potentially non-Gaussian posterior distribution. The outcome of this technique is that the density of steps taken in a discrete region is directly proportional to the probability density in that region.
 
 \subsection{MCMC Optimisation}
