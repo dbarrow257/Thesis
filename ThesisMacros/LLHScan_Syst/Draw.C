@@ -131,7 +131,7 @@ void Draw() {
     Hists[5] = (TH1D*)File->Get("Samples/ND/ND_"+SystNames[iSyst]);
     
     //Hists[0]->SetTitle("");
-    Hists[0]->SetTitle("");
+    //Hists[0]->SetTitle("");
     Hists[0]->GetYaxis()->SetTitle("-2 #times ln(Likelihood)");
     Hists[0]->GetXaxis()->SetTitle("Dial Value");
     Hists[0]->GetYaxis()->SetTitleOffset(0.95);
