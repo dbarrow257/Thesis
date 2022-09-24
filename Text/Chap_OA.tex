@@ -841,13 +841,6 @@ These values compare to \quickmath{B(\text{NH}/\text{IH}) = 1.08} and \quickmath
 
 The sensitivity of the beam-only and joint beam-atmospheric analysis to \quickmath{\Delta m^{2}_{32}} is given in \autoref{fig:OscillationAnalysis_JointFit_AsimovB_DELM23}. Both of the results are marginalised over both hierarchies and the reactor constraint is not applied in either analysis. The joint analysis has a stronger preference for the correct hierarchy (NH) which is shown by the higher Bayes factor (\quickmath{B(\text{NH}/\text{IH}) = 1.43}) compared to the beam-only analysis (\quickmath{B(\text{NH}/\text{IH}) = 1.08}). 
 
-\iffalse
-\subsection{Alternative Detector Model Concept}
-\label{sec:AlternativeDetectorModel}
-
-\finish{Complete this section}
-\fi
-
 \subsection{Effect of Systematics}
 \label{sec:EffectOfSystematics}
 
@@ -914,3 +907,30 @@ Beyond the impact on the uncertainty of each sample's event rate, the uncertaint
   \caption{Central values and \quickmath{1\sigma} uncertainties for a select group of interaction systematics. The constraints from the prior uncertainty (Black), joint atmospheric-beam fit given in \autoref{sec:OscillationAnalysis_JointFit} (Red) and beam-only analysis \cite{Dunne2020-uf, t2k_tn_393} (Blue) are presented. The top pad of each plot presents the parameter variation and the bottom pad represents the ratio of the uncertainty between the joint beam-atmospheric and beam-only fits, where a value below \quickmath{1.0} means the joint fit has a tighter constraint than the beam-only analysis. }
   \label{fig:OscillationAnalysis_ParameterConstraints}
 \end{figure}
+
+\clearpage
+\subsection{Alternative Detector Model Concept}
+\label{sec:AlternativeDetectorModel}
+\finish{Complete this section}
+
+As a plausible extension to the analysis already presented, this section considers the joint beam-atmospheric fit results when the correlated detector model documented in \autoref{sec:SelsAndSysts_Systs_Correlated} is used instead of the inputs provided by the two experiments. The results shown here should be considered preliminary as the results need further investigation to ensure their reliabity. This technique fits the detector systematics simultaneously with the sample spectra so the definition of the likelihood, given in \autoref{sec:OscillationAnalysis_LLHCalc}, needs to be modified. Following the method outlined in \finish{Xiaoyue's thesis}, the likelihood becomes,
+
+\begin{equation}
+  \label{eqn:Likelihood:Likelihood_CorrelatedDetectorModel}
+  \begin{split}
+    &-\ln(\mathcal{L}) = \\
+    & \sum_{i}^{\mathsf{ND bins}} N_{i}^{\mathrm{ND},MC}(\vec{\theta}) - N_{i}^{\mathrm{ND},D} + N_{i}^{\mathrm{ND},D}  \times \ln \left[ N_{i}^{\mathrm{ND},D}/N_{i}^{\mathrm{ND},MC}(\vec{\theta}) \right] + \frac{(\beta_{i}-1)^{2}}{2\sigma^{2}_{\beta_{i}}} \\
+    & +  \sum_{i}^{\mathsf{FD bins}} N_{i}^{\mathrm{FD},MC}(\vec{\theta}) - N_{i}^{\mathrm{FD},D} + N_{i}^{\mathrm{FD},D}  \times \ln \left[ N_{i}^{\mathrm{FD},D}/N_{i}^{\mathrm{FD},MC}(\vec{\theta}) \right] \\
+    & +  \sum_{i}^{\mathsf{Atm bins}} N_{i}^{\mathrm{Atm},MC}( \vec{\theta}) - N_{i}^{\mathrm{Atm},D} + N_{i}^{\mathrm{Atm},D} \times  \ln \left[ N_{i}^{\mathrm{Atm},D}/N_{i}^{\mathrm{Atm},MC}(\vec{\theta}) \right] \\
+    & + \frac{1}{2} \sum_{k}^{N_{b}} \sum_{i}^{n(k)} \sum_{j}^{n(k)} (\vec{\theta}^{k})_{i} (V^{k})^{-1}_{ij} (\vec{\theta}^{k})_{j} \\
+    & + \frac{1}{2} \sum^{SG Samples}_s \sum^{E_{k} bins}_{k} \left(\rho(R_s | E_k, \vec{\theta}) \rho(P^{e/\mu}_s | E_k, \vec{\theta}) \rho(P^{e/\pi^0}_s | E_k, \vec{\theta}) \rho(P^{\mu/\pi^+}_s | E_k, \vec{\theta}) \right).
+  \end{split}
+\end{equation}
+
+This fits the ring counting $R_s$, electron-muon $P^{e/\mu}$, electron-neutral pion $P^{e/\pi^0}$ and muon-charged pion $P^{\mu/\pi^+}$ particle identification distribution parameters, in bins of visible energy $E_k$, of the SubGeV atmospheric and beam samples (SG). In the situation where infinite Monte Carlo statistics were generated, a many-dimensional (the reconstructed lepton momentum and direction and the four particle identification parameters in the case of an atmospheric sample) spectra could be determined. However, this is not the case so the standard spectra (reconstructede lepton momentum and direction) is fit along with four one-dimensional distribution of each parameter identification parameter. To avoid double counting events in the likelihood, a shape-only term is used to fit the particle identification parameters. Therefore
+
+\begin{equation}
+\rho(X | E_k, \vec{\theta}) = \sum^{N}_{i = 0} \left[ N_i^d \times \log \left( \frac{N_i^p (\vec{\theta})}{\sum^{X}_{i = 0}N_i^p (\vec{\theta})} \right) \right].
+\end{equation}
+
+Where X refers to the cut variables (i.e. ring count and particle identification parameters) and $N_{i}^{p(d)}$ refers to the i-th bin value from the predicted MC distribution (data distribution) with N being the total bin number of the X distribution.
