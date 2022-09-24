@@ -147,7 +147,38 @@ The PC and up-\quickmath{\mu} samples are split by the amount of energy deposite
     \label{tab:SelsAndSysts_Sels_AtmPurity}
 \end{table}
 
-The atmospheric samples are binned in direct observables: reconstructed lepton momentum and direction, as given by \autoref{tab:SelsAndSysts_Sels_Atms_Binning}. The distribution of the reconstructed lepton momentum (for samples that only have one bin in reconstructed zenith angle) and reconstructed direction for each atmospheric sample used within this analysis is illustrated in \autoref{fig:SelsAndSysts_AllSampleComparison}. The by-mode breakdown of each of the atmospheric samples is given in \autoref{chap:AppendixA}.
+The atmospheric samples are binned in direct observables: reconstructed lepton momentum and direction, as given by \autoref{tab:SelsAndSysts_Sels_Atms_Binning}. The distribution of the reconstructed lepton momentum (for samples that only have one bin in reconstructed zenith angle) and reconstructed direction for each atmospheric sample used within this analysis is illustrated in \autoref{fig:SelsAndSysts_AllSampleComparison}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{l|c|c}
+      \hline
+      Sample & \quickmath{\cos(\theta_{Z})} Bins & Momentum Bin Edges (\quickmath{\log_{10}(P) \text{ MeV}}) \\
+      \hline
+      \texttt{SubGeV-elike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-elike-1dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-0dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-1dcy} & 10 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-mulike-2dcy} & 1 & 2.0, 2.4, 2.6, 2.8, 3.0, 3.2 \\
+      \texttt{SubGeV-pi0like} & 1 & 2.0, 2.2, 2.4, 2.6, 2.8, 3.2 \\
+      \texttt{MultiGeV-elike-nue} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{MultiGeV-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{MultiGeV-mulike} & 10 & 3.0, 3.4, 5.0 \\
+      \texttt{MultiRing-elike-nue} & 10 & 3.0, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-elike-nuebar} & 10 & 3.0, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-mulike} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
+      \texttt{MultiRing-Other1} & 10 & 3.0, 3.4, 3.7, 4.0, 5.0 \\
+      \texttt{PC-Stop} & 10 & 2.0, 3.4, 5.0\\
+      \texttt{PC-Through} & 10 & 2.0, 3.124, 3.4, 3.7, 5.0 \\
+      \texttt{Upmu-Stop} & 10 & 3.2, 3.4, 3.7, 8.0 \\
+      \texttt{Upmu-Through-Showering} & 10 & 2.0, 8.0 \\
+      \texttt{Upmu-Through-NonShowering} & 10 & 2.0, 8.0 \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{The reconstructed cosine zenith and lepton momentum binning assigned to the atmospheric samples. The ``\quickmath{\cos(\theta_{Z})} Bins'' column illustrates the number of bins uniformly distributed over the \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 1.0} region for fully and partially contained samples and \quickmath{-1.0 \leq \cos(\theta_{Z}) \leq 0.0} region for up-\quickmath{\mu} samples.}
+    \label{tab:SelsAndSysts_Sels_Atms_Binning}
+\end{table}
 
 \begin{sidewaysfigure}
   \centering
@@ -157,6 +188,36 @@ The atmospheric samples are binned in direct observables: reconstructed lepton m
   \caption{Comparison of the SK-IV atmospheric samples between predictions made with the CP-violating Asimov A (Black) and CP-conserving Asimov B (Red) oscillation parameter sets (given in \autoref{tab:Theory_ParameterSets}). The subGeV samples CCRES and \quickmath{\pi^{0}}-like samples are given in their reconstructed lepton momentum. All other samples are presented in their reconstructed zenith angle projection.}
   \label{fig:SelsAndSysts_AllSampleComparison}
 \end{sidewaysfigure}
+
+The reconstructed lepton momemtum, illustrated by interaction mode breakdown, of some representative atmospheric samples is given in \autoref{fig:SKSamples:ByModeBreakdown}. The equivalent distributions of all atmospheric samples used within this analysis can be found in \cite{t2k_tn_422}. The low energy samples tend to be dominated by the interaction mode they target (CCQE for \texttt{SubGeV-elike-0dcy} and CC\quickmath{1\pi} for \texttt{SubGeV-elike-1dcy} samples). The higher energy samples include much more CCOther interactions, especially at larger reconstructed lepton momentum.
+
+\begin{figure}[ht]
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/SubGeV-elike-0dcy_X.pdf}
+    \caption{FC Sub-GeV 1R e-like 0 de}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/SubGeV-elike-1dcy_X.pdf}
+    \caption{FC Sub-GeV 1R e-like 1 de}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/MultiGeV-elike-nue_X.pdf}
+    \caption{FC Multi-GeV single ring $\nu_e$-like}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/MultiRing-elike-nue_X.pdf}
+    \caption{FC Multi-GeV single ring $\nu_e$-like}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/UpStop-mu_X.pdf}
+    \caption{Up-$\mu$ stopping events}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.49\textwidth}
+    \includegraphics[page=1,width=\textwidth, trim= 0 0 0 30, clip]{Figures/Selections/AtmSpectra_ByMode/Legend.pdf}
+    \end{subfigure}
+    \caption{Breakdown by interaction mode of some representative atmospheric samples used within this analysis, illustrated as a function of reconstructed lepton momentum. The binnnig is provided in \autoref{tab:SelsAndSysts_Sels_Atms_Binning}. Asimov A oscillation parameters are used to generate these plots. The interaction mode breakdown of all atmospheric samples used within this analysis can be found in \cite{t2k_tn_422}. }
+    \label{fig:SKSamples:ByModeBreakdown}
+\end{figure}
 
 \clearpage
 \section{Near Detector Beam Samples}
