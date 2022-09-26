@@ -202,6 +202,8 @@ Alongside oscillation parameters (\autoref{fig:OscillationAnalysis_LLHScanOscPar
 
 \finish{Indicate line or marker as true point in captions}
 
+\finish{Statistics vs Systematics dominated}
+
 The sensitivities of the joint T2K and SK oscillation analysis are presented in the form of Asimov fits. These fits consider beam samples from the near and far detector alongside atmospheric samples at SK. This technique builds an Asimov data set (following \autoref{sec:OscillationAnalysis_LLHCalc}) using the AsimovA oscillation parameters and post-BANFF systematic tune, which is then fit. This technique eliminates statistical fluctuations from the data, therefore, providing the maximum sensitivity of the analysis.
 
 In practice, the Asimov fits presented within this analysis are modified from the above definition. An Asimov prediction of both beam and atmospheric far detector samples is fit whilst the true data is used for near detector samples. The Asimov predictions at the far detector are built using the post-BANFF tune (as discussed in \autoref{sec:T2KSKExp_T2K}). These modifications mean that the results are equivalent to performing a far detector Asimov fit using inputs from the BANFF data fit. Consequently, this allows the results to be cross-checked with the results from the P-Theta analysis. The comparison has been performed and is documented in \cite{barrow_M3_PT_Comp}. No significant discrepancies were found between the fitters.
@@ -819,7 +821,7 @@ This apparent contradiction stems from the methodology in which the credible int
   \label{fig:OscillationAnalysis_JointFit_AsimovB_TH23}
 \end{figure}
 
-The sensitivity of the joint beam-atmospheric fit to \quickmath{\sin^{2}(\theta_{23})} is presented in \autoref{fig:OscillationAnalysis_JointFit_AsimovB_TH23}. The sensitivity is compared to that of the beam-only analysis in \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either of the fits being compared. The joint beam-atmospheric fit has a much larger probability density in the region surrounding the known oscillation parameter, \quickmath{\sin^{2}(\theta_{23}) = 0.45}. This shows the better octant determination of the joint analysis compared to the beam-only fit. The ratio of the posterior density at the peak of the lower octant to the peak of the upper octant from the joint fit is \quickmath{1.43} compared to \quickmath{1.09} from the beam-only analysis.
+The sensitivity of the joint beam-atmospheric fit to \quickmath{\sin^{2}(\theta_{23})} is presented in \autoref{fig:OscillationAnalysis_JointFit_AsimovB_TH23}. The sensitivity is compared to that of the beam-only analysis in \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either of the fits being compared. The joint beam-atmospheric fit has a much larger probability density in the region surrounding the known oscillation parameter, \quickmath{\sin^{2}(\theta_{23}) = 0.45}. This shows the better octant determination of the joint analysis compared to the beam-only fit. The ratio of the posterior density at the peak of the lower octant to the peak of the upper octant from the joint fit is \quickmath{1.43} compared to \quickmath{1.09} from the beam-only analysis. The area contained within the \quickmath{1\sigma} credible interval for the joint analysis is \quickmath{\sin^{2}(\theta_{23}) = [0.430,0.480]} and \quickmath{\sin^{2}(\theta_{23}) = [0.545,0.585]}, whereas the beam-only analysis includes \quickmath{\sin^{2}(\theta_{23}) = [0.435,0.485]} and \quickmath{\sin^{2}(\theta_{23}) = [0.540,0.585]}. This corresponds to a \quickmath{\sim 5\%} (binning dependent) increase in preecision from the joint analysis.
 %This shows further support for the joint analysis in correctly selecting the lower octant, which is the correct hypothesis given the known oscillation parameters.
 
 \begin{table}[ht!]
@@ -998,10 +1000,20 @@ The Bayes factors from the beam-only and joint atmospheric-beam analyses, from t
     & Value & Strength & Value & Strength \\
     \hline
     \hline
+    \multicolumn{5}{|c|}{Asimov A} \\
+    \cline{1-5}
     Beam & \quickmath{1.91} & Weak & \quickmath{1.56} & Weak \\
     Beam w/RC & \quickmath{3.09} & Weak & \quickmath{2.47} & Weak \\
     Joint & \quickmath{3.67} & Substantial & \quickmath{1.74} & Weak \\
     Joint w/RC & \quickmath{6.47} & Substantial & \quickmath{2.64} & Weak \\
+    \hline
+    \hline
+    \multicolumn{5}{|c|}{Asimov B} \\
+    \cline{1-5}
+    Beam & \quickmath{1.08} & Weak & \quickmath{0.91} & Weak \\
+    Beam w/RC & \quickmath{0.98} & Weak & \quickmath{1.15} & Weak \\
+    Joint & \quickmath{1.43} & Weak & \quickmath{1.19} & Weak \\
+    Joint w/RC & \quickmath{1.36} & Weak & \quickmath{1.52} & Weak \\
     \hline
     \hline
   \end{tabular}
@@ -1010,4 +1022,6 @@ The Bayes factors from the beam-only and joint atmospheric-beam analyses, from t
   \endgroup
 \end{table}
 
-To summarise this information, the joint fit prefers a tighter \quickmath{1\sigma} credible interval in \quickmath{\sin^{2}(\theta_{23})} along with a stronger Bayes factor for preferring the correct octant hypothesis. The increase in sensitivity to \quickmath{|\Delta m^{2}_{32}|} between the two fits is negligible but the joint analysis substantially prefers the correct mass hierarchy hypothesis. It does not require any external constraints on \quickmath{\sin^{2}(\theta_{13})} to make this statement. The joint analysis also prefers a value of \quickmath{\sin^{2}(\theta_{13})} closer to the known value compared to the beam-only analysis. When the reactor constraint is applied, the preference for both the NH and UO hypotheses increases but does not change the statement which would be made. The fits from the Asimov B comparisons show the improved ability for the joint analysis to correctly select the true value of \quickmath{\delta_{CP}} if it were CP-conserving, compared to the beam-only analysis. Furthermore, the joint fit is able to better determine the octant of \quickmath{\sin^{2}(\theta_{23})} when the true value is moved further away from the boundary.
+To summarise this information, the joint fit prefers a tighter \quickmath{1\sigma} credible interval in \quickmath{\sin^{2}(\theta_{23})} along with a stronger Bayes factor for preferring the correct octant hypothesis. The increase in sensitivity to \quickmath{|\Delta m^{2}_{32}|} between the two fits is negligible but the joint analysis substantially prefers the correct mass hierarchy hypothesis. It does not require any external constraints on \quickmath{\sin^{2}(\theta_{13})} to make this statement. The joint analysis also prefers a value of \quickmath{\sin^{2}(\theta_{13})} closer to the known value compared to the beam-only analysis. When the reactor constraint is applied, the preference for both the NH and UO hypotheses increases but does not change the statement which would be made.
+
+The fits from the Asimov B comparisons show the improved ability for the joint analysis to more precisely select the true value of \quickmath{\delta_{CP}} if it were CP-conserving, compared to the beam-only analysis. This is evidenced by the area contained within the \quickmath{1\sigma} credible interval decreasing by \quickmath{\sim4\%}. Furthermore, the joint fit is able to better determine the octant of \quickmath{\sin^{2}(\theta_{23})} when the true value is moved further away from the boundary as evidenced by the larger Bayes factor. There is also a \quickmath{\sim 5\%} reduction of area contained within the \quickmath{1\sigma} credible interval in \quickmath{\sin^{2}(\theta_{23})}.
