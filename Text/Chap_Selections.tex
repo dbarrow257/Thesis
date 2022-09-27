@@ -757,6 +757,7 @@ One final complexity of this correlated detector model is that the two sets of s
   \label{fig:SelsAndSysts_LLHCorrelation}
 \end{figure}
 
+\newpage
 \section{Likelihood Calculation}
 \label{sec:OscillationAnalysis_LLHCalc}
 
@@ -774,10 +775,11 @@ Following the T2K analysis presented in \cite{Dunne2020-uf}, the likelihood cont
 
 where \quickmath{\beta_{i}} represents a scaling parameter for the \quickmath{i^{th}} bin that relates the bin content for the amount of Monte Carlo actually generated \quickmath{N^{MC}_{i}} to the bin content if an infinite amount of Monte Carlo statistics had been generated \quickmath{N^{MC}_{i,true}}, such that \quickmath{N^{MC}_{i,true} = \beta_{i} \times N^{MC}_{i}}. In the case where a sufficient amount of Monte Carlo statistics had been generated, \quickmath{\beta_{i} = 1}. An analytical solution for \quickmath{\beta_{i}} is given in \cite{t2k_tn_395}. Additionally, \quickmath{\sigma_{\beta_{i}} = \sqrt{\sum_{i} w_{i}^{2}}/N_{i}^{MC}} where \quickmath{\sqrt{\sum_{i} w_{i}^{2}}} represents the sum of the square of the weights of the Monte Carlo events which fall into bin \quickmath{i}.
 
-\finish{Giles did not understand this - Address}
-An additional contribution to the likelihood comes from the variation of the systematic model parameters. For those parameters with well-motivated uncertainty estimates, a covariance matrix, \quickmath{V}, describes the prior knowledge of each parameter as well as any correlations between the parameters. Due to a technical implementation, a single covariance matrix describes each ``block'' of model parameters, e.g. beam flux systematics. The covariance matrix associated with the \quickmath{k^{th}} block is denoted \quickmath{V^{k}}. This substitution results in \quickmath{\vec{\theta} = \sum_{k}^{N_{b}} \vec{\theta}^{k}} and \quickmath{V = \sum_{k}^{N_{b}} V^{k}} where \quickmath{N_{b}} denotes the number of blocks. A single covariance matrix is provided for: the oscillation parameters, the beam flux parameters, the atmospheric flux parameters, the neutrino interaction systematics, the near detector parameters, the beam far detector systematics, and the atmospheric far detector systematics. The number of parameters in the \quickmath{k^{th}} block is defined as \quickmath{n(k)}.
+An additional contribution to the likelihood comes from the variation of the systematic model parameters. For those parameters with well-motivated uncertainty estimates, a covariance matrix, \quickmath{V}, describes the prior knowledge of each parameter as well as any correlations between the parameters. Due to a technical implementation, a single covariance matrix describes each ``block'' of model parameters, e.g. beam flux systematics. The covariance matrix associated with the \quickmath{k^{th}} block is denoted \quickmath{V^{k}}. 
+%This substitution results in \quickmath{\vec{\theta} = \sum_{k}^{N_{b}} \vec{\theta}^{k}} and \quickmath{V = \sum_{k}^{N_{b}} V^{k}} where \quickmath{N_{b}} denotes the number of blocks.
+There are seven individual blocks of systematics (\quickmath{N_{b} = 7}): oscillation parameters, beam flux systematics, atmospheric flux systematics, neutrino interaction systematics, near detector systematics, beam far detector systematics, and atmospheric far detector systematics. The number of parameters in the \quickmath{k^{th}} block is defined as \quickmath{n(k)}.
 
-The equation for the likelihood \quickmath{\mathcal{L}} includes all the terms discussed above. It is defined as,
+The equation for the likelihood \quickmath{\mathcal{L}} includes all the terms discussed above,
 
 \iffalse
 \begin{align}
