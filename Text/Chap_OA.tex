@@ -292,14 +292,6 @@ The \quickmath{1\sigma} credible intervals, broken down by hierarchy, and positi
 
 The sensitivity of the atmospheric samples to \quickmath{\sin^{2}(\theta_{13})} is presented in \autoref{fig:OscillationAnalysis_SKOnly_TH13}. The likelihood scans presented in \autoref{fig:OscillationAnalysis_LLHScanOscPars} suggest that the sensitivity to \quickmath{\sin^{2}(\theta_{13})} will be small. This behaviour is also seen in the fit results, where the width of the \quickmath{1\sigma} credible intervals span the region of \quickmath{\sin^{2}(\theta_{13}) = [0.008, 0.08]}. This is more than an order of magnitude worse than the constraint from reactor experiments \cite{Particle_Data_Group2020-ms}.
 
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_2D_th13_dcp_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied. The marker represents the known value of \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}.}
-  \label{fig:OscillationAnalysis_SKOnly_DCPTH13}
-\end{figure}
-
 As previously discussed, the correlations between oscillation parameters are also important to understand how the atmospheric samples respond. \autoref{fig:OscillationAnalysis_SKOnly_DCPTH13} illustrates the two dimensional \quickmath{\sin^{2}(\theta_{13})\text{\textendash}\delta_{CP}} sensitivity, marginalised over all other parameters.
 %The displayed contours are calculated by marginalising over both hierarchies.
 The shape of the \quickmath{1\sigma} credible interval shows that the constraining power of the fit on \quickmath{\delta_{CP}} is dependent upon the value of \quickmath{\sin^{2}(\theta_{13})}.
@@ -310,12 +302,23 @@ Furthermore, they show a strong resemblance to the likelihood scans illustrated 
 The \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\Delta m^{2}_{32}} disappearance contours are illustrated in \autoref{fig:OscillationAnalysis_SKOnly_DM32TH23}. As expected, the area contained in the inverted hierarchy \quickmath{1\sigma} credible interval is slightly smaller than that in the normal hierarchy. This follows from the Bayes factor showing a weak preference for NH meaning that more of the steps will exist in the \quickmath{\Delta m^{2}_{32} > 0} region. The known oscillation parameters of \quickmath{\sin^{2}(\theta_{23}) = 0.528} and \quickmath{\Delta m^{2}_{32} = 2.509\times 10^{-3}\text{eV}^{2}} are contained within the \quickmath{1\sigma} credible interval.
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_2D_th13_dcp_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied. The marker represents the input value.}
+  %known value of \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}.}
+  \label{fig:OscillationAnalysis_SKOnly_DCPTH13}
+\end{figure}
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.96\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_2D_th23_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied. The marker represents the known value of \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}.}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the SK atmospheric-only fit. The reactor constraint is not applied. The marker represents the iinput value.}
+  %known value of \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}.}
   \label{fig:OscillationAnalysis_SKOnly_DM32TH23}
 \end{figure}
+
+\clearpage
 
 \autoref{fig:OscillationAnalysis_SKOnly_TrianglePlot} illustrates the two-dimensional projections for each permutation of oscillation parameters which this analysis is sensitive to: \quickmath{\delta_{CP}}, \quickmath{\sin^{2}(\theta_{13})}, \quickmath{\sin^{2}(\theta_{23})}, and \quickmath{\Delta m^{2}_{32}}. The purpose of this plot is to illustrate the correlations between the oscillation parameters. The contours are calculated whilst marginalising over both hierarchies, however, only the NH is illustrated when plotting the \quickmath{\Delta m^{2}_{32}} parameter. As expected the correlations play a significant role in these sensitivity measurements, especially the choice of the \quickmath{\sin^{2}(\theta_{13})} constraint. Most notably, the application of reactor constraint would be expected to alter both the width and position of the \quickmath{\Delta m^{2}_{32}} intervals due to the strong correlation between the parameters.
 
@@ -323,7 +326,7 @@ The \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\Delta m^{2}_{32}} disappe
 %Interestingly, the distribution of steps in the \quickmath{\delta_{CP}}\text{\textendash}\quickmath{\sin^{2}(\theta_{13})} plot is slightly flatter in the region of the reactor constraint. Both the posterior distribution from this fit and the distribution in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App} show a region of low negative log-likelihood extending out towards higher values of \quickmath{\sin^{2}(\theta_{13})} in the \quickmath{\delta_{CP} \sim -\pi/2} and \quickmath{\delta_{CP} \sim 2} region. Consequently, the reactor constraint could feasibly reduce the sensitivity of the atmospheric samples to \quickmath{\delta_{CP}}, due to the previously discussed marginalisation effects. 
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/SKOnlyFit/Contours_1D_woRC_UnSmeared_CredibleInterval_TrianglePlot.pdf}
   \end{subfigure}
   \caption{The posterior probability density distribution from the SK atmospheric-only fit. The reactor constraint is not applied. The distribution is given for each two-dimensional permutation of the oscillation parameters of interest. The one-dimensional distribution of each parameter is also given.}
@@ -463,23 +466,41 @@ The fraction of steps in each of the mass hierarchy regions and octants of \quic
   \endgroup
 \end{table}
 
+The sensitivity to \quickmath{\sin^{2}(\theta_{23})} is presented in \autoref{fig:OscillationAnalysis_JointFit_TH23}. There is a clear preference for the upper octant but the peak of the distribution is relatively flat. It peaks at \quickmath{\sin^{2}(\theta_{23}) = 0.509 \pm 0.003} which is in the region of the known value of \quickmath{\sin^{2}(\theta_{23}) = 0.528}. The difference in the highest posterior distribution and the width of the credible interval is relatively unchanged when considering different hierarchy hypotheses showing no strong correlation between \quickmath{\sin^{2}(\theta_{23})} and \quickmath{|\Delta m^{2}_{32}|}.
+
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_1D_dm32_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
   \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The vertical dashed line represents the known value of \quickmath{\Delta m^{2}_{32}}.}
   \label{fig:OscillationAnalysis_JointFit_DELM32}
 \end{figure}
 
-The sensitivity to \quickmath{\sin^{2}(\theta_{23})} is presented in \autoref{fig:OscillationAnalysis_JointFit_TH23}. There is a clear preference for the upper octant but the peak of the distribution is relatively flat. It peaks at \quickmath{\sin^{2}(\theta_{23}) = 0.509 \pm 0.003} which is in the region of the known value of \quickmath{\sin^{2}(\theta_{23}) = 0.528}. The difference in the highest posterior distribution and the width of the credible interval is relatively unchanged when considering different hierarchy hypotheses showing no strong correlation between \quickmath{\sin^{2}(\theta_{23})} and \quickmath{|\Delta m^{2}_{32}|}.
-
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_1D_th23_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
   \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The vertical dashed line represents the known value of \quickmath{\sin^{2}(\theta_{23})}.}
   \label{fig:OscillationAnalysis_JointFit_TH23}
 \end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_2D_th13_dcp_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The marker represents the input value.}
+  \label{fig:OscillationAnalysis_JointFit_DCPTH13}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_2D_th23_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The marker represents the input value.}
+  \label{fig:OscillationAnalysis_JointFit_DM32TH23}
+\end{figure}
+
+\clearpage
 
 The sensitivity presented as a function of the appearance parameters (\quickmath{\sin^{2}(\theta_{13})\text{\textendash}\delta_{CP}}) is given in \autoref{fig:OscillationAnalysis_JointFit_DCPTH13}. As expected, the contours follow the likelihood shape given in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App}, where the \quickmath{2\sigma} credible intervals have a closed contour excluding the region around \quickmath{\delta_{CP} \sim 1.2}. The width of the \quickmath{3\sigma} credible interval in \quickmath{\sin^{2}(\theta_{13})} is dependent upon the value of \quickmath{\delta_{CP}}. Close to the Asimov point, \quickmath{\delta_{CP} = -1.601}, the width of the \quickmath{3\sigma} credible interval approximately spans \quickmath{\sin^{2}(\theta_{13}) = [0.013, 0.04]}. This is reduced to a region of \quickmath{\sin^{2}(\theta_{13}) = [0.023, 0.042]} at the most disfavoured value of \quickmath{\delta_{CP}}.
 %This follows the behaviour shown in the likelihood scans.
@@ -488,29 +509,12 @@ The \quickmath{1\sigma} credible interval is consistent with the known oscillati
 The sensitivity in terms of the disappearance parameters, \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\Delta m^{2}_{32}}, is given in \autoref{fig:OscillationAnalysis_JointFit_DM32TH23}. The area contained within the IH contours is significantly smaller than the area within the NH contours. The IH credible intervals are also notably tighter in the \quickmath{\sin^{2}(\theta_{23})} dimension. No significant correlation is observed between \quickmath{\sin^{2}(\theta_{23})} and \quickmath{|\Delta m^{2}_{32}|}.
 %In this two-dimensional projection of the posterior distribution, a small section of the \quickmath{1\sigma} credible interval is contained within the inverse hierarchy region. That IH region is clearly favouring the upper octant as expected. The \quickmath{1\sigma} credible region of the NH contour spans both octants but favours the UO.
 
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.95\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_2D_th13_dcp_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The marker represents the known value of \quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}.}
-  \label{fig:OscillationAnalysis_JointFit_DCPTH13}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.95\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_2D_th23_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit. The reactor constraint is not applied. The marker represents the known value of \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}.}
-  \label{fig:OscillationAnalysis_JointFit_DM32TH23}
-\end{figure}
-
-
 The two-dimensional posterior distribution for each permutation of the oscillation parameters of interest is given in \autoref{fig:OscillationAnalysis_JointFit_TriPlot}. The most notable observation is that the \quickmath{\sin^{2}(\theta_{13})} and \quickmath{\sin^{2}(\theta_{23})} are anti-correlated. If the value of \quickmath{\sin^{2}(\theta_{13})} was constrained closer to the known oscillation parameter value, the preferred value of \quickmath{\sin^{2}(\theta_{23})} would increase. This would move the highest posterior probability closer in line with the known value and could lead to an increase in the preference for the correct octant hypothesis (UO).
 
 Furthermore, the \quickmath{\delta_{CP}} and \quickmath{|\Delta m^{2}_{32}|} oscillation parameters are anti-correlated, such that higher values of \quickmath{|\Delta m^{2}_{32}|} prefer lower values of \quickmath{\delta_{CP}}. Whilst this is an interesting result on its own, the width of the \quickmath{\Delta m^{2}_{32}} contours also depend on \quickmath{\sin^{2}(\theta_{13})}. This introduces another correlation effect that could modify the sensitivity to \quickmath{\delta_{CP}} once the reactor constraint is applied.
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit/Contours_1D_woRC_UnSmeared_CredibleInterval_TrianglePlot.pdf}
   \end{subfigure}
   \caption{The posterior probability density distribution from the joint beam-atmospheric fit. The reactor constraint is not applied. The distribution is given for each two-dimensional permutation of the oscillation parameters of interest. The one-dimensional distribution of each parameter is also given.}
@@ -532,14 +536,6 @@ The correlation between \quickmath{\sin^{2}(\theta_{13})} and \quickmath{\Delta 
 \label{sec:OscillationAnalysis_JointFit_wRC}
 
 This section presents the sensitivities of the joint beam-atmospheric fit when the reactor constraint is applied to \quickmath{\sin^{2}(\theta_{13})}. As with the previous studies, the Asimov data is made using the AsimovA oscillation parameter set defined in \autoref{tab:Theory_ParameterSets} and the post-BANFF systematic parameter tune.
-  
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The vertical dashed line represents the known value of \quickmath{\delta_{CP}}.}
-  \label{fig:OscillationAnalysis_JointFit_wRC_DCP}
-\end{figure}
 
 \autoref{fig:OscillationAnalysis_JointFit_wRC_DCP} illustrates the sensitivity to \quickmath{\delta_{CP}}, marginalised over both hierarchies. The CP-conserving value of \quickmath{\delta_{CP} = 0} is disfavoured at \quickmath{2\sigma} whilst the value of \quickmath{\delta_{CP} = \pm\pi} is very close to being disfavoured at \quickmath{2\sigma}. Furthermore, the \quickmath{3\sigma} credible interval excludes the region of \quickmath{\delta_{CP} = [0.63,2.39]}, thus clearly disfavouring the region of \quickmath{\delta_{CP} = \pi/2} at more than \quickmath{3\sigma} for this particular set of known oscillation parameters. The width of the \quickmath{1\sigma} credible intervals and the position of the highest posterior probability density is given in \autoref{tab:OscillationAnalysis_JointFit_wRC_CredIntervals}. The highest posterior probability density in \quickmath{\delta_{CP}} is calculated as \quickmath{\delta_{CP} = -1.57 \pm 0.07} showing no significant biases in the determination of the known oscillation parameters.
 %The posterior distribution is more peaked around the known oscillation parameter value of \quickmath{\delta_{CP} = -1.601}, as compared to the sensitivities when the reactor constraint is not applied (\autoref{sec:OscillationAnalysis_JointFit}). 
@@ -547,12 +543,22 @@ This section presents the sensitivities of the joint beam-atmospheric fit when t
 The effect of applying the reactor constraint for \quickmath{\delta_{CP}} in the joint beam-atmospheric fit is presented in \autoref{fig:OscillationAnalysis_JointFit_wRC_Comp_DCP}. The reactor constraint significantly improves the ability of the fit to select the known parameter value. This behaviour is evidenced by the tightening of the \quickmath{1\sigma} and \quickmath{90\%} credible intervals and the disfavoured region, centered at \quickmath{\delta_{CP} \sim \pi/2}, becoming wider when the reactor constraint is applied. This follows from the correlations shown in \autoref{fig:OscillationAnalysis_JointFit_DCPTH13}, where a lower value of \quickmath{\sin^{2}(\theta_{13})} results in tighter constraints on \quickmath{\delta_{CP}}. 
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The vertical dashed line represents the known value.}
+  \label{fig:OscillationAnalysis_JointFit_wRC_DCP}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.91\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_dcp_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit (Red) and the joint beam-atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value of \quickmath{\delta_{CP}}.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit (Red) and the joint beam-atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_wRC_Comp_DCP}
 \end{figure}
+
+\clearpage
 
 \begin{table}[ht!]
   \centering
@@ -579,20 +585,22 @@ The sensitivity to \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hie
 %The posterior distribution of the fit with reactor constraint is more peaked compared to the flatter distribution when the reactor constraint is not applied. 
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_th23_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The vertical dashed line represents the known value of \quickmath{\sin^{2}(\theta_{23})}.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The vertical dashed line represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_wRC_TH23}
 \end{figure}
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.91\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC_Comp/ContourComparison_1D_th23_BH_2_wRC_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Red) and the joint beam-atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value of \quickmath{\sin^{2}(\theta_{23})}.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Red) and the joint beam-atmospheric fit with the reactor constraint (Black). The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_wRC_Comp_TH23}
 \end{figure}
+
+\clearpage
 
 The fraction of steps from the joint fit, after the reactor constraint is applied, is given in \autoref{tab:OscillationAnalysis_JointFit_BayesFactors_wRC} and split by the two hierarchy and two octant hypotheses. The reactor constraint significantly reduces the fraction of steps that are contained within the IH-LO region from \quickmath{0.08} to \quickmath{0.03}, whilst significantly increasing the fraction of steps within the NH-UO region from \quickmath{0.50} to \quickmath{0.62}. The application of the reactor constraint increases the Bayes factor from {B(\text{NH}/\text{IH}) = 3.67} to \quickmath{B(\text{NH}/\text{IH}) = 6.47}. There is a very clear preference for the correct hypothesis, with the Jeffreys scale stating a substantial preference for both fits. The Bayes factor for selecting the correct octant is calculated as \quickmath{B(\text{UO}/\text{LO}) = 2.64}. Whilst still a weak preference, this is certainly a stronger statement than the sensitivity when the reactor constraint is not applied.
 
@@ -623,22 +631,6 @@ The \quickmath{1\sigma} credible interval is entirely contained within the NH re
   \label{fig:OscillationAnalysis_JointFit_wRC_DM32}
 \end{figure}
 
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_th13_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The marker represents the known value of \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})}.}
-  \label{fig:OscillationAnalysis_JointFit_wRC_TH13DCP}
-\end{figure}
-
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_th23_dm32_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The marker represents the known value of \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})}.}
-  \label{fig:OscillationAnalysis_JointFit_wRC_TH23DM32}
-\end{figure}
-
 The sensitivity to the appearance parameters (\quickmath{\sin^{2}(\theta_{13})\text{\textendash}\delta_{CP}}) is given in \autoref{fig:OscillationAnalysis_JointFit_wRC_TH13DCP}. The distribution is mostly uncorrelated between the two parameters and is centered at the known oscillation parameters. The \quickmath{1\sigma} contours exclude values of \quickmath{\delta_{CP} = 0} and \quickmath{\delta_{CP} = \pm\pi}. Furthermore, the \quickmath{3\sigma} contours exclude the region of \quickmath{\delta_{CP} = \pi/2}.
 
 The sensitivity to the disappearance parameters (\quickmath{\sin^{2}(\theta_{23})\text{\textendash}\Delta m^{2}_{32}}) is illustrated in \autoref{fig:OscillationAnalysis_JointFit_wRC_TH23DM32}. The \quickmath{1\sigma} contour is entirely contained within the NH region reflecting the same results as the one-dimensional marginalised results in \autoref{fig:OscillationAnalysis_JointFit_wRC_DM32}. Both the NH and IH regions favour the UO, with a visually similar preference in both hierarchies. The width of the \quickmath{1\sigma} contour, in \quickmath{\Delta m^{2}_{32}}, does not significantly depend upon the value or octant of \quickmath{\sin^{2}(\theta_{23})}. This shows that there are no strong correlations between these two parameters.
@@ -647,7 +639,25 @@ The sensitivity to the disappearance parameters (\quickmath{\sin^{2}(\theta_{23}
 %There is still a small correlation between \quickmath{\delta_{CP}} and \quickmath{\Delta m^{2}_{32}}. The application of the reactor constraint has not significantly affected this correlation. The width of the \quickmath{1\sigma} credible interval in \quickmath{\Delta m^{2}_{32}} is wider for a value of \quickmath{\delta_{CP} = 0} compared to a value of \quickmath{\delta_{CP} = \pi}. Similarly, the width of the \quickmath{1\sigma} credible interval in \quickmath{\delta_{CP}} is smaller for lower values of \quickmath{\sin^{2}(\theta_{23})}.
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_th13_dcp_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\delta_{CP}-\sin^{2}(\theta_{13})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The marker represents the known value.}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TH13DCP}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.96\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_2D_th23_dm32_BH_1_wRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}-\sin^{2}(\theta_{23})}, marginalised over both hierarchies, from the joint beam-atmospheric fit where the reactor constraint is applied. The marker represents the known value.}
+  \label{fig:OscillationAnalysis_JointFit_wRC_TH23DM32}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_wRC/Contours_1D_wRC_UnSmeared_CredibleInterval_TrianglePlot.pdf}
   \end{subfigure}
   \caption{The posterior probability density distribution from the joint beam-atmospheric fit where the reactor constraint is applied. The distribution is given for each two-dimensional permutation of the oscillation parameters of interest. The one-dimensional distribution of each parameter is also given.}
@@ -669,30 +679,32 @@ The benefits of the joint beam-atmospheric analysis can be determined by compari
 \end{figure}
 
 The sensitivity, marginalised over both hierarchies, to \quickmath{\delta_{CP}} from the joint beam-atmospheric and beam-only fits is presented in \autoref{fig:OscillationAnalysis_JointFit_OA2020_DCP}. As expected from the likelihood scans (\autoref{fig:OscillationAnalysis_AsimovEval_DCP}), the sensitivity to \quickmath{\delta_{CP}} is not significantly increased. This is because the known oscillation parameter value lies at the position where the beam samples dominate the sensitivity compared to the SK samples.
-
-The sensitivity to \quickmath{\Delta m^{2}_{32}} is compared between the joint beam-atmospheric fit and beam-only fit in \autoref{fig:OscillationAnalysis_JointFit_OA2020_DM32}. The \quickmath{1\sigma} credible interval of the joint beam-atmospheric fit is entirely contained within the NH region. This shows the significant increase in the ability of the fit to determine the correct mass hierarchy, compared to the beam-only analysis. This is further evidenced by the fact that the \quickmath{90\%} credible intervals from the joint fit are also tighter in the IH region compared to the beam-only analysis. The Bayes factor for mass hierarchy determination for the beam-only and joint beam-atmospheric fits are \quickmath{B(\text{NH}/\text{IH}) = 1.91} and \quickmath{B(\text{NH}/\text{IH}) = 3.67}, respectively. According to Jeffrey's scale, the beam-only analysis represents a weak preference for the correct hierarchy whereas the joint fit returns a substantial preference for the NH hypothesis. Notably, this conclusion does not require any external constraints and clearly illustrates the benefit of the joint analysis.
 %To summarise, the joint beam-atmospheric fit has a substantial preference for the correct hierarchy without the requirement of external constraints.
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.91\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_dm32_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The vertical dashed line represents the known value of \quickmath{\Delta m^{2}_{32}}.}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The vertical dashed line represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32}
 \end{figure}
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.91\textwidth}
+    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_th23_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
+  \end{subfigure}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value.}
+  \label{fig:OscillationAnalysis_JointFit_OA2020_TH23}
+\end{figure}
+
+\clearpage
+
+The sensitivity to \quickmath{\Delta m^{2}_{32}} is compared between the joint beam-atmospheric fit and beam-only fit in \autoref{fig:OscillationAnalysis_JointFit_OA2020_DM32}. The \quickmath{1\sigma} credible interval of the joint beam-atmospheric fit is entirely contained within the NH region. This shows the significant increase in the ability of the fit to determine the correct mass hierarchy, compared to the beam-only analysis. This is further evidenced by the fact that the \quickmath{90\%} credible intervals from the joint fit are also tighter in the IH region compared to the beam-only analysis. The Bayes factor for mass hierarchy determination for the beam-only and joint beam-atmospheric fits are \quickmath{B(\text{NH}/\text{IH}) = 1.91} and \quickmath{B(\text{NH}/\text{IH}) = 3.67}, respectively. According to Jeffrey's scale, the beam-only analysis represents a weak preference for the correct hierarchy whereas the joint fit returns a substantial preference for the NH hypothesis. Notably, this conclusion does not require any external constraints and clearly illustrates the benefit of the joint analysis.
 
 The sensitivity to \quickmath{\sin^{2}(\theta_{23})}, marginalised over both hierarchies, for both the beam-only and joint beam-atmospheric analysis are presented in \autoref{fig:OscillationAnalysis_JointFit_OA2020_TH23}. The peak of the posterior distribution from the joint analysis is more aligned with the known value of \quickmath{\sin^{2}(\theta_{23}) = 0.528} compared to the beam-only analysis.
 %This indicates that the marginalisation effects from other oscillation parameters (\quickmath{\sin^{2}(\theta_{13})\text{\textendash}\sin^{2}(\theta_{23})} presented in \autoref{fig:OscillationAnalysis_JointFit_TriPlot}) are less prevalent in the projection of this parameter.
 %Furthermore, the width of the credible intervals are marginally smaller, so this change would not affect any conclusion one would make about the parameter sensitivity.
 The Bayes factors for the beam-only and joint beam-atmospheric fit are \quickmath{B(\text{UO}/\text{LO}) = 1.56} and \quickmath{B(\text{UO}/\text{LO}) = 1.74}, respectively. Therefore, the joint beam-atmospheric fit does prefer the UO, which is the correct octant, more strongly than the beam-only analysis.
-
-\begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
-    \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_1D_th23_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
-  \end{subfigure}
-  \caption{The one-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value of \quickmath{\sin^{2}(\theta_{23})}.}
-  \label{fig:OscillationAnalysis_JointFit_OA2020_TH23}
-\end{figure}
 
 Whilst the beam-only and joint beam-atmospheric fits have similar sensitivity to \quickmath{\delta_{CP}} and \quickmath{\sin^{2}(\theta_{23})} when projected in one-dimension, the benefit of the joint analysis becomes more obvious when the sensitivities are presented in two-dimensions. The sensitivity of the two fits to the appearance parameters (\quickmath{\delta_{CP}\text{\textendash}\sin^{2}(\theta_{13})}) is illustrated in \autoref{fig:OscillationAnalysis_JointFit_OA2020_DCPTH13}. The width of the \quickmath{99\%} joint fit contour in \quickmath{\sin^{2}(\theta_{13})} is squeezed in the region of \quickmath{\delta_{CP} \sim 0} compared to the beam-only analysis. This is the same behaviour that is seen in the appearance likelihood scans presented in \autoref{fig:OscillationAnalysis_2DLLHOscScans_App}. The \quickmath{1\sigma} and \quickmath{90\%} also exhibit slightly tighter constraints on \quickmath{\delta_{CP}}. This is most prevalent in the region of \quickmath{\delta_{CP} \sim 0} and \quickmath{\sin^{2}(\theta_{13}) \sim 0.03}. Whilst the atmospheric samples do not have significant sensitivity to \quickmath{\sin^{2}(\theta_{13})} (as shown in \autoref{fig:OscillationAnalysis_LLHScanOscPars}), they aid in breaking the degeneracy between the oscillation parameters allowing for tighter constraints.
 
@@ -732,18 +744,18 @@ The beam-only and joint beam-atmospheric fits have a slightly different contour 
 %suggests that the application of the reactor constraint will favour the UO more strongly in the joint analysis compared to the beam-only analysis.
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.91\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th13_dm32_BH_0_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The marker represents the known value of \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})}.}
+  \caption{The posterior probability density distribution in \quickmath{\Delta m^{2}_{32}\text{\textendash}\sin^{2}(\theta_{23})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The marker represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_DM32TH13}
 \end{figure}
 
 \begin{figure}[h]
-  \begin{subfigure}[t]{0.98\textwidth}
+  \begin{subfigure}[t]{0.91\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_Comp/ContourComparison_2D_th13_th23_BH_1_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{The two-dimensional posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\sin^{2}(\theta_{13})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies. The marker represents the known value of \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\sin^{2}(\theta_{13})}.}
+  \caption{The posterior probability density distribution in \quickmath{\sin^{2}(\theta_{23})\text{\textendash}\sin^{2}(\theta_{13})} compared between the joint beam-atmospheric fit (Black) and the latest T2K sensitivities (Red) \cite{Dunne2020-uf, t2k_tn_393}. The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies. The marker represents the known value.}
   \label{fig:OscillationAnalysis_JointFit_OA2020_TH13TH23}
 \end{figure}
 
@@ -1049,7 +1061,7 @@ The Bayes factors from the beam-only and joint atmospheric-beam analyses are pre
     \hline
     \hline
   \end{tabular}
-  \caption{A comparison of the Bayes factors for mass hierarchy and \quickmath{\sin^{2}(\theta_{23})} octant hypotheses, from the beam-only \cite{Dunne2020-uf, t2k_tn_393} and joint atmospheric-beam fits discussed within this thesis. The results are illustrated both with and without the reactor constraint (RC). The strength of the preference for the normal mass hierarchy and upper octants are provided by Jeffrey's scale \autoref{tab:OscillationAnalysis_BayesFactorSummary}.}
+  \caption{A comparison of the Bayes factors for mass hierarchy and \quickmath{\sin^{2}(\theta_{23})} octant hypotheses, from the beam-only \cite{Dunne2020-uf, t2k_tn_393} and joint atmospheric-beam fits discussed within this thesis. The results are illustrated both with and without the reactor constraint (RC). The strength of the preference for the normal mass hierarchy and upper octants are provided by Jeffrey's scale \autoref{tab:MarkovChainMonteCarlo_JeffreysScale}.}
   \label{tab:OscillationAnalysis_BayesFactorSummary}
   \endgroup
 \end{table}
