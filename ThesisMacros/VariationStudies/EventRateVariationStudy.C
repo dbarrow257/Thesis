@@ -353,6 +353,8 @@ void plotVariableGraphs(std::vector< std::vector<TGraph*> > VariableGraphs, std:
   int nDiv = 3;
   int nPlots = 9;
 
+  std::vector<TPad*> Pads;
+
   int nTrees = TreeNames.size();
   for (int iTree=0;iTree<nTrees;iTree++) {
     Canv->Divide(nDiv,int(nPlots/nDiv));
@@ -361,8 +363,11 @@ void plotVariableGraphs(std::vector< std::vector<TGraph*> > VariableGraphs, std:
     //lat->DrawLatexNDC(.4,.95,TreeNames[iTree]);
     
     for (int iPlot=0;iPlot<nPlots;iPlot++) {
-      Canv->cd(1+iPlot);
-
+      TPad* Pad = (TPad*)Canv->cd(1+iPlot);
+      Pad->Draw();
+      Pad->cd();
+      Pad->SetLeftMargin(0.25);
+      
       VariableGraphs[iTree][iPlot]->Draw();
       VariableGraphs[iTree][iPlot]->GetXaxis()->SetRangeUser(0.,XAxisRange);
 
