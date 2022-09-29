@@ -432,7 +432,10 @@ void plotVarianceGraphs(std::vector<TGraph*> VarianceGraphs, std::vector<TString
   int nTrees = TreeNames.size();
   for (int iTree=0;iTree<nTrees;iTree++) {
 
-    Canv->cd(1+iTree);
+    TPad* Pad = (TPad*)Canv->cd(1+iTree);
+    Pad->Draw();
+    Pad->cd();
+    Pad->SetLeftMargin(0.25);
     gPad->SetLogy(true);
     
     VarianceGraphs[iTree]->Draw();
