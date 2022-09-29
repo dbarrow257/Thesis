@@ -948,7 +948,7 @@ Beyond the impact of the uncertainty on each sample's event rate, the post-fit c
 
 As a plausible extension to the analysis already presented, this section considers the joint beam-atmospheric fit results when the correlated detector model documented in \autoref{sec:SelsAndSysts_Systs_Correlated} is used instead of the inputs provided by the two experiments. The results shown here should be considered preliminary as the results need further investigation to ensure their reliability.
 
-This technique fits the detector systematics simultaneously with the sample spectra so the definition of the likelihood, given in \autoref{sec:OscillationAnalysis_LLHCalc}, needs to be modified. Following the method outlined in \finish{Xiaoyue's thesis}, an additional term needs to be added to the likelihood. This additional term is,
+This technique fits the detector systematics simultaneously with the sample spectra so the definition of the likelihood, given in \autoref{sec:OscillationAnalysis_LLHCalc}, needs to be modified. Following the method outlined in \cite{thesis_xiaoyue}, an additional term needs to be added to the likelihood. This additional term is,
 
 \begin{equation}
   \label{eqn:Likelihood:Likelihood_CorrelatedDetectorModel}
@@ -969,18 +969,22 @@ The post-fit distribution, using the posterior predictive method documented in \
 
 \begin{figure}[h]
   \begin{subfigure}[t]{0.49\textwidth}
+    \subcaption{Ring Counting Parameter}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=3]{Figures/OA/Overlay_ShiftSmear.pdf}
   \end{subfigure}%
   \begin{subfigure}[t]{0.49\textwidth}
+    \subcaption{Electron-Muon PID}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=6]{Figures/OA/Overlay_ShiftSmear.pdf}
   \end{subfigure}
   \begin{subfigure}[t]{0.49\textwidth}
+    \subcaption{Electron-$\pi^{0}$ PID}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=9]{Figures/OA/Overlay_ShiftSmear.pdf}
   \end{subfigure}%
   \begin{subfigure}[t]{0.49\textwidth}
+    \subcaption{Muon-$\pi^{\pm}$ PID}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=12]{Figures/OA/Overlay_ShiftSmear.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{Result of the posterior predictive method for the \texttt{SubGeV\_elike\_0dcy} sample after sampling \quickmath{2000} steps from the joint beam-atmospheric chain (Coloured histogram). It is presented in the four particle identification parameters listed in \autoref{tab:SelsAndSysts_Systs_CutVariables} for events with visible energy, \quickmath{0 \leq E_{vis} (\text{MeV}) \leq 300}. The mean and uncertainty is presented for each bin using the highest posterior predictive method. The Asimov data prediction (denoted `Post BANFF Spectra', Red) assumes the post-BANFF tune and Asimov A oscillation parameters.}
   \label{fig:OscillationAnalysis_ShiftSmearPosteriorPred}
 \end{figure}
 
@@ -990,7 +994,7 @@ The sensitivity to \quickmath{\delta_{CP}} using this alternative correlated det
   \begin{subfigure}[t]{0.98\textwidth}
     \includegraphics[width=\textwidth, trim={0mm 0mm 0mm 0mm}, clip,page=1]{Figures/OA/JointFit_OA2020_AltDetModel/ContourComparison_1D_dcp_BH_2_woRC_UnSmeared_CredibleInterval.pdf}
   \end{subfigure}
-  \caption{}
+  \caption{The one-dimensional posterior probability density distribution in \quickmath{\delta_{CP}} compared between the joint beam-atmospheric fit described in \autoref{sec:OscillationAnalysis_JointFit} (Black) and the joint beam-atmospheric fit using the correlated detector model (Red). The reactor constraint is not applied in either fit. The distributions are marginalised over both hierarchies. The vertical dashed line represents the known value of \quickmath{\delta_{CP}}.}
   \label{fig:OscillationAnalysis_ShiftSmear_DCP}
 \end{figure}
 
