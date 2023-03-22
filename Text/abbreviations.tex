@@ -1,84 +1,61 @@
 \begin{mclistof}{List of Abbreviations}{2.5cm}
 
-%Theory
-\item[CP]Charge Parity. A parameter contained within the PMNS neutrino oscillation matrix which describes the difference between neutrino and antineutrino oscillation probability.
-\item[MH]Mass Hierarchy. The ordering of the second and third neutrino mass states, which is currently unknown.
-
-\item[MSW]Mikheyev Smirnov Wolfenstein effect. If neutrinos pass through matter, the oscillation probability is modified due to the presence of electrons within the matter.
-\item[CKM]Cabibbo Kobayashi Maskawa matrix. The quark mixing matrix which is analougous to the PMNS matrix.
-\item[PMNS]Pontecorvo Maki Nakagawa Sakata matrix. The matrix which describes neutrino oscillation between weak flavour eigenstates and mass eigenstates.
-
-\item[PREM]Preliminary Reference Earth Model. A model which describes the density of the Earth as a function of radius.
-
-%Detectors
-\item[T2K]Tokai-To-Kamioka experiment.
-\item[SK]Super-Kamiokande experiment.
-
-\item[ND280]Near Detector (ND) complex situated at 280m from proton target. This detector is situated \quickmath{2.5\deg} off-axis with respect to the beam direction.
-\item[FD]Far Detector of the T2K experiement (SK). This detector is situated \quickmath{2.5\deg} off-axis with respect to the beam direction.
-
-\item[ECAL]Electromagnetic Calorimeter. ND280 contains two ECALs: The P0D ECAL and the tracker ECAL which surrounds the TPCs and FGDs.
-\item[FGD]Fine Grained Detector. ND280 contains two FGDs which are utilised as a target for neutrino interactions.
-\item[SMRD]Side Muon Range Detector. Subdetector of the ND280 located within the magnet.
-\item[TPC]Time Projection Chamber. ND280 contains three TPCs which are used for particle identity and kinematic reconstruction.
-
-\item[ID]Inner Detector. The area inside the cylindrical support structure of the SK detector.
-\item[OD]Outer Detector. The area outside the cylindrical support structure of the SK detector.
-
-\item[MPPC]Multi Pixel Photon Counter. A device used to detect scintillation light collected within the INGRID and ND280 detectors.
-\item[PMT]Photo-Multiplier Tube. A device used to detect Cherenkov light produced within the SK detector.
-\item[DAQ]Data Acquisition. The process of collecting the electronic readout from all parts within a detector.
-
-%Technique
-\item[MC]Monte Carlo simulation.  
-\item[MCMC]Markov Chain Monte Carlo. The technique used within this thesis to fit the oscillation parameters.
+\item[APFit]Event reconstruction software used at SK. This is used within the official SK oscillation analysis.
 \item[Asimov]Asimov data set. A dataset built from the full MC prediction to eliminate statistical fluctuations.
-
-%Analysis
-\item[PID]Particle Identification.
-
-\item[FHC]Forward Horn Current. T2K beam configuration which produces a beam predominantely consisting of \quickmath{\nu_\mu}.
-\item[RHC]Reverse Horn Current. T2K beam configuration which produces a beam predominantely consisting of \quickmath{\bar{\nu}_\mu}.
-\item[POT]Protons-On-Target. The measure of how much neutrino data has been collected by T2K.
 \item[BANFF]Beam And ND280 Flux extrapolation task force. A group in T2K which performs the ND280 fit to constrain flux and cross-section systematics. 
 \item[BANFF fit]The posterior constraint from the BANFF fit. Interchangably described as the `post-BANFF' or `post-ND' constraints within this analysis.
-
-\item[FC]Fully Contained. Events within the SK detector that have no significant activity within the OD.
-\item[PC]Partially Contained. Events within the SK detector that do have significant activity within the OD.
-\item[MR]Multi-Ring. Events within the SK detector that contain multiple particles which create Cherenkov light.
-
-\item[NEUT]Neutrino event generator. Software used to model neutrino interactions at both the ND and FD.
-\item[SKDETSIM]Software used to model the detector response at SK
-\item[APFit]Event reconstruction software used at SK. This is used within the official SK oscillation analysis.
-\item[FiTQun]Event reconstruction software used at SK. This is used within the official T2K oscillation analysis.
-
-%OA
 \item[Bayes Factor]A metrix used for hypothesis testing used within Bayesian statistics. It is equal to the ratio of the likelihood for each hypothesis and provides data-driven evidence of preference for one model or the other.
-\item[NH]Normal Hierarchy. The neutrino mass ordering where \quickmath{m_{3}^{2} > m_{2}^{2}}.
-\item[IH]Inverted Hierarchy. The neutrino mass ordering where \quickmath{m_{3}^{2} < m_{2}^{2}}.
-\item[UO]Upper Octant. The region where \quickmath{\sin^{2}(\theta_{23}) > 0.5}.
-\item[LO]Lower Octant. The region where \quickmath{\sin^{2}(\theta_{23}) < 0.5}.
-
-\item[HPD]HPD credible interval]Highest Posterior Density credible interval. A technique to define a credible interval which contains a specific fraction of the entire posterior distribution. It requires that every point within the interval has a higher posterior probability density than every point outside of the interval.
+\item[CKM]Cabibbo Kobayashi Maskawa matrix. The quark mixing matrix which is analougous to the PMNS matrix.
+\item[CP]Charge Parity. A parameter contained within the PMNS neutrino oscillation matrix which describes the difference between neutrino and antineutrino oscillation probability.
 \item[Credible Interval]Method of definining the uncertainty on a point estimate in Bayesian statistics used within this thesis. A \quickmath{95\%} interval contains \quickmath{95\%} of the posterior probability.
-\item[RC]Reactor Constraint. An external constraint on the \quickmath{\sin^{2}(\theta_{13})} oscillation parameter.
-
-%Interactions
-\item[QE]Quasi-Elastic interaction. An interaction where the neutrino interacts with the entire nucleon, through a 2-particle \quickmath{\rightarrow} 2-particle interaction.
-\item[RES]Resonant Production interaction. An interaction which produces a single pion within the final state.
-\item[DIS]Deep Inelastic Scattering interaction. An interaction where the neutrino interacts with the consistuent particles of a nucleon.
-\item[MEC]Meson Exchange Current interaction. An interaction where the neutrino interacts with a mutli-nucleon state rather than a single nucleon. Interchangably termed `\texttt{2p2h}' throughout this thesis.
-\item[FSI]Final State Interaction. The reinteraction of particles produced within the primary interaction within the nucleus.
-\item[SI]Secondary Interaction. The reinteraction of particles which leave the primary nucleus before they are measured. SI and FSI are separated depending upon whether the reinteraction occured within the primary nucleus.
-  
+\item[DAQ]Data Acquisition. The process of collecting the electronic readout from all parts within a detector.
 \item[Dial]A parameter used within the oscillation analysis which can be varied to modify the MC prediction.
+\item[DIS]Deep Inelastic Scattering interaction. An interaction where the neutrino interacts with the consistuent particles of a nucleon.
+\item[ECAL]Electromagnetic Calorimeter. ND280 contains two ECALs: The P0D ECAL and the tracker ECAL which surrounds the TPCs and FGDs.
 \item[\quickmath{E_{rec}}]Reconstructed Neutrino Energy. A value calculated under the assumption of a CCQE or CCRES interaction on a stationary nucleon.
-
+\item[FC]Fully Contained. Events within the SK detector that have no significant activity within the OD.
+\item[FiTQun]Event reconstruction software used at SK. This is used within the official T2K oscillation analysis.
+\item[FD]Far Detector of the T2K experiement (SK). This detector is situated \quickmath{2.5\deg} off-axis with respect to the beam direction.
+\item[FGD]Fine Grained Detector. ND280 contains two FGDs which are utilised as a target for neutrino interactions.
+\item[FHC]Forward Horn Current. T2K beam configuration which produces a beam predominantely consisting of \quickmath{\nu_\mu}.
+\item[FSI]Final State Interaction. The reinteraction of particles produced within the primary interaction within the nucleus.
+\item[HPD]HPD credible interval]Highest Posterior Density credible interval. A technique to define a credible interval which contains a specific fraction of the entire posterior distribution. It requires that every point within the interval has a higher posterior probability density than every point outside of the interval.
+\item[ID]Inner Detector. The area inside the cylindrical support structure of the SK detector.
+\item[IH]Inverted Hierarchy. The neutrino mass ordering where \quickmath{m_{3}^{2} < m_{2}^{2}}.
 \item[Likelihood]The probability of observing some data given some MC prediction.
+\item[LO]Lower Octant. The region where \quickmath{\sin^{2}(\theta_{23}) < 0.5}.
 \item[Marginalisation]The method used within this analysis to integrate over nuisance parameters from the posterior distribution so parameters of interest can be studied.
+\item[MC]Monte Carlo simulation.  
+\item[MCMC]Markov Chain Monte Carlo. The technique used within this thesis to fit the oscillation parameters.
+\item[MEC]Meson Exchange Current interaction. An interaction where the neutrino interacts with a mutli-nucleon state rather than a single nucleon. Interchangably termed `\texttt{2p2h}' throughout this thesis.
+\item[MH]Mass Hierarchy. The ordering of the second and third neutrino mass states, which is currently unknown.
+\item[MPPC]Multi Pixel Photon Counter. A device used to detect scintillation light collected within the INGRID and ND280 detectors.
+\item[MR]Multi-Ring. Events within the SK detector that contain multiple particles which create Cherenkov light.
+\item[MSW]Mikheyev Smirnov Wolfenstein effect. If neutrinos pass through matter, the oscillation probability is modified due to the presence of electrons within the matter.
+\item[ND280]Near Detector (ND) complex situated at 280m from proton target. This detector is situated \quickmath{2.5\deg} off-axis with respect to the beam direction.
+\item[NEUT]Neutrino event generator. Software used to model neutrino interactions at both the ND and FD.
+\item[NH]Normal Hierarchy. The neutrino mass ordering where \quickmath{m_{3}^{2} > m_{2}^{2}}.
 \item[Nuisance parameter]A model parameter than can modify the MC prediction but is not a parameter of interest to this analysis.
+\item[OD]Outer Detector. The area outside the cylindrical support structure of the SK detector.
 \item[P0D]The \quickmath{\pi^0} Detector. A subdetector contained within the ND280.
+\item[PC]Partially Contained. Events within the SK detector that do have significant activity within the OD.
+\item[PID]Particle Identification.
+\item[PMNS]Pontecorvo Maki Nakagawa Sakata matrix. The matrix which describes neutrino oscillation between weak flavour eigenstates and mass eigenstates.
+\item[PMT]Photo-Multiplier Tube. A device used to detect Cherenkov light produced within the SK detector.
 \item[Posterior Distribution]The probability distribution for some model parameters given the data.
+\item[POT]Protons-On-Target. The measure of how much neutrino data has been collected by T2K.
+\item[PREM]Preliminary Reference Earth Model. A model which describes the density of the Earth as a function of radius.
+\item[QE]Quasi-Elastic interaction. An interaction where the neutrino interacts with the entire nucleon, through a 2-particle \quickmath{\rightarrow} 2-particle interaction.
+\item[RC]Reactor Constraint. An external constraint on the \quickmath{\sin^{2}(\theta_{13})} oscillation parameter.
+\item[RES]Resonant Production interaction. An interaction which produces a single pion within the final state.
+\item[RHC]Reverse Horn Current. T2K beam configuration which produces a beam predominantely consisting of \quickmath{\bar{\nu}_\mu}.
 \item[SF]Spectral Function. A nuclear model used to simulate the ground state of a nucleus.
-  
+\item[SK]Super-Kamiokande experiment.
+\item[SKDETSIM]Software used to model the detector response at SK
+\item[SI]Secondary Interaction. The reinteraction of particles which leave the primary nucleus before they are measured. SI and FSI are separated depending upon whether the reinteraction occured within the primary nucleus.
+\item[SMRD]Side Muon Range Detector. Subdetector of the ND280 located within the magnet.
+\item[T2K]Tokai-To-Kamioka experiment.
+\item[TPC]Time Projection Chamber. ND280 contains three TPCs which are used for particle identity and kinematic reconstruction.
+\item[UO]Upper Octant. The region where \quickmath{\sin^{2}(\theta_{23}) > 0.5}.
+
 \end{mclistof} 
