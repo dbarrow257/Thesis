@@ -157,6 +157,10 @@ void Draw_X() {
       if (SampleName == "FHC1Rmu-2020" || SampleName == "RHC1Rmu-2020") {
 	Stack->GetXaxis()->SetRangeUser(0.,3.0);
       }
+
+      if (SampleName == "FHC1Rmu-2020" || SampleName == "RHC1Rmu-2020" || SampleName == "FHC1Re-2020" || SampleName == "RHC1Re-2020" || SampleName == "FHCCC1pi-2020") {
+	Stack->GetXaxis()->SetTitle("Reconstructed Neutrino Energy (GeV)");
+      }
       
       Canv->Modified();
       Canv->Print(SampleName+"_X.pdf");
